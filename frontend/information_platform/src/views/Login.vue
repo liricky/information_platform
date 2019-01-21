@@ -1,6 +1,6 @@
 <template>
-  <div id="main">
-    <div id="head">
+  <div class="login-content">
+    <div id="head1">
       <div id="headpic">
         <img id="pichead" src="./../../static/back.jpg" width="30%"/>
       </div>
@@ -10,7 +10,7 @@
         <img id="piccontent" src="./../../static/back.png" width="50%"/>
       </div>
       <div id="ground">
-        <div id="body">
+        <div id="body1">
           <div class="modal-header">
             <h1>综合信息平台</h1>
           </div>
@@ -25,7 +25,6 @@
                 <Button type="primary" @click="login">登 录</Button>
                 <div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
               </div>
-
             </section>
           </div>
         </div>
@@ -33,7 +32,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
   .modal-header{
     width: 100%;
     margin: 2% auto;
@@ -59,7 +58,7 @@
     width: 35%;
     float: left;
   }
-  #head{
+  #head1{
     position: relative;
     width:90%;
     margin: 3% auto;
@@ -90,22 +89,25 @@
     width: 65%;
     float: left;
   }
-  #main{
-    position: relative;
+  .login-content{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url("./../../static/back1.jpg");
   }
-  #body{
+  #body1{
     position: relative;
     width: 100%;
     margin: 0 auto;
     right: 15%;
     top: 40%;
   }
-  body{
-    background: url("./../../static/back1.jpg");
-  }
+
 </style>
 <script>
   import axios from 'axios'
+
     export default {
         data() {
             return {
@@ -115,13 +117,13 @@
             }
         },
         methods:{
-          login(){
+          login: () => {
             axios.post("/users/login",{
               userName:this.userName,
               userPwd:this.userPwd
             }).then((response)=>{
               let res = response.data;
-              if(res.status=="success"){
+              if(res.status === "success"){
                 this.errorTip = false;
                 //to-do
               }else{

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homepage-content">
     <tophead></tophead>
     <Layout>
       <Header  style="height: 200px;">
@@ -37,8 +37,10 @@
     <bottom></bottom>
   </div>
 </template>
-<style>
-
+<style scoped>
+  /*.homepage-content{*/
+    /*position: static;*/
+  /*}*/
 </style>
 <script>
     import tophead from '@/components/Head.vue'

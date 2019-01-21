@@ -1,15 +1,15 @@
 <template>
-  <div id="top">
+  <div class="head-content">
     <div id="word">
       <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
-      <div id="login">
-        <Button type="primary" shape="circle" @click="jump">登录</Button>
+      <div id="loginbtn">
+        <Button type="primary" shape="circle" @click="jumpLogin">登录</Button>
       </div>
     </div>
     <div id="navigation">
-      <Menu id="menu" mode="horizontal" :theme="theme1" active-name="1">
-        <MenuItem id="homepage" name="homepage">
+      <Menu id="menu" mode="horizontal" :theme="theme1" active-name="1" @on-select="routerTo">
+        <MenuItem id="homepage" name="HomePage">
           <Icon type="ios-home" />
           首页
         </MenuItem>
@@ -29,7 +29,7 @@
           <Icon type="ios-people" />
           群组消息
         </MenuItem>
-        <MenuItem id="info2" name="info2">
+        <MenuItem id="info2" name="Message" >
           <Icon type="ios-mail" />
           私信
         </MenuItem>
@@ -47,23 +47,25 @@
       }
     },
     methods: {
-      jump(){
+      jumpLogin(){
         //this.$router.push("/cart")
         //传递的参数用{{ $route.query.goodsId }}获取
         this.$router.push({path: '/Login'})
         //this.$router.go(-2)
         //后退两步
+      },
+      routerTo(name){
+        this.$router.push(name)
       }
     }
   }
 </script>
-<style>
-  #login{
+<style scoped>
+  #loginbtn{
     position: absolute;
     right: 2%;
-
   }
-  #top{
+  .head-content{
     position: relative;
     top: -50px;
     width: 100%;
