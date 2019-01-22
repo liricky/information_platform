@@ -24,6 +24,11 @@ export default new Router({
       path: '/Message',
       name: 'Message',
       component: () => import('@/views/Message')
+    },
+    {
+      path: '/Appeal',
+      name: 'Appeal',
+      component:() => import('@/views/Appeal')
     }
   ]
 })

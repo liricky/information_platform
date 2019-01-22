@@ -33,6 +33,10 @@
           <Icon type="ios-mail" />
           私信
         </MenuItem>
+        <MenuItem id="appeal" name="Appeal">
+          <Icon type="md-help" />
+          申诉
+        </MenuItem>
       </Menu>
     </div>
   </div>

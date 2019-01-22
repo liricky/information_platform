@@ -1,5 +1,5 @@
 <template>
-  <div id="map">
+  <Footer id="map">
     <p><font color="white" size="2%">相关链接</font></p>
     <div id="contain">
       <div class="link">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <p><font color="white" size="2%">地址：上海市宝山区上大路99号   邮编：200444   电话总机：021-96928188 </font></p>
-  </div>
+  </Footer>
 </template>
 
 <script>
@@ -30,6 +30,7 @@
 
 <style scoped>
   #map{
+    width: 100%;
     background: #245086;
   }
   #contain{

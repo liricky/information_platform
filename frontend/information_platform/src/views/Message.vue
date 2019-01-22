@@ -38,7 +38,7 @@
             <br>
             <div id="inputbox">
               <Input class="input" v-model="value1" size="large" placeholder="标题"/>
-              <Input class="input" v-model="value2" type="textarea" :rows="25" placeholder="正文" />
+              <Input class="input" v-model="value2" type="textarea" :rows="40" placeholder="正文" />
             </div>
             <br>
             <div id="sendbuttonbox">
