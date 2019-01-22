@@ -25,7 +25,28 @@
         </Row>
       </TabPane>
       <TabPane label="写信">
-        写信
+        <div class="background">
+          <div class="leftback">
+            <RadioGroup v-model="sendto" class="radiogroup" vertical>
+              <Radio class="sendperson" v-for="(friend,index) in friend.slice(0,3)" v-bind:label="friend.id" :key="index">
+                <Icon class="icon" type="md-person" size="20"></Icon>
+                <span><font size="5px">{{friend.name}}</font></span>
+              </Radio>
+            </RadioGroup>
+          </div>
+          <div class="rightback">
+            <br>
+            <div id="inputbox">
+              <Input class="input" v-model="value1" size="large" placeholder="标题"/>
+              <Input class="input" v-model="value2" type="textarea" :rows="25" placeholder="正文" />
+            </div>
+            <br>
+            <div id="sendbuttonbox">
+              <button id="sendbutton" type="primary" size="large">发 送</button>
+            </div>
+            <br>
+          </div>
+        </div>
       </TabPane>
       <TabPane label="已发送">
         <Row class="cardbox" style="background:#eee;padding:20px">
@@ -78,6 +99,40 @@
     left: 45%;
     bottom: 60px;
   }
+  .leftback{
+    float: left;
+    width: 23%;
+    background: white;
+    border: 2px solid black;
+  }
+  .rightback{
+    float: right;
+    width: 75%;
+    background: lightgrey;
+  }
+  #sendbutton{
+    float:bottom;
+  }
+  .input{
+    margin: auto;
+    width: 85%;
+  }
+  #inputbox{
+    margin: auto;
+  }
+  #sendbuttonbox{
+    margin: auto;
+  }
+  .sendperson{
+    text-align: left;
+    margin: auto;
+  }
+  .radiogroup{
+    float: left;
+    position: relative;
+    left:4%;
+    margin: auto;
+   }
 </style>
 <script>
   import tophead from '@/components/Head.vue'
@@ -86,6 +141,9 @@
     export default {
         data() {
             return {
+              value1: '',
+              value2: '',
+              sendto: false,
               modal1: false,
               modal2: false,
               errorTip: false,
@@ -97,6 +155,20 @@
               box_sender1: "test_sender1",
               box_date1: "test_date1",
               box_content1: "test_content1",
+              friend:[
+                {
+                  id: 0,
+                  name: "li"
+                },
+                {
+                  id: 1,
+                  name: "du"
+                },
+                {
+                  id: 2,
+                  name: "tang"
+                },
+              ],
               msg:[
                 {
                   id: 0,
@@ -249,7 +321,7 @@
                 status: 'new'
               }]);
             } else{
-              this.$set(this,"msg",[{
+              this.$set(this,"rev",[{
                 id: 0,
                 title: '史蒂夫·乔布斯99',
                 content: '史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',

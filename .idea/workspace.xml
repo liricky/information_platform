@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4681fff-a2e7-40e9-a5b5-657ec70a9cf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="248" column="13" selection-start-line="248" selection-start-column="13" selection-end-line="248" selection-end-column="13" />
+            <state relative-caret-position="399">
+              <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#Row#0;n#TabPane#0;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#Row#0;n#TabPane#2;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -91,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="10" column="90" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="90" />
+            <state relative-caret-position="244">
+              <caret line="74" column="24" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -109,6 +104,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>on</find>
       <find>router</find>
     </findStrings>
   </component>
@@ -134,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="960" />
     <option name="height" value="1080" />
   </component>
@@ -258,7 +254,7 @@
       <workItem from="1547990526756" duration="41000" />
       <workItem from="1547990596676" duration="121000" />
       <workItem from="1547990760518" duration="1245000" />
-      <workItem from="1548042671946" duration="32184000" />
+      <workItem from="1548042671946" duration="40451000" />
     </task>
     <task id="LOCAL-00001" summary="0.02  test-iview">
       <created>1547900803695</created>
@@ -271,15 +267,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73475000" />
+    <option name="totallyTimeSpent" value="81742000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1080" extended-state="4" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7327044" visible="true" weight="0.24920128" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7327044" visible="true" weight="0.123222746" />
       <window_info id="Structure" order="1" sideWeight="0.2672956" side_tool="true" weight="0.24920128" />
-      <window_info id="npm" order="2" sideWeight="0.2672956" side_tool="true" visible="true" weight="0.24920128" />
+      <window_info id="npm" order="2" sideWeight="0.2672956" side_tool="true" visible="true" weight="0.123222746" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -372,15 +368,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="10" column="90" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="90" />
+        <state relative-caret-position="244">
+          <caret line="74" column="24" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="248" column="13" selection-start-line="248" selection-start-column="13" selection-end-line="248" selection-end-column="13" />
+        <state relative-caret-position="399">
+          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#Row#0;n#TabPane#0;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#Row#0;n#TabPane#2;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
