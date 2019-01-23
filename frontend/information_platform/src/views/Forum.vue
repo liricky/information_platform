@@ -8,9 +8,21 @@
             <Col class="cardcol" span="25" v-for="(post,index) in post.slice(0,6)" :key="post.title">
               <div @click="jumpDetail(post.id)">
                 <Card class="card" :bordered="true">
-                  <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
-                  <h1>{{post.title}}</h1>
-                  <p>{{post.date}}</p>
+                  <div class="leftback">
+                    <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
+                    <h1>{{post.title}}</h1>
+                    <p>{{post.date}}</p>
+                    <div class="rightback">
+                      <div>
+                        <Icon type="ios-heart" size="19"/>
+                        <font size="4">{{post.likenum}}</font>
+                      </div>
+                      <div>
+                        <Icon type="ios-chatbubbles" size="19"/>
+                        <font size="4">{{post.commentnum}}</font>
+                      </div>
+                    </div>
+                  </div>
                 </Card>
               </div>
             </Col>
@@ -47,6 +59,11 @@
     float: left;
     width: 33%;
     margin: auto;
+  }
+  .rightback{
+    float: right;
+    position: relative;
+    bottom: 70px;
   }
 </style>
 <script>
@@ -132,10 +149,10 @@
         },
       methods: {
         jumpPage(){
-          this.$router.push({path: '/Forum/Page'})
+          this.$router.push({path: '/ForumPage'})
         },
         jumpDetail(id){
-          this.$router.push({path: '/Forum/Detail'})
+          this.$router.push({path: '/ForumDetail'})
         }
       }
     }

@@ -36,12 +36,12 @@ export default new Router({
       component: () => import('@/views/Forum'),
     },
     {
-      path: '/Forum/Page',
+      path: '/ForumPage',
       name: 'ForumPage',
       component: () => import('@/views/ForumPage'),
     },
     {
-      path: '/Forum/Detail',
+      path: '/ForumDetail',
       name: 'ForumDetail',
       component: () => import('@/views/ForumDetail'),
     }
