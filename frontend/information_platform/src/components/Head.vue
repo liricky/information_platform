@@ -21,14 +21,14 @@
           <Icon type="ios-hand" />
           失物招领
         </MenuItem>
-        <MenuItem id="forum" name="forum">
+        <MenuItem id="forum" name="Forum">
           <Icon type="ios-text" />
           论坛
         </MenuItem>
-        <MenuItem id="info1" name="info1">
-          <Icon type="ios-people" />
-          群组消息
-        </MenuItem>
+        <!--<MenuItem id="info1" name="info1">-->
+          <!--<Icon type="ios-people" />-->
+          <!--群组消息-->
+        <!--</MenuItem>-->
         <MenuItem id="info2" name="Message" >
           <Icon type="ios-mail" />
           私信

@@ -28,7 +28,13 @@ export default new Router({
     {
       path: '/Appeal',
       name: 'Appeal',
-      component:() => import('@/views/Appeal')
+      component: () => import('@/views/Appeal')
+    },
+    {
+      path: '/Forum',
+      name: 'Forum',
+      component: () => import('@/views/Forum')
     }
+
   ]
 })

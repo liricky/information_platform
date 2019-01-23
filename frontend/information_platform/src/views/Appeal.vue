@@ -26,7 +26,7 @@
       <bottom></bottom>
     </div>
 </template>
-<style>
+<style scoped>
   #sendbutton{
     margin: auto;
   }
@@ -57,8 +57,8 @@
   }
 </style>
 <script>
-    import tophead from '@/components/Head';
-    import bottom from '@/components/Bottom';
+    import tophead from '@/components/Head'
+    import bottom from '@/components/Bottom'
 
     export default {
         data() {
