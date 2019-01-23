@@ -1,33 +1,33 @@
 <template>
-    <div>
-      <tophead></tophead>
-      <div class="center">
-        <Tabs class="cards" type="card">
-          <TabPane label="推荐">
-            <Row class="cardbox" style="background:#eee;padding:20px">
-              <Col class="cardcol" span="25" v-for="(post,index) in post.slice(0,6)" :key="post.title">
-                <div @click="">
-                  <Card class="card" :bordered="true">
-                    <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
-                    <h1>{{post.title}}</h1>
-                    <p>{{post.date}}</p>
-                  </Card>
-                </div>
-              </Col>
-            </Row>
-          </TabPane>
-          <TabPane label="板块" id="la1">
-            <div class="board" v-for="(board,index) in board" :key="board.id">
-              <div class="label" @click="">
-                <img :src='board.img' height="50" width="50"/>
-                <font size="6">{{board.name}}</font>
+  <div>
+    <tophead></tophead>
+    <div class="center">
+      <Tabs class="cards" type="card">
+        <TabPane label="推荐">
+          <Row class="cardbox" style="background:#eee;padding:20px">
+            <Col class="cardcol" span="25" v-for="(post,index) in post.slice(0,6)" :key="post.title">
+              <div @click="jumpDetail(post.id)">
+                <Card class="card" :bordered="true">
+                  <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
+                  <h1>{{post.title}}</h1>
+                  <p>{{post.date}}</p>
+                </Card>
               </div>
+            </Col>
+          </Row>
+        </TabPane>
+        <TabPane label="板块" id="la1">
+          <div class="board" v-for="(board,index) in board" :key="board.id">
+            <div class="label" @click="jumpPage">
+              <img :src='board.img' height="50" width="50"/>
+              <font size="6">{{board.name}}</font>
             </div>
-          </TabPane>
-        </Tabs>
-      </div>
-      <bottom></bottom>
+          </div>
+        </TabPane>
+      </Tabs>
     </div>
+    <bottom></bottom>
+  </div>
 </template>
 <style scoped>
   #la1{
@@ -129,6 +129,14 @@
         components: {
           tophead,
           bottom
+        },
+      methods: {
+        jumpPage(){
+          this.$router.push({path: '/Forum/Page'})
+        },
+        jumpDetail(id){
+          this.$router.push({path: '/Forum/Detail'})
         }
+      }
     }
 </script>

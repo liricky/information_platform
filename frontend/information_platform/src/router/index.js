@@ -33,8 +33,17 @@ export default new Router({
     {
       path: '/Forum',
       name: 'Forum',
-      component: () => import('@/views/Forum')
+      component: () => import('@/views/Forum'),
+    },
+    {
+      path: '/Forum/Page',
+      name: 'ForumPage',
+      component: () => import('@/views/ForumPage'),
+    },
+    {
+      path: '/Forum/Detail',
+      name: 'ForumDetail',
+      component: () => import('@/views/ForumDetail'),
     }
-
   ]
 })
