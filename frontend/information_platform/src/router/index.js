@@ -29,6 +29,11 @@ export default new Router({
       path: '/Appeal',
       name: 'Appeal',
       component:() => import('@/views/Appeal')
+    },
+    {
+      path: '/Announcement',
+      name: 'Announcement',
+      component:() => import('@/views/Announcement')
     }
   ]
 })
