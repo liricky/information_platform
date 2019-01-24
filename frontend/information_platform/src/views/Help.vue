@@ -121,6 +121,17 @@
         @on-cancel="cancel2">
         <Input v-model="value3" type="textarea" :rows="5" placeholder="请输入任务内容！" />
         <Input v-model="value4" type="textarea" :rows="2" placeholder="请输入联系方式！" />
+        <font size="3">设置任务截止时间：</font>
+        <Row>
+          <Col span="12">
+            <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
+          </Col>
+        </Row>
+        <Row>
+          <Col span="12">
+            <TimePicker type="time" placeholder="Select time" style="width: 168px"></TimePicker>
+          </Col>
+        </Row>
       </Modal>
     </div>
 </template>
