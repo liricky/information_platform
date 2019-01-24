@@ -17,22 +17,22 @@
           <Icon type="md-open" />
           公告
         </MenuItem>
-        <MenuItem id="announcement1" to="/announcement1">
-          <Icon type="ios-list-box" />
-          校园事务
-        </MenuItem>
-        <MenuItem id="announcement2" to="/announcement2">
-          <Icon type="ios-hand" />
-          失物招领
-        </MenuItem>
-        <MenuItem id="forum" to="/forum">
+        <!--<MenuItem id="announcement1" to="/announcement1">-->
+          <!--<Icon type="ios-list-box" />-->
+          <!--校园事务-->
+        <!--</MenuItem>-->
+        <!--<MenuItem id="announcement2" to="/announcement2">-->
+          <!--<Icon type="ios-hand" />-->
+          <!--失物招领-->
+        <!--</MenuItem>-->
+        <MenuItem id="forum" to="/Forum">
           <Icon type="ios-text" />
           论坛
         </MenuItem>
-        <MenuItem id="info1" to="/info1">
-          <Icon type="ios-people" />
-          群组消息
-        </MenuItem>
+        <!--<MenuItem id="info1" to="/info1">-->
+          <!--<Icon type="ios-people" />-->
+          <!--群组消息-->
+        <!--</MenuItem>-->
         <MenuItem id="info2" to="/Message" >
           <Icon type="ios-mail" />
           私信

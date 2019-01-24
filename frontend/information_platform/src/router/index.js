@@ -39,6 +39,26 @@ export default new Router({
       path: '/Announcement/date/:id',
       name: 'AnnouncementDate',
       component:() => import('@/views/AnnouncementDate'),
+    },
+    {
+      path: '/Forum',
+      name: 'Forum',
+      component: () => import('@/views/Forum'),
+    },
+    {
+      path: '/ForumPage',
+      name: 'ForumPage',
+      component: () => import('@/views/ForumPage'),
+    },
+    {
+      path: '/ForumDetail',
+      name: 'ForumDetail',
+      component: () => import('@/views/ForumDetail'),
+    },
+    {
+      path: '/Help',
+      name: 'Help',
+      component: () => import('@/views/Help'),
     }
   ]
 })
