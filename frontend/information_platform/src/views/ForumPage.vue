@@ -9,6 +9,7 @@
         <Button class="followbutton" type="primary" size="large"><font size="4">关注</font></Button>
       </div>
       <div class="bottom">
+        <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
         <Tabs type="card">
           <TabPane label="最新回复">
             <Row class="cardbox" style="background:#eee;padding:20px">
@@ -103,7 +104,6 @@
             </Row>
           </TabPane>
         </Tabs>
-        <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
       </div>
     </div>
     <bottom></bottom>
