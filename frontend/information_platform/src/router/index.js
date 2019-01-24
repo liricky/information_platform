@@ -44,6 +44,11 @@ export default new Router({
       path: '/ForumDetail',
       name: 'ForumDetail',
       component: () => import('@/views/ForumDetail'),
+    },
+    {
+      path: '/Help',
+      name: 'Help',
+      component: () => import('@/views/Help'),
     }
   ]
 })

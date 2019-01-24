@@ -13,22 +13,14 @@
           <Icon type="ios-home" />
           首页
         </MenuItem>
-        <MenuItem id="announcement1" name="announcement1">
-          <Icon type="ios-list-box" />
-          校园事务
-        </MenuItem>
-        <MenuItem id="announcement2" name="announcement2">
+        <MenuItem id="help" name="Help">
           <Icon type="ios-hand" />
-          失物招领
+          互助系统
         </MenuItem>
         <MenuItem id="forum" name="Forum">
           <Icon type="ios-text" />
           论坛
         </MenuItem>
-        <!--<MenuItem id="info1" name="info1">-->
-          <!--<Icon type="ios-people" />-->
-          <!--群组消息-->
-        <!--</MenuItem>-->
         <MenuItem id="info2" name="Message" >
           <Icon type="ios-mail" />
           私信
