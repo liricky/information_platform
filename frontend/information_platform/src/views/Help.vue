@@ -11,7 +11,7 @@
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
-                      <font size="4">by:{{post.author}}</font>
+                      <font size="4" @click="jumpUserDetail(post.author)">by:{{post.author}}</font>
                       <br>
                       <font size="4">by:{{post.date}}</font>
                     </div>
@@ -33,7 +33,7 @@
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
-                      <font size="4">by:{{post1.author}}</font>
+                      <font size="4" @click="jumpUserDetail(post1.author)">by:{{post1.author}}</font>
                       <br>
                       <font size="4">by:{{post1.date}}</font>
                     </div>
@@ -59,7 +59,7 @@
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
-                      <font size="4">by:{{post1.author}}</font>
+                      <font size="4" @click="jumpUserDetail(post1.author)">by:{{post1.author}}</font>
                       <br>
                       <font size="4">by:{{post1.date}}</font>
                     </div>
@@ -85,7 +85,7 @@
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
-                      <font size="4">by:{{post2.author}}</font>
+                      <font size="4" @click="jumpUserDetail(post2.author)">by:{{post2.author}}</font>
                       <br>
                       <font size="4">by:{{post2.date}}</font>
                     </div>
@@ -135,7 +135,7 @@
       </Modal>
     </div>
 </template>
-<style>
+<style scoped>
   .card{
     margin: auto;
     border: 1px solid black;
@@ -263,6 +263,9 @@
         },
         jumpToReport(){
           this.$router.push({path: '/Report'})
+        },
+        jumpUserDetail(id) {
+          this.$router.push({path: '/UserDetail'})
         }
       }
     }

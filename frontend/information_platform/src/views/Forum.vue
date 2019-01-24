@@ -74,75 +74,75 @@
     export default {
         data() {
             return {
-                post:[
-                  {
-                    id: 0,
-                    label: '体育',
-                    title: '新生杯',
-                    author: '16122075',
-                    content: '新生杯比赛即将开始，欢迎加入！',
-                    date: '2019-01-01',
-                    commentnum: 20,
-                    likenum: 40,
-                    readnum: 50
-                  },
-                  {
-                    id: 1,
-                    label: '体育',
-                    title: '校园运动会',
-                    author: '16122076',
-                    content: '校园运动会即将在本周召开，欢迎同学参加！',
-                    date: '2019-01-01',
-                    commentnum: 5,
-                    likenum: 0,
-                    readnum: 20
-                  },
-                  {
-                    id: 2,
-                    label: '学术',
-                    title: '挑战杯组队',
-                    author: '16235432',
-                    content: '挑战杯比赛组队，寻找计算机学院的同学',
-                    date: '2019-01-01',
-                    commentnum: 1,
-                    likenum: 0,
-                    readnum: 10
-                  },
-                  {
-                    id: 3,
-                    label: '音乐',
-                    title: '校园十大歌手',
-                    author: '16235432',
-                    content: '校园十大歌手决赛将于周日在体育馆举办，欢迎参加！',
-                    date: '2019-01-01',
-                    commentnum: 10,
-                    likenum: 25,
-                    readnum: 90
-                  }
-                ],
-              board: [
+              post:[
                 {
                   id: 0,
-                  name: '体育',
-                  img: './../../static/sport.png'
+                  label: '体育',
+                  title: '新生杯',
+                  author: '16122075',
+                  content: '新生杯比赛即将开始，欢迎加入！',
+                  date: '2019-01-01',
+                  commentnum: 20,
+                  likenum: 40,
+                  readnum: 50
                 },
                 {
                   id: 1,
-                  name: '学术',
-                  img: './../../static/study.png'
+                  label: '体育',
+                  title: '校园运动会',
+                  author: '16122076',
+                  content: '校园运动会即将在本周召开，欢迎同学参加！',
+                  date: '2019-01-01',
+                  commentnum: 5,
+                  likenum: 0,
+                  readnum: 20
                 },
                 {
                   id: 2,
-                  name: '音乐',
-                  img: './../../static/music.png'
+                  label: '学术',
+                  title: '挑战杯组队',
+                  author: '16235432',
+                  content: '挑战杯比赛组队，寻找计算机学院的同学',
+                  date: '2019-01-01',
+                  commentnum: 1,
+                  likenum: 0,
+                  readnum: 10
                 },
                 {
                   id: 3,
-                  name: '游戏',
-                  img: './../../static/game.png'
+                  label: '音乐',
+                  title: '校园十大歌手',
+                  author: '16235432',
+                  content: '校园十大歌手决赛将于周日在体育馆举办，欢迎参加！',
+                  date: '2019-01-01',
+                  commentnum: 10,
+                  likenum: 25,
+                  readnum: 90
                 }
-              ]
-            }
+              ],
+            board: [
+              {
+                id: 0,
+                name: '体育',
+                img: './../../static/sport.png'
+              },
+              {
+                id: 1,
+                name: '学术',
+                img: './../../static/study.png'
+              },
+              {
+                id: 2,
+                name: '音乐',
+                img: './../../static/music.png'
+              },
+              {
+                id: 3,
+                name: '游戏',
+                img: './../../static/game.png'
+              }
+            ]
+          }
         },
         components: {
           tophead,
