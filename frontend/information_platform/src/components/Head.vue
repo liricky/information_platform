@@ -45,6 +45,10 @@
           <Icon type="md-help" />
           申诉
         </MenuItem>
+        <MenuItem id="find" to="/Find">
+          <Icon type="ios-search" />
+          搜索好友
+        </MenuItem>
       </Menu>
     </div>
   </div>

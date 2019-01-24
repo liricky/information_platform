@@ -14,7 +14,7 @@
       <bottom></bottom>
     </div>
 </template>
-<style>
+<style scoped>
   .center{
     width: 80%;
     margin: auto;

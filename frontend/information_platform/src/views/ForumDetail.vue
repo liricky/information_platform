@@ -5,7 +5,7 @@
       <div class="topback">
         <font size="8">{{post.title}}</font>
         <br>
-        <font size="5">{{post.author}} {{post.date}}</font>
+        <font size="5" @click="jumpUserDetail(userid)">{{post.author}} {{post.date}}</font>
         <Icon class="flag" type="ios-flag" size="40" @click="jumpToReport"/>
         <divider></divider>
         <font size="4">{{post.content}}</font>
@@ -95,6 +95,7 @@
     data() {
       return {
         value1: '',
+        userid : 16122075,
         modal1: false,
         post:{
           id: 0,
@@ -149,6 +150,9 @@
       },
       jumpToReport(){
         this.$router.push({path: '/Report'})
+      },
+      jumpUserDetail(id) {
+        this.$router.push({path: '/UserDetail'})
       }
     }
   }

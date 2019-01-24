@@ -69,6 +69,16 @@ export default new Router({
       path: '/Report',
       name: 'Report',
       component: () => import('@/views/Report'),
+    },
+    {
+      path: '/UserDetail',
+      name: 'UserDetail',
+      component: () => import('@/views/UserDetail')
+    },
+    {
+      path: '/Find',
+      name: 'Find',
+      component: () => import('@/views/Find')
     }
   ]
 })
