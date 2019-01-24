@@ -64,6 +64,11 @@ export default new Router({
       path: '/Help',
       name: 'Help',
       component: () => import('@/views/Help'),
+    },
+    {
+      path: '/Report',
+      name: 'Report',
+      component: () => import('@/views/Report'),
     }
   ]
 })

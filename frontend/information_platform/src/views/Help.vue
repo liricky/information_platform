@@ -8,6 +8,7 @@
             <Row class="cardbox" style="background:#eee;padding:20px">
               <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.title">
                 <Card class="card" :bordered="true">
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
                       <font size="4">by:{{post.author}}</font>
@@ -29,6 +30,7 @@
             <Row class="cardbox" style="background:#eee;padding:20px">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.title">
                 <Card class="card" :bordered="true">
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
                       <font size="4">by:{{post1.author}}</font>
@@ -54,6 +56,7 @@
             <Row class="cardbox" style="background:#eee;padding:20px">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.title">
                 <Card class="card" :bordered="true">
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
                       <font size="4">by:{{post1.author}}</font>
@@ -79,6 +82,7 @@
             <Row class="cardbox" style="background:#eee;padding:20px">
               <Col class="cardcol" span="25" v-for="(post2,index) in post2" :key="post2.title">
                 <Card class="card" :bordered="true">
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                   <div class="leftback">
                     <div>
                       <font size="4">by:{{post2.author}}</font>
@@ -123,6 +127,7 @@
 <style>
   .card{
     margin: auto;
+    border: 1px solid black;
   }
   .center{
     width: 80%;
@@ -130,6 +135,9 @@
   }
   .cardcol{
     margin: 4px auto;
+  }
+  .flag{
+    float: right;
   }
 </style>
 <script>
@@ -241,6 +249,9 @@
         },
         cancel2 () {
           this.$Message.info('取消发布任务！');
+        },
+        jumpToReport(){
+          this.$router.push({path: '/Report'})
         }
       }
     }

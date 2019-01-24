@@ -6,6 +6,7 @@
         <font size="8">{{post.title}}</font>
         <br>
         <font size="5">{{post.author}} {{post.date}}</font>
+        <Icon class="flag" type="ios-flag" size="40" @click="jumpToReport"/>
         <divider></divider>
         <font size="4">{{post.content}}</font>
         <br>
@@ -22,6 +23,7 @@
           <Col class="cardcol" span="25" v-for="(post2,index) in post2" :key="post2.title">
             <Card class="card" :bordered="true">
               <div class="comment">
+                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                 <font size="4">by: {{post2.author}}</font>
                 <br>
                 <font size="4">date: {{post2.date}}</font>
@@ -42,6 +44,7 @@
           <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.title">
             <Card class="card" :bordered="true">
               <div class="comment">
+                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
                 <font size="4">by: {{post1.author}}</font>
                 <br>
                 <font size="4">date: {{post1.date}}</font>
@@ -77,7 +80,12 @@
   .btnback{
     margin: auto;
   }
-
+  .flag{
+    float: right;
+  }
+  .card{
+    border: 1px solid black;
+  }
 </style>
 <script>
   import tophead from '@/components/Head'
@@ -138,6 +146,9 @@
       comment(id){
         console.log("ok");
         this.modal1 = true;
+      },
+      jumpToReport(){
+        this.$router.push({path: '/Report'})
       }
     }
   }

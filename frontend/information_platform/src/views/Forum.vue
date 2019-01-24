@@ -47,6 +47,7 @@
   }
   .card{
     margin: auto;
+    border: 1px solid black;
   }
   .center{
     width: 80%;

@@ -116,6 +116,7 @@
   }
   .card{
     margin: auto;
+    border: 1px solid black;
   }
   .cardcol{
     margin: 4px auto;
