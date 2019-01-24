@@ -25,6 +25,10 @@
           <!--<Icon type="ios-hand" />-->
           <!--失物招领-->
         <!--</MenuItem>-->
+        <MenuItem id="help" to="/Help">
+          <Icon type="ios-hand" />
+          互助系统
+        </MenuItem>
         <MenuItem id="forum" to="/Forum">
           <Icon type="ios-text" />
           论坛
