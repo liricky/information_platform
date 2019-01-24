@@ -103,7 +103,7 @@
             </Row>
           </TabPane>
         </Tabs>
-        <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large"><font size="3">发帖</font></Button>
+        <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
       </div>
     </div>
     <bottom></bottom>
@@ -248,6 +248,9 @@
       methods: {
         jumpDetail(id){
           this.$router.push({path: '/ForumDetail'})
+        },
+        jumpToForumCreate() {
+          this.$router.push({path: '/ForumCreate'})
         }
       }
     }

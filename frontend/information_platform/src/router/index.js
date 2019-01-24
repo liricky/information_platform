@@ -46,6 +46,11 @@ export default new Router({
       component: () => import('@/views/Forum'),
     },
     {
+      path: '/ForumCreate',
+      name: 'ForumCreate',
+      component: () => import('@/views/ForumCreate'),
+    },
+    {
       path: '/ForumPage',
       name: 'ForumPage',
       component: () => import('@/views/ForumPage'),
