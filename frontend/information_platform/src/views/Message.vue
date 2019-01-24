@@ -15,12 +15,13 @@
         </Dropdown>
         <Row class="cardbox" style="background:#eee;padding:20px">
           <Col class="cardcol" span="25" v-for="(msg,index) in msg.slice(0,6)" :key="msg.title">
-            <Card class="card" :bordered="true">
-              <h1 id="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
-              <button class="detail" type="primary" @click=show(msg.id)>详情</button>
-              <h3>发送人：{{msg.sender}}</h3>
-              <h3>发送时间：{{msg.date}}</h3>
-            </Card>
+            <div @click=show(msg.id)>
+              <Card class="card" :bordered="true">
+                <h1 id="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
+                <h3>发送人：{{msg.sender}}</h3>
+                <h3>发送时间：{{msg.date}}</h3>
+              </Card>
+            </div>
           </Col>
         </Row>
       </TabPane>
@@ -51,12 +52,13 @@
       <TabPane label="已发送">
         <Row class="cardbox" style="background:#eee;padding:20px">
           <Col class="cardcol" span="25" v-for="(rev,index) in rev.slice(0,6)">
-            <Card class="card" :bordered="true">
-              <h1 class="headline" slot="title">{{rev.title}}</h1>
-              <button class="detail" type="primary" @click=show1(rev.id)>详情</button>
-              <h3>收信人：{{rev.receiver}}</h3>
-              <h3>发送时间：{{rev.date}}</h3>
-            </Card>
+            <div @click=show1(rev.id)>
+              <Card class="card" :bordered="true">
+                <h1 class="headline" slot="title">{{rev.title}}</h1>
+                <h3>收信人：{{rev.receiver}}</h3>
+                <h3>发送时间：{{rev.date}}</h3>
+              </Card>
+            </div>
           </Col>
         </Row>
       </TabPane>
@@ -88,16 +90,11 @@
 </template>
 <style scoped>
   #cardbox{
-    width: 85%;
+    width: 80%;
     margin: auto;
   }
   .cardcol{
     margin: 4px auto;
-  }
-  .detail{
-    position: relative;
-    left: 45%;
-    bottom: 60px;
   }
   .leftback{
     float: left;
