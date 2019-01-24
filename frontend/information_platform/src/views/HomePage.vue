@@ -25,7 +25,7 @@
               <p slot="content" style="text-align: justify">{{msg.content}}</p>
               <div slot="content">
                 <ButtonGroup shape="circle" style="margin-left: 85%;margin-top: 10px;" size="small">
-                  <Button type="info">回复</Button>
+                  <Button type="info">前往该贴</Button>
                 </ButtonGroup>
               </div>
             </Panel>

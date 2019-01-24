@@ -158,6 +158,7 @@ module.exports = {
 
 		//选择日期
 		chooseDay: function(dayObj) {
+		  console.log(dayObj.day);
 			if (!dayObj.active) {
 				return;
 			}
@@ -175,7 +176,12 @@ module.exports = {
 
 		//选择一段日期
 		chooseInterval: function(dayObj) {
-
+      console.log(this.sMonth);
+      console.log(this.sYear);
+      console.log(dayObj.day);
+      var s;
+      s = this.sYear+'-'+this.sMonth+'-'+dayObj.day;
+      this.$router.push( '/Announcement/date/'+s);
 			if (!dayObj.active) {
 				return;
 			}
@@ -238,29 +244,29 @@ module.exports = {
 			<table class="date-box">
 				<thead>
 					<tr>
-						<th v-for='weekName in weeks' track-by="$index"
-					:class="{'red' : $index == 0 || $index == 6}">{{weekName}}</th>
+						<th v-for='(weekName,index) in weeks' v-bind:track-by="index"
+					:class="{'red' : index == 0 || index == 6}">{{weekName}}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<template v-if="mult">
 						<tr v-for='week in daysData'>
-							<td v-for='dayObj in week'
+							<td v-for='(dayObj,index) in week'
 							:class="[dayObj.active ? 'active-date':'unactive-date',
 								{'choose-date' : dayObj.active &&
 												((dayObj.day == pDay && pMonth == sMonth && pYear == sYear) ||
 												(dayObj.day == nDay && nMonth == sMonth && nYear == sYear)),
-								'red' : dayObj.active && ($index == 0 || $index == 6) &&
+								'red' : dayObj.active && (index == 0 || index == 6) &&
 										dayObj.day != pDay && dayObj.day != nDay}]"
 								@click="chooseInterval(dayObj)">{{dayObj.day}}</td>
 						</tr>
 					</template>
 					<template v-else >
 						<tr v-for='week in daysData'>
-							<td v-for='dayObj in week'
+							<td v-for='(dayObj,index) in week'
 							:class="[dayObj.active ? 'active-date':'unactive-date',
 								{'choose-date' : dayObj.day == sDay && dayObj.active,
-								'red' : ($index == 0 || $index == 6) && dayObj.day != sDay && dayObj.active}]"
+								'red' : (index == 0 || index == 6) && dayObj.day != sDay && dayObj.active}]"
 							@click="chooseDay(dayObj)">{{dayObj.day}}</td>
 						</tr>
 					</template>

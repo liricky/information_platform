@@ -33,7 +33,12 @@ export default new Router({
     {
       path: '/Announcement',
       name: 'Announcement',
-      component:() => import('@/views/Announcement')
+      component:() => import('@/views/Announcement'),
+    },
+    {
+      path: '/Announcement/date/:id',
+      name: 'AnnouncementDate',
+      component:() => import('@/views/AnnouncementDate'),
     }
   ]
 })
