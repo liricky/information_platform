@@ -79,6 +79,21 @@ export default new Router({
       path: '/Find',
       name: 'Find',
       component: () => import('@/views/Find')
+    },
+    {
+      path: '/LostAFound/Board',
+      name:'LostAFoundBoard',
+      component:() => import('@/views/LostAFound/Board')
+    },
+    {
+      path: '/LostAFound/Publish',
+      name:'LostAFoundPublish',
+      component:() => import('@/views/LostAFound/Publish')
+    },
+    {
+      path:'/LostAFound/MyBoard',
+      name:'LostAFoundMyBoard',
+      component:() => import('@/views/LostAFound/MyBoard')
     }
   ]
 })

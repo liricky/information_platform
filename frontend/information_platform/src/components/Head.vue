@@ -21,10 +21,10 @@
           <!--<Icon type="ios-list-box" />-->
           <!--校园事务-->
         <!--</MenuItem>-->
-        <!--<MenuItem id="announcement2" to="/announcement2">-->
-          <!--<Icon type="ios-hand" />-->
-          <!--失物招领-->
-        <!--</MenuItem>-->
+        <MenuItem id="announcement2" to="/LostAFound/Board">
+          <Icon type="ios-list-box"/>
+          失物招领
+        </MenuItem>
         <MenuItem id="help" to="/Help">
           <Icon type="ios-hand" />
           互助系统
