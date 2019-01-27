@@ -78,11 +78,10 @@
           this.$Message.warning('详细信息不能超过200字');
         }
         else{
-          console.log(this.value2.length)
           this.$Message.success('发布成功');
-          // this.value1='';
-          // this.value2='';
-          // this.value3='';
+          this.value1='';
+          this.value2='';
+          this.value3='';
         }
       }
     }

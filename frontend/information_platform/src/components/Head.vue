@@ -5,6 +5,7 @@
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
         <Button type="primary" shape="circle" @click="jumpLogin">登录</Button>
+        <Button type="primary" shape="circle" to="/Manage/User">管理</Button>
       </div>
     </div>
     <div id="navigation">
