@@ -84,6 +84,46 @@ export default new Router({
       path: '/ChangeUserDetail',
       name: 'ChangeUserDetail',
       component: () => import('@/views/ChangeUserDetail')
+    },
+    {
+      path: '/LostAFound/Board',
+      name:'LostAFoundBoard',
+      component:() => import('@/views/LostAFound/Board')
+    },
+    {
+      path: '/LostAFound/Publish',
+      name:'LostAFoundPublish',
+      component:() => import('@/views/LostAFound/Publish')
+    },
+    {
+      path:'/LostAFound/MyBoard',
+      name:'LostAFoundMyBoard',
+      component:() => import('@/views/LostAFound/MyBoard')
+    },
+    {
+      path:'/Manage/AnnouncementPublish',
+      name:'AnnouncementPublish',
+      component:() => import('@/views/Manage/AnnouncementPublish')
+    },
+    {
+      path:'/Manage/User',
+      name:'User_Manage',
+      component:() => import('@/views/Manage/User_Manage')
+    },
+    {
+      path:'/Manage/AnnouncementDelete',
+      name:'AnnouncementDelete',
+      component:() => import('@/views/Manage/AnnouncementDelete')
+    },
+    {
+      path:'/Manage/ForumDelete',
+      name:'ForumDelete',
+      component:() => import('@/views/Manage/ForumDelete')
+    },
+    {
+      path:'/Manage/Inbox',
+      name:'Inbox',
+      component:() => import('@/views/Manage/Inbox')
     }
   ]
 })
