@@ -12,6 +12,8 @@
         <!--<Input class="input" v-model="value2" size="large" :placeholder="user.userpwd" />-->
         <!--<Button type="primary" size="large">确认</Button>-->
         <Button type="primary" size="large">添加好友</Button>
+        &nbsp;&nbsp;
+        <Button type="primary" size="large">加入黑名单</Button>
       </div>
       <br>
       <bottom></bottom>

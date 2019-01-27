@@ -45,6 +45,8 @@
                         <font size="3">任务状态：{{post1.status}}</font>
                         <br>
                         <Button type="primary" @click="claim1(post1.id)"><font size="2">放弃任务</font></Button>
+                        &nbsp;&nbsp;
+                        <Button type="primary" @click="claim1(post1.id)"><font size="2">任务完成</font></Button>
                       </div>
                     </div>
                   </div>
@@ -71,6 +73,8 @@
                         <font size="3">认领人联系方式：{{post1.phone}}</font>
                         <br>
                         <Button type="primary" @click="claim1(post1.id)"><font size="2">放弃任务</font></Button>
+                        &nbsp;&nbsp;
+                        <Button type="primary" @click="claim1(post1.id)"><font size="2">任务完成</font></Button>
                       </div>
                     </div>
                   </div>

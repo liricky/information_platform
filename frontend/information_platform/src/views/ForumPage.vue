@@ -6,7 +6,7 @@
         <div>
           <img :src='pagesrc1' width="80%" height="200px"/>
         </div>
-        <Button class="followbutton" type="primary" size="large"><font size="4">关注</font></Button>
+        <!--<Button class="followbutton" type="primary" size="large"><font size="4">关注</font></Button>-->
       </div>
       <div class="bottom">
         <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
