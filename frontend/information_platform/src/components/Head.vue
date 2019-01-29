@@ -4,7 +4,9 @@
       <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
-        <Button type="primary" shape="circle" @click="jumpLogin">登录</Button>
+        <span v-text="userNickname" v-if="userToken"></span>
+        <Button type="primary" shape="circle" @click="jumpLogin" v-if="!userToken">登录</Button>
+        <Button type="primary" shape="circle" @click="jumpLogin" v-if="userToken">退出</Button>
       </div>
     </div>
     <div id="navigation">

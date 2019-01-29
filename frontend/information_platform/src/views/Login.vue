@@ -118,7 +118,8 @@
                 userId: "",
                 userPwd: ""
               },
-              userToken: ""
+              userToken: "",
+              userNickname: ""
             }
         },
         methods:{
@@ -134,6 +135,13 @@
                 if (res.code === "SUCCESS") {
                   this.errorTip = false;
                   //to-do
+                  var _this = this;
+                  setTimeout(function () {
+                    _this.$router.push({path: '/HomePage'})
+                  },1000)
+                  localStorage.setItem('token',res.data.token)
+                  localStorage.setItem('userNickname',res.data.userNickname)
+                  
                 } else {
                   this.errorTip = true;
                 }
