@@ -141,7 +141,8 @@
                   },1000)
                   localStorage.setItem('token',res.data.token)
                   localStorage.setItem('userNickname',res.data.userNickname)
-                  
+                  localStorage.setItem('userId',res.data.userId)
+                  this.$store.commit('isLogin',{token:res.data.token,userNickname:res.data.userNickname,userId:res.data.userId})
                 } else {
                   this.errorTip = true;
                 }

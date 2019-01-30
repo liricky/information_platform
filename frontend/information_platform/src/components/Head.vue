@@ -4,18 +4,19 @@
       <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
-        <span v-text="userNickname" v-if="userToken"></span>
-        <Button type="primary" shape="circle" @click="jumpLogin" v-if="!userToken">登录</Button>
-        <Button type="primary" shape="circle" @click="jumpLogin" v-if="userToken">退出</Button>
+        <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
+        &nbsp;&nbsp;
+        <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
+        <Button type="primary" shape="circle" @click="jumpLogout" v-if="$store.state.token">退出</Button>
       </div>
     </div>
     <div id="navigation">
       <Menu id="menu" mode="horizontal" :theme="theme1" active-name="1" @on-select="routerTo">
-        <MenuItem id="homepage" to="/HomePage">
+        <MenuItem id="homepage" name="/HomePage">
           <Icon type="ios-home" />
           首页
         </MenuItem>
-        <MenuItem id="announcement" to="/Announcement">
+        <MenuItem id="announcement" name="/Announcement">
           <Icon type="md-open" />
           公告
         </MenuItem>
@@ -23,15 +24,15 @@
           <!--<Icon type="ios-list-box" />-->
           <!--校园事务-->
         <!--</MenuItem>-->
-        <MenuItem id="announcement2" to="/LostAFound/Board">
+        <MenuItem id="announcement2" name="/LostAFound/Board">
           <Icon type="ios-list-box"/>
           失物招领
         </MenuItem>
-        <MenuItem id="help" to="/Help">
+        <MenuItem id="help" name="/Help">
           <Icon type="ios-hand" />
           互助系统
         </MenuItem>
-        <MenuItem id="forum" to="/Forum">
+        <MenuItem id="forum" name="/Forum">
           <Icon type="ios-text" />
           论坛
         </MenuItem>
@@ -39,15 +40,15 @@
           <!--<Icon type="ios-people" />-->
           <!--群组消息-->
         <!--</MenuItem>-->
-        <MenuItem id="info2" to="/Message" >
+        <MenuItem id="info2" name="/Message" >
           <Icon type="ios-mail" />
           私信
         </MenuItem>
-        <MenuItem id="appeal" to="/Appeal">
+        <MenuItem id="appeal" name="/Appeal">
           <Icon type="md-help" />
           申诉
         </MenuItem>
-        <MenuItem id="find" to="/Find">
+        <MenuItem id="find" name="/Find">
           <Icon type="ios-search" />
           搜索好友
         </MenuItem>
@@ -58,6 +59,7 @@
 <script>
   import './../assets/headline.png'
   import './../assets/logo.jpg'
+  import store from './../../store/store'
   export default {
     data () {
       return {
@@ -66,12 +68,11 @@
     },
     methods: {
       jumpLogin(){
-        //this.$router.push("/cart")
-        //传递的参数用{{ $route.query.goodsId }}获取
+        this.$router.push({path: '/Login'});
+        // console.log(store.state.token);
+      },
+      jumpLogout(){
 
-        this.$router.push({path: '/Login'})
-        //this.$router.go(-2)
-        //后退两步
       },
       routerTo(name){
         this.$router.push(name)
