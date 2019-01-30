@@ -6,7 +6,7 @@
         <TabPane label="推荐">
           <Row class="cardbox" style="background:#eee;padding:20px">
             <Col class="cardcol" span="25" v-for="(post,index) in post.slice(0,6)" :key="post.title">
-              <div @click="jumpDetail(post.id)">
+              <div @click="jumpDetail1(post.id)">
                 <Card class="card" :bordered="true">
                   <div class="leftback">
                     <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
@@ -154,6 +154,15 @@
         },
         jumpDetail(id){
           this.$router.push({path: '/ForumDetail'})
+        },
+        // 尝试携参数跳转页面
+        jumpDetail1(id){
+          this.$router.push({
+            path: '/ForumDetail',
+            query: {
+              id : id
+            }
+          })
         }
       }
     }

@@ -3,6 +3,9 @@
     <tophead></tophead>
     <div class="center">
       <div class="topback">
+        <!--携带参数显示-->
+        <!--<font size="10">{{postid}}</font>-->
+
         <font size="8">{{post.title}}</font>
         <br>
         <font size="5" @click="jumpUserDetail(userid)">{{post.author}} {{post.date}}</font>
@@ -94,10 +97,13 @@
   export default {
     data() {
       return {
+        // 携带参数赋值页面变量
+        postid: "",
+
         value1: '',
-        userid : 16122075,
+        userid: 16122075,
         modal1: false,
-        post:{
+        post: {
           id: 0,
           label: '体育',
           title: '新生杯',
@@ -105,7 +111,7 @@
           content: '新生杯比赛即将开始，欢迎加入！',
           date: '2019-01-01',
         },
-        post1:[
+        post1: [
           {
             id: 0,
             author: '16122075',
@@ -121,7 +127,7 @@
             likenum: 0
           }
         ],
-        post2:[
+        post2: [
           {
             id: 0,
             author: '16122075',
@@ -136,24 +142,37 @@
       tophead,
       bottom
     },
+    // 页面初始化时调用函数,传入参数,渲染对应内容
+    // created(){
+    //   this.getParams()
+    // },
     methods: {
-      ok () {
+      ok() {
         this.$Message.info('发表成功！');
         this.value1 = '';
       },
-      cancel () {
+      cancel() {
         this.$Message.info('已取消发表！');
       },
-      comment(id){
+      comment(id) {
         console.log("ok");
         this.modal1 = true;
       },
-      jumpToReport(){
+      jumpToReport() {
         this.$router.push({path: '/Report'})
       },
       jumpUserDetail(id) {
         this.$router.push({path: '/UserDetail'})
-      }
-    }
+      },
+
+      // 参数传递方法
+      // getParams(){
+      //   this.postid = this.$route.query.id
+      // }
+    },
+    // Vue的侦听器,用来检测数据的变化,变化时执行对应函数
+    // watch: {
+    //   '$route': 'getParams'
+    // }
   }
 </script>
