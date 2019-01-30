@@ -25,3 +25,18 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.meta.requireAuth) {
+    if(store.state.token) {
+      next();
+    } else{
+      next({
+        path: '/Login',
+        query: {redirect: to.fullPath}
+      })
+    }
+  } else {
+    next();
+  }
+})

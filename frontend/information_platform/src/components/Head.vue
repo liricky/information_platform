@@ -73,7 +73,8 @@
         this.$router.push({path: '/Login'});
       },
       jumpLogout(){
-
+        this.$store.commit('isLogout');
+        this.$router.push({path: '/HomePage'});
       },
       routerTo(name){
         this.$router.push(name)

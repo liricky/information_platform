@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './../../store/store'
 
 Vue.use(Router)
 
@@ -23,12 +24,18 @@ export default new Router({
     {
       path: '/Message',
       name: 'Message',
-      component: () => import('@/views/Message')
+      component: () => import('@/views/Message'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Appeal',
       name: 'Appeal',
-      component:() => import('@/views/Appeal')
+      component:() => import('@/views/Appeal'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Announcement',
@@ -43,17 +50,20 @@ export default new Router({
     {
       path: '/Forum',
       name: 'Forum',
-      component: () => import('@/views/Forum'),
+      component: () => import('@/views/Forum')
     },
     {
       path: '/ForumCreate',
       name: 'ForumCreate',
       component: () => import('@/views/ForumCreate'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/ForumPage',
       name: 'ForumPage',
-      component: () => import('@/views/ForumPage'),
+      component: () => import('@/views/ForumPage')
     },
     {
       path: '/ForumDetail',
@@ -64,11 +74,17 @@ export default new Router({
       path: '/Help',
       name: 'Help',
       component: () => import('@/views/Help'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Report',
       name: 'Report',
       component: () => import('@/views/Report'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/UserDetail',
@@ -83,7 +99,11 @@ export default new Router({
     {
       path: '/ChangeUserDetail',
       name: 'ChangeUserDetail',
-      component: () => import('@/views/ChangeUserDetail')
+      component: () => import('@/views/ChangeUserDetail'),
+      meta:{
+        requireAuth: true
+      }
     }
   ]
 })
+

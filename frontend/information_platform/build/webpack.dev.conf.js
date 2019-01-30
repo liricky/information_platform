@@ -20,7 +20,7 @@ const app = express()
 const login = require('./../mock/login')
 const routes = express.Router()
 app.use('/api',routes)
-
+//mock code
 
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -53,11 +53,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
+    // mock code
     before(app){
       app.post('/login', (req, res) => {
         res.json(login)
       })
     }
+    // mock code
   },
   plugins: [
     new webpack.DefinePlugin({
