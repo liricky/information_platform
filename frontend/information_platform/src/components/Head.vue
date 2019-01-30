@@ -4,6 +4,8 @@
       <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
+        <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
+        <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
         <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
         &nbsp;&nbsp;
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
@@ -69,7 +71,6 @@
     methods: {
       jumpLogin(){
         this.$router.push({path: '/Login'});
-        // console.log(store.state.token);
       },
       jumpLogout(){
 

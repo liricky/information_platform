@@ -6,11 +6,12 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    // token: "" || localStorage.getItem("token"),
-    token: "dsaf",
-    // userNickname: "" || localStorage.getItem("userNickname")
-    userNickname: "li",
-    userid: "16122075"
+    token: "" || localStorage.getItem("token"),
+    // token: "dsaf",
+    userNickname: "" || localStorage.getItem("userNickname"),
+    // userNickname: "li",
+    userId: "" || localStorage.getItem("userId")
+    // userId: "16122075"
   },
   mutations: {
     isLogin(state,msg){

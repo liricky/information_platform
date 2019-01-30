@@ -14,6 +14,9 @@ Vue.config.productionTip = false
 Vue.use(iView)
 Vue.use(VueAxios,axios)
 
+
+require('./../mock/login')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
