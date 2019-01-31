@@ -18,6 +18,10 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 const express = require('express')
 const app = express()
 const login = require('./../mock/login')
+const revmsg = require('./../mock/receivemsg')
+const sentmsg = require('./../mock/sentmsg')
+const friendmsg = require('./../mock/friendmsg')
+const msgdetail = require('./../mock/msgdetail')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -57,6 +61,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     before(app){
       app.post('/login', (req, res) => {
         res.json(login)
+      })
+      app.get('/message/receive', (req, res) => {
+        res.json(revmsg)
+      })
+      app.get('/message/sent', (req, res) => {
+        res.json(sentmsg)
+      })
+      app.get('/user/getfriend', (req, res) => {
+        res.json(friendmsg)
+      })
+      app.get('/message/detail', (req, res) => {
+        res.json(msgdetail)
       })
     }
     // mock code
