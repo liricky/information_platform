@@ -6,7 +6,7 @@
         <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
         <br>
         <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
-        <Dropdown id="drop" v-if="status1 === 'success'" placement="bottom-start" @on-click="test1">
+        <Dropdown id="drop" v-if="status1 === 'success'" placement="bottom-start" @on-click="checkshow">
           <a href="javascript:void(0)">
             <font size="3px">筛选信息</font>
             <Icon type="ios-arrow-down"></Icon>
@@ -14,13 +14,28 @@
           <DropdownMenu slot="list">
             <DropdownItem name="read"><font size="2px">已读信息</font></DropdownItem>
             <DropdownItem name="unread"><font size="2px">未读信息</font></DropdownItem>
+            <DropdownItem name="all"><font size="2px">全部信息</font></DropdownItem>
           </DropdownMenu>
         </Dropdown>
         <Row class="cardbox" style="background:#eee;padding:20px" v-if="status1 === 'success'">
           <Col class="cardcol" span="25" v-for="(msg,index) in msg" :key="msg.messageid">
-            <div @click=show(msg.messageid)>
-              <Card class="card" :bordered="true">
-                <h1 id="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
+            <div @click=show(msg.messageid)  v-if="check === 0">
+              <Card class="card" :bordered="true" v-if="1">
+                <h1 class="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
+                <h3>发送人：{{msg.senderid}} {{msg.sendernickname}}</h3>
+                <h3>发送时间：{{msg.date}}</h3>
+              </Card>
+            </div>
+            <div @click=show(msg.messageid)  v-else-if="check === 1">
+              <Card class="card" :bordered="true" v-if="msg.status === 'new'">
+                <h1 class="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
+                <h3>发送人：{{msg.senderid}} {{msg.sendernickname}}</h3>
+                <h3>发送时间：{{msg.date}}</h3>
+              </Card>
+            </div>
+            <div @click=show(msg.messageid) v-else-if="check === 2">
+              <Card class="card" :bordered="true" v-if="msg.status === ''">
+                <h1 class="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
                 <h3>发送人：{{msg.senderid}} {{msg.sendernickname}}</h3>
                 <h3>发送时间：{{msg.date}}</h3>
               </Card>
@@ -49,7 +64,7 @@
             </div>
             <br>
             <div id="sendbuttonbox">
-              <button id="sendbutton" type="primary" size="large">发 送</button>
+              <button id="sendbutton" type="primary" size="large" @click="sendmessage"><font size="3">发送</font></button>
             </div>
             <br>
           </div>
@@ -162,8 +177,7 @@
               friend:[],
               msg: [],
               rev: [],
-
-              test: 0,
+              check: 0,
             }
         },
         created(){
@@ -249,45 +263,35 @@
               }
             })
           },
-          test1(name){
-            // console.log(this.msg[0].title);
-            for(var i=this.msg.length;i>0;i--)
-              this.$delete(this.msg,i);
-            if(name === "unread") {
-              this.$set(this,"msg",[{
-                id: 0,
-                title: '史蒂夫·乔布斯99',
-                content: '史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date: '2012-2-2',
-                sender: '刘某人',
-                status: 'new'
-              },{
-                id: 0,
-                title: '史蒂夫·乔布斯97',
-                content: '史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date: '2012-2-2',
-                sender: '刘某人',
-                status: 'new'
-              }]);
-            } else{
-              this.$set(this,"rev",[{
-                id: 0,
-                title: '史蒂夫·乔布斯99',
-                content: '史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date: '2012-2-2',
-                sender: '刘某人',
-                status: ''
-              },{
-                id: 0,
-                title: '史蒂夫·乔布斯98',
-                content: '史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date: '2012-2-2',
-                sender: '刘某人',
-                status: ''
-              }]);
+          checkshow(name){
+            if(name === 'read'){
+              this.check = 2;
+            } else if(name === 'unread'){
+              this.check = 1;
+            } else if(name === 'all'){
+              this.check = 0;
             }
-            // console.log(this.msg[0].title);
-            // console.log(this.msg);
+          },
+          sendmessage(){
+            console.log(this.sendto);
+            axios.post("/message/send", {
+              token: this.$store.state.token,
+              userId: this.$store.state.userId,
+              sendId: this.sendto,
+              title: this.value1,
+              content: this.value2,
+            }).then((response) => {
+              let res = response.data;
+              if(res.status === "success") {
+                this.status2 = res.status;
+                this.$Message.info("发送成功！");
+                this.value1 = '';
+                this.value2 = '';
+              } else {
+                this.status2 = res.status;
+                this.$Message.info("发送失败：" + res.message);
+              }
+            })
           }
         },
         components: {

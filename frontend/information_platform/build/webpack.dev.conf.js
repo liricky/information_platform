@@ -22,6 +22,7 @@ const revmsg = require('./../mock/receivemsg')
 const sentmsg = require('./../mock/sentmsg')
 const friendmsg = require('./../mock/friendmsg')
 const msgdetail = require('./../mock/msgdetail')
+const sendmsg = require('./../mock/sendmsg')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -73,6 +74,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.get('/message/detail', (req, res) => {
         res.json(msgdetail)
+      })
+      app.post('/message/send', (req, res) => {
+        res.json(sendmsg)
       })
     }
     // mock code
