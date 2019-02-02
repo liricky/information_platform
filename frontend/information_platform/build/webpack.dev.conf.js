@@ -23,6 +23,15 @@ const sentmsg = require('./../mock/sentmsg')
 const friendmsg = require('./../mock/friendmsg')
 const msgdetail = require('./../mock/msgdetail')
 const sendmsg = require('./../mock/sendmsg')
+const recommendpost = require('./../mock/recommendpost')
+const postdetail = require('./../mock/postdetail')
+const hotreply = require('./../mock/hotreply')
+const reply = require('./../mock/reply')
+const likestatus = require('./../mock/likestatus')
+const makecommentans = require('./../mock/makecommentans')
+const changelikestatus = require('./../mock/changelikestatus')
+const commentlikestatus = require('./../mock/commentlikestatus')
+const changecommentlikestatus = require('./../mock/changecommentlikestatus')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -77,6 +86,33 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.post('/message/send', (req, res) => {
         res.json(sendmsg)
+      })
+      app.get('/forum/recommend', (req, res) => {
+        res.json(recommendpost)
+      })
+      app.get('/forum/detail', (req, res) => {
+        res.json(postdetail)
+      })
+      app.get('/forum/gethotcomment', (req, res) => {
+        res.json(hotreply)
+      })
+      app.get('/forum/getcomment', (req, res) => {
+        res.json(reply)
+      })
+      app.get('/forum/getlike', (req, res) => {
+        res.json(likestatus)
+      })
+      app.post('/forum/createcomment', (req, res) => {
+        res.json(makecommentans)
+      })
+      app.post('/forum/changelike', (req, res) => {
+        res.json(changelikestatus)
+      })
+      app.get('/forum/getcommentlike', (req, res) => {
+        res.json(commentlikestatus)
+      })
+      app.post('/forum/changecommentlike', (req, res) => {
+        res.json(changecommentlikestatus)
       })
     }
     // mock code
