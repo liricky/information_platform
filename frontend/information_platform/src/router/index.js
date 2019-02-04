@@ -61,9 +61,24 @@ export default new Router({
       }
     },
     {
-      path: '/ForumPage',
-      name: 'ForumPage',
-      component: () => import('@/views/ForumPage')
+      path: '/ForumPage1',
+      name: 'ForumPage1',
+      component: () => import('@/views/ForumPage1')
+    },
+    {
+      path: '/ForumPage2',
+      name: 'ForumPage2',
+      component: () => import('@/views/ForumPage2')
+    },
+    {
+      path: '/ForumPage3',
+      name: 'ForumPage3',
+      component: () => import('@/views/ForumPage3')
+    },
+    {
+      path: '/ForumPage4',
+      name: 'ForumPage4',
+      component: () => import('@/views/ForumPage4')
     },
     {
       path: '/ForumDetail',

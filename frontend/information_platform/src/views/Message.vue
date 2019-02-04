@@ -273,25 +273,30 @@
             }
           },
           sendmessage(){
-            console.log(this.sendto);
-            axios.post("/message/send", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
-              sendId: this.sendto,
-              title: this.value1,
-              content: this.value2,
-            }).then((response) => {
-              let res = response.data;
-              if(res.status === "success") {
-                this.status2 = res.status;
-                this.$Message.info("发送成功！");
-                this.value1 = '';
-                this.value2 = '';
-              } else {
-                this.status2 = res.status;
-                this.$Message.info("发送失败：" + res.message);
-              }
-            })
+            // console.log(this.sendto);
+            if(this.value1 === '' || this.value2 === '' || this.sendto === '')
+              this.$Message.info('标题、正文及发送目标不能为空！');
+            else {
+              axios.post("/message/send", {
+                token: this.$store.state.token,
+                userId: this.$store.state.userId,
+                sendId: this.sendto,
+                title: this.value1,
+                content: this.value2,
+              }).then((response) => {
+                let res = response.data;
+                if (res.status === "success") {
+                  this.status2 = res.status;
+                  this.$Message.info("发送成功！");
+                  this.value1 = '';
+                  this.value2 = '';
+                  this.sendto = '';
+                } else {
+                  this.status2 = res.status;
+                  this.$Message.info("发送失败：" + res.message);
+                }
+              })
+            }
           }
         },
         components: {

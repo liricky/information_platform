@@ -2,11 +2,11 @@
     <div>
       <tophead></tophead>
       <div class="center">
-        <font size="4">用户id： {{user.id}}</font>
+        <font size="4">用户id： {{userid}}</font>
         <br>
-        <font size="4">昵称： {{user.nickname}}</font>
+        <font size="4">昵称： {{userNickname}}</font>
         <br>
-        <font size="4">用户积分： {{user.point}}</font>
+        <font size="4">用户积分： {{userpoint}}</font>
         <br>
         <!--<Input class="input" v-model="value1" size="large" :placeholder="user.nickname" />-->
         <!--<Input class="input" v-model="value2" size="large" :placeholder="user.userpwd" />-->
@@ -30,18 +30,24 @@
   import bottom from '@/components/Bottom'
 
     export default {
-        data() {
-            return {
-              user:{
-                id: "16122075",
-                nickname: "li",
-                point: "666"
-              }
-            }
-        },
-        components: {
-          tophead,
-          bottom
+      data() {
+          return {
+            userid: '',
+            userNickname: '',
+            userpoint: '',
+          }
+      },
+      components: {
+        tophead,
+        bottom
+      },
+      created(){
+          this.getParams();
+      },
+      methods:{
+        getParams(){
+          this.userid = this.$route.query.id;
         }
+      }
     }
 </script>

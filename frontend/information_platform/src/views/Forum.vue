@@ -14,14 +14,14 @@
                   <h1>{{post.title}}</h1>
                   <h3>{{post.label}} {{post.author}} {{post.authornickname}}</h3>
                   <h3>{{post.date}}</h3>
-                    <div>
-                      <Icon type="ios-heart" size="18"/>
-                      <font size="3">{{post.likenum}}</font>
-                    </div>
-                    <div>
-                      <Icon type="ios-chatbubbles" size="18"/>
-                      <font size="3">{{post.commentnum}}</font>
-                    </div>
+                  <div>
+                    <Icon type="ios-heart" size="18"/>
+                    <font size="3">{{post.likenum}}</font>
+                  </div>
+                  <div>
+                    <Icon type="ios-chatbubbles" size="18"/>
+                    <font size="3">{{post.commentnum}}</font>
+                  </div>
                 </Card>
               </div>
             </Col>
@@ -29,7 +29,7 @@
         </TabPane>
         <TabPane label="板块" id="la1">
           <div class="board" v-for="(board,index) in board" :key="board.id">
-            <div class="label" @click="jumpPage">
+            <div class="label" @click="jumpPage(board.id)">
               <img :src='board.img' height="50" width="50"/>
               <font size="6">{{board.name}}</font>
             </div>
@@ -128,8 +128,15 @@
             }
           })
         },
-        jumpPage(){
-          this.$router.push({path: '/ForumPage'})
+        jumpPage(id){
+          if(id === 0)
+            this.$router.push({path: '/ForumPage1'});
+          else if(id === 1)
+            this.$router.push({path: '/ForumPage2'});
+          else if(id === 2)
+            this.$router.push({path: '/ForumPage3'});
+          else if(id === 3)
+            this.$router.push({path: '/ForumPage4'});
         },
         // 尝试携参数跳转页面
         jumpDetail(id){

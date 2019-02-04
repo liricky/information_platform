@@ -16,7 +16,7 @@
           <br>
           <font size="5">{{post.date}}</font>
         </div>
-        <Icon class="flag" type="ios-flag" size="40" @click="jumpToReport"/>
+        <Icon class="flag" type="ios-flag" size="40" @click="jumpToReport1(post.postid)"/>
         <divider></divider>
         <font size="4">{{post.content}}</font>
         <br>
@@ -34,7 +34,7 @@
           <Col class="cardcol" span="25" v-for="(hotreply,index) in hotreply" :key="hotreply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
-                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
+                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
                 <font size="4">by: {{hotreply.author}} {{hotreply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{hotreply.date}}</font>
@@ -56,7 +56,7 @@
           <Col class="cardcol" span="25" v-for="(reply,index) in reply" :key="reply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
-                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport"/>
+                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(reply.commentid,reply.author)"/>
                 <font size="4">by: {{reply.author}} {{reply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{reply.date}}</font>
@@ -140,6 +140,7 @@
         modal1: false,
         likestatus: '',
         value1: '',
+        type: ''
       }
     },
     components: {
@@ -159,7 +160,7 @@
       cancel() {
         this.$Message.info('已取消发表！');
       },
-      comment(id) {
+      comment() {
         if(this.$store.state.token)
           this.modal1 = true;
         else{
@@ -167,15 +168,37 @@
           this.$router.push({path: '/Login'});
         }
       },
-      jumpToReport() {
-        this.$router.push({path: '/Report'})
+      jumpToReport1(id) {
+        this.$router.push({
+          path: '/Report',
+          query: {
+            id : id,
+            type: 2,
+            reportid: this.post.author
+          }
+        })
+      },
+      jumpToReport2(id,reportid) {
+        this.$router.push({
+          path: '/Report',
+          query: {
+            id : id,
+            type:1,
+            reportid: reportid
+          }
+        })
       },
       jumpUserDetail(id) {
-        this.$router.push({path: '/UserDetail'})
+        this.$router.push({
+          path: '/UserDetail',
+          query: {
+            id : id
+          }
+        })
       },
       // 参数传递方法
       getParams(){
-        this.postid = this.$route.query.id
+        this.postid = this.$route.query.id;
       },
       getDetail(){
         axios.get("/forum/detail", {
@@ -354,7 +377,7 @@
           axios.post("/forum/changecommentlike", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
-            commentid: this.commentid,
+            commentid: commentid,
             likestatus: this.getcommentlikestatus(commentid) === "true" ? "false" : "true",
           }).then((response) => {
             let res = response.data;

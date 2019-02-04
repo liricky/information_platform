@@ -32,6 +32,12 @@ const makecommentans = require('./../mock/makecommentans')
 const changelikestatus = require('./../mock/changelikestatus')
 const commentlikestatus = require('./../mock/commentlikestatus')
 const changecommentlikestatus = require('./../mock/changecommentlikestatus')
+const reportans = require('./../mock/reportans')
+const createpostans = require('./../mock/createpostans')
+const newreply = require('./../mock/newreply')
+const newpublish = require('./../mock/newpublish')
+const best = require('./../mock/best')
+const all = require('./../mock/all')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -113,6 +119,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.post('/forum/changecommentlike', (req, res) => {
         res.json(changecommentlikestatus)
+      })
+      app.post('/report/create', (req, res) => {
+        res.json(reportans)
+      })
+      app.post('/forum/createpost', (req, res) => {
+        res.json(createpostans)
+      })
+      app.get('/forum/newreply', (req, res) => {
+        res.json(newreply)
+      })
+      app.get('/forum/newpublish', (req, res) => {
+        res.json(newpublish)
+      })
+      app.get('/forum/best', (req, res) => {
+        res.json(best)
+      })
+      app.get('/forum/all', (req,res) => {
+        res.json(all)
       })
     }
     // mock code
