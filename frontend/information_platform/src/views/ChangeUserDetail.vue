@@ -37,10 +37,10 @@
     data() {
       return {
         user:{
-          id: "16122075",
-          nickname: "li",
-          point: "100",
-          userpwd: "123456"
+          id: "",
+          nickname: "",
+          point: "",
+          userpwd: ""
         },
         status1: '',
         errormsg1: '',

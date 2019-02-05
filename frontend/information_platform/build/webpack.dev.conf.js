@@ -43,6 +43,8 @@ const addfriend = require('./../mock/addfriend')
 const addblacklist = require('./../mock/addblacklist')
 const showmyself = require('./../mock/showmyself')
 const setmyself = require('./../mock/setmyself')
+const sendappealans = require('./../mock/sendappealans')
+const findfriend = require('./../mock/findfriend')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -157,6 +159,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.post('/user/setmyself', (req, res) => {
         res.json(setmyself)
+      })
+      app.post('/appeal/send', (req, res) => {
+        res.json(sendappealans)
+      })
+      app.get('/user/findfriend', (req, res) => {
+        res.json(findfriend)
       })
     }
     // mock code
