@@ -45,6 +45,10 @@ const showmyself = require('./../mock/showmyself')
 const setmyself = require('./../mock/setmyself')
 const sendappealans = require('./../mock/sendappealans')
 const findfriend = require('./../mock/findfriend')
+const getpost = require('./../mock/getpost')
+const getcomment = require('./../mock/getcomment')
+const deletepost = require('./../mock/deletepost')
+const deletecomment = require('./../mock/deletecomment')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -165,6 +169,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.get('/user/findfriend', (req, res) => {
         res.json(findfriend)
+      })
+      app.get('/user/getpost', (req, res) => {
+        res.json(getpost)
+      })
+      app.get('/user/getcomment', (req, res) => {
+        res.json(getcomment)
+      })
+      app.post('/user/deletepost', (req, res) => {
+        res.json(deletepost)
+      })
+      app.post('/user/deletecomment', (req, res) => {
+        res.json(deletecomment)
       })
     }
     // mock code
