@@ -38,6 +38,11 @@ const newreply = require('./../mock/newreply')
 const newpublish = require('./../mock/newpublish')
 const best = require('./../mock/best')
 const all = require('./../mock/all')
+const getuserinfo = require('./../mock/getuserinfo')
+const addfriend = require('./../mock/addfriend')
+const addblacklist = require('./../mock/addblacklist')
+const showmyself = require('./../mock/showmyself')
+const setmyself = require('./../mock/setmyself')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -135,8 +140,23 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/forum/best', (req, res) => {
         res.json(best)
       })
-      app.get('/forum/all', (req,res) => {
+      app.get('/forum/all', (req, res) => {
         res.json(all)
+      })
+      app.get('/user/getuserinfo', (req, res) => {
+        res.json(getuserinfo)
+      })
+      app.post('/user/addfriend', (req, res) => {
+        res.json(addfriend)
+      })
+      app.post('/user/addblacklist', (req, res) => {
+        res.json(addblacklist)
+      })
+      app.get('/user/showmyself', (req, res) => {
+        res.json(showmyself)
+      })
+      app.post('/user/setmyself', (req, res) => {
+        res.json(setmyself)
       })
     }
     // mock code

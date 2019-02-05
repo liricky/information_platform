@@ -35,7 +35,7 @@
             <Card class="card" :bordered="true">
               <div class="comment">
                 <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
-                <font size="4">by: {{hotreply.author}} {{hotreply.authornickname}}</font>
+                <font size="4" @click="jumpUserDetail(hotreply.author)">by: {{hotreply.author}} {{hotreply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{hotreply.date}}</font>
               </div>
@@ -57,7 +57,7 @@
             <Card class="card" :bordered="true">
               <div class="comment">
                 <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(reply.commentid,reply.author)"/>
-                <font size="4">by: {{reply.author}} {{reply.authornickname}}</font>
+                <font size="4" @click="jumpUserDetail(reply.author)">by: {{reply.author}} {{reply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{reply.date}}</font>
               </div>

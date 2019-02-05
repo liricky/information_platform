@@ -173,7 +173,12 @@
           })
         },
         jumpToForumCreate() {
-          this.$router.push({path: '/ForumCreate'})
+          this.$router.push({
+            path: '/ForumCreate',
+            query: {
+              label: 3
+            }
+          })
         },
         init(){
           axios.get("/forum/newreply", {

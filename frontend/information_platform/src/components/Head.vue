@@ -6,8 +6,10 @@
       <div id="loginbtn">
         <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
         <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
+        <Icon type="md-settings" size="25" @click="jumpToChangeUserDetail"/>
         <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
         &nbsp;&nbsp;
+
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
         <Button type="primary" shape="circle" @click="jumpLogout" v-if="$store.state.token">退出</Button>
       </div>
@@ -78,6 +80,9 @@
       },
       routerTo(name){
         this.$router.push(name)
+      },
+      jumpToChangeUserDetail(){
+        this.$router.push({path: '/ChangeUserDetail'})
       }
     }
   }
