@@ -49,6 +49,10 @@ const getpost = require('./../mock/getpost')
 const getcomment = require('./../mock/getcomment')
 const deletepost = require('./../mock/deletepost')
 const deletecomment = require('./../mock/deletecomment')
+const helpall = require('./../mock/helpall')
+const helpfinish = require('./../mock/helpfinish')
+const helpongoing = require('./../mock/helpongoing')
+const helpsent = require('./../mock/helpsent')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -181,6 +185,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.post('/user/deletecomment', (req, res) => {
         res.json(deletecomment)
+      })
+      app.get('/help/all', (req, res) => {
+        res.json(helpall)
+      })
+      app.get('/help/ongoing', (req, res) => {
+        res.json(helpongoing)
+      })
+      app.get('/help/sent', (req, res) => {
+        res.json(helpsent)
+      })
+      app.get('/help/finish', (req, res) => {
+        res.json(helpfinish)
       })
     }
     // mock code
