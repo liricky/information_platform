@@ -259,6 +259,14 @@
                 this.status5 = res.status;
                 this.$Message.info('认领成功！');
                 this.value1 = '';
+                let x = 0;
+                for(let i of this.post){
+                  if(i.missionid === this.temp){
+                    this.post.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
               } else {
                 this.status5 = res.status;
                 this.errormsg5 = res.message;
@@ -279,7 +287,7 @@
           }
         },
         ok1 () {
-          if(this.value1 === '')
+          if(this.value2 === '')
             this.$Message.info('原因不能为空！');
           else {
             axios.post("/help/cancel", {
@@ -292,6 +300,22 @@
                 this.status6 = res.status;
                 this.$Message.info('放弃任务成功！');
                 this.value1 = '';
+                let x = 0;
+                for(let i of this.post1){
+                  if(i.missionid === this.temp){
+                    this.post1.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
+                x = 0;
+                for(let i of this.post2){
+                  if(i.missionid === this.temp){
+                    this.post2.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
               } else {
                 this.status6 = res.status;
                 this.errormsg6 = res.message;
@@ -316,6 +340,22 @@
               if (res.status === "success") {
                 this.status7 = res.status;
                 this.$Message.info('确认完成任务成功！');
+                let x = 0;
+                for(let i of this.post1){
+                  if(i.missionid === id){
+                    this.post1.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
+                x = 0;
+                for(let i of this.post2){
+                  if(i.missionid === id){
+                    this.post2.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
               } else {
                 this.status7 = res.status;
                 this.errormsg7 = res.message;
@@ -337,6 +377,22 @@
               if (res.status === "success") {
                 this.status8 = res.status;
                 this.$Message.info('确认完成任务成功！');
+                let x = 0;
+                for(let i of this.post1){
+                  if(i.missionid === id){
+                    this.post1.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
+                x = 0;
+                for(let i of this.post2){
+                  if(i.missionid === id){
+                    this.post2.splice(x,1);
+                    break;
+                  }
+                  x++;
+                }
               } else {
                 this.status8 = res.status;
                 this.errormsg8 = res.message;

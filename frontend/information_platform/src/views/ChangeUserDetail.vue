@@ -239,7 +239,7 @@
             this.status5 = res.status;
             this.$Message.info('删除成功！');
             let i = 0;
-            for(var x of this.sendpost){
+            for(let x of this.sendpost){
               if(x.postid === id){
                 this.sendpost.splice(i,1);
                 break;
