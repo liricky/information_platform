@@ -74,39 +74,52 @@
           })
         },
         addfriend(){
-          axios.post("/user/addfriend", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            friendid: this.userdate.userid,
-          }).then((response) => {
-            let res = response.data;
-            if(res.status === "success") {
-              this.status2 = res.status;
-              this.$Message.info('添加好友成功！');
-            } else {
-              this.status2 = res.status;
-              this.errormsg2 = res.message;
-              this.$Message.info('添加好友失败： ' + this.errormsg2);
-            }
-          })
+          if(this.$store.state.token) {
+            axios.post("/user/addfriend", {
+              token: this.$store.state.token,
+              userid: this.$store.state.userId,
+              friendid: this.userdate.userid,
+            }).then((response) => {
+              let res = response.data;
+              if (res.status === "success") {
+                this.status2 = res.status;
+                this.$Message.info('添加好友成功！');
+              } else {
+                this.status2 = res.status;
+                this.errormsg2 = res.message;
+                this.$Message.info('添加好友失败： ' + this.errormsg2);
+              }
+            })
+          } else{
+            this.$router.push({path:'/Login'});
+            this.$Message.info('请先登录！');
+          }
         },
         addblacklist(){
-          axios.post("/user/addblacklist", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            blacklistid: this.userdate.userid,
-          }).then((response) => {
-            let res = response.data;
-            if(res.status === "success") {
-              this.status3 = res.status;
-              this.$Message.info('拉黑对方成功！');
-            } else {
-              this.status3 = res.status;
-              this.errormsg3 = res.message;
-              this.$Message.info('拉黑对方失败： ' + this.errormsg2);
-            }
-          })
+          if(this.$store.state.token) {
+            axios.post("/user/addblacklist", {
+              token: this.$store.state.token,
+              userid: this.$store.state.userId,
+              blacklistid: this.userdate.userid,
+            }).then((response) => {
+              let res = response.data;
+              if(res.status === "success") {
+                this.status3 = res.status;
+                this.$Message.info('拉黑对方成功！');
+              } else {
+                this.status3 = res.status;
+                this.errormsg3 = res.message;
+                this.$Message.info('拉黑对方失败： ' + this.errormsg2);
+              }
+            })
+          } else{
+            this.$router.push({path:'/Login'});
+            this.$Message.info('请先登录！');
+          }
         }
+      },
+      watch: {
+        '$route': 'getParams'
       }
     }
 </script>

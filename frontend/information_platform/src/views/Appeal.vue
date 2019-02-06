@@ -1,10 +1,24 @@
 <template>
     <div>
       <tophead></tophead>
+      <div class="center">
+        <h1>封禁内容</h1>
+        <Row class="cardbox" style="background:#eee;padding:20px">
+          <Col class="cardcol" span="25" v-for="(msg,index) in msg">
+            <Card class="card" :bordered="true">
+              <h1 class="headline" slot="title">封禁类别:{{msg.type}}</h1>
+              <h3>封禁内容：{{msg.content}}</h3>
+              <h3>封禁原因：{{msg.reason}}</h3>
+              <h3>封禁结束时间：{{msg.date}}</h3>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+      <br>
       <div>
         <div class="back">
           <div class="leftback">
-            <font id="font" size="6">请选择申诉类别</font>
+            <font id="font" size="4">请选择申诉类别</font>
             <br>
             <Select v-model="value3" size="large" style="width:100px">
               <Option v-for="item in optionlist" :value="item.id" :key="item.id">{{item.label}}</Option>
@@ -55,6 +69,10 @@
     margin: auto;
     width: 85%;
   }
+  .center{
+    width: 80%;
+    margin: auto;
+  }
 </style>
 <script>
     import tophead from '@/components/Head'
@@ -82,11 +100,17 @@
             value3: '',
             status1: '',
             errormsg1: '',
+            status2: '',
+            errormsg2: '',
+            msg: [],
           }
       },
       components: {
         tophead,
         bottom
+      },
+      created(){
+        this.init();
       },
       methods:{
         sendappeal(){
@@ -115,6 +139,21 @@
               }
             })
           }
+        },
+        init(){
+          axios.get("/appeal/getdetail", {
+            token: this.$store.state.token,
+            userid: this.$store.state.userId,
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.status2 = res.status;
+              this.msg = res.detail;
+            } else {
+              this.status2 = res.status;
+              this.errormsg2 = res.message;
+            }
+          })
         }
       }
     }

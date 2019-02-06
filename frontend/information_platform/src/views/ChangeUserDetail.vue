@@ -7,16 +7,26 @@
       <font size="4">用户积分： {{user.point}}</font>
       <br>
       <nobr>
-      <font size="4">用户昵称： </font>
-      <Input class="input" v-model="value1" size="large" :placeholder="user.nickname" />
+        <font size="4">用户昵称： </font>
+        <Input class="input" v-model="value1" size="large" placeholder="用户昵称" />
       </nobr>
       <br>
       <nobr>
-      <font size="4">用户密码： </font>
-      <Input class="input" v-model="value2" size="large" :placeholder="user.userpwd" />
+        <font size="4">原用户密码： </font>
+        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" />
       </nobr>
       <br>
-      <Button type="primary" size="large" @click="setmyself">确认修改</Button>
+      <nobr>
+        <font size="4">新用户密码： </font>
+        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" />
+      </nobr>
+      <br>
+      <nobr>
+        <font size="4">确认新用户密码： </font>
+        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" />
+      </nobr>
+      <br>
+      <Button type="primary" size="large" @click="set">确认修改</Button>
     </div>
     <br>
     <div class="center1">
@@ -80,8 +90,7 @@
         user:{
           id: "",
           nickname: "",
-          point: "",
-          userpwd: ""
+          point: ""
         },
         status1: '',
         errormsg1: '',
@@ -95,8 +104,12 @@
         errormsg5: '',
         status6: '',
         errormsg6: '',
+        status7: '',
+        errormsg7: '',
         value1: '',
         value2: '',
+        value3: '',
+        value4: '',
         sendpost: [],
         replypost: [],
       }
@@ -123,7 +136,6 @@
             this.user.id = res.userdate.userid;
             this.user.nickname = res.userdate.usernickname;
             this.user.point = res.userdate.userpoint;
-            this.user.userpwd = res.userdate.userpwd;
             this.status1 = res.status;
           } else {
             this.status1 = res.status;
@@ -131,24 +143,58 @@
           }
         })
       },
+      set(){
+        this.setmyself();
+        this.setpwd();
+      },
       setmyself(){
-        axios.post("/user/setmyself", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
-          usernickname: this.value1,
-          userpwd: this.value2,
-        }).then((response) => {
-          let res = response.data;
-          if(res.status === "success") {
-            this.status2 = res.status;
-            this.$Message.info('修改成功！');
-
+        if(this.value1) {
+          axios.post("/user/setmyself", {
+            token: this.$store.state.token,
+            userid: this.$store.state.userId,
+            usernickname: this.value1,
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.status2 = res.status;
+              this.$Message.info('修改昵称成功！');
+              this.value1 = '';
+            } else {
+              this.status2 = res.status;
+              this.errormsg2 = res.message;
+              this.$Message.info('修改昵称失败： ' + this.errormsg2);
+            }
+          })
+        }
+      },
+      setpwd(){
+        if(this.value2 && this.value3 && this.value4) {
+          if (this.value3 === this.value4 && this.value3) {
+            axios.post("/editpwd", {
+              userID: this.$store.state.userId,
+              userOldPwd: this.value2,
+              userNewPwd: this.value3,
+            }).then((response) => {
+              let res = response.data;
+              if (res.code === "SUCCESS") {
+                this.status7 = res.code;
+                this.$Message.info('修改密码成功！');
+                this.value2 = '';
+                this.value3 = '';
+                this.value4 = '';
+              } else {
+                this.status7 = res.code;
+                this.errormsg7 = res.message;
+                this.$Message.info('修改密码失败： ' + this.errormsg7);
+              }
+            })
           } else {
-            this.status2 = res.status;
-            this.errormsg2 = res.message;
-            this.$Message.info('修改失败： ' + this.errormsg2);
+            this.$Message.info('两次输入的新密码不一致，请重新输入!');
+            this.value2 = '';
+            this.value3 = '';
+            this.value4 = '';
           }
-        })
+        }
       },
       getpost(){
         axios.get("/user/getpost", {
@@ -232,6 +278,9 @@
           }
         })
       }
+    },
+    watch: {
+      '$route': 'getParams'
     }
   }
 </script>

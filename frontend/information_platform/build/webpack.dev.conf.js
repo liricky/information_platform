@@ -50,9 +50,18 @@ const getcomment = require('./../mock/getcomment')
 const deletepost = require('./../mock/deletepost')
 const deletecomment = require('./../mock/deletecomment')
 const helpall = require('./../mock/helpall')
-const helpfinish = require('./../mock/helpfinish')
+const helpgetfinish = require('./../mock/helpgetfinish')
+const helpsendfinish = require('./../mock/helpsendfinish')
 const helpongoing = require('./../mock/helpongoing')
 const helpsent = require('./../mock/helpsent')
+const helpsend = require('./../mock/helpsend')
+const helpsentfinish = require('./../mock/helpsentfinish')
+const helpclaimfinish = require('./../mock/helpclaimfinish')
+const helpclaim = require('./../mock/helpclaim')
+const helpcancel = require('./../mock/helpcancel')
+const appealget = require('./../mock/appealget')
+const editpwd = require('./../mock/editpwd')
+const appealgetdetail = require('./../mock/appealgetdetail')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -195,8 +204,35 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/help/sent', (req, res) => {
         res.json(helpsent)
       })
-      app.get('/help/finish', (req, res) => {
-        res.json(helpfinish)
+      app.get('/help/sendfinish', (req, res) => {
+        res.json(helpsendfinish)
+      })
+      app.get('/help/getfinish', (req, res) => {
+        res.json(helpgetfinish)
+      })
+      app.post('/help/send', (req, res) => {
+        res.json(helpsend)
+      })
+      app.post('/help/claim', (req, res) => {
+        res.json(helpclaim)
+      })
+      app.post('/help/cancel', (req, res) => {
+        res.json(helpcancel)
+      })
+      app.post('/help/claimfinish', (req, res) => {
+        res.json(helpclaimfinish)
+      })
+      app.post('/help/sentfinish', (req, res) => {
+        res.json(helpsentfinish)
+      })
+      app.get('/appeal/get', (req, res) => {
+        res.json(appealget)
+      })
+      app.post('/editpwd', (req, res) => {
+        res.json(editpwd)
+      })
+      app.get('/appeal/getdetail', (req, res) => {
+        res.json(appealgetdetail)
       })
     }
     // mock code

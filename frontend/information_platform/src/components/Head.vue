@@ -6,7 +6,7 @@
       <div id="loginbtn">
         <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
         <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
-        <Icon type="md-settings" size="25" @click="jumpToChangeUserDetail"/>
+        <Icon type="md-settings" size="25" v-if="$store.state.token" @click="jumpToChangeUserDetail"/>
         <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
         &nbsp;&nbsp;
 

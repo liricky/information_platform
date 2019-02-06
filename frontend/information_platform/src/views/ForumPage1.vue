@@ -153,7 +153,10 @@
             errormsg3: '',
             status4: '',
             errormsg4: '',
+            status5: '',
+            errormsg5: '',
             label: '体育',
+            sign: '',
           }
       },
       components: {
@@ -162,6 +165,7 @@
       },
       created(){
         this.init();
+        this.checktype();
       },
       methods: {
         jumpDetail(id){
@@ -173,12 +177,21 @@
           })
         },
         jumpToForumCreate() {
-          this.$router.push({
-            path: '/ForumCreate',
-            query: {
-              label: 0
+          if(this.$store.state.token) {
+            if (this.sign) {
+              this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
+            } else {
+              this.$router.push({
+                path: '/ForumCreate',
+                query: {
+                  label: 0
+                }
+              })
             }
-          })
+          } else{
+            this.$router.push({path:'/Login'});
+            this.$Message.info('请先登录！');
+          }
         },
         init(){
           axios.get("/forum/newreply", {
@@ -227,6 +240,24 @@
             } else {
               this.status4 = res.status;
               this.errormsg4 = res.message;
+            }
+          })
+        },
+        checktype(){
+          axios.get("/appeal/get", {
+            token: this.$store.state.token,
+            userId: this.$store.state.userId,
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              this.status5 = res.status;
+              if(res.type === 1 || res.type === 3)
+                this.sign = true;
+              else
+                this.sign = false;
+            } else {
+              this.status5 = res.status;
+              this.errormsg5 = res.message;
             }
           })
         }

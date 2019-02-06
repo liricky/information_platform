@@ -55,7 +55,7 @@
       },
       methods: {
         getParams(){
-          this.reportid = this.$route.query.reportid
+          this.reportid = this.$route.query.reportid;
           this.id = this.$route.query.id;
           this.type = this.$route.query.type;
         },

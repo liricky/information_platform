@@ -126,6 +126,8 @@
         errormsg7: '',
         status8: '',
         errormsg8: '',
+        status9: '',
+        errormsg9: '',
         post: {
           postid: '',
           label: '',
@@ -140,7 +142,8 @@
         modal1: false,
         likestatus: '',
         value1: '',
-        type: ''
+        type: '',
+        sign: '',
       }
     },
     components: {
@@ -151,6 +154,7 @@
     created(){
       this.getParams();
       this.getDetail();
+      this.checktype();
     },
     methods: {
       ok() {
@@ -161,9 +165,14 @@
         this.$Message.info('已取消发表！');
       },
       comment() {
-        if(this.$store.state.token)
-          this.modal1 = true;
-        else{
+        if (this.$store.state.token) {
+          if (this.sign)
+            this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
+          else {
+            this.modal1 = true;
+          }
+        }
+        else {
           this.$Message.info('请先登录！');
           this.$router.push({path: '/Login'});
         }
@@ -300,10 +309,10 @@
         }
       },
       makecomment(){
-        if(this.$store.state.token) {
-          if(this.value1 === "") {
+        if (this.$store.state.token) {
+          if (this.value1 === "") {
             this.$Message.info('评论内容不能为空！');
-          } else{
+          } else {
             axios.post("/forum/createcomment", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
@@ -321,7 +330,7 @@
               }
             });
           }
-        } else{
+        } else {
           this.$Message.info('请先登录！');
           this.$router.push({path: '/Login'});
         }
@@ -406,6 +415,24 @@
           this.$Message.info('请先登录！');
           this.$router.push({path: '/Login'});
         }
+      },
+      checktype(){
+        axios.get("/appeal/get", {
+          token: this.$store.state.token,
+          userId: this.$store.state.userId,
+        }).then((response) => {
+          let res = response.data;
+          if(res.status === "success") {
+            this.status9 = res.status;
+            if(res.type === 1 || res.type === 3)
+              this.sign = true;
+            else
+              this.sign = false;
+          } else {
+            this.status9 = res.status;
+            this.errormsg9 = res.message;
+          }
+        })
       }
     },
     // Vue的侦听器,用来检测数据的变化,变化时执行对应函数
