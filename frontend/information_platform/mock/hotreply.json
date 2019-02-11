@@ -8,7 +8,8 @@
       "authornickname": "li",
       "content": "我要参加！",
       "date": "2019-01-01",
-      "likenum": 40
+      "likenum": 40,
+      "likestatus": "true"
     },
     {
       "commentid": 1,
@@ -16,7 +17,8 @@
       "authornickname": "lq",
       "content": "没意思",
       "date": "2019-01-01",
-      "likenum": 10
+      "likenum": 10,
+      "likestatus": "false"
     }
   ]
 }

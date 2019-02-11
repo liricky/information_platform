@@ -228,64 +228,100 @@
             this.errormsg1 = res.message;
           }
         });
+        // axios.get("/forum/gethotcomment", {
+        //   postid: this.postid,
+        // }).then((response) => {
+        //   let res = response.data;
+        //   if(res.status === "success") {
+        //     this.hotreply = res.hotreply;
+        //     this.status2 = res.status;
+        //     if(this.$store.state.token) {
+        //       for (let i of this.hotreply) {
+        //         axios.get("/forum/getcommentlike", {
+        //           token: this.$store.state.token,
+        //           userid: this.$store.state.userId,
+        //           commentid: i.commentid,
+        //         }).then((response) => {
+        //           let res = response.data;
+        //           if (res.status === "success") {
+        //             this.status7 = res.status;
+        //             this.$set(i,"likestatus",res.likestatus);
+        //             // i.likestatus = res.likestatus;
+        //             this.test = 1;
+        //           } else {
+        //             this.status7 = res.status;
+        //             this.errormsg7 = res.message;
+        //           }
+        //         });
+        //       }
+        //     }
+        //   } else {
+        //     this.status2 = res.status;
+        //     this.errormsg2 = res.message;
+        //   }
+        // });
         axios.get("/forum/gethotcomment", {
+          token: this.$store.state.token,
+          userid: this.$store.state.userId,
           postid: this.postid,
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
             this.hotreply = res.hotreply;
             this.status2 = res.status;
-            if(this.$store.state.token) {
-              for (let i of this.hotreply) {
-                axios.get("/forum/getcommentlike", {
-                  token: this.$store.state.token,
-                  userid: this.$store.state.userId,
-                  commentid: i.commentid,
-                }).then((response) => {
-                  let res = response.data;
-                  if (res.status === "success") {
-                    this.status7 = res.status;
-                    this.$set(i,"likestatus",res.likestatus);
-                    // i.likestatus = res.likestatus;
-                    this.test = 1;
-                  } else {
-                    this.status7 = res.status;
-                    this.errormsg7 = res.message;
-                  }
-                });
-              }
-            }
+            // if(this.$store.state.token) {
+            //   for (let i of this.hotreply) {
+            //     axios.get("/forum/getcommentlike", {
+            //       token: this.$store.state.token,
+            //       userid: this.$store.state.userId,
+            //       commentid: i.commentid,
+            //     }).then((response) => {
+            //       let res = response.data;
+            //       if (res.status === "success") {
+            //         this.status7 = res.status;
+            //         this.$set(i,"likestatus",res.likestatus);
+            //         // i.likestatus = res.likestatus;
+            //         this.test = 1;
+            //       } else {
+            //         this.status7 = res.status;
+            //         this.errormsg7 = res.message;
+            //       }
+            //     });
+            //   }
+            // }
           } else {
             this.status2 = res.status;
             this.errormsg2 = res.message;
           }
         });
         axios.get("/forum/getcomment", {
+          token: this.$store.state.token,
+          userid: this.$store.state.userId,
           postid: this.postid,
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
             this.reply = res.reply;
             this.status3 = res.status;
-            if(this.$store.state.token) {
-              for (let i of this.reply) {
-                axios.get("/forum/getcommentlike", {
-                  token: this.$store.state.token,
-                  userid: this.$store.state.userId,
-                  commentid: i.commentid,
-                }).then((response) => {
-                  let res = response.data;
-                  if (res.status === "success") {
-                    this.status7 = res.status;
-                    this.$set(i,"likestatus",res.likestatus);
-                    // i.likestatus = res.likestatus;
-                  } else {
-                    this.status7 = res.status;
-                    this.errormsg7 = res.message;
-                  }
-                });
-              }
-            }
+            // if(this.$store.state.token) {
+            //   for (let i of this.reply) {
+            //     axios.get("/forum/getcommentlike", {
+            //       token: this.$store.state.token,
+            //       userid: this.$store.state.userId,
+            //       commentid: i.commentid,
+            //     }).then((response) => {
+            //       let res = response.data;
+            //       if (res.status === "success") {
+            //         this.status7 = res.status;
+            //         this.$set(i,"likestatus",res.likestatus);
+            //         // i.likestatus = res.likestatus;
+            //       } else {
+            //         this.status7 = res.status;
+            //         this.errormsg7 = res.message;
+            //       }
+            //     });
+            //   }
+            // }
           } else {
             this.status3 = res.status;
             this.errormsg3 = res.message;
