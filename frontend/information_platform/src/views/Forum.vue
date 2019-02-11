@@ -4,23 +4,24 @@
     <div class="center">
       <Tabs class="cards" type="card">
         <TabPane label="推荐">
-          <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
-          <br>
-          <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
-          <Row class="cardbox" style="background:#eee;padding:20px"  v-if="status1 === 'success'">
-            <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.postid">
-              <div @click="jumpDetail(post.postid)" class="back">
+          <Row class="cardbox" style="background:#eee;padding:20px">
+            <Col class="cardcol" span="25" v-for="(post,index) in post.slice(0,6)" :key="post.title">
+              <div @click="jumpDetail(post.id)">
                 <Card class="card" :bordered="true">
-                  <h1>{{post.title}}</h1>
-                  <h3>{{post.label}} {{post.author}} {{post.authornickname}}</h3>
-                  <h3>{{post.date}}</h3>
-                  <div>
-                    <Icon type="ios-heart" size="18"/>
-                    <font size="3">{{post.likenum}}</font>
-                  </div>
-                  <div>
-                    <Icon type="ios-chatbubbles" size="18"/>
-                    <font size="3">{{post.commentnum}}</font>
+                  <div class="leftback">
+                    <h3 id="headline" slot="title">{{post.label}} {{post.author}}</h3>
+                    <h1>{{post.title}}</h1>
+                    <p>{{post.date}}</p>
+                    <div class="rightback">
+                      <div>
+                        <Icon type="ios-heart" size="19"/>
+                        <font size="4">{{post.likenum}}</font>
+                      </div>
+                      <div>
+                        <Icon type="ios-chatbubbles" size="19"/>
+                        <font size="4">{{post.commentnum}}</font>
+                      </div>
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -29,7 +30,7 @@
         </TabPane>
         <TabPane label="板块" id="la1">
           <div class="board" v-for="(board,index) in board" :key="board.id">
-            <div class="label" @click="jumpPage(board.id)">
+            <div class="label" @click="jumpPage">
               <img :src='board.img' height="50" width="50"/>
               <font size="6">{{board.name}}</font>
             </div>
@@ -45,8 +46,8 @@
     border: 1px solid black;
   }
   .card{
+    margin: auto;
     border: 1px solid black;
-    float: top;
   }
   .center{
     width: 80%;
@@ -61,91 +62,98 @@
     margin: auto;
   }
   .rightback{
-    float: left;
+    float: right;
     position: relative;
-    bottom: 80px;
-    left: 95%;
-  }
-  .back{
-    float: top;
+    bottom: 70px;
   }
 </style>
 <script>
     import tophead from '@/components/Head'
     import bottom from '@/components/Bottom'
-    import axios from 'axios'
 
     export default {
-      data() {
-        return {
-          status1: '',
-          errormsg1: '',
-          post: [],
-          board: [
-            {
-              id: 0,
-              name: '体育',
-              img: './../../static/sport.png'
-            },
-            {
-              id: 1,
-              name: '学术',
-              img: './../../static/study.png'
-            },
-            {
-              id: 2,
-              name: '音乐',
-              img: './../../static/music.png'
-            },
-            {
-              id: 3,
-              name: '游戏',
-              img: './../../static/game.png'
-            }
-          ]
-        }
-      },
-      components: {
-        tophead,
-        bottom
-      },
-      created(){
-        this.getrecommendpost();
-      },
+        data() {
+            return {
+              post:[
+                {
+                  id: 0,
+                  label: '体育',
+                  title: '新生杯',
+                  author: '16122075',
+                  content: '新生杯比赛即将开始，欢迎加入！',
+                  date: '2019-01-01',
+                  commentnum: 20,
+                  likenum: 40,
+                  readnum: 50
+                },
+                {
+                  id: 1,
+                  label: '体育',
+                  title: '校园运动会',
+                  author: '16122076',
+                  content: '校园运动会即将在本周召开，欢迎同学参加！',
+                  date: '2019-01-01',
+                  commentnum: 5,
+                  likenum: 0,
+                  readnum: 20
+                },
+                {
+                  id: 2,
+                  label: '学术',
+                  title: '挑战杯组队',
+                  author: '16235432',
+                  content: '挑战杯比赛组队，寻找计算机学院的同学',
+                  date: '2019-01-01',
+                  commentnum: 1,
+                  likenum: 0,
+                  readnum: 10
+                },
+                {
+                  id: 3,
+                  label: '音乐',
+                  title: '校园十大歌手',
+                  author: '16235432',
+                  content: '校园十大歌手决赛将于周日在体育馆举办，欢迎参加！',
+                  date: '2019-01-01',
+                  commentnum: 10,
+                  likenum: 25,
+                  readnum: 90
+                }
+              ],
+            board: [
+              {
+                id: 0,
+                name: '体育',
+                img: './../../static/sport.png'
+              },
+              {
+                id: 1,
+                name: '学术',
+                img: './../../static/study.png'
+              },
+              {
+                id: 2,
+                name: '音乐',
+                img: './../../static/music.png'
+              },
+              {
+                id: 3,
+                name: '游戏',
+                img: './../../static/game.png'
+              }
+            ]
+          }
+        },
+        components: {
+          tophead,
+          bottom
+        },
       methods: {
-        getrecommendpost(){
-          axios.get("/forum/recommend", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
-          }).then((response) => {
-            let res = response.data;
-            if(res.status === "success") {
-              this.post = res.post;
-              this.status1 = res.status;
-            } else {
-              this.status1 = res.status;
-              this.errormsg1 = res.message;
-            }
-          })
+        jumpPage(){
+          this.$router.push({path: '/ForumPage'})
         },
-        jumpPage(id){
-          if(id === 0)
-            this.$router.push({path: '/ForumPage1'});
-          else if(id === 1)
-            this.$router.push({path: '/ForumPage2'});
-          else if(id === 2)
-            this.$router.push({path: '/ForumPage3'});
-          else if(id === 3)
-            this.$router.push({path: '/ForumPage4'});
-        },
-        // 尝试携参数跳转页面
         jumpDetail(id){
-          this.$router.push({
-            path: '/ForumDetail',
-            query: {
-              id : id
-            }
-          })
+          this.$router.push({path: '/ForumDetail'})
         }
       }
     }
