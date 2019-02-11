@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './../../store/store'
 
 Vue.use(Router)
 
@@ -23,12 +24,18 @@ export default new Router({
     {
       path: '/Message',
       name: 'Message',
-      component: () => import('@/views/Message')
+      component: () => import('@/views/Message'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Appeal',
       name: 'Appeal',
-      component:() => import('@/views/Appeal')
+      component:() => import('@/views/Appeal'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Announcement',
@@ -43,17 +50,35 @@ export default new Router({
     {
       path: '/Forum',
       name: 'Forum',
-      component: () => import('@/views/Forum'),
+      component: () => import('@/views/Forum')
     },
     {
       path: '/ForumCreate',
       name: 'ForumCreate',
       component: () => import('@/views/ForumCreate'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
-      path: '/ForumPage',
-      name: 'ForumPage',
-      component: () => import('@/views/ForumPage'),
+      path: '/ForumPage1',
+      name: 'ForumPage1',
+      component: () => import('@/views/ForumPage1')
+    },
+    {
+      path: '/ForumPage2',
+      name: 'ForumPage2',
+      component: () => import('@/views/ForumPage2')
+    },
+    {
+      path: '/ForumPage3',
+      name: 'ForumPage3',
+      component: () => import('@/views/ForumPage3')
+    },
+    {
+      path: '/ForumPage4',
+      name: 'ForumPage4',
+      component: () => import('@/views/ForumPage4')
     },
     {
       path: '/ForumDetail',
@@ -64,11 +89,17 @@ export default new Router({
       path: '/Help',
       name: 'Help',
       component: () => import('@/views/Help'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Report',
       name: 'Report',
       component: () => import('@/views/Report'),
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/UserDetail',
@@ -83,7 +114,10 @@ export default new Router({
     {
       path: '/ChangeUserDetail',
       name: 'ChangeUserDetail',
-      component: () => import('@/views/ChangeUserDetail')
+      component: () => import('@/views/ChangeUserDetail'),
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/LostAFound/Board',
@@ -127,3 +161,4 @@ export default new Router({
     }
   ]
 })
+
