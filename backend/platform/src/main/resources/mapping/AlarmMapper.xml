@@ -1,37 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.dao.AlarmMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Alarm" >
-    <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="alarming_user" property="alarmingUser" jdbcType="VARCHAR" />
-    <result column="alarmed_user" property="alarmedUser" jdbcType="VARCHAR" />
-    <result column="alarm_type" property="alarmType" jdbcType="INTEGER" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
-    <result column="reason" property="reason" jdbcType="VARCHAR" />
-    <result column="view_type" property="viewType" jdbcType="INTEGER" />
-    <result column="comment_id" property="commentId" jdbcType="INTEGER" />
-    <result column="view_id" property="viewId" jdbcType="INTEGER" />
-    <result column="task_id" property="taskId" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.AlarmMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Alarm">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="alarming_user" jdbcType="VARCHAR" property="alarmingUser" />
+    <result column="alarmed_user" jdbcType="VARCHAR" property="alarmedUser" />
+    <result column="alarm_type" jdbcType="INTEGER" property="alarmType" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="view_type" jdbcType="INTEGER" property="viewType" />
+    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="view_id" jdbcType="INTEGER" property="viewId" />
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -42,25 +42,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -71,32 +71,32 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     id, alarming_user, alarmed_user, alarm_type, time, reason, view_type, comment_id, 
     view_id, task_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.AlarmExample" >
+  <select id="selectByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
     from Alarm
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.AlarmExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.AlarmExample">
     delete from Alarm
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.model.entity.Alarm" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Alarm">
     insert into Alarm (id, alarming_user, alarmed_user, 
       alarm_type, time, reason, 
       view_type, comment_id, view_id, 
@@ -106,118 +106,118 @@
       #{viewType,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, 
       #{taskId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Alarm" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Alarm">
     insert into Alarm
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="alarmingUser != null" >
+      <if test="alarmingUser != null">
         alarming_user,
       </if>
-      <if test="alarmedUser != null" >
+      <if test="alarmedUser != null">
         alarmed_user,
       </if>
-      <if test="alarmType != null" >
+      <if test="alarmType != null">
         alarm_type,
       </if>
-      <if test="time != null" >
+      <if test="time != null">
         time,
       </if>
-      <if test="reason != null" >
+      <if test="reason != null">
         reason,
       </if>
-      <if test="viewType != null" >
+      <if test="viewType != null">
         view_type,
       </if>
-      <if test="commentId != null" >
+      <if test="commentId != null">
         comment_id,
       </if>
-      <if test="viewId != null" >
+      <if test="viewId != null">
         view_id,
       </if>
-      <if test="taskId != null" >
+      <if test="taskId != null">
         task_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="alarmingUser != null" >
+      <if test="alarmingUser != null">
         #{alarmingUser,jdbcType=VARCHAR},
       </if>
-      <if test="alarmedUser != null" >
+      <if test="alarmedUser != null">
         #{alarmedUser,jdbcType=VARCHAR},
       </if>
-      <if test="alarmType != null" >
+      <if test="alarmType != null">
         #{alarmType,jdbcType=INTEGER},
       </if>
-      <if test="time != null" >
+      <if test="time != null">
         #{time,jdbcType=TIMESTAMP},
       </if>
-      <if test="reason != null" >
+      <if test="reason != null">
         #{reason,jdbcType=VARCHAR},
       </if>
-      <if test="viewType != null" >
+      <if test="viewType != null">
         #{viewType,jdbcType=INTEGER},
       </if>
-      <if test="commentId != null" >
+      <if test="commentId != null">
         #{commentId,jdbcType=INTEGER},
       </if>
-      <if test="viewId != null" >
+      <if test="viewId != null">
         #{viewId,jdbcType=INTEGER},
       </if>
-      <if test="taskId != null" >
+      <if test="taskId != null">
         #{taskId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultType="java.lang.Integer">
     select count(*) from Alarm
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update Alarm
-    <set >
-      <if test="record.id != null" >
+    <set>
+      <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.alarmingUser != null" >
+      <if test="record.alarmingUser != null">
         alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
       </if>
-      <if test="record.alarmedUser != null" >
+      <if test="record.alarmedUser != null">
         alarmed_user = #{record.alarmedUser,jdbcType=VARCHAR},
       </if>
-      <if test="record.alarmType != null" >
+      <if test="record.alarmType != null">
         alarm_type = #{record.alarmType,jdbcType=INTEGER},
       </if>
-      <if test="record.time != null" >
+      <if test="record.time != null">
         time = #{record.time,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.reason != null" >
+      <if test="record.reason != null">
         reason = #{record.reason,jdbcType=VARCHAR},
       </if>
-      <if test="record.viewType != null" >
+      <if test="record.viewType != null">
         view_type = #{record.viewType,jdbcType=INTEGER},
       </if>
-      <if test="record.commentId != null" >
+      <if test="record.commentId != null">
         comment_id = #{record.commentId,jdbcType=INTEGER},
       </if>
-      <if test="record.viewId != null" >
+      <if test="record.viewId != null">
         view_id = #{record.viewId,jdbcType=INTEGER},
       </if>
-      <if test="record.taskId != null" >
+      <if test="record.taskId != null">
         task_id = #{record.taskId,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update Alarm
     set id = #{record.id,jdbcType=INTEGER},
       alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
@@ -229,7 +229,471 @@
       comment_id = #{record.commentId,jdbcType=INTEGER},
       view_id = #{record.viewId,jdbcType=INTEGER},
       task_id = #{record.taskId,jdbcType=INTEGER}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Alarm">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="alarming_user" jdbcType="VARCHAR" property="alarmingUser" />
+    <result column="alarmed_user" jdbcType="VARCHAR" property="alarmedUser" />
+    <result column="alarm_type" jdbcType="INTEGER" property="alarmType" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="view_type" jdbcType="INTEGER" property="viewType" />
+    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="view_id" jdbcType="INTEGER" property="viewId" />
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, alarming_user, alarmed_user, alarm_type, time, reason, view_type, comment_id, 
+    view_id, task_id
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.AlarmExample">
+    delete from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.entity.Alarm">
+    insert into Alarm (id, alarming_user, alarmed_user, 
+      alarm_type, time, reason, 
+      view_type, comment_id, view_id, 
+      task_id)
+    values (#{id,jdbcType=INTEGER}, #{alarmingUser,jdbcType=VARCHAR}, #{alarmedUser,jdbcType=VARCHAR}, 
+      #{alarmType,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}, 
+      #{viewType,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, 
+      #{taskId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Alarm">
+    insert into Alarm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alarmingUser != null">
+        alarming_user,
+      </if>
+      <if test="alarmedUser != null">
+        alarmed_user,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="viewType != null">
+        view_type,
+      </if>
+      <if test="commentId != null">
+        comment_id,
+      </if>
+      <if test="viewId != null">
+        view_id,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="alarmingUser != null">
+        #{alarmingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmedUser != null">
+        #{alarmedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="viewType != null">
+        #{viewType,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="viewId != null">
+        #{viewId,jdbcType=INTEGER},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultType="java.lang.Integer">
+    select count(*) from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update Alarm
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.alarmingUser != null">
+        alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmedUser != null">
+        alarmed_user = #{record.alarmedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmType != null">
+        alarm_type = #{record.alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reason != null">
+        reason = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewType != null">
+        view_type = #{record.viewType,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentId != null">
+        comment_id = #{record.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewId != null">
+        view_id = #{record.viewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskId != null">
+        task_id = #{record.taskId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update Alarm
+    set id = #{record.id,jdbcType=INTEGER},
+      alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
+      alarmed_user = #{record.alarmedUser,jdbcType=VARCHAR},
+      alarm_type = #{record.alarmType,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=TIMESTAMP},
+      reason = #{record.reason,jdbcType=VARCHAR},
+      view_type = #{record.viewType,jdbcType=INTEGER},
+      comment_id = #{record.commentId,jdbcType=INTEGER},
+      view_id = #{record.viewId,jdbcType=INTEGER},
+      task_id = #{record.taskId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Alarm">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="alarming_user" jdbcType="VARCHAR" property="alarmingUser" />
+    <result column="alarmed_user" jdbcType="VARCHAR" property="alarmedUser" />
+    <result column="alarm_type" jdbcType="INTEGER" property="alarmType" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="view_type" jdbcType="INTEGER" property="viewType" />
+    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="view_id" jdbcType="INTEGER" property="viewId" />
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, alarming_user, alarmed_user, alarm_type, time, reason, view_type, comment_id, 
+    view_id, task_id
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.AlarmExample">
+    delete from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.entity.Alarm">
+    insert into Alarm (id, alarming_user, alarmed_user, 
+      alarm_type, time, reason, 
+      view_type, comment_id, view_id, 
+      task_id)
+    values (#{id,jdbcType=INTEGER}, #{alarmingUser,jdbcType=VARCHAR}, #{alarmedUser,jdbcType=VARCHAR}, 
+      #{alarmType,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}, 
+      #{viewType,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, 
+      #{taskId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Alarm">
+    insert into Alarm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alarmingUser != null">
+        alarming_user,
+      </if>
+      <if test="alarmedUser != null">
+        alarmed_user,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="viewType != null">
+        view_type,
+      </if>
+      <if test="commentId != null">
+        comment_id,
+      </if>
+      <if test="viewId != null">
+        view_id,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="alarmingUser != null">
+        #{alarmingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmedUser != null">
+        #{alarmedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="viewType != null">
+        #{viewType,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="viewId != null">
+        #{viewId,jdbcType=INTEGER},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.model.entity.AlarmExample" resultType="java.lang.Integer">
+    select count(*) from Alarm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update Alarm
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.alarmingUser != null">
+        alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmedUser != null">
+        alarmed_user = #{record.alarmedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmType != null">
+        alarm_type = #{record.alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reason != null">
+        reason = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewType != null">
+        view_type = #{record.viewType,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentId != null">
+        comment_id = #{record.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewId != null">
+        view_id = #{record.viewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskId != null">
+        task_id = #{record.taskId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update Alarm
+    set id = #{record.id,jdbcType=INTEGER},
+      alarming_user = #{record.alarmingUser,jdbcType=VARCHAR},
+      alarmed_user = #{record.alarmedUser,jdbcType=VARCHAR},
+      alarm_type = #{record.alarmType,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=TIMESTAMP},
+      reason = #{record.reason,jdbcType=VARCHAR},
+      view_type = #{record.viewType,jdbcType=INTEGER},
+      comment_id = #{record.commentId,jdbcType=INTEGER},
+      view_id = #{record.viewId,jdbcType=INTEGER},
+      task_id = #{record.taskId,jdbcType=INTEGER}
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
