@@ -1,8 +1,9 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Friends;
-import com.example.demo.model.entity.FriendsExample;
+import com.example.demo.Model.entity.Friends;
+import com.example.demo.Model.entity.FriendsExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface FriendsMapper {

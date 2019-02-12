@@ -1,8 +1,9 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Blacklist;
-import com.example.demo.model.entity.BlacklistExample;
+import com.example.demo.Model.entity.Blacklist;
+import com.example.demo.Model.entity.BlacklistExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface BlacklistMapper {

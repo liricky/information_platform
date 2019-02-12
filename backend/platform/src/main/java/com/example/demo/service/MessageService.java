@@ -1,4 +1,10 @@
 package com.example.demo.service;
 
-public class MessageService {
+import com.example.demo.Model.ov.Result;
+
+public interface MessageService {
+
+    Result messagereceive(String receiverid);
+
+
 }

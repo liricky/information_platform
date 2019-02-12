@@ -1,8 +1,9 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Lostlist;
-import com.example.demo.model.entity.LostlistExample;
+import com.example.demo.Model.entity.Lostlist;
+import com.example.demo.Model.entity.LostlistExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface LostlistMapper {

@@ -9,4 +9,28 @@ public class Result<Type> {
     private ResultCode code;
     private String message;
     private Type data;
+
+    public ResultCode getCode() {
+        return code;
+    }
+
+    public void setCode(ResultCode code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Type getData() {
+        return data;
+    }
+
+    public void setData(Type data) {
+        this.data = data;
+    }
 }

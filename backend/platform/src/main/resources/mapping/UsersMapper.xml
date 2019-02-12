@@ -672,6 +672,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+
+  <!--添加根据用户id获取昵称的方法-->
+  <select id="getById" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select name from Users where id = #{id,jdbcType=INTEGER}
+  </select>
+
   <update id="updateByExampleSelective" parameterType="map">
     update Users
     <set>

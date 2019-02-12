@@ -1,8 +1,9 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Views;
-import com.example.demo.model.entity.ViewsExample;
+import com.example.demo.Model.entity.Views;
+import com.example.demo.Model.entity.ViewsExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ViewsMapper {

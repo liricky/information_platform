@@ -1,8 +1,9 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Likes;
-import com.example.demo.model.entity.LikesExample;
+import com.example.demo.Model.entity.Likes;
+import com.example.demo.Model.entity.LikesExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface LikesMapper {
