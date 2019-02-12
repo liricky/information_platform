@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.demo.Model.ov.Result;
-import com.example.demo.model.entity.Notices;
+import com.example.demo.Model.entity.Notices;
 
 public interface NoticeService {
     Result findAllNotice();//查询所有公告
