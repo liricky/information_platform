@@ -3,7 +3,6 @@ package com.example.demo.service.Impl;
 import com.example.demo.Model.entity.Private_Charts;
 import com.example.demo.Model.entity.Private_ChartsExample;
 import com.example.demo.Model.entity.Users;
-import com.example.demo.Model.entity.UsersExample;
 import com.example.demo.Model.ov.MessageReceive;
 import com.example.demo.Model.ov.Result;
 import com.example.demo.dao.Private_ChartsMapper;
@@ -46,13 +45,11 @@ public class MessageServiceImpl implements MessageService {
             messageReceive.setSenderid(private_charts.getSender());
 
             //获取用户昵称需要从用户表中另外获取
-            UsersExample usersExample = new UsersExample();
-            usersExample.createCriteria().andIdentityEqualTo(private_charts.getId());
-            List<Users> userstemp = usersMapper.selectByExample(usersExample);
-            messageReceive.setSendernickname();
+            Users users = usersMapper.getById(private_charts.getId().toString());
+            messageReceive.setSendernickname(users.getName());
 
             if(private_charts.getState() == 1)
-                messageReceive.setStatus("NEW");
+                messageReceive.setStatus("new");
             else if(private_charts.getState() == 0)
                 messageReceive.setStatus("");
             messageReceiveList.add(messageReceive);

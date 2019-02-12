@@ -3,7 +3,6 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Lostlist;
 import com.example.demo.Model.entity.LostlistExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface LostlistMapper {

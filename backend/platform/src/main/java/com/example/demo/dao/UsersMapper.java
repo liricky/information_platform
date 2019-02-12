@@ -3,7 +3,6 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Users;
 import com.example.demo.Model.entity.UsersExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UsersMapper {
@@ -16,6 +15,8 @@ public interface UsersMapper {
     int insertSelective(Users record);
 
     List<Users> selectByExample(UsersExample example);
+
+    Users getById(String id);
 
     int updateByExampleSelective(@Param("record") Users record, @Param("example") UsersExample example);
 
