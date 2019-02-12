@@ -4,13 +4,13 @@ import lombok.Data;
 //获取所有公告接口
 @Data
 public class FindNoticeInfo {
-    @JsonProperty("Title")
+    @JsonProperty("title")
     String title;
-    @JsonProperty("Content")
+    @JsonProperty("content")
     String content;
-    @JsonProperty("Date")
+    @JsonProperty("date")
     String Date;
-    @JsonProperty("Type")
+    @JsonProperty("type")
     String type;
 
 }
