@@ -132,7 +132,7 @@
                 userPwd: this.loginForm.userPwd,
               }).then((response) => {
                 let res = response.data;
-                if (res.code === "SUCCESS") {
+                if (res.status === "success") {
                   this.errorTip = false;
                   //to-do
                   var _this = this;

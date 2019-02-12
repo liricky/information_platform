@@ -176,7 +176,7 @@
               userNewPwd: this.value3,
             }).then((response) => {
               let res = response.data;
-              if (res.code === "SUCCESS") {
+              if (res.status === "success") {
                 this.status7 = res.code;
                 this.$Message.info('修改密码成功！');
                 this.value2 = '';
