@@ -36,6 +36,7 @@
 </template>
 <script>
     import msider from '../../components/M_Sider.vue'
+    import axios from 'axios'
     export default {
         name: "Announcement_Manage",
       components:{
@@ -46,27 +47,41 @@
             type:'',
             value1:'',
             value2:'',
+            status1: '',
+            errormsg1: '',
           }
       },
       methods:{
         push(){
-          if(this.value1 ==''){
+          if(this.value1 ===''){
             this.$Message.warning('标题不能为空');
           }
-          else if(this.value2 == ''){
+          else if(this.value2 === ''){
             this.$Message.warning('详细信息不能为空');
           }
-          else if(this.type == ''){
+          else if(this.type === ''){
             this.$Message.warning('类型不能为空');
           }
           else{
-            this.$Message.success('发布成功');
-            console.log(this.value1);
-            console.log(this.value2);
-            console.log(this.type);
-            this.value1='';
-            this.value2='';
-            this.type='';
+            axios.post("/manage/announcement/publish", {
+              token: this.$store.state.token,
+              manageid: this.$store.state.userId,
+              title:this.value1,
+              content:this.value2,
+              type:this.type
+            }).then((response) => {
+              let res = response.data;
+              if(res.status === "success") {
+                this.$Message.success('发布成功');
+                this.value1='';
+                this.value2='';
+                this.type='';
+              } else {
+                this.status1 = res.status;
+                this.errormsg1 = res.message;
+                this.$Message.info('发布失败：' + this.errormsg1);
+              }
+            })
 
           }
         }

@@ -11,7 +11,7 @@
         <Icon type="md-settings" size="25" v-if="$store.state.token" @click="jumpToChangeUserDetail"/>
         <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
         &nbsp;&nbsp;
-
+        <Button type="primary" shape="circle" v-if="managetype && $store.state.token" to="/Manage/User">管理</Button>
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
         <Button type="primary" shape="circle" @click="jumpLogout" v-if="$store.state.token">退出</Button>
       </div>
@@ -65,11 +65,13 @@
 <script>
   import './../assets/headline.png'
   import './../assets/logo.jpg'
+  import axios from 'axios'
   import store from './../../store/store'
   export default {
     data () {
       return {
-        theme1: 'light'
+        theme1: 'light',
+        managetype:false,
       }
     },
     methods: {
@@ -85,7 +87,26 @@
       },
       jumpToChangeUserDetail(){
         this.$router.push({path: '/ChangeUserDetail'})
+      },
+      ifmanage(){
+        axios.post("/ifmanage", {
+          token: this.$store.state.token,
+          userid: this.$store.state.userId,
+        }).then((response) => {
+          let res = response.data;
+          console.log(response)
+          if(res.status === "success") {
+            this.managetype=res.ifmanage;
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+            this.$Message.info('失败：' + this.errormsg1);
+          }
+        })
       }
+    },
+    created(){
+      this.ifmanage();
     }
   }
 </script>

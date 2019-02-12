@@ -36,6 +36,25 @@ router.beforeEach((to, from, next) => {
         query: {redirect: to.fullPath}
       })
     }
+  }
+  else if(to.meta.requireManage) {
+    axios.post("/ifmanage", {
+      token: store.state.token,
+      userid: store.state.userId,
+    }).then((response) => {
+      let res = response.data;
+      if(res.status === "success") {
+        if(res.ifmanage){
+          next();
+        }else {
+          next({
+            path: '/HomePage',
+          });
+        }
+      } else {
+        this.$Message.info('失败');
+      }
+    })
   } else {
     next();
   }

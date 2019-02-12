@@ -62,6 +62,25 @@ const helpcancel = require('./../mock/helpcancel')
 const appealget = require('./../mock/appealget')
 const editpwd = require('./../mock/editpwd')
 const appealgetdetail = require('./../mock/appealgetdetail')
+
+const announcement = require('./../mock/announcement')
+const announcement_new = require('./../mock/announcement_new')
+const lostafound_board = require('./../mock/lostafound_board')
+const lostafound_myboard = require('./../mock/lostafound_myboard')
+const lostafound_delete = require('./../mock/lostafound_delete')
+const lostafound_publish = require('./../mock/lostafound_publish')
+const manage_user = require('./../mock/manage_user')
+const manage_user_password = require('./../mock/manage_user_password')
+const manage_user_forbid = require('./../mock/manage_user_forbid')
+const manage_user_release = require('./../mock/manage_user_release')
+const manage_forum = require('./../mock/manage_forum')
+const manage_forum_delete = require('./../mock/manage_forum_delete')
+const manage_inbox_report = require('./../mock/manage_inbox_report')
+const manage_inbox_appeal = require('./../mock/manage_inbox_appeal')
+const manage_announcement = require('./../mock/manage_announcement')
+const manage_announcement_delete = require('./../mock/manage_announcement_delete')
+const manage_announcement_publish = require('./../mock/manage_announcement_publish')
+const manage_if = require('./../mock/manage_if')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -233,6 +252,61 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.get('/appeal/getdetail', (req, res) => {
         res.json(appealgetdetail)
+      });
+
+      app.get('/announcement', (req, res) => {
+        res.json(announcement)
+      })
+      app.get('/announcement/new', (req, res) => {
+        res.json(announcement_new)
+      })
+      app.get('/lostafound/board', (req, res) => {
+        res.json(lostafound_board)
+      })
+      app.get('/lostafound/myboard', (req, res) => {
+        res.json(lostafound_myboard)
+      })
+      app.post('/lostafound/delete', (req, res) => {
+        res.json(lostafound_delete)
+      })
+      app.post('/lostafound/publish', (req, res) => {
+        res.json(lostafound_publish)
+      })
+      app.get('/manage/user', (req, res) => {
+        res.json(manage_user)
+      })
+      app.post('/manage/user/password', (req, res) => {
+        res.json(manage_user_password)
+      })
+      app.post('/manage/user/forbid', (req, res) => {
+        res.json(manage_user_forbid)
+      })
+      app.post('/manage/user/release', (req, res) => {
+        res.json(manage_user_release)
+      })
+      app.get('/manage/forum', (req, res) => {
+        res.json(manage_forum)
+      })
+      app.post('/manage/forum/delete', (req, res) => {
+        res.json(manage_forum_delete)
+      })
+      app.get('/manage/inbox/report', (req, res) => {
+        res.json(manage_inbox_report)
+      })
+      app.get('/manage/inbox/appeal', (req, res) => {
+        res.json(manage_inbox_appeal)
+      })
+      app.get('/manage/announcement', (req, res) => {
+        res.json(manage_announcement)
+      })
+      app.post('/manage/announcement/delete', (req, res) => {
+        res.json(manage_announcement_delete)
+      })
+      app.post('/manage/announcement/publish', (req, res) => {
+        res.json(manage_announcement_publish)
+      })
+      app.post('/ifmanage', (req, res) => {
+        res.json(manage_if)
       })
     }
     // mock code

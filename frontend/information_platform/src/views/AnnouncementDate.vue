@@ -10,7 +10,7 @@
                 <Divider orientation="left"class="title" v-if="a1.length != 0"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a1" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -18,7 +18,7 @@
                 <Divider orientation="left" class="title" v-if="a2.length != 0"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a2" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -26,7 +26,7 @@
                 <Divider orientation="left" class="title" v-if="a3.length != 0"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a3" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -38,7 +38,7 @@
                 <Divider orientation="left" class="title"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a1">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -49,7 +49,7 @@
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a2">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -60,7 +60,7 @@
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -81,110 +81,48 @@
 <script>
   import tophead from '@/components/Head.vue'
   import bottom from '@/components/Bottom.vue'
+  import axios from 'axios'
   export default {
     name: "AnnouncementDate",
     data(){
       return{
         msg:[
-          {
-            title:'史蒂夫·乔布斯(系统通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'系统通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(系统通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'系统通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(系统通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'系统通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(系统通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2019-1-2',
-            addresser:'刘某人',
-            type:'系统通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(调休通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'调休通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(调休通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2019-1-2',
-            addresser:'刘某人',
-            type:'调休通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(调休通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2019-1-2',
-            addresser:'刘某人',
-            type:'调休通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(调休通知)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'调休通知'
-          },
-          {
-            title:'史蒂夫·乔布斯(失物启示)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'失物启示'
-          },
-          {
-            title:'史蒂夫·乔布斯(失物启示)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'失物启示'
-          },
-          {
-            title:'史蒂夫·乔布斯(失物启示)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2019-1-2',
-            addresser:'刘某人',
-            type:'失物启示'
-          },
-          {
-            title:'史蒂夫·乔布斯(失物启示)',
-            content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-            date:'2012-2-2',
-            addresser:'刘某人',
-            type:'失物启示'
-          }
         ],
         a1:[],
         a2:[],
         a3:[],
         aDate:[],
+        status1: '',
+        errormsg1: '',
       }
     },
     methods: {
       getdata(date){
-        var i = 0,j=0;
-        for(i = 0; i < this.msg.length; i++){
-          if(this.msg[i].date == date){
-            this.aDate.splice(j++, 1, this.msg[i]);
+        console.log(date);
+        axios.get("/announcement").then((response) => {
+          let res = response.data;
+          if(res.status === "success") {
+            this.msg = res.announcement;
+            var i = 0,j=0;
+            for(i = 0; i < this.msg.length; i++){
+              if(this.msg[i].date === date){
+                this.aDate.splice(j++, 1, this.msg[i]);
+              }
+            }
+            console.log(this.aDate)
+            this.classify();
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+            this.$Message.info('获取失败： ' + this.errormsg1);
           }
-        }
+        })
+        // var i = 0,j=0;
+        // for(i = 0; i < this.msg.length; i++){
+        //   if(this.msg[i].date == date){
+        //     this.aDate.splice(j++, 1, this.msg[i]);
+        //   }
+        // }
       },
       classify() {
         let i = 0, j = 0, k = 0, index;
@@ -195,13 +133,13 @@
           switch (this.aDate[index].type){
             case '系统通知':
               this.a1.splice(i++, 1, this.aDate[index]);
-              break
+              break;
             case '调休通知':
               this.a2.splice(j++, 1, this.aDate[index]);
-              break
+              break;
             case '失物启示':
               this.a3.splice(k++, 1, this.aDate[index]);
-              break
+              break;
           }
         }
       }
@@ -211,11 +149,10 @@
       bottom
     },
     mounted () {
-      console.log(this.$router);
       this.getdata(this.$router.currentRoute.params.id)
-      this.classify();
-      console.log(this.aDate);
-      console.log(this.a1);
+      // this.classify();
+      // console.log(this.aDate);
+      // console.log(this.a1);
     }
   }
 

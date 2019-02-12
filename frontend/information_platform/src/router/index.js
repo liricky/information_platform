@@ -127,37 +127,58 @@ export default new Router({
     {
       path: '/LostAFound/Publish',
       name:'LostAFoundPublish',
+      meta: {
+        requireAuth: true
+      },
       component:() => import('@/views/LostAFound/Publish')
     },
     {
       path:'/LostAFound/MyBoard',
       name:'LostAFoundMyBoard',
+      meta: {
+        requireAuth: true
+      },
       component:() => import('@/views/LostAFound/MyBoard')
     },
     {
       path:'/Manage/AnnouncementPublish',
       name:'AnnouncementPublish',
-      component:() => import('@/views/Manage/AnnouncementPublish')
+      component:() => import('@/views/Manage/AnnouncementPublish'),
+      meta: {
+        requireManage: true
+      }
     },
     {
       path:'/Manage/User',
       name:'User_Manage',
-      component:() => import('@/views/Manage/User_Manage')
+      component:() => import('@/views/Manage/User_Manage'),
+      meta: {
+        requireManage: true
+      }
     },
     {
       path:'/Manage/AnnouncementDelete',
       name:'AnnouncementDelete',
-      component:() => import('@/views/Manage/AnnouncementDelete')
+      component:() => import('@/views/Manage/AnnouncementDelete'),
+      meta: {
+        requireManage: true
+      }
     },
     {
       path:'/Manage/ForumDelete',
       name:'ForumDelete',
-      component:() => import('@/views/Manage/ForumDelete')
+      component:() => import('@/views/Manage/ForumDelete'),
+      meta: {
+        requireManage: true
+      }
     },
     {
       path:'/Manage/Inbox',
       name:'Inbox',
-      component:() => import('@/views/Manage/Inbox')
+      component:() => import('@/views/Manage/Inbox'),
+      meta: {
+        requireManage: true
+      }
     }
   ]
 })
