@@ -1,7 +1,7 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Tags;
-import com.example.demo.model.entity.TagsExample;
+import com.example.demo.Model.entity.Tags;
+import com.example.demo.Model.entity.TagsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

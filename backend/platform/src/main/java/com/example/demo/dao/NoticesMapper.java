@@ -1,7 +1,7 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.entity.Notices;
-import com.example.demo.model.entity.NoticesExample;
+import com.example.demo.Model.entity.Notices;
+import com.example.demo.Model.entity.NoticesExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
