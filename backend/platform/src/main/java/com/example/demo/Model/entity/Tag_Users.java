@@ -1,4 +1,4 @@
-package com.example.demo.model.entity;
+package com.example.demo.Model.entity;
 
 public class Tag_Users {
     private Integer id;
