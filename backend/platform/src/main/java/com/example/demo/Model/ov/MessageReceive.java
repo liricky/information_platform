@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class MessageReceive {
     @JsonProperty("messageid")
-    String messageid;
+    Integer messageid;
     @JsonProperty("title")
     String title;
     @JsonProperty("date")
@@ -18,11 +18,11 @@ public class MessageReceive {
     @JsonProperty("status")
     String status;
 
-    public String getMessageid() {
+    public Integer getMessageid() {
         return messageid;
     }
 
-    public void setMessageid(String messageid) {
+    public void setMessageid(Integer messageid) {
         this.messageid = messageid;
     }
 

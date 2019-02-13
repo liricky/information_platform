@@ -8,4 +8,5 @@ public interface MessageService {
 
     Result messagesent(String sentid);
 
+    Result messagesend(String userid, String sendid, String title, String content);
 }

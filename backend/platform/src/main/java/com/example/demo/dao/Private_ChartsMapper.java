@@ -2,26 +2,33 @@ package com.example.demo.dao;
 
 import com.example.demo.Model.entity.Private_Charts;
 import com.example.demo.Model.entity.Private_ChartsExample;
+
+import java.sql.Timestamp;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component(value = "Private_ChartsMapper")
 public interface Private_ChartsMapper {
     int countByExample(Private_ChartsExample example);
 
     int deleteByExample(Private_ChartsExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(Private_Charts record);
+
+    int insertauto(String userid, String sendid, String title, String content, Timestamp sendtime, Integer state);
 
     int insertSelective(Private_Charts record);
 
     List<Private_Charts> selectByExample(Private_ChartsExample example);
 
+    Private_Charts selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Private_Charts record, @Param("example") Private_ChartsExample example);
 
     int updateByExample(@Param("record") Private_Charts record, @Param("example") Private_ChartsExample example);
+
+    int updateByPrimaryKeySelective(Private_Charts record);
+
+    int updateByPrimaryKey(Private_Charts record);
 }

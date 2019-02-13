@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MessageSent {
     @JsonProperty("messageid")
-    String messageid;
+    Integer messageid;
     @JsonProperty("title")
     String title;
     @JsonProperty("date")
@@ -14,11 +14,11 @@ public class MessageSent {
     @JsonProperty("receivernickname")
     String receivernickname;
 
-    public String getMessageid() {
+    public Integer getMessageid() {
         return messageid;
     }
 
-    public void setMessageid(String messageid) {
+    public void setMessageid(Integer messageid) {
         this.messageid = messageid;
     }
 

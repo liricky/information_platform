@@ -13,6 +13,7 @@ import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class MessageServiceImpl implements MessageService {
         List<MessageReceive> messageReceiveList = new LinkedList<>();
         for(Private_Charts private_charts : private_chartsList){
             MessageReceive messageReceive = new MessageReceive();
-            messageReceive.setMessageid(private_charts.getId().toString());
+            messageReceive.setMessageid(private_charts.getId());
             messageReceive.setTitle(private_charts.getTitle());
             messageReceive.setDate(private_charts.getSendTime().toString());
             messageReceive.setSenderid(private_charts.getSender());
@@ -70,7 +71,7 @@ public class MessageServiceImpl implements MessageService {
         List<MessageSent> messageSentList = new LinkedList<>();
         for(Private_Charts private_charts : private_chartsList){
             MessageSent messageSent = new MessageSent();
-            messageSent.setMessageid(private_charts.getId().toString());
+            messageSent.setMessageid(private_charts.getId());
             messageSent.setTitle(private_charts.getTitle());
             messageSent.setDate(private_charts.getSendTime().toString());
             messageSent.setReceiverid(private_charts.getReceiver());
@@ -82,5 +83,19 @@ public class MessageServiceImpl implements MessageService {
             messageSentList.add(messageSent);
         }
         return ResultTool.success(messageSentList);
+    }
+
+    //  用户发送私信
+
+    @Override
+    public Result messagesend(String userid, String sendid, String title, String content) {
+        try {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Integer state = 1;
+            private_chartsMapper.insertauto(userid, sendid, title, content, timestamp, state);
+        } catch (Exception e) {
+            return ResultTool.error(e.getMessage());
+        }
+        return ResultTool.success();
     }
 }

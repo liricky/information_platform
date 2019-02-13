@@ -3,17 +3,14 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Blacklist;
 import com.example.demo.Model.entity.BlacklistExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component(value = "BlacklistMapper")
 public interface BlacklistMapper {
     int countByExample(BlacklistExample example);
 
     int deleteByExample(BlacklistExample example);
+
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Blacklist record);
 
@@ -21,7 +18,13 @@ public interface BlacklistMapper {
 
     List<Blacklist> selectByExample(BlacklistExample example);
 
+    Blacklist selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Blacklist record, @Param("example") BlacklistExample example);
 
     int updateByExample(@Param("record") Blacklist record, @Param("example") BlacklistExample example);
+
+    int updateByPrimaryKeySelective(Blacklist record);
+
+    int updateByPrimaryKey(Blacklist record);
 }

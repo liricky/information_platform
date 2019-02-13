@@ -3,17 +3,14 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Help;
 import com.example.demo.Model.entity.HelpExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component(value = "HelpMapper")
 public interface HelpMapper {
     int countByExample(HelpExample example);
 
     int deleteByExample(HelpExample example);
+
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Help record);
 
@@ -21,7 +18,13 @@ public interface HelpMapper {
 
     List<Help> selectByExample(HelpExample example);
 
+    Help selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Help record, @Param("example") HelpExample example);
 
     int updateByExample(@Param("record") Help record, @Param("example") HelpExample example);
+
+    int updateByPrimaryKeySelective(Help record);
+
+    int updateByPrimaryKey(Help record);
 }

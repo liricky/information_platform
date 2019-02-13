@@ -3,17 +3,14 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Friends;
 import com.example.demo.Model.entity.FriendsExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component(value = "FriendsMapper")
 public interface FriendsMapper {
     int countByExample(FriendsExample example);
 
     int deleteByExample(FriendsExample example);
+
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Friends record);
 
@@ -21,7 +18,13 @@ public interface FriendsMapper {
 
     List<Friends> selectByExample(FriendsExample example);
 
+    Friends selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Friends record, @Param("example") FriendsExample example);
 
     int updateByExample(@Param("record") Friends record, @Param("example") FriendsExample example);
+
+    int updateByPrimaryKeySelective(Friends record);
+
+    int updateByPrimaryKey(Friends record);
 }

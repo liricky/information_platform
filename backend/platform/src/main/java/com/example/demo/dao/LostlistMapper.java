@@ -3,17 +3,14 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Lostlist;
 import com.example.demo.Model.entity.LostlistExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component(value = "LostlistMapper")
 public interface LostlistMapper {
     int countByExample(LostlistExample example);
 
     int deleteByExample(LostlistExample example);
+
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Lostlist record);
 
@@ -23,9 +20,17 @@ public interface LostlistMapper {
 
     List<Lostlist> selectByExample(LostlistExample example);
 
+    Lostlist selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Lostlist record, @Param("example") LostlistExample example);
 
     int updateByExampleWithBLOBs(@Param("record") Lostlist record, @Param("example") LostlistExample example);
 
     int updateByExample(@Param("record") Lostlist record, @Param("example") LostlistExample example);
+
+    int updateByPrimaryKeySelective(Lostlist record);
+
+    int updateByPrimaryKeyWithBLOBs(Lostlist record);
+
+    int updateByPrimaryKey(Lostlist record);
 }
