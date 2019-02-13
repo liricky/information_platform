@@ -6,5 +6,6 @@ public interface MessageService {
 
     Result messagereceive(String receiverid);
 
+    Result messagesent(String sentid);
 
 }

@@ -3,8 +3,13 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Private_Charts;
 import com.example.demo.Model.entity.Private_ChartsExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+@Mapper
+@Component(value = "Private_ChartsMapper")
 public interface Private_ChartsMapper {
     int countByExample(Private_ChartsExample example);
 

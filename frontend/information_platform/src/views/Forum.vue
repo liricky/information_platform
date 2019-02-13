@@ -114,7 +114,7 @@
       },
       methods: {
         getrecommendpost(){
-          axios.get("/forum/recommend", {
+          axios.get("/api/forum/recommend", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {

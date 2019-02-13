@@ -127,7 +127,7 @@
             if(!this.loginForm.userId||!this.loginForm.userPwd){
               this.errorTip1 = true;
             } else {
-              axios.post("/login", {
+              axios.post("/api/login", {
                 userId: this.loginForm.userId,
                 userPwd: this.loginForm.userPwd,
               }).then((response) => {

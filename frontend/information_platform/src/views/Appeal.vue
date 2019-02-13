@@ -118,7 +118,7 @@
           if(this.value1 === '' || this.value2 === '' || this.value3 === '')
             this.$Message.info('申诉类别、申述标题及申诉内容不能为空！');
           else {
-            axios.post("/appeal/send", {
+            axios.post("/api/appeal/send", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               type: this.value3,
@@ -141,7 +141,7 @@
           }
         },
         init(){
-          axios.get("/appeal/getdetail", {
+          axios.get("/api/appeal/getdetail", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
           }).then((response) => {

@@ -48,7 +48,7 @@
           if(this.value1 === '' || this.value2 === ''){
             this.$Message.info('帖子标题和内容不能为空!');
           } else{
-            axios.post("/forum/createpost", {
+            axios.post("/api/forum/createpost", {
               token: this.$store.state.token,
               userId: this.$store.state.userId,
               title: this. value1,

@@ -3,8 +3,13 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Friends;
 import com.example.demo.Model.entity.FriendsExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+@Mapper
+@Component(value = "FriendsMapper")
 public interface FriendsMapper {
     int countByExample(FriendsExample example);
 

@@ -3,8 +3,13 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Unlock_Apply;
 import com.example.demo.Model.entity.Unlock_ApplyExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+@Mapper
+@Component(value = "Unlock_ApplyMapper")
 public interface Unlock_ApplyMapper {
     int countByExample(Unlock_ApplyExample example);
 

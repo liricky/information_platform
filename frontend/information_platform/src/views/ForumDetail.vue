@@ -210,7 +210,7 @@
         this.postid = this.$route.query.id;
       },
       getDetail(){
-        axios.get("/forum/detail", {
+        axios.get("/api/forum/detail", {
           postid: this.postid,
         }).then((response) => {
           let res = response.data;
@@ -260,7 +260,7 @@
         //     this.errormsg2 = res.message;
         //   }
         // });
-        axios.get("/forum/gethotcomment", {
+        axios.get("/api/forum/gethotcomment", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
           postid: this.postid,
@@ -294,7 +294,7 @@
             this.errormsg2 = res.message;
           }
         });
-        axios.get("/forum/getcomment", {
+        axios.get("/api/forum/getcomment", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
           postid: this.postid,
@@ -328,7 +328,7 @@
           }
         });
         if(this.$store.state.token) {
-          axios.get("/forum/getlike", {
+          axios.get("/api/forum/getlike", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             postid: this.postid,
@@ -349,7 +349,7 @@
           if (this.value1 === "") {
             this.$Message.info('评论内容不能为空！');
           } else {
-            axios.post("/forum/createcomment", {
+            axios.post("/api/forum/createcomment", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               content: this.value1,
@@ -373,7 +373,7 @@
       },
       changelikestatus(){
         if(this.$store.state.token) {
-          axios.post("/forum/changelike", {
+          axios.post("/api/forum/changelike", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             postid: this.postid,
@@ -397,7 +397,7 @@
       },
       getcommentlikestatus(commentid){
         if(this.$store.state.token) {
-          axios.get("/forum/getcommentlike", {
+          axios.get("/api/forum/getcommentlike", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             commentid: commentid,
@@ -419,7 +419,7 @@
       },
       changecommentlikestatus(commentid){
         if(this.$store.state.token) {
-          axios.post("/forum/changecommentlike", {
+          axios.post("/api/forum/changecommentlike", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             commentid: commentid,
@@ -453,7 +453,7 @@
         }
       },
       checktype(){
-        axios.get("/appeal/get", {
+        axios.get("/api/appeal/get", {
           token: this.$store.state.token,
           userId: this.$store.state.userId,
         }).then((response) => {

@@ -128,7 +128,7 @@
       getParams(){
         this.user.id = this.$store.state.userId;
         this.user.nickname = this.$store.state.userNickname;
-        axios.get("/user/showmyself", {
+        axios.get("/api/user/showmyself", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
         }).then((response) => {
@@ -150,7 +150,7 @@
       },
       setmyself(){
         if(this.value1) {
-          axios.post("/user/setmyself", {
+          axios.post("/api/user/setmyself", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             usernickname: this.value1,
@@ -171,7 +171,7 @@
       setpwd(){
         if(this.value2 && this.value3 && this.value4) {
           if (this.value3 === this.value4 && this.value3) {
-            axios.post("/editpwd", {
+            axios.post("/api/editpwd", {
               userID: this.$store.state.userId,
               userOldPwd: this.value2,
               userNewPwd: this.value3,
@@ -198,7 +198,7 @@
         }
       },
       getpost(){
-        axios.get("/user/getpost", {
+        axios.get("/api/user/getpost", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
         }).then((response) => {
@@ -214,7 +214,7 @@
         })
       },
       getcomment(){
-        axios.get("/user/getcomment", {
+        axios.get("/api/user/getcomment", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
         }).then((response) => {
@@ -230,7 +230,7 @@
         })
       },
       deletepost(id){
-        axios.post("/user/deletepost", {
+        axios.post("/api/user/deletepost", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
           postid: id,
@@ -255,7 +255,7 @@
         })
       },
       deletecomment(id){
-        axios.post("/user/deletecomment", {
+        axios.post("/api/user/deletecomment", {
           token: this.$store.state.token,
           userid: this.$store.state.userId,
           commentid: id,

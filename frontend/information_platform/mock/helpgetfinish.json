@@ -3,7 +3,7 @@
   "message": null,
   "mission": [
     {
-      "missionid": "8",
+      "missionid": 8,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "求带早餐2！",
@@ -11,7 +11,7 @@
       "finishdate": "2019-01-01 09:00"
     },
     {
-      "missionid": "9",
+      "missionid": 9,
       "authortid": "16122075",
       "authornickname": "li",
       "content": "帮取快递2！",

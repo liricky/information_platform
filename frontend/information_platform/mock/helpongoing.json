@@ -3,7 +3,7 @@
   "message": null,
   "mission": [
     {
-      "missionid": "4",
+      "missionid": 4,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "求带早餐！",
@@ -13,7 +13,7 @@
       "missionstatus": "进行中"
     },
     {
-      "missionid": "5",
+      "missionid": 5,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "帮取快递！",

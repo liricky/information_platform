@@ -3,7 +3,7 @@
   "message": null,
   "hotreply": [
     {
-      "commentid": "0",
+      "commentid": 0,
       "author": "16122075",
       "authornickname": "li",
       "content": "我要参加！",
@@ -12,7 +12,7 @@
       "likestatus": "true"
     },
     {
-      "commentid": "1",
+      "commentid": 1,
       "author": "16122072",
       "authornickname": "lq",
       "content": "没意思",

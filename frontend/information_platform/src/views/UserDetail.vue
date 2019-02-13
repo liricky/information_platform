@@ -57,7 +57,7 @@
       methods:{
         getParams(){
           this.userdate.userid = this.$route.query.id;
-          axios.get("/user/getuserinfo", {
+          axios.get("/api/user/getuserinfo", {
             token: this.$store.state.token,
             userid: this.$store.state.userId,
             searchuserid: this.userdate.userid,
@@ -75,7 +75,7 @@
         },
         addfriend(){
           if(this.$store.state.token) {
-            axios.post("/user/addfriend", {
+            axios.post("/api/user/addfriend", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               friendid: this.userdate.userid,
@@ -97,7 +97,7 @@
         },
         addblacklist(){
           if(this.$store.state.token) {
-            axios.post("/user/addblacklist", {
+            axios.post("/api/user/addblacklist", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               blacklistid: this.userdate.userid,

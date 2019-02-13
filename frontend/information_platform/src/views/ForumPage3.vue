@@ -194,7 +194,7 @@
           }
         },
         init(){
-          axios.get("/forum/newreply", {
+          axios.get("/api/forum/newreply", {
             label: this.labelid,
           }).then((response) => {
             let res = response.data;
@@ -206,7 +206,7 @@
               this.errormsg1 = res.message;
             }
           });
-          axios.get("/forum/newpublish", {
+          axios.get("/api/forum/newpublish", {
             label: this.labelid,
           }).then((response) => {
             let res = response.data;
@@ -218,7 +218,7 @@
               this.errormsg2 = res.message;
             }
           });
-          axios.get("/forum/best", {
+          axios.get("/api/forum/best", {
             label: this.labelid,
           }).then((response) => {
             let res = response.data;
@@ -230,7 +230,7 @@
               this.errormsg3 = res.message;
             }
           });
-          axios.get("/forum/all", {
+          axios.get("/api/forum/all", {
             label: this.labelid,
           }).then((response) => {
             let res = response.data;
@@ -244,7 +244,7 @@
           })
         },
         checktype(){
-          axios.get("/appeal/get", {
+          axios.get("/api/appeal/get", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {

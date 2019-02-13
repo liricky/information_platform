@@ -3,7 +3,7 @@
   "message": null,
   "reply": [
     {
-      "id": "234",
+      "id": 234,
       "author": "16122075",
       "authornickname": "li",
       "title": "校园运动会",
@@ -12,7 +12,7 @@
       "likenum": 23
     },
     {
-      "id": "235",
+      "id": 235,
       "author": "16122075",
       "authornickname": "li",
       "title": "校园运动会1",

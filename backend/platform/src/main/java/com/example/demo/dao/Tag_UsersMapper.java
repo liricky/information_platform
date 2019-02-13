@@ -3,8 +3,13 @@ package com.example.demo.dao;
 import com.example.demo.Model.entity.Tag_Users;
 import com.example.demo.Model.entity.Tag_UsersExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+@Mapper
+@Component(value = "Tag_UsersMapper")
 public interface Tag_UsersMapper {
     int countByExample(Tag_UsersExample example);
 

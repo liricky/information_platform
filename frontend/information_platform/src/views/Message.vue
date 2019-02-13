@@ -187,7 +187,7 @@
         },
         methods:{
           getrev(){
-            axios.get("/message/receive", {
+            axios.get("/api/message/receive", {
               token: this.$store.state.token,
               userId: this.$store.state.userId,
             }).then((response) => {
@@ -202,7 +202,7 @@
             })
           },
           getsent(){
-            axios.get("/message/sent", {
+            axios.get("/api/message/sent", {
               token: this.$store.state.token,
               userId: this.$store.state.userId,
             }).then((response) => {
@@ -217,7 +217,7 @@
             })
           },
           getfriend(){
-            axios.get("/user/getfriend", {
+            axios.get("/api/user/getfriend", {
               token: this.$store.state.token,
               userId: this.$store.state.userId,
             }).then((response) => {
@@ -233,7 +233,7 @@
           },
           show(id){
             this.modal1 = true;
-            axios.get("/message/detail",{
+            axios.get("/api/message/detail",{
               token: this.$store.state.token,
               userId: this.$store.state.userId,
               messageid: id,
@@ -277,7 +277,7 @@
             if(this.value1 === '' || this.value2 === '' || this.sendto === '')
               this.$Message.info('标题、正文及发送目标不能为空！');
             else {
-              axios.post("/message/send", {
+              axios.post("/api/message/send", {
                 token: this.$store.state.token,
                 userId: this.$store.state.userId,
                 sendId: this.sendto,

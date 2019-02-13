@@ -3,7 +3,7 @@
   "message": null,
   "mission": [
     {
-      "missionid": "0",
+      "missionid": 0,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "求带早餐！",
@@ -11,7 +11,7 @@
       "enddate": "2019-01-01 09:40"
     },
     {
-      "missionid": "1",
+      "missionid": 1,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "帮取快递！",
@@ -19,7 +19,7 @@
       "enddate": "2019-01-02 08:40"
     },
     {
-      "missionid": "2",
+      "missionid": 2,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "代刷课外！",
@@ -27,7 +27,7 @@
       "enddate": "2019-01-01 09:40"
     },
     {
-      "missionid": "3",
+      "missionid": 3,
       "authorid": "16122075",
       "authornickname": "li",
       "content": "收购请假单！",

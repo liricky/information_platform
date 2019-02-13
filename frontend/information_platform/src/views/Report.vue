@@ -63,7 +63,7 @@
           if(this.value1 === ''){
             this.$Message.info("举报原因不能为空！");
           } else {
-            axios.post("/report/create", {
+            axios.post("/api/report/create", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               reportid: this.reportid,

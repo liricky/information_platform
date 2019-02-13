@@ -248,7 +248,7 @@
           if(this.value1 === '')
             this.$Message.info('联系方式不能为空！');
           else {
-            axios.post("/help/claim", {
+            axios.post("/api/help/claim", {
               missionid: this.temp,
               token: this.$store.state.token,
               userid: this.$store.state.userId,
@@ -290,7 +290,7 @@
           if(this.value2 === '')
             this.$Message.info('原因不能为空！');
           else {
-            axios.post("/help/cancel", {
+            axios.post("/api/help/cancel", {
               missionid: this.temp,
               token: this.$store.state.token,
               userid: this.$store.state.userId,
@@ -331,7 +331,7 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/help/claimfinish", {
+            axios.post("/api/help/claimfinish", {
               missionid: id,
               token: this.$store.state.token,
               userid: this.$store.state.userId,
@@ -368,7 +368,7 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/help/sentfinish", {
+            axios.post("/api/help/sentfinish", {
               missionid: id,
               token: this.$store.state.token,
               userid: this.$store.state.userId,
@@ -412,7 +412,7 @@
           if(this.value3 === '' || this.value4 === '' || this.datevalue === null || this.timevalue === null)
             this.$Message.info('任务内容、联系方式及设置时间不能为空');
           else {
-            axios.post("/help/send", {
+            axios.post("/api/help/send", {
               token: this.$store.state.token,
               userid: this.$store.state.userId,
               content: this.value3,
@@ -460,7 +460,7 @@
           })
         },
         helpall(){
-          axios.get("/help/all", {
+          axios.get("/api/help/all", {
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -473,7 +473,7 @@
           })
         },
         helpongoing(){
-          axios.get("/help/ongoing", {
+          axios.get("/api/help/ongoing", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {
@@ -488,7 +488,7 @@
           })
         },
         helpsent(){
-          axios.get("/help/sent", {
+          axios.get("/api/help/sent", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {
@@ -503,7 +503,7 @@
           })
         },
         helpfinish(){
-          axios.get("/help/sendfinish", {
+          axios.get("/api/help/sendfinish", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {
@@ -516,7 +516,7 @@
               this.errormsg4 = res.message;
             }
           });
-          axios.get("/help/getfinish", {
+          axios.get("/api/help/getfinish", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {
@@ -537,7 +537,7 @@
           this.timevalue = time;
         },
         checktype(){
-          axios.get("/appeal/get", {
+          axios.get("/api/appeal/get", {
             token: this.$store.state.token,
             userId: this.$store.state.userId,
           }).then((response) => {

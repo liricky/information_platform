@@ -3,7 +3,7 @@
   "message": null,
   "post": [
     {
-      "postid": "0",
+      "postid": 0,
       "label": "体育",
       "title": "新生杯",
       "author": "16122075",
@@ -13,7 +13,7 @@
       "commentnum": 20
     },
     {
-      "postid": "1",
+      "postid": 1,
       "label": "体育",
       "title": "校园运动会",
       "author": "16122076",
@@ -23,7 +23,7 @@
       "commentnum": 5
     },
     {
-      "postid": "2",
+      "postid": 2,
       "label": "学术",
       "title": "挑战杯组队",
       "author": "16235432",
@@ -33,7 +33,7 @@
       "commentnum": 1
     },
     {
-      "postid": "3",
+      "postid": 3,
       "label": "音乐",
       "title": "校园十大歌",
       "author": "16235432",

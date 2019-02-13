@@ -4,6 +4,7 @@ import com.example.demo.Model.entity.Private_Charts;
 import com.example.demo.Model.entity.Private_ChartsExample;
 import com.example.demo.Model.entity.Users;
 import com.example.demo.Model.ov.MessageReceive;
+import com.example.demo.Model.ov.MessageSent;
 import com.example.demo.Model.ov.Result;
 import com.example.demo.dao.Private_ChartsMapper;
 import com.example.demo.dao.UsersMapper;
@@ -45,7 +46,7 @@ public class MessageServiceImpl implements MessageService {
             messageReceive.setSenderid(private_charts.getSender());
 
             //获取用户昵称需要从用户表中另外获取
-            Users users = usersMapper.getById(private_charts.getId().toString());
+            Users users = usersMapper.getById(private_charts.getSender());
             messageReceive.setSendernickname(users.getName());
 
             if(private_charts.getState() == 1)
@@ -55,5 +56,31 @@ public class MessageServiceImpl implements MessageService {
             messageReceiveList.add(messageReceive);
         }
         return ResultTool.success(messageReceiveList);
+    }
+
+    //  查询用户发送的私信
+    @Override
+    public Result messagesent(String sentid) {
+        Private_ChartsExample private_chartsExample = new Private_ChartsExample();
+        private_chartsExample.createCriteria().andSenderEqualTo(sentid);
+        List<Private_Charts> private_chartsList = private_chartsMapper.selectByExample(private_chartsExample);
+        if(private_chartsList.isEmpty() == true){
+            return ResultTool.error("查询用户发送的私信为空");
+        }
+        List<MessageSent> messageSentList = new LinkedList<>();
+        for(Private_Charts private_charts : private_chartsList){
+            MessageSent messageSent = new MessageSent();
+            messageSent.setMessageid(private_charts.getId().toString());
+            messageSent.setTitle(private_charts.getTitle());
+            messageSent.setDate(private_charts.getSendTime().toString());
+            messageSent.setReceiverid(private_charts.getReceiver());
+
+            //获取用户昵称需要从用户表中另外获取
+            Users users = usersMapper.getById(private_charts.getId().toString());
+            messageSent.setReceivernickname(users.getName());
+
+            messageSentList.add(messageSent);
+        }
+        return ResultTool.success(messageSentList);
     }
 }
