@@ -1,6 +1,7 @@
 <template>
   <div>
     <tophead></tophead>
+    <!--<h1>{{user.id}}</h1>-->
     <div class="center">
       <font size="4">用户id： {{user.id}}</font>
       <br>

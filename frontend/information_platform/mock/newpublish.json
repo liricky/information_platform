@@ -3,7 +3,7 @@
   "message": null,
   "post": [
     {
-      "postid": 2,
+      "postid": "2",
       "label": 0,
       "title": "新生杯1",
       "author": "16122075",
@@ -13,7 +13,7 @@
       "likenum": 35
     },
     {
-      "postid": 3,
+      "postid": "3",
       "label": 0,
       "title": "校园运动会1",
       "author": "16122076",

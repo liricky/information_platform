@@ -3,7 +3,7 @@
   "message": null,
   "reply": [
     {
-      "commentid": 0,
+      "commentid": "0",
       "author": "16122075",
       "authornickname": "li",
       "content": "我要参加！",
@@ -12,7 +12,7 @@
       "likestatus": "true"
     },
     {
-      "commentid": 1,
+      "commentid": "1",
       "author": "16122072",
       "authornickname": "lq",
       "content": "没意思",
@@ -21,7 +21,7 @@
       "likestatus": "false"
     },
     {
-      "commentid": 2,
+      "commentid": "2",
       "author": "16122042",
       "authornickname": "le",
       "content": "沙发",

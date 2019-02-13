@@ -3,7 +3,7 @@
   "message": null,
   "mission": [
     {
-      "missionid": 6,
+      "missionid": "6",
       "acceptid": "16122075",
       "acceptnickname": "li",
       "content": "求带早餐1！",
@@ -13,7 +13,7 @@
       "missionstatus": "进行中"
     },
     {
-      "missionid": 7,
+      "missionid": "7",
       "acceptid": "16122075",
       "acceptnickname": "li",
       "content": "帮取快递1！",
