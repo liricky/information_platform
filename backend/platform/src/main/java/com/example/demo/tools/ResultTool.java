@@ -1,13 +1,12 @@
 package com.example.demo.tools;
 
 
-import com.example.demo.Model.ResultCode;
-import com.example.demo.Model.ov.Result;
+import com.example.demo.model.ov.Result;
 
 import java.util.List;
 
-import static com.example.demo.Model.ResultCode.FAILED;
-import static com.example.demo.Model.ResultCode.SUCCESS;
+import static com.example.demo.model.ResultCode.FAILED;
+import static com.example.demo.model.ResultCode.SUCCESS;
 
 // 返回格式模板
 public class ResultTool {

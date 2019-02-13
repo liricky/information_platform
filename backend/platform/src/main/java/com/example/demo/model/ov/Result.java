@@ -1,6 +1,6 @@
-package com.example.demo.Model.ov;
+package com.example.demo.model.ov;
 
-import com.example.demo.Model.ResultCode;
+import com.example.demo.model.ResultCode;
 import lombok.Data;
 
 //返回格式
