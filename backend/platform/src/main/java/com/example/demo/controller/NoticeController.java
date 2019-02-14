@@ -22,5 +22,11 @@ public class NoticeController {
     public Result findAllNotice(HttpServletRequest httpServletRequest){
         return noticeService.findAllNotice();
     }
+
+    //  获取最新公告
+    @RequestMapping(value = "/announcement/new",method = RequestMethod.GET)
+    public Result findLatestNoticeByType(HttpServletRequest httpServletRequest){
+        return noticeService.findLatestNoticeByType();
+    }
 }
 
