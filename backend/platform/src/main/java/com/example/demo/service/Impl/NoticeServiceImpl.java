@@ -35,10 +35,10 @@ public class NoticeServiceImpl implements NoticeService {
                     Date dt1 = o1.getTime();
                     Date dt2=o2.getTime();
                     if(dt1.getTime()<dt2.getTime()){
-                        return 1;
+                        return -1;
                     }
                     else if (dt1.getTime()>dt2.getTime()){
-                        return -1;
+                        return 1;
                     }
                     else {
                         return 0;
