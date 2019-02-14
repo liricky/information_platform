@@ -62,6 +62,7 @@ const helpcancel = require('./../mock/helpcancel')
 const appealget = require('./../mock/appealget')
 const editpwd = require('./../mock/editpwd')
 const appealgetdetail = require('./../mock/appealgetdetail')
+const logout = require('./../mock/logout')
 const routes = express.Router()
 app.use('/api',routes)
 //mock code
@@ -233,6 +234,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       })
       app.get('/api/appeal/getdetail', (req, res) => {
         res.json(appealgetdetail)
+      })
+      app.post('/api/logout', (req, res) => {
+        res.json(logout)
       })
     }
     // mock code

@@ -9,7 +9,7 @@
         <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
         <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
         <Icon type="md-settings" size="25" v-if="$store.state.token" @click="jumpToChangeUserDetail"/>
-        <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
+        <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white"></font>
         &nbsp;&nbsp;
 
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
@@ -65,11 +65,14 @@
 <script>
   import './../assets/headline.png'
   import './../assets/logo.jpg'
-  import store from './../../store/store'
+  import axios from 'axios'
+
   export default {
     data () {
       return {
-        theme1: 'light'
+        theme1: 'light',
+        status: '',
+        errormsg: '',
       }
     },
     methods: {
@@ -77,8 +80,25 @@
         this.$router.push({path: '/Login'});
       },
       jumpLogout(){
-        this.$store.commit('isLogout');
-        this.$router.push({path: '/HomePage'});
+        axios.post("/api/logout", {
+          token: this.$store.state.token,
+          userid: this.$store.state.userId,
+        }).then((response) => {
+          let res = response.data;
+          if (res.status === "success") {
+            this.status = res.status;
+            this.$store.commit('isLogout');
+            this.$router.push({path: '/HomePage'});
+            this.$Message.info("退出成功！");
+          } else {
+            this.status = res.status;
+            this.errormsg = res.message;
+            this.$Message.info("出现错误: " + this.errormsg);
+          }
+        })
+
+
+
       },
       routerTo(name){
         this.$router.push(name)

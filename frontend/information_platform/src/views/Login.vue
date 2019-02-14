@@ -143,6 +143,7 @@
                   localStorage.setItem('userNickname',res.data.userNickname)
                   localStorage.setItem('userId',res.data.userId)
                   this.$store.commit('isLogin',{token:res.data.token,userNickname:res.data.userNickname,userId:res.data.userId})
+                  this.$Message.info("登录成功！");
                 } else {
                   this.errorTip = true;
                 }
