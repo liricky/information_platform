@@ -1,10 +1,10 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.Model.entity.Tag_Users;
-import com.example.demo.Model.entity.Users;
-import com.example.demo.Model.entity.Views;
-import com.example.demo.Model.ov.ForumRecommend;
-import com.example.demo.Model.ov.Result;
+import com.example.demo.model.entity.Tag_Users;
+import com.example.demo.model.entity.Users;
+import com.example.demo.model.entity.Views;
+import com.example.demo.model.ov.ForumRecommend;
+import com.example.demo.model.ov.Result;
 import com.example.demo.dao.Tag_UsersMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.dao.ViewsMapper;

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Model.ov.Result;
+import com.example.demo.model.ov.Result;
 
 public interface MessageService {
 

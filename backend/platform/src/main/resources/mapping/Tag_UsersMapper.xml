@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tag_UsersMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Tag_Users" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Tag_Users" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user" property="user" jdbcType="VARCHAR" />
     <result column="tag" property="tag" jdbcType="INTEGER" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     id, user, tag, extent
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.Tag_UsersExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.Tag_UsersExample" >
     select
     <if test="distinct" >
       distinct
@@ -103,19 +103,19 @@
     delete from Tag_Users
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.Tag_UsersExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.Tag_UsersExample" >
     delete from Tag_Users
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Tag_Users" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Tag_Users" >
     insert into Tag_Users (id, user, tag, 
       extent)
     values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{tag,jdbcType=INTEGER}, 
       #{extent,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Tag_Users" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Tag_Users" >
     insert into Tag_Users
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -146,7 +146,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.Tag_UsersExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.Tag_UsersExample" resultType="java.lang.Integer" >
     select count(*) from Tag_Users
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Tag_Users" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Tag_Users" >
     update Tag_Users
     <set >
       <if test="user != null" >
@@ -197,7 +197,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Tag_Users" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Tag_Users" >
     update Tag_Users
     set user = #{user,jdbcType=VARCHAR},
       tag = #{tag,jdbcType=INTEGER},

@@ -1,11 +1,11 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.Model.entity.Private_Charts;
-import com.example.demo.Model.entity.Private_ChartsExample;
-import com.example.demo.Model.entity.Users;
-import com.example.demo.Model.ov.MessageReceive;
-import com.example.demo.Model.ov.MessageSent;
-import com.example.demo.Model.ov.Result;
+import com.example.demo.model.entity.Private_Charts;
+import com.example.demo.model.entity.Private_ChartsExample;
+import com.example.demo.model.entity.Users;
+import com.example.demo.model.ov.MessageReceive;
+import com.example.demo.model.ov.MessageSent;
+import com.example.demo.model.ov.Result;
 import com.example.demo.dao.Private_ChartsMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.service.MessageService;

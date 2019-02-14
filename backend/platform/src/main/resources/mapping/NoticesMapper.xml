@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.NoticesMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Notices" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Notices" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="puller" property="puller" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     id, puller, title, content, type, time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.NoticesExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.NoticesExample" >
     select
     <if test="distinct" >
       distinct
@@ -95,13 +95,13 @@
     delete from Notices
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.NoticesExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.NoticesExample" >
     delete from Notices
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Notices" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Notices" >
     insert into Notices (id, puller, title, 
       content, type, time
       )
@@ -109,7 +109,7 @@
       #{content,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Notices" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Notices" >
     insert into Notices
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -152,7 +152,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.NoticesExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.NoticesExample" resultType="java.lang.Integer" >
     select count(*) from Notices
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -196,7 +196,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Notices" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Notices" >
     update Notices
     <set >
       <if test="puller != null" >
@@ -217,7 +217,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Notices" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Notices" >
     update Notices
     set puller = #{puller,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},

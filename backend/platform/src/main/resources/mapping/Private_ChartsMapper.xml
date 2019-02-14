@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Private_ChartsMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Private_Charts" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Private_Charts" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="sender" property="sender" jdbcType="VARCHAR" />
     <result column="receiver" property="receiver" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     id, sender, receiver, title, content, send_time, state
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.Private_ChartsExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.Private_ChartsExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,13 +96,13 @@
     delete from Private_Charts
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.Private_ChartsExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.Private_ChartsExample" >
     delete from Private_Charts
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Private_Charts" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Private_Charts" >
     insert into Private_Charts (id, sender, receiver, 
       title, content, send_time, 
       state)
@@ -121,7 +121,7 @@
       #{5})
   </insert>
 
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Private_Charts" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Private_Charts" >
     insert into Private_Charts
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -170,7 +170,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.Private_ChartsExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.Private_ChartsExample" resultType="java.lang.Integer" >
     select count(*) from Private_Charts
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -218,7 +218,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Private_Charts" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Private_Charts" >
     update Private_Charts
     <set >
       <if test="sender != null" >
@@ -242,7 +242,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Private_Charts" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Private_Charts" >
     update Private_Charts
     set sender = #{sender,jdbcType=VARCHAR},
       receiver = #{receiver,jdbcType=VARCHAR},

@@ -1,10 +1,10 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.Model.entity.Friends;
-import com.example.demo.Model.entity.FriendsExample;
-import com.example.demo.Model.entity.Users;
-import com.example.demo.Model.ov.Result;
-import com.example.demo.Model.ov.UserGetFriend;
+import com.example.demo.model.entity.Friends;
+import com.example.demo.model.entity.FriendsExample;
+import com.example.demo.model.entity.Users;
+import com.example.demo.model.ov.Result;
+import com.example.demo.model.ov.UserGetFriend;
 import com.example.demo.dao.FriendsMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.service.UserService;

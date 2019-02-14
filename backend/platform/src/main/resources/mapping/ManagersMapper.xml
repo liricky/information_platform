@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.ManagersMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Managers" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Managers" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     id, password
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.ManagersExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.ManagersExample" >
     select
     <if test="distinct" >
       distinct
@@ -91,17 +91,17 @@
     delete from Managers
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.ManagersExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.ManagersExample" >
     delete from Managers
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Managers" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Managers" >
     insert into Managers (id, password)
     values (#{id,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Managers" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Managers" >
     insert into Managers
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.ManagersExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.ManagersExample" resultType="java.lang.Integer" >
     select count(*) from Managers
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -148,7 +148,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Managers" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Managers" >
     update Managers
     <set >
       <if test="password != null" >
@@ -157,7 +157,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Managers" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Managers" >
     update Managers
     set password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.LikesMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Likes" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Likes" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="view_id" property="viewId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     id, view_id, user_id, time, type, comment_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.LikesExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.LikesExample" >
     select
     <if test="distinct" >
       distinct
@@ -95,13 +95,13 @@
     delete from Likes
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.LikesExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.LikesExample" >
     delete from Likes
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Likes" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Likes" >
     insert into Likes (id, view_id, user_id, 
       time, type, comment_id
       )
@@ -109,7 +109,7 @@
       #{time,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Likes" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Likes" >
     insert into Likes
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -152,7 +152,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.LikesExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.LikesExample" resultType="java.lang.Integer" >
     select count(*) from Likes
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -196,7 +196,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Likes" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Likes" >
     update Likes
     <set >
       <if test="viewId != null" >
@@ -217,7 +217,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Likes" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Likes" >
     update Likes
     set view_id = #{viewId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 package com.example.demo.dao;
 
-import com.example.demo.Model.entity.Ban_Reasons;
-import com.example.demo.Model.entity.Ban_ReasonsExample;
+import com.example.demo.model.entity.Ban_Reasons;
+import com.example.demo.model.entity.Ban_ReasonsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

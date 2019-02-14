@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.BlacklistMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.Model.entity.Blacklist" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Blacklist" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userA" property="usera" jdbcType="VARCHAR" />
     <result column="userB" property="userb" jdbcType="VARCHAR" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     id, userA, userB
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.Model.entity.BlacklistExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.BlacklistExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from Blacklist
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.Model.entity.BlacklistExample" >
+  <delete id="deleteByExample" parameterType="com.example.demo.model.entity.BlacklistExample" >
     delete from Blacklist
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.Model.entity.Blacklist" >
+  <insert id="insert" parameterType="com.example.demo.model.entity.Blacklist" >
     insert into Blacklist (id, userA, userB
       )
     values (#{id,jdbcType=INTEGER}, #{usera,jdbcType=VARCHAR}, #{userb,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.Model.entity.Blacklist" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.entity.Blacklist" >
     insert into Blacklist
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.Model.entity.BlacklistExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.example.demo.model.entity.BlacklistExample" resultType="java.lang.Integer" >
     select count(*) from Blacklist
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.Model.entity.Blacklist" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.entity.Blacklist" >
     update Blacklist
     <set >
       <if test="usera != null" >
@@ -173,7 +173,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.Model.entity.Blacklist" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Blacklist" >
     update Blacklist
     set userA = #{usera,jdbcType=VARCHAR},
       userB = #{userb,jdbcType=VARCHAR}
