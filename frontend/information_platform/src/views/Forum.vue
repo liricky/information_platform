@@ -114,9 +114,10 @@
       },
       methods: {
         getrecommendpost(){
-          axios.get("/api/forum/recommend", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/forum/recommend/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {

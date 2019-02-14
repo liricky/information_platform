@@ -3,6 +3,7 @@ package com.example.demo.service.Impl;
 import com.example.demo.model.entity.Private_Charts;
 import com.example.demo.model.entity.Private_ChartsExample;
 import com.example.demo.model.entity.Users;
+import com.example.demo.model.jsonRequest.MessageSend;
 import com.example.demo.model.ov.MessageReceive;
 import com.example.demo.model.ov.MessageSent;
 import com.example.demo.model.ov.Result;
@@ -88,11 +89,11 @@ public class MessageServiceImpl implements MessageService {
     //  用户发送私信
 
     @Override
-    public Result messagesend(String userid, String sendid, String title, String content) {
+    public Result messagesend(MessageSend messageSend) {
         try {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             Integer state = 1;
-            private_chartsMapper.insertauto(userid, sendid, title, content, timestamp, state);
+            private_chartsMapper.insertauto(messageSend.getUserid(), messageSend.getSendid(), messageSend.getTitle(), messageSend.getContent(), timestamp, state);
         } catch (Exception e) {
             return ResultTool.error(e.getMessage());
         }

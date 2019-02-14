@@ -48,12 +48,10 @@
           if(this.value1 === '' || this.value2 === ''){
             this.$Message.info('帖子标题和内容不能为空!');
           } else{
-            axios.post("/api/forum/createpost", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
-              title: this. value1,
-              content: this.value2,
-              label: this.label,
+            axios({
+              url: apiRoot + '/forum/createpost/' + this.$store.state.userId + '/' + this. value1 + '/' + this.value2 + '/' + this.label,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {

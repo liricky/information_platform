@@ -80,9 +80,10 @@
         this.$router.push({path: '/Login'});
       },
       jumpLogout(){
-        axios.post("/api/logout", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
+        axios({
+          url: apiRoot + '/logout/' + this.$store.state.userId,
+          headers: {Authorization: this.$store.state.token},
+          method:'post',
         }).then((response) => {
           let res = response.data;
           if (res.status === "success") {
@@ -96,9 +97,6 @@
             this.$Message.info("出现错误: " + this.errormsg);
           }
         })
-
-
-
       },
       routerTo(name){
         this.$router.push(name)

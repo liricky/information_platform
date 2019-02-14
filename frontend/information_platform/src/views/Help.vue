@@ -248,11 +248,10 @@
           if(this.value1 === '')
             this.$Message.info('联系方式不能为空！');
           else {
-            axios.post("/api/help/claim", {
-              missionid: this.temp,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              phone: this.value1,
+            axios({
+              url: apiRoot + '/help/claim/' + this.temp + '/' + this.$store.state.userId + '/' + this.value1,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -290,10 +289,10 @@
           if(this.value2 === '')
             this.$Message.info('原因不能为空！');
           else {
-            axios.post("/api/help/cancel", {
-              missionid: this.temp,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/help/cancel/' + this.temp + '/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -331,10 +330,10 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/api/help/claimfinish", {
-              missionid: id,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/help/claimfinish/' + id + '/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -368,10 +367,10 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/api/help/sentfinish", {
-              missionid: id,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/help/sentfinish/' + id + '/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -412,12 +411,10 @@
           if(this.value3 === '' || this.value4 === '' || this.datevalue === null || this.timevalue === null)
             this.$Message.info('任务内容、联系方式及设置时间不能为空');
           else {
-            axios.post("/api/help/send", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              content: this.value3,
-              phone: this.value4,
-              enddate: this.datevalue + " " + this.timevalue,
+            axios({
+              url: apiRoot + '/help/send/' + this.$store.state.userId + '/' + this.value3 + '/' + this.value4 + '/' + this.datevalue + "*" + this.timevalue,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -448,9 +445,6 @@
             }
           })
         },
-        // jumpUserDetail(id) {
-        //   this.$router.push({path: '/UserDetail'})
-        // },
         jumpUserDetail(id) {
           this.$router.push({
             path: '/UserDetail',
@@ -460,7 +454,9 @@
           })
         },
         helpall(){
-          axios.get("/api/help/all", {
+          axios({
+            url: apiRoot + '/help/all',
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -473,9 +469,10 @@
           })
         },
         helpongoing(){
-          axios.get("/api/help/ongoing", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/help/ongoing/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -488,9 +485,10 @@
           })
         },
         helpsent(){
-          axios.get("/api/help/sent", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/help/sent/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -503,9 +501,10 @@
           })
         },
         helpfinish(){
-          axios.get("/api/help/sendfinish", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/help/sendfinish/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -516,9 +515,10 @@
               this.errormsg4 = res.message;
             }
           });
-          axios.get("/api/help/getfinish", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/help/getfinish/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -537,9 +537,10 @@
           this.timevalue = time;
         },
         checktype(){
-          axios.get("/api/appeal/get", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/appeal/get/' + this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {

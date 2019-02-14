@@ -70,9 +70,9 @@
             if(this.find === '' || this.value === '')
               this.$Message.info('搜索方式及搜索信息不能为空!');
             else {
-              axios.get("/api/user/findfriend", {
-                type: this.find,
-                id: this.value,
+              axios({
+                url: apiRoot + '/user/findfriend/' + this.find + '/' + this.value,
+                method: 'get',
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {
