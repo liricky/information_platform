@@ -1,11 +1,11 @@
 package com.example.demo.service.Impl;
 
+import com.example.demo.dao.BlacklistMapper;
 import com.example.demo.dao.FriendsMapper;
 import com.example.demo.dao.UsersMapper;
-import com.example.demo.model.entity.Friends;
-import com.example.demo.model.entity.Users;
-import com.example.demo.model.entity.UsersExample;
+import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.addFriend;
+import com.example.demo.model.jsonRequest.addToBlackList;
 import com.example.demo.model.jsonRequest.userRelationship;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.UserService;
@@ -26,6 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private FriendsMapper friendsMapper;
+
+    @Resource
+    private BlacklistMapper blacklistMapper;
     //  全局根据id查找人
     @Override
     public Result findFriendById(String id) {
@@ -63,6 +66,7 @@ public class UserServiceImpl implements UserService {
         return ResultTool.success(userRelationshipList);
     }
 
+    //  添加好友
     @Override
     public Result addFriend(addFriend addFriend) {
         String userIdA=addFriend.getUserId();
@@ -80,5 +84,28 @@ public class UserServiceImpl implements UserService {
         friend.setUserb(userIdB);
         friendsMapper.insert(friend);
         return ResultTool.success();
+    }
+
+    //  加入黑名单
+    @Override
+    public Result addToBlackList(addToBlackList blackList) {
+        String userIdA=blackList.getUserId();
+        String userIdB=blackList.getBlacklistId();
+        //  先判断是否在该用户好友列表中
+        FriendsExample friendsExample=new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Friends> friendsList=friendsMapper.selectByExample(friendsExample);
+        if(friendsList.isEmpty()==true){
+            return ResultTool.error("该用户不在好友列表中");
+        }
+        //  从好友关系表中删除
+        friendsMapper.deleteByExample(friendsExample);
+        //  加入黑名单
+        Blacklist black=new Blacklist();
+        black.setUsera(userIdA);
+        black.setUserb(userIdB);
+        blacklistMapper.insert(black);
+        return ResultTool.success();
+
     }
 }

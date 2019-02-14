@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.jsonRequest.addFriend;
+import com.example.demo.model.jsonRequest.addToBlackList;
 import com.example.demo.model.ov.Result;
 
 public interface UserService {
@@ -11,5 +12,7 @@ public interface UserService {
     Result findFriendByNickname(String nickname);
     //  添加好友
     Result addFriend(addFriend addFriend);
+    //  加入黑名单
+    Result addToBlackList(addToBlackList blackList);
 
 }
