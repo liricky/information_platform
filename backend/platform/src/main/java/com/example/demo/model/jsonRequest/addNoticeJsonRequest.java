@@ -1,26 +1,25 @@
-package com.example.demo.model.ov;
+package com.example.demo.model.jsonRequest;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-//获取所有公告接口
+
 @Data
-public class FindNoticeInfo {
-    @JsonProperty("id")
-    String id;
+public class addNoticeJsonRequest {
+    @JsonProperty("managerid")
+    String managerId;
     @JsonProperty("title")
     String title;
     @JsonProperty("content")
     String content;
-    @JsonProperty("date")
-    String Date;
     @JsonProperty("type")
     String type;
 
-    public String getId() {
-        return id;
+    public String getManagerId() {
+        return managerId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setManagerId(String managerId) {
+        this.managerId = managerId;
     }
 
     public String getTitle() {
@@ -37,14 +36,6 @@ public class FindNoticeInfo {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getDate() {
-        return Date;
-    }
-
-    public void setDate(String date) {
-        Date = date;
     }
 
     public String getType() {

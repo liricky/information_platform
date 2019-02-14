@@ -1,7 +1,9 @@
 package com.example.demo.model.ov;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+@Data
 public class MessageSent {
     @JsonProperty("messageid")
     Integer messageid;
