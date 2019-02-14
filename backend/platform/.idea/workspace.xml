@@ -2,47 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b172823-6183-4515-8cf2-b2509b902cb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addNoticeJsonRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ResultCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Alarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Alarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/AlarmExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/AlarmExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Ban_Reasons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Ban_Reasons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Ban_ReasonsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Ban_ReasonsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Blacklist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Blacklist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/BlacklistExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/BlacklistExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Friends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Friends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/FriendsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/FriendsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/HelpExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/HelpExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Likes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Likes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/LikesExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/LikesExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Lostlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Lostlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/LostlistExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/LostlistExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Managers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Managers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/ManagersExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/ManagersExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Notices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Notices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/NoticesExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/NoticesExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Private_Charts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Private_Charts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Private_ChartsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Private_ChartsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Tag_Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Tag_Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Tag_UsersExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Tag_UsersExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Tags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Tags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/TagsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/TagsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Unlock_Apply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Unlock_Apply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Unlock_ApplyExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Unlock_ApplyExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/UsersExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/UsersExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Views.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/ViewsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/ViewsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/FindNoticeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/FindNoticeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/tools/ResultTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/tools/ResultTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/FriendsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/FriendsMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,16 +59,56 @@
         <item name="platform: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="Notices: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform@139.199.57.40" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="Users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
+            <state relative-caret-position="-11">
+              <caret line="240" column="36" selection-start-line="240" selection-start-column="36" selection-end-line="240" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="855">
+              <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,58 +117,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Message.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/FriendsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="299">
+              <caret line="72" column="12" lean-forward="true" selection-start-line="70" selection-start-column="1" selection-end-line="72" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Login.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/FindNoticeInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addNoticeJsonRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="469">
+              <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/Result.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -178,30 +149,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/NoticesMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2700" />
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -218,12 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/FriendsExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Help.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/HelpExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Likes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/LikesExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Lostlist.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/LostlistExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Managers.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/ManagersExample.java" />
@@ -247,7 +194,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/AlarmMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Ban_ReasonsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/BlacklistMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/HelpMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/LikesMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/LostlistMapper.java" />
@@ -269,6 +215,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/UserRelationship.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserRelationshipService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/FriendsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserRelationshipServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -311,6 +264,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -352,15 +307,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="platform" type="b2602c69:ProjectViewProjectNode" />
@@ -417,28 +363,10 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapping" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,7 +377,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550071286610" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550132725569" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -517,18 +445,19 @@
       <workItem from="1550032715431" duration="1770000" />
       <workItem from="1550035154909" duration="936000" />
       <workItem from="1550036752651" duration="20000" />
-      <workItem from="1550064761018" duration="6426000" />
+      <workItem from="1550064761018" duration="7033000" />
+      <workItem from="1550123722486" duration="6952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25871000" />
+    <option name="totallyTimeSpent" value="33430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25605816" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26009694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -536,10 +465,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927953" weight="0.41584158" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927953" visible="true" weight="0.14285715" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -552,13 +480,14 @@
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.3292232" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32932165" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19063005" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.12681745" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3299712" />
@@ -574,48 +503,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/ViewsExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Private_ChartsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tag_UsersMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Unlock_ApplyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/UsersMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/ViewsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -757,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/response/CommonReturnType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -782,23 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/HelloController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform/table/Notices">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -807,26 +670,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Ban_ReasonsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/HelpMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
@@ -879,7 +722,21 @@
         <state relative-caret-position="-2700" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -893,17 +750,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="222">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/FindNoticeInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="135">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -917,20 +804,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/HelpMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/Message.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="-5">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/HelpMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/FriendsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="72" column="12" lean-forward="true" selection-start-line="70" selection-start-column="1" selection-end-line="72" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -944,10 +858,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/FriendsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
+        <state relative-caret-position="-11">
+          <caret line="240" column="36" selection-start-line="240" selection-start-column="36" selection-end-line="240" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

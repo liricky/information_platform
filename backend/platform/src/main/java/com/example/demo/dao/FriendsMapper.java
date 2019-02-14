@@ -3,6 +3,8 @@ package com.example.demo.dao;
 import com.example.demo.model.entity.Friends;
 import com.example.demo.model.entity.FriendsExample;
 import java.util.List;
+
+import com.example.demo.model.entity.Users;
 import org.apache.ibatis.annotations.Param;
 
 public interface FriendsMapper {
@@ -27,4 +29,6 @@ public interface FriendsMapper {
     int updateByPrimaryKeySelective(Friends record);
 
     int updateByPrimaryKey(Friends record);
+
+//    List<Users> getUsers(String userA);
 }
