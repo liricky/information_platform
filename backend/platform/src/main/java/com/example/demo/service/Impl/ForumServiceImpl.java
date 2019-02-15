@@ -1,16 +1,10 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.dao.LikesMapper;
-import com.example.demo.model.databaseResulttype.All;
-import com.example.demo.model.databaseResulttype.Best;
-import com.example.demo.model.databaseResulttype.NewPublish;
-import com.example.demo.model.databaseResulttype.NewReply;
+import com.example.demo.dao.*;
+import com.example.demo.model.databaseResulttype.*;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.ForumChangeLike;
 import com.example.demo.model.ov.*;
-import com.example.demo.dao.Tag_UsersMapper;
-import com.example.demo.dao.UsersMapper;
-import com.example.demo.dao.ViewsMapper;
 import com.example.demo.service.ForumService;
 import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
@@ -33,6 +27,9 @@ public class ForumServiceImpl implements ForumService {
 
     @Resource
     private LikesMapper likesMapper;
+
+    @Resource
+    private CommentsMapper commentsMapper;
 
     @Override
     public Result forumRecommend(String userid) {
@@ -237,7 +234,24 @@ public class ForumServiceImpl implements ForumService {
 
     //  通过帖子id得到帖子热评
     @Override
-    public Result forumGetHotComment(Integer postid) {
-        List<Likes> likesList = likesMapper
+    public Result forumGetHotComment(com.example.demo.model.jsonRequest.ForumGetHotComment forumGetHotComment1) {
+        List<GetHotComment> getHotCommentList = commentsMapper.getHotComment(forumGetHotComment1.getPostId());
+        List<ForumGetHotComment> forumGetHotCommentList = new LinkedList<>();
+        for(GetHotComment getHotComment : getHotCommentList){
+            ForumGetHotComment forumGetHotComment = new ForumGetHotComment();
+            forumGetHotComment.setCommentid(getHotComment.getId());
+            forumGetHotComment.setAuthor(getHotComment.getUser_id());
+            Users users = usersMapper.getById(getHotComment.getUser_id());
+            forumGetHotComment.setAuthornickname(users.getName());
+            forumGetHotComment.setContent(getHotComment.getContent());
+            forumGetHotComment.setDate(getHotComment.getTime().toString());
+            forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            if(commentsMapper.getLikeStatus(forumGetHotComment1.getPostId(),forumGetHotComment1.getUserId()) == null)
+                forumGetHotComment.setLikestatus("false");
+            else
+                forumGetHotComment.setLikestatus("true");
+            forumGetHotCommentList.add(forumGetHotComment);
+        }
+        return ResultTool.success(forumGetHotCommentList);
     }
 }

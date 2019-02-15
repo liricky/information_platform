@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.jsonRequest.ForumChangeLike;
+import com.example.demo.model.jsonRequest.ForumGetHotComment;
 import com.example.demo.model.jsonRequest.ForumGetLike;
 import com.example.demo.model.ov.Result;
 
@@ -22,5 +23,5 @@ public interface ForumService {
 
     Result forumChangeLike(ForumChangeLike forumChangeLike);
 
-    Result forumGetHotComment(Integer postid);
+    Result forumGetHotComment(ForumGetHotComment forumGetHotComment);
 }
