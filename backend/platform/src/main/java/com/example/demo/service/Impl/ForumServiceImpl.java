@@ -1,13 +1,12 @@
 package com.example.demo.service.Impl;
 
+import com.example.demo.dao.LikesMapper;
 import com.example.demo.model.databaseResulttype.All;
 import com.example.demo.model.databaseResulttype.Best;
 import com.example.demo.model.databaseResulttype.NewPublish;
 import com.example.demo.model.databaseResulttype.NewReply;
-import com.example.demo.model.entity.Tag_Users;
-import com.example.demo.model.entity.Users;
-import com.example.demo.model.entity.Views;
-import com.example.demo.model.entity.ViewsExample;
+import com.example.demo.model.entity.*;
+import com.example.demo.model.jsonRequest.ForumChangeLike;
 import com.example.demo.model.ov.*;
 import com.example.demo.dao.Tag_UsersMapper;
 import com.example.demo.dao.UsersMapper;
@@ -31,6 +30,9 @@ public class ForumServiceImpl implements ForumService {
 
     @Resource
     private Tag_UsersMapper tag_usersMapper;
+
+    @Resource
+    private LikesMapper likesMapper;
 
     @Override
     public Result forumRecommend(String userid) {
@@ -154,7 +156,6 @@ public class ForumServiceImpl implements ForumService {
     }
 
     //  全部帖子
-
     @Override
     public Result forumAll(Integer tags) {
         List<All> allList = viewsMapper.getAll(tags);
@@ -173,5 +174,70 @@ public class ForumServiceImpl implements ForumService {
             forumAllList.add(forumAll);
         }
         return ResultTool.success(forumAllList);
+    }
+
+    //  获取具体帖子内容
+    @Override
+    public Result forumDetail(Integer postid) {
+        Views views = viewsMapper.selectByPrimaryKey(postid);
+        ForumDetail forumDetail = new ForumDetail();
+        forumDetail.setPostid(views.getId());
+        forumDetail.setLabel(views.getTags());
+        forumDetail.setTitle(views.getTitle());
+        forumDetail.setContent(views.getContent());
+        forumDetail.setAuthor(views.getPuller());
+        Users users = usersMapper.getById(views.getPuller());
+        forumDetail.setAuthornickname(users.getName());
+        forumDetail.setDate(views.getTime().toString());
+
+        return ResultTool.success(forumDetail);
+    }
+
+    //  获取用户在相应帖子中的点赞状态
+    @Override
+    public Result forumGetLike(com.example.demo.model.jsonRequest.ForumGetLike forumGetLike) {
+        LikesExample likesExample = new LikesExample();
+        likesExample.createCriteria().andViewIdEqualTo(forumGetLike.getPostid()).andUserIdEqualTo(forumGetLike.getUserid());
+        List<Likes> likesList = likesMapper.selectByExample(likesExample);
+        ForumGetLike forumGetLike1 = new ForumGetLike();
+        if(likesList != null)
+            forumGetLike1.setLikestatus("true");
+        else
+            forumGetLike1.setLikestatus("false");
+        return ResultTool.success(forumGetLike1);
+    }
+
+    //  改变用户在相应帖子中的点赞状态
+    @Override
+    public Result forumChangeLike(ForumChangeLike forumChangeLike) {
+        LikesExample likesExample = new LikesExample();
+        likesExample.createCriteria().andViewIdEqualTo(forumChangeLike.getPostid()).andUserIdEqualTo(forumChangeLike.getUserid());
+        List<Likes> likesList = likesMapper.selectByExample(likesExample);
+        com.example.demo.model.ov.ForumChangeLike forumChangeLike1 = new com.example.demo.model.ov.ForumChangeLike();
+        if(likesList != null){
+            if(forumChangeLike.getLikestatus().equals("true")) {
+                likesMapper.deleteByExample(likesExample);
+                forumChangeLike1.setLikestatus("false");
+            } else
+                return ResultTool.error("数据状态不匹配");
+        } else {
+            if (forumChangeLike.getLikestatus().equals("false")){
+                Likes likes = new Likes();
+                likes.setViewId(forumChangeLike.getPostid());
+                likes.setUserId(forumChangeLike.getUserid());
+                likes.setTime(new Timestamp(System.currentTimeMillis()));
+                likes.setType(0);
+                likesMapper.insert(likes);
+                forumChangeLike1.setLikestatus("true");
+            } else
+                return ResultTool.error("数据状态不匹配");
+        }
+        return ResultTool.success(forumChangeLike1);
+    }
+
+    //  通过帖子id得到帖子热评
+    @Override
+    public Result forumGetHotComment(Integer postid) {
+        List<Likes> likesList = likesMapper
     }
 }
