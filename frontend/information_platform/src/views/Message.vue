@@ -281,9 +281,15 @@
               this.$Message.info('标题、正文及发送目标不能为空！');
             else {
               axios({
-                url: apiRoot + '/message/send/' + this.$store.state.userId + '/' + this.sendto + '/' + this.value1 + '/' + this.value2,
+                url: apiRoot + '/message/send',
                 headers: {Authorization: this.$store.state.token},
                 method: 'post',
+                data: {
+                  userid: this.$store.state.userId,
+                  sendid: this.sendto,
+                  title: this.value1,
+                  content: this.value2,
+                }
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {

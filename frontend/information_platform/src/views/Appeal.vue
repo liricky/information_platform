@@ -114,14 +114,19 @@
       },
       methods:{
         sendappeal(){
-          // console.log(this.value3);
           if(this.value1 === '' || this.value2 === '' || this.value3 === '')
             this.$Message.info('申诉类别、申述标题及申诉内容不能为空！');
           else {
             axios({
-              url: apiRoot + '/appeal/send/' + this.$store.state.userId + '/' + this.value3 + '/' + this.value1 + '/' + this.value2,
+              url: apiRoot + '/appeal/send',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                type: this.value3,
+                title: this.value1,
+                reason: this.value2,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {

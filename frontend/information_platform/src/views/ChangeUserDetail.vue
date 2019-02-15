@@ -152,9 +152,13 @@
       setmyself(){
         if(this.value1) {
           axios({
-            url: apiRoot + '/user/setmyself/' + this.$store.state.userId + '/' + this.value1,
+            url: apiRoot + '/user/setmyself',
             headers: {Authorization: this.$store.state.token},
             method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              usernickname: this.value1,
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
@@ -239,9 +243,13 @@
       },
       deletepost(id){
         axios({
-          url: apiRoot + '/user/deletepost/' + this.$store.state.userId + '/' + id,
+          url: apiRoot + '/user/deletepost',
           headers: {Authorization: this.$store.state.token},
           method: 'post',
+          data: {
+            userid: this.$store.state.userId,
+            postid: id,
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
@@ -264,9 +272,13 @@
       },
       deletecomment(id){
         axios({
-          url: apiRoot + '/user/deletecomment/' + this.$store.state.userId + '/' + id,
+          url: apiRoot + '/user/deletecomment',
           headers: {Authorization: this.$store.state.token},
           method: 'post',
+          data: {
+            userid: this.$store.state.userId,
+            commentid: id,
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {

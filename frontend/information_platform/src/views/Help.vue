@@ -249,9 +249,14 @@
             this.$Message.info('联系方式不能为空！');
           else {
             axios({
-              url: apiRoot + '/help/claim/' + this.temp + '/' + this.$store.state.userId + '/' + this.value1,
+              url: apiRoot + '/help/claim',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                missionid: this.temp,
+                userid: this.$store.state.userId,
+                phone: this.value1,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -290,9 +295,13 @@
             this.$Message.info('原因不能为空！');
           else {
             axios({
-              url: apiRoot + '/help/cancel/' + this.temp + '/' + this.$store.state.userId,
+              url: apiRoot + '/help/cancel',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                missionid: this.temp,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -331,9 +340,13 @@
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
             axios({
-              url: apiRoot + '/help/claimfinish/' + id + '/' + this.$store.state.userId,
+              url: apiRoot + '/help/claimfinish',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                missionid: id,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -368,9 +381,13 @@
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
             axios({
-              url: apiRoot + '/help/sentfinish/' + id + '/' + this.$store.state.userId,
+              url: apiRoot + '/help/sentfinish',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                missionid: id,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -412,9 +429,15 @@
             this.$Message.info('任务内容、联系方式及设置时间不能为空');
           else {
             axios({
-              url: apiRoot + '/help/send/' + this.$store.state.userId + '/' + this.value3 + '/' + this.value4 + '/' + this.datevalue + "*" + this.timevalue,
+              url: apiRoot + '/help/send',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                content: this.value3,
+                phone: this.value4,
+                enddate: this.datevalue + " " + this.timevalue,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {

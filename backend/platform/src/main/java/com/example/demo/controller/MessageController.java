@@ -22,7 +22,7 @@ public class MessageController {
     @Resource
     private UsersMapper usersMapper;
 
-    @PostMapping("/receive/{userid}")
+    @GetMapping("/receive/{userid}")
     public Result messageReceive(@RequestHeader(value = "Authorization") String token, @PathVariable("userid") String userid){
         if(StringUtils.isEmpty(token) || StringUtils.isEmpty(userid)){
             return ResultTool.error("传入数据不能空！");
@@ -35,7 +35,7 @@ public class MessageController {
         }
     }
 
-    @PostMapping("/sent/{userid}")
+    @GetMapping("/sent/{userid}")
     public Result messageSent(@RequestHeader(value = "Authorization") String token, @PathVariable("userid") String userid){
         if(StringUtils.isEmpty(token) || StringUtils.isEmpty(userid)){
             return ResultTool.error("传入数据不能空！");
@@ -48,18 +48,13 @@ public class MessageController {
         }
     }
 
-    @PostMapping("/send/{userid}/{sendid}/{title}/{content}")
-    public Result messageSend(@RequestHeader(value = "Authorization") String token, @PathVariable("userid") String userid, @PathVariable("sendid") String sendid, @PathVariable("title") String title, @PathVariable("content") String content){
-        if(StringUtils.isEmpty(token) || StringUtils.isEmpty(userid) || StringUtils.isEmpty(sendid) || StringUtils.isEmpty(title) || StringUtils.isEmpty(content)){
+    @PostMapping("/send")
+    public Result messageSend(@RequestHeader(value = "Authorization") String token, @RequestBody MessageSend messageSend){
+        if(StringUtils.isEmpty(token) || StringUtils.isEmpty(messageSend.getUserid()) || StringUtils.isEmpty(messageSend.getSendid()) || StringUtils.isEmpty(messageSend.getTitle()) || StringUtils.isEmpty(messageSend.getContent())){
             return ResultTool.error("传入数据不能空！");
         }
-        Users users = usersMapper.getById(userid);
+        Users users = usersMapper.getById(messageSend.getUserid());
         if(users.getToken().equals(token)){
-            MessageSend messageSend = new MessageSend();
-            messageSend.setUserid(userid);
-            messageSend.setSendid(sendid);
-            messageSend.setTitle(title);
-            messageSend.setContent(content);
             return messageService.messagesend(messageSend);
         } else{
             return ResultTool.error("登录状态验证失败！");

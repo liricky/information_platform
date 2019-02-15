@@ -280,9 +280,14 @@
             this.$Message.info('评论内容不能为空！');
           } else {
             axios({
-              url: apiRoot + '/forum/createcomment/' + this.$store.state.userId + '/' + this.value1 + '/' + this.postid,
+              url: apiRoot + '/forum/createcomment',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                content: this.value1,
+                postid: this.postid,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -303,9 +308,14 @@
       changelikestatus(){
         if(this.$store.state.token) {
           axios({
-            url: apiRoot + '/forum/changelike/' + this.$store.state.userId + '/' + this.postid + '/' + this.likestatus === "true" ? "false" : "true",
+            url: apiRoot + '/forum/changelike',
             headers: {Authorization: this.$store.state.token},
             method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              postid: this.postid,
+              likestatus: this.likestatus === "true" ? "false" : "true",
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
@@ -348,9 +358,14 @@
       changecommentlikestatus(commentid){
         if(this.$store.state.token) {
           axios({
-            url: apiRoot + '/forum/changecommentlike/' + this.$store.state.userId + '/' + commentid + '/' + this.getcommentlikestatus(commentid) === "true" ? "false" : "true",
+            url: apiRoot + '/forum/changecommentlike',
             headers: {Authorization: this.$store.state.token},
             method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              commentid: commentid,
+              likestatus: this.getcommentlikestatus(commentid) === "true" ? "false" : "true",
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {

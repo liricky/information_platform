@@ -76,9 +76,13 @@
         addfriend(){
           if(this.$store.state.token) {
             axios({
-              url: apiRoot + '/user/addfriend/' + this.$store.state.userId + '/' + this.userdate.userid,
+              url: apiRoot + '/user/addfriend',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                friendid: this.userdate.userid,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -98,9 +102,13 @@
         addblacklist(){
           if(this.$store.state.token) {
             axios({
-              url: apiRoot + '/user/addblacklist/' + this.$store.state.userId + '/' + this.userdate.userid,
+              url: apiRoot + '/user/addblacklist',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                blacklistid: this.userdate.userid,
+              }
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
