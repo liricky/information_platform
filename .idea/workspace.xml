@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d578acab-875f-4d50-91c4-3d98533c92ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" afterDir="false" />
-    </list>
+    <list default="true" id="d578acab-875f-4d50-91c4-3d98533c92ea" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/frontend/information_platform/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -81,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="249" column="22" lean-forward="true" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
+            <state relative-caret-position="253">
+              <caret line="266" column="2" lean-forward="true" selection-start-line="266" selection-start-column="2" selection-end-line="266" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -135,7 +130,6 @@
         <option value="$PROJECT_DIR$/frontend/information_platform/mock/reply.json" />
         <option value="$PROJECT_DIR$/frontend/information_platform/mock/sentmsg.json" />
         <option value="$PROJECT_DIR$/frontend/information_platform/mock/logout.json" />
-        <option value="$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue" />
@@ -152,6 +146,7 @@
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" />
+        <option value="$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js" />
       </list>
     </option>
   </component>
@@ -293,16 +288,15 @@
       <workItem from="1550069798235" duration="8000" />
       <workItem from="1550111138871" duration="1646000" />
       <workItem from="1550148676380" duration="7198000" />
-      <workItem from="1550192368461" duration="1930000" />
+      <workItem from="1550192368461" duration="2108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14083000" />
+    <option name="totallyTimeSpent" value="14261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1080" extended-state="4" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.84851694" visible="true" weight="0.19530416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -615,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="249" column="22" lean-forward="true" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
+        <state relative-caret-position="253">
+          <caret line="266" column="2" lean-forward="true" selection-start-line="266" selection-start-column="2" selection-end-line="266" selection-end-column="2" />
         </state>
       </provider>
     </entry>
