@@ -1,15 +1,14 @@
 package com.example.demo.service.Impl;
 
+import com.example.demo.model.databaseResulttype.All;
+import com.example.demo.model.databaseResulttype.Best;
 import com.example.demo.model.databaseResulttype.NewPublish;
 import com.example.demo.model.databaseResulttype.NewReply;
 import com.example.demo.model.entity.Tag_Users;
 import com.example.demo.model.entity.Users;
 import com.example.demo.model.entity.Views;
 import com.example.demo.model.entity.ViewsExample;
-import com.example.demo.model.ov.ForumNewPublish;
-import com.example.demo.model.ov.ForumNewReply;
-import com.example.demo.model.ov.ForumRecommend;
-import com.example.demo.model.ov.Result;
+import com.example.demo.model.ov.*;
 import com.example.demo.dao.Tag_UsersMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.dao.ViewsMapper;
@@ -131,5 +130,48 @@ public class ForumServiceImpl implements ForumService {
             forumNewPublishList.add(forumNewPublish);
         }
         return ResultTool.success(forumNewPublishList);
+    }
+
+    //  精华帖子
+    @Override
+    public Result forumBest(Integer tags) {
+        List<Best> bestList = viewsMapper.getBest(tags);
+        List<ForumBest> forumBestList = new LinkedList<>();
+        for(Best best : bestList){
+            ForumBest forumBest = new ForumBest();
+            forumBest.setPostid(best.getId());
+            forumBest.setLabel(best.getTags());
+            forumBest.setTitle(best.getTitle());
+            forumBest.setAuthor(best.getPuller());
+            Users users = usersMapper.getById(best.getPuller());
+            forumBest.setAuthornickname(users.getName());
+            forumBest.setDate(best.getTime().toString());
+            forumBest.setCommentnum(viewsMapper.getCommentNum(best.getId()));
+            forumBest.setLikenum(viewsMapper.getLikeNum(best.getId()));
+            forumBestList.add(forumBest);
+        }
+        return ResultTool.success(forumBestList);
+    }
+
+    //  全部帖子
+
+    @Override
+    public Result forumAll(Integer tags) {
+        List<All> allList = viewsMapper.getAll(tags);
+        List<ForumAll> forumAllList = new LinkedList<>();
+        for(All all : allList){
+            ForumAll forumAll = new ForumAll();
+            forumAll.setPostid(all.getId());
+            forumAll.setLabel(all.getTags());
+            forumAll.setTitle(all.getTitle());
+            forumAll.setAuthor(all.getPuller());
+            Users users = usersMapper.getById(all.getPuller());
+            forumAll.setAuthornickname(users.getName());
+            forumAll.setDate(all.getTime().toString());
+            forumAll.setCommentnum(viewsMapper.getCommentNum(all.getId()));
+            forumAll.setLikenum(viewsMapper.getLikeNum(all.getId()));
+            forumAllList.add(forumAll);
+        }
+        return ResultTool.success(forumAllList);
     }
 }

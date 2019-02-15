@@ -271,4 +271,24 @@
     where tags = #{0} and time > date_add(now(), interval -2 day)
     order by time desc
   </select>
+
+  <!--获取版块精华的帖子-->
+  <select id="getBest" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.Best" >
+    select
+    V.id,V.tags,V.title,V.puller,V.time
+    from Likes inner join Views V on Likes.view_id = V.id
+    where V.tags = #{0}
+    group by V.id
+    having count(*) > 50
+    order by V.time desc
+  </select>
+
+  <!--获取版块精华的帖子-->
+  <select id="getAll" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.All" >
+    select
+    id,tags,title,puller,time
+    from Views
+    where tags = #{0} and time > date_add(now(), interval -7 day)
+    order by V.time desc
+  </select>
 </mapper>

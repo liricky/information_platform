@@ -9,4 +9,8 @@ public interface ForumService {
     Result forumNewReply(Integer tags);
 
     Result forumNewPublish(Integer tags);
+
+    Result forumBest(Integer tags);
+
+    Result forumAll(Integer tags);
 }
