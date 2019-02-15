@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b172823-6183-4515-8cf2-b2509b902cb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +86,7 @@
           <entry key="Friends" value="1" />
           <entry key="Private_Charts" value="2" />
           <entry key="Users" value="8" />
-          <entry key="java" value="298" />
+          <entry key="java" value="300" />
           <entry key="sql" value="3" />
           <entry key="xml" value="34" />
           <entry key="yml" value="1" />
@@ -95,7 +95,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="11" />
-          <entry key="JAVA" value="298" />
+          <entry key="JAVA" value="300" />
           <entry key="Scratch" value="3" />
           <entry key="XML" value="34" />
           <entry key="YAML" value="1" />
@@ -103,7 +103,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5796" />
+          <entry key="java" value="5836" />
           <entry key="sql" value="233" />
           <entry key="txt" value="21" />
           <entry key="xml" value="719" />
@@ -111,7 +111,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5796" />
+          <entry key="JAVA" value="5836" />
           <entry key="PLAIN_TEXT" value="21" />
           <entry key="SQL" value="8" />
           <entry key="Scratch" value="233" />
@@ -122,24 +122,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/UsersMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/UsersExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Users.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,7 +143,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="727">
@@ -169,6 +151,24 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="708">
+              <caret line="89" column="8" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -272,7 +272,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapping/UsersMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/UsersMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/Tag_UsersMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tag_UsersMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/ForumRecommend.java" />
@@ -291,7 +290,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapping/Private_ChartsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/ViewsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ResultCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/ResultWithoutData.java" />
@@ -302,6 +300,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/16b8376c-8349-49d7-9d47-41b94d636d8a/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -597,12 +597,12 @@
       <workItem from="1550124001278" duration="163000" />
       <workItem from="1550124186937" duration="16304000" />
       <workItem from="1550154621170" duration="576000" />
-      <workItem from="1550196060130" duration="560000" />
+      <workItem from="1550196060130" duration="1298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79926000" />
+    <option name="totallyTimeSpent" value="80664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1080" extended-state="4" />
@@ -637,7 +637,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3271078" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.13019694" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.13457331" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32932165" />
@@ -807,13 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1349">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -875,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -997,6 +983,20 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="89" column="8" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="8" />
         </state>
       </provider>
     </entry>

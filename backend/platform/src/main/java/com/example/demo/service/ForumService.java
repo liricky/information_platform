@@ -6,4 +6,5 @@ public interface ForumService {
 
     Result forumrecommend(String userid);
 
+    Result forumnewreply(Integer tags);
 }

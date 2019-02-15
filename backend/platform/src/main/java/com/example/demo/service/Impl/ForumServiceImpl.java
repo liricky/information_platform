@@ -84,4 +84,10 @@ public class ForumServiceImpl implements ForumService {
 
         return ResultTool.success(forumRecommendList);
     }
+
+    @Override
+    public Result forumnewreply(Integer tags) {
+        
+        return null;
+    }
 }

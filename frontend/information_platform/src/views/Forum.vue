@@ -4,10 +4,10 @@
     <div class="center">
       <Tabs class="cards" type="card">
         <TabPane label="推荐">
-          <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
-          <br>
-          <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
-          <Row class="cardbox" style="background:#eee;padding:20px"  v-if="status1 === 'success'">
+          <font size="10" v-if="!$store.state.token">请登录后获取为您推荐的内容</font>
+          <font size="10" v-else-if="$store.state.token && status1 === 'fail'">信息获取失败</font>
+          <font size="4" v-else-if="$store.state.token && status1 === 'fail'">{{errormsg1}}</font>
+          <Row class="cardbox" style="background:#eee;padding:20px"  v-if="$store.state.token && status1 === 'success'">
             <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.postid">
               <div @click="jumpDetail(post.postid)" class="back">
                 <Card class="card" :bordered="true">
