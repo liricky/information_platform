@@ -30,8 +30,10 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Result messagereceive(String receiverid) {
         Private_ChartsExample private_chartsExample = new Private_ChartsExample();
+        private_chartsExample.setOrderByClause("send_time DESC");
         private_chartsExample.createCriteria().andReceiverEqualTo(receiverid).andStateEqualTo(1);  //1 为未读内容
         Private_ChartsExample private_chartsExample1 = new Private_ChartsExample();
+        private_chartsExample.setOrderByClause("send_time DESC");
         private_chartsExample1.createCriteria().andReceiverEqualTo(receiverid).andStateEqualTo(0);  //0为已读内容
         List<Private_Charts> private_chartsList = private_chartsMapper.selectByExample(private_chartsExample);
         List<Private_Charts> private_chartsList1 = private_chartsMapper.selectByExample(private_chartsExample1);
@@ -64,6 +66,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Result messagesent(String sentid) {
         Private_ChartsExample private_chartsExample = new Private_ChartsExample();
+        private_chartsExample.setOrderByClause("send_time DESC");
         private_chartsExample.createCriteria().andSenderEqualTo(sentid);
         List<Private_Charts> private_chartsList = private_chartsMapper.selectByExample(private_chartsExample);
         if(private_chartsList.isEmpty() == true){
