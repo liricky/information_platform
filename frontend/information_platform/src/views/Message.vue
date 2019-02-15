@@ -187,9 +187,10 @@
         },
         methods:{
           getrev(){
-            axios.get("/api/message/receive", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/message/receive/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
@@ -202,9 +203,10 @@
             })
           },
           getsent(){
-            axios.get("/api/message/sent", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/message/sent/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
@@ -217,9 +219,10 @@
             })
           },
           getfriend(){
-            axios.get("/api/user/getfriend", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url: apiRoot + '/user/getfriend/' + this.$store.state.userId,
+              headers: {Authorization: this.$store.state.token},
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
@@ -233,10 +236,10 @@
           },
           show(id){
             this.modal1 = true;
-            axios.get("/api/message/detail",{
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
-              messageid: id,
+            axios({
+              url: apiRoot + '/message/detail/' + this.$store.state.userId + '/' + id,
+              headers: {Authorization: this.$store.state.token},
+              method: 'get',
             }).then((response)=>{
               let res = response.data;
               if(res.status === "success"){
@@ -277,12 +280,10 @@
             if(this.value1 === '' || this.value2 === '' || this.sendto === '')
               this.$Message.info('标题、正文及发送目标不能为空！');
             else {
-              axios.post("/api/message/send", {
-                token: this.$store.state.token,
-                userId: this.$store.state.userId,
-                sendId: this.sendto,
-                title: this.value1,
-                content: this.value2,
+              axios({
+                url: apiRoot + '/message/send/' + this.$store.state.userId + '/' + this.sendto + '/' + this.value1 + '/' + this.value2,
+                headers: {Authorization: this.$store.state.token},
+                method: 'post',
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {

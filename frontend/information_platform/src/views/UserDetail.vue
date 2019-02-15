@@ -57,10 +57,10 @@
       methods:{
         getParams(){
           this.userdate.userid = this.$route.query.id;
-          axios.get("/api/user/getuserinfo", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            searchuserid: this.userdate.userid,
+          axios({
+            url: apiRoot + '/user/getuserinfo/' + this.$store.state.userId + '/' + this.userdate.userid,
+            headers: {Authorization: this.$store.state.token},
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -75,10 +75,10 @@
         },
         addfriend(){
           if(this.$store.state.token) {
-            axios.post("/api/user/addfriend", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              friendid: this.userdate.userid,
+            axios({
+              url: apiRoot + '/user/addfriend/' + this.$store.state.userId + '/' + this.userdate.userid,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -97,10 +97,10 @@
         },
         addblacklist(){
           if(this.$store.state.token) {
-            axios.post("/api/user/addblacklist", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              blacklistid: this.userdate.userid,
+            axios({
+              url: apiRoot + '/user/addblacklist/' + this.$store.state.userId + '/' + this.userdate.userid,
+              headers: {Authorization: this.$store.state.token},
+              method: 'post',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
