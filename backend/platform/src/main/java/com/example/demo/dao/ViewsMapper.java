@@ -1,7 +1,11 @@
 package com.example.demo.dao;
 
+import com.example.demo.model.databaseResulttype.NewPublish;
+import com.example.demo.model.databaseResulttype.NewReply;
 import com.example.demo.model.entity.Views;
 import com.example.demo.model.entity.ViewsExample;
+
+import java.sql.Timestamp;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,6 +23,10 @@ public interface ViewsMapper {
     List<Views> selectByExample(ViewsExample example);
 
     List<Views> getRecommend(Integer tags);
+
+    List<NewReply> getNewReply(Integer tags);
+
+    List<NewPublish> getNewPublish(Integer tags);
 
     int getCommentNum(Integer id);
 

@@ -254,4 +254,21 @@
     group by view_id
   </select>
 
+  <!--获取最新回复的帖子-->
+  <select id="getNewReply" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.NewReply" >
+    select
+    V.id,V.tags,V.title,V.puller,V.time,MAX(Comments.time) as commenttime
+    from Comments inner join Views V on Comments.view_id = V.id
+    where V.tags = #{0} and V.time > date_add(now(), interval -2 day)
+    order by Max(Comments.time) desc
+  </select>
+
+  <!--获取最新发布的帖子-->
+  <select id="getNewPublish" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.NewPublish" >
+    select
+    id,tags,title,puller,time
+    from Views
+    where tags = #{0} and time > date_add(now(), interval -2 day)
+    order by time desc
+  </select>
 </mapper>

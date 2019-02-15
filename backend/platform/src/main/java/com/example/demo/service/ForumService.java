@@ -4,7 +4,9 @@ import com.example.demo.model.ov.Result;
 
 public interface ForumService {
 
-    Result forumrecommend(String userid);
+    Result forumRecommend(String userid);
 
-    Result forumnewreply(Integer tags);
+    Result forumNewReply(Integer tags);
+
+    Result forumNewPublish(Integer tags);
 }
