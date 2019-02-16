@@ -67,11 +67,6 @@
   <sql id="Base_Column_List" >
     id, userA, userB
   </sql>
-
-  <!--<sql id="User_List" >-->
-    <!--id, name, identity ,banState,banType,banReason,banStart,banEnd,conins,password,token-->
-  <!--</sql>-->
-
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.FriendsExample" >
     select
     <if test="distinct" >
@@ -184,12 +179,4 @@
       userB = #{userb,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-  <!--<select id="getUserName" parameterType="java.lang.String" resultType="com.example.demo.model.entity.Users">-->
-    <!--select-->
-    <!--<include refid="User_List" />-->
-    <!--from Users inner join Friends F on Users.id = F.userB-->
-    <!--where userA=#{uesrA,jdbcType=VARCHAR}-->
-  <!--</select>-->
-
 </mapper>

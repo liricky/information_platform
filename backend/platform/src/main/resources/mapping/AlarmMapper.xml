@@ -9,7 +9,7 @@
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
     <result column="view_type" property="viewType" jdbcType="INTEGER" />
-    <result column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="commend_id" property="commendId" jdbcType="INTEGER" />
     <result column="view_id" property="viewId" jdbcType="INTEGER" />
     <result column="task_id" property="taskId" jdbcType="INTEGER" />
   </resultMap>
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, alarming_user, alarmed_user, alarm_type, time, reason, view_type, comment_id, 
+    id, alarming_user, alarmed_user, alarm_type, time, reason, view_type, commend_id, 
     view_id, task_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.model.entity.AlarmExample" >
@@ -109,11 +109,11 @@
   <insert id="insert" parameterType="com.example.demo.model.entity.Alarm" >
     insert into Alarm (id, alarming_user, alarmed_user, 
       alarm_type, time, reason, 
-      view_type, comment_id, view_id, 
+      view_type, commend_id, view_id, 
       task_id)
     values (#{id,jdbcType=INTEGER}, #{alarmingUser,jdbcType=VARCHAR}, #{alarmedUser,jdbcType=VARCHAR}, 
       #{alarmType,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}, 
-      #{viewType,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, 
+      #{viewType,jdbcType=INTEGER}, #{commendId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, 
       #{taskId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.entity.Alarm" >
@@ -140,8 +140,8 @@
       <if test="viewType != null" >
         view_type,
       </if>
-      <if test="commentId != null" >
-        comment_id,
+      <if test="commendId != null" >
+        commend_id,
       </if>
       <if test="viewId != null" >
         view_id,
@@ -172,8 +172,8 @@
       <if test="viewType != null" >
         #{viewType,jdbcType=INTEGER},
       </if>
-      <if test="commentId != null" >
-        #{commentId,jdbcType=INTEGER},
+      <if test="commendId != null" >
+        #{commendId,jdbcType=INTEGER},
       </if>
       <if test="viewId != null" >
         #{viewId,jdbcType=INTEGER},
@@ -213,8 +213,8 @@
       <if test="record.viewType != null" >
         view_type = #{record.viewType,jdbcType=INTEGER},
       </if>
-      <if test="record.commentId != null" >
-        comment_id = #{record.commentId,jdbcType=INTEGER},
+      <if test="record.commendId != null" >
+        commend_id = #{record.commendId,jdbcType=INTEGER},
       </if>
       <if test="record.viewId != null" >
         view_id = #{record.viewId,jdbcType=INTEGER},
@@ -236,7 +236,7 @@
       time = #{record.time,jdbcType=TIMESTAMP},
       reason = #{record.reason,jdbcType=VARCHAR},
       view_type = #{record.viewType,jdbcType=INTEGER},
-      comment_id = #{record.commentId,jdbcType=INTEGER},
+      commend_id = #{record.commendId,jdbcType=INTEGER},
       view_id = #{record.viewId,jdbcType=INTEGER},
       task_id = #{record.taskId,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -264,8 +264,8 @@
       <if test="viewType != null" >
         view_type = #{viewType,jdbcType=INTEGER},
       </if>
-      <if test="commentId != null" >
-        comment_id = #{commentId,jdbcType=INTEGER},
+      <if test="commendId != null" >
+        commend_id = #{commendId,jdbcType=INTEGER},
       </if>
       <if test="viewId != null" >
         view_id = #{viewId,jdbcType=INTEGER},
@@ -284,7 +284,7 @@
       time = #{time,jdbcType=TIMESTAMP},
       reason = #{reason,jdbcType=VARCHAR},
       view_type = #{viewType,jdbcType=INTEGER},
-      comment_id = #{commentId,jdbcType=INTEGER},
+      commend_id = #{commendId,jdbcType=INTEGER},
       view_id = #{viewId,jdbcType=INTEGER},
       task_id = #{taskId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

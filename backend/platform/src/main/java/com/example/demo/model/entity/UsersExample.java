@@ -305,66 +305,6 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andBanstateIsNull() {
-            addCriterion("banState is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateIsNotNull() {
-            addCriterion("banState is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateEqualTo(Boolean value) {
-            addCriterion("banState =", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateNotEqualTo(Boolean value) {
-            addCriterion("banState <>", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateGreaterThan(Boolean value) {
-            addCriterion("banState >", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("banState >=", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateLessThan(Boolean value) {
-            addCriterion("banState <", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateLessThanOrEqualTo(Boolean value) {
-            addCriterion("banState <=", value, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateIn(List<Boolean> values) {
-            addCriterion("banState in", values, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateNotIn(List<Boolean> values) {
-            addCriterion("banState not in", values, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateBetween(Boolean value1, Boolean value2) {
-            addCriterion("banState between", value1, value2, "banstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andBanstateNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("banState not between", value1, value2, "banstate");
-            return (Criteria) this;
-        }
-
         public Criteria andBantypeIsNull() {
             addCriterion("banType is null");
             return (Criteria) this;
@@ -375,63 +315,113 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andBantypeEqualTo(String value) {
+        public Criteria andBantypeEqualTo(Integer value) {
             addCriterion("banType =", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeNotEqualTo(String value) {
+        public Criteria andBantypeNotEqualTo(Integer value) {
             addCriterion("banType <>", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeGreaterThan(String value) {
+        public Criteria andBantypeGreaterThan(Integer value) {
             addCriterion("banType >", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeGreaterThanOrEqualTo(String value) {
+        public Criteria andBantypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("banType >=", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeLessThan(String value) {
+        public Criteria andBantypeLessThan(Integer value) {
             addCriterion("banType <", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeLessThanOrEqualTo(String value) {
+        public Criteria andBantypeLessThanOrEqualTo(Integer value) {
             addCriterion("banType <=", value, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeLike(String value) {
-            addCriterion("banType like", value, "bantype");
-            return (Criteria) this;
-        }
-
-        public Criteria andBantypeNotLike(String value) {
-            addCriterion("banType not like", value, "bantype");
-            return (Criteria) this;
-        }
-
-        public Criteria andBantypeIn(List<String> values) {
+        public Criteria andBantypeIn(List<Integer> values) {
             addCriterion("banType in", values, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeNotIn(List<String> values) {
+        public Criteria andBantypeNotIn(List<Integer> values) {
             addCriterion("banType not in", values, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeBetween(String value1, String value2) {
+        public Criteria andBantypeBetween(Integer value1, Integer value2) {
             addCriterion("banType between", value1, value2, "bantype");
             return (Criteria) this;
         }
 
-        public Criteria andBantypeNotBetween(String value1, String value2) {
+        public Criteria andBantypeNotBetween(Integer value1, Integer value2) {
             addCriterion("banType not between", value1, value2, "bantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateIsNull() {
+            addCriterion("banState is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateIsNotNull() {
+            addCriterion("banState is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateEqualTo(Integer value) {
+            addCriterion("banState =", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateNotEqualTo(Integer value) {
+            addCriterion("banState <>", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateGreaterThan(Integer value) {
+            addCriterion("banState >", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("banState >=", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateLessThan(Integer value) {
+            addCriterion("banState <", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateLessThanOrEqualTo(Integer value) {
+            addCriterion("banState <=", value, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateIn(List<Integer> values) {
+            addCriterion("banState in", values, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateNotIn(List<Integer> values) {
+            addCriterion("banState not in", values, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateBetween(Integer value1, Integer value2) {
+            addCriterion("banState between", value1, value2, "banstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanstateNotBetween(Integer value1, Integer value2) {
+            addCriterion("banState not between", value1, value2, "banstate");
             return (Criteria) this;
         }
 
@@ -445,52 +435,62 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonEqualTo(Integer value) {
+        public Criteria andBanreasonEqualTo(String value) {
             addCriterion("banReason =", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonNotEqualTo(Integer value) {
+        public Criteria andBanreasonNotEqualTo(String value) {
             addCriterion("banReason <>", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonGreaterThan(Integer value) {
+        public Criteria andBanreasonGreaterThan(String value) {
             addCriterion("banReason >", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonGreaterThanOrEqualTo(Integer value) {
+        public Criteria andBanreasonGreaterThanOrEqualTo(String value) {
             addCriterion("banReason >=", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonLessThan(Integer value) {
+        public Criteria andBanreasonLessThan(String value) {
             addCriterion("banReason <", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonLessThanOrEqualTo(Integer value) {
+        public Criteria andBanreasonLessThanOrEqualTo(String value) {
             addCriterion("banReason <=", value, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonIn(List<Integer> values) {
+        public Criteria andBanreasonLike(String value) {
+            addCriterion("banReason like", value, "banreason");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanreasonNotLike(String value) {
+            addCriterion("banReason not like", value, "banreason");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanreasonIn(List<String> values) {
             addCriterion("banReason in", values, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonNotIn(List<Integer> values) {
+        public Criteria andBanreasonNotIn(List<String> values) {
             addCriterion("banReason not in", values, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonBetween(Integer value1, Integer value2) {
+        public Criteria andBanreasonBetween(String value1, String value2) {
             addCriterion("banReason between", value1, value2, "banreason");
             return (Criteria) this;
         }
 
-        public Criteria andBanreasonNotBetween(Integer value1, Integer value2) {
+        public Criteria andBanreasonNotBetween(String value1, String value2) {
             addCriterion("banReason not between", value1, value2, "banreason");
             return (Criteria) this;
         }

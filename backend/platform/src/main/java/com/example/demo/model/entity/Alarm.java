@@ -17,7 +17,7 @@ public class Alarm {
 
     private Integer viewType;
 
-    private Integer commentId;
+    private Integer commendId;
 
     private Integer viewId;
 
@@ -79,12 +79,12 @@ public class Alarm {
         this.viewType = viewType;
     }
 
-    public Integer getCommentId() {
-        return commentId;
+    public Integer getCommendId() {
+        return commendId;
     }
 
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
+    public void setCommendId(Integer commendId) {
+        this.commendId = commendId;
     }
 
     public Integer getViewId() {

@@ -13,7 +13,7 @@ public class Likes {
 
     private Integer type;
 
-    private Integer commentId;
+    private Integer commendId;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class Likes {
         this.type = type;
     }
 
-    public Integer getCommentId() {
-        return commentId;
+    public Integer getCommendId() {
+        return commendId;
     }
 
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
+    public void setCommendId(Integer commendId) {
+        this.commendId = commendId;
     }
 }
