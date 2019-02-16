@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
                     TokenResponse response = new TokenResponse();
                     response.setToken(JwtUtil.createJwt(user.getUserId()));
                     response.setIdentity(existedUser.getIdentity());
-                    response.setId(existedUser.getId());
+                    response.setId(user.getUserId());
                     response.setUserNickname(existedUser.getName());
                     return ResultTool.success(response);
                 } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
@@ -61,11 +61,13 @@ public class UserServiceImpl implements UserService {
                     if (AuthTool.getAuth(user.getUserId(), user.getUserPwd())) {
                         Users record = new Users();
                         record.setId(user.getUserId());
-                        record.setPassword(SecurityTool.encodeByMd5(user.getUserPwd()));
+                        record.setPassword(user.getUserPwd());
                         usersMapper.updateByPrimaryKeySelective(record);
                         TokenResponse response = new TokenResponse();
                         response.setToken(JwtUtil.createJwt(user.getUserId()));
                         response.setIdentity(existedUser.getIdentity());
+                        response.setUserNickname(existedUser.getName());
+                        response.setId(existedUser.getId());
                         return ResultTool.success(response);
 
                     } else {
@@ -83,11 +85,12 @@ public class UserServiceImpl implements UserService {
                 Users systemUser = AuthTool.getInfo(user.getUserId());
                 assert systemUser != null;
                 systemUser.setId(user.getUserId());
-                try {
-                    systemUser.setPassword(SecurityTool.encodeByMd5(user.getUserPwd()));
-                } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-                    return ResultTool.error(e.getMessage());
-                }
+//                try {
+//                    systemUser.setPassword(SecurityTool.encodeByMd5(user.getUserPwd()));
+//                } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+//                    return ResultTool.error(e.getMessage());
+//                }
+                systemUser.setPassword(user.getUserPwd());
                 Matcher matcher = pattern.matcher(user.getUserId());
                 TokenResponse response = new TokenResponse();
                 if(matcher.find()) {
