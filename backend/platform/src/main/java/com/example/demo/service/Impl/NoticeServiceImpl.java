@@ -14,6 +14,7 @@ import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -88,18 +89,20 @@ public class NoticeServiceImpl implements NoticeService {
     //  根据日期查询公告
     @Override
     public Result findNoticesByDate(String date) {
-        String start=date+=" 00:00:00";
-        String end=date+=" 23:59:59";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
+        String start=date+" 00:00:00";
+        String end=date+" 23:59:59";
         Date start_time=new Date();
         Date end_time=new Date();
+        System.out.println(start);
+        System.out.println(end);
         try {
-            start_time=sdf.parse(start);
-            end_time=sdf.parse(end);
+            start_time= Timestamp.valueOf(start);
+            end_time=Timestamp.valueOf(end);
         }catch (Exception e){
             System.out.println("时间转换错误");
         }
-
+        System.out.println(start_time.toString());
+        System.out.println(end_time.toString());
         NoticesExample noticesExample=new NoticesExample();
         noticesExample.createCriteria().andTimeBetween(start_time,end_time);
         List<Notices> noticesList=noticeMapper.selectByExample(noticesExample);

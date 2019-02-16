@@ -27,9 +27,17 @@ public class NoticeController {
     }
 
     //  根据日期获取公告
-    @RequestMapping(value = "/announcement/date",method = RequestMethod.GET)
-    public Result findNoticeByDate(HttpServletRequest httpServletRequest, @RequestParam("datetime") String date){
+    @GetMapping("/announcement/{date}")
+    public Result findNoticeByDate(@PathVariable("date") String date){
         return noticeService.findNoticesByDate(date);
     }
+
+    //  根据管理员获取公告信息
+    @GetMapping("/manage/announcement/{managerId}")
+    public Result findNoticeByManagerId(@PathVariable("managerId") String managerId){
+        return noticeService.findNoticesByManager(managerId);
+    }
+
+    //  管理员发布公告
 }
 

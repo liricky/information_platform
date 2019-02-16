@@ -42,25 +42,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!--&lt;!&ndash;分页插件&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.github.pagehelper</groupId>-->
-            <!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
-            <!--<version>1.1.2</version>-->
-        <!--</dependency>-->
 
-        <!--&lt;!&ndash;阿里数据库连接池&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid-spring-boot-starter</artifactId>-->
-            <!--<version>1.1.0</version>-->
-        <!--</dependency>-->
         <!--数据库连接池-->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jdbc</artifactId>
         </dependency>
-
+        <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -72,11 +60,14 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.auth0</groupId>-->
-            <!--<artifactId>java-jwt</artifactId>-->
-            <!--<version>3.3.0</version>-->
-        <!--</dependency>-->
+
+        <!--token-->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
 
     </dependencies>
 

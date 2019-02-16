@@ -2,9 +2,13 @@ package com.example.demo.service;
 
 import com.example.demo.model.jsonRequest.addFriend;
 import com.example.demo.model.jsonRequest.addToBlackList;
+import com.example.demo.model.jsonRequest.loginUser;
 import com.example.demo.model.ov.Result;
 
 public interface UserService {
+
+    //  登陆接口
+    Result login(loginUser user);
 
     //  全局根据id搜索
     Result findFriendById(String id);

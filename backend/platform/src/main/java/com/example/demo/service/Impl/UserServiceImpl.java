@@ -6,21 +6,30 @@ import com.example.demo.dao.UsersMapper;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.addFriend;
 import com.example.demo.model.jsonRequest.addToBlackList;
+import com.example.demo.model.jsonRequest.loginUser;
 import com.example.demo.model.jsonRequest.userRelationship;
 import com.example.demo.model.ov.Result;
+import com.example.demo.response.TokenResponse;
 import com.example.demo.service.UserService;
+import com.example.demo.tools.AuthTool;
+import com.example.demo.tools.JwtUtil;
 import com.example.demo.tools.ResultTool;
+import com.example.demo.tools.SecurityTool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 
-
+    private static Pattern pattern = Pattern.compile("10.*?");
     @Resource
     private UsersMapper usersMapper;
 
@@ -29,6 +38,73 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private BlacklistMapper blacklistMapper;
+
+    @Override
+    public Result login(loginUser user) {
+        if (user == null || user.getUserId() == null || "".equals(user.getUserId()) || user.getUserPwd() == null || "".equals(user.getUserPwd())) {
+            return ResultTool.error("账号或密码不能为空");
+        }
+        // 首先验证数据库中有没有该用户
+        Users existedUser = usersMapper.selectByPrimaryKey(user.getUserId());
+        if (existedUser != null) {
+            try {
+                if (existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
+                    //密码正确
+                    TokenResponse response = new TokenResponse();
+                    response.setToken(JwtUtil.createJwt(user.getUserId()));
+                    response.setIdentity(existedUser.getIdentity());
+                    return ResultTool.success(response);
+                } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
+                    // 如果用户在上海大学端更改了密码，我们访问接口进行验证，通过则更新数据库中用户的密码
+                    if (AuthTool.getAuth(user.getUserId(), user.getUserPwd())) {
+                        Users record = new Users();
+                        record.setId(user.getUserId());
+                        record.setPassword(SecurityTool.encodeByMd5(user.getUserPwd()));
+                        usersMapper.updateByPrimaryKeySelective(record);
+                        TokenResponse response = new TokenResponse();
+                        response.setToken(JwtUtil.createJwt(user.getUserId()));
+                        response.setIdentity(existedUser.getIdentity());
+                        return ResultTool.success(response);
+
+                    } else {
+                        return ResultTool.error("账号密码错误");
+                    }
+                } else {
+                    return ResultTool.error("您没有权限登录该系统");
+                }
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                return ResultTool.error(e.getMessage());
+            }
+        } else {
+            // 请求上海大学登陆接口查看有没有该用户，有的话该用户进入我们的数据库，没有的话返回登陆失败的信息
+            if (AuthTool.getAuth(user.getUserId(), user.getUserPwd())) {
+                Users systemUser = AuthTool.getInfo(user.getUserId());
+                assert systemUser != null;
+                systemUser.setId(user.getUserId());
+                try {
+                    systemUser.setPassword(SecurityTool.encodeByMd5(user.getUserPwd()));
+                } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                    return ResultTool.error(e.getMessage());
+                }
+                Matcher matcher = pattern.matcher(user.getUserId());
+                TokenResponse response = new TokenResponse();
+                if(matcher.find()) {
+                    systemUser.setIdentity(1);
+                    response.setIdentity(1);
+                } else {
+                    systemUser.setIdentity(2);
+                    response.setIdentity(2);
+                }
+                usersMapper.insertSelective(systemUser);
+                response.setToken(JwtUtil.createJwt(user.getUserId()));
+
+                return ResultTool.success(response);
+            } else {
+                return ResultTool.error("您不是上海大学的用户");
+            }
+        }
+    }
+
     //  全局根据id查找人
     @Override
     public Result findFriendById(String id) {

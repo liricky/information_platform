@@ -6,7 +6,7 @@ import lombok.Data;
 //返回格式
 @Data
 public class Result<Type> {
-    private ResultCode code;
+    private ResultCode status;
     private String message;
     private Type data;
 }
