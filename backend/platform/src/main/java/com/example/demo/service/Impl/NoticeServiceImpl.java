@@ -207,10 +207,9 @@ public class NoticeServiceImpl implements NoticeService {
         String type_s=noticeJsonRequest.getType();
         String time_s=DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
         //  时间格式处理
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
         Date time=new Date();
         try {
-            time=sdf.parse(time_s);
+            time=Timestamp.valueOf(time_s);
         }catch (Exception e){
             System.out.println("时间转换出错");
         }
@@ -230,7 +229,7 @@ public class NoticeServiceImpl implements NoticeService {
         //  整数格式处理
         int type=Integer.parseInt(type_s);
         //  判断该类型是否存在
-        if(type!=1||type!=2||type!=3){
+        if(type!=1&&type!=2&&type!=3){
             return ResultTool.error("不存在该类型公告");
         }
 

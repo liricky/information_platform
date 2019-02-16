@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.jsonRequest.addNoticeJsonRequest;
+import com.example.demo.model.jsonRequest.deleteNoticeJsonRequest;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.NoticeService;
+import com.example.demo.tools.ResultTool;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -39,5 +42,26 @@ public class NoticeController {
     }
 
     //  管理员发布公告
+    @RequestMapping(value = "/manage/announcement/publish" ,method = RequestMethod.POST)
+    public Result createNotice(HttpServletRequest httpServletRequest,@RequestBody addNoticeJsonRequest addNotice){
+        String token = httpServletRequest.getHeader("Authorization");
+        if(token == null) {
+            return ResultTool.error("请登录");
+        }
+//        addNotice.setManagerId(addNotice.getManagerId());
+//        addNotice.setTitle(addNotice.getTitle());
+//        addNotice.setContent(addNotice.getContent());
+//        addNotice.setType(addNotice.getType());
+        return noticeService.PushNoticeByManager(addNotice);
+    }
+    //  管理员删除公告
+    @RequestMapping(value = "/manage/announcement/delete",method = RequestMethod.POST)
+    public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice){
+        String token = httpServletRequest.getHeader("Authorization");
+        if(token==null){
+            return ResultTool.error("请登录");
+        }
+        return noticeService.DeleteNoticeByManager(deleteNotice);
+    }
 }
 
