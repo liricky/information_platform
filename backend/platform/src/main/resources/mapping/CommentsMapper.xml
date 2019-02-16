@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.example.demo.model.entity.Comments" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="view_id" property="viewId" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -103,7 +103,7 @@
   <insert id="insert" parameterType="com.example.demo.model.entity.Comments" >
     insert into Comments (id, view_id, user_id, 
       content, time)
-    values (#{id,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, 
       #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.entity.Comments" >
@@ -133,7 +133,7 @@
         #{viewId,jdbcType=INTEGER},
       </if>
       <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
@@ -159,7 +159,7 @@
         view_id = #{record.viewId,jdbcType=INTEGER},
       </if>
       <if test="record.userId != null" >
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
@@ -176,7 +176,7 @@
     update Comments
     set id = #{record.id,jdbcType=INTEGER},
       view_id = #{record.viewId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -190,7 +190,7 @@
         view_id = #{viewId,jdbcType=INTEGER},
       </if>
       <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
@@ -204,7 +204,7 @@
   <update id="updateByPrimaryKey" parameterType="com.example.demo.model.entity.Comments" >
     update Comments
     set view_id = #{viewId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

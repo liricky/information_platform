@@ -7,7 +7,7 @@ public class Comments {
 
     private Integer viewId;
 
-    private Integer userId;
+    private String userId;
 
     private String content;
 
@@ -29,12 +29,12 @@ public class Comments {
         this.viewId = viewId;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
     public String getContent() {

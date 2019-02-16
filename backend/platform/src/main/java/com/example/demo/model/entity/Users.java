@@ -23,8 +23,6 @@ public class Users {
 
     private String password;
 
-    private String token;
-
     public String getId() {
         return id;
     }
@@ -103,13 +101,5 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token == null ? null : token.trim();
     }
 }
