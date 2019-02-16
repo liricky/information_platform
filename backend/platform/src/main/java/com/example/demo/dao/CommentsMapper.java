@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.model.databaseResulttype.GetAllComment;
 import com.example.demo.model.databaseResulttype.GetHotComment;
 import com.example.demo.model.entity.Comments;
 import com.example.demo.model.entity.CommentsExample;
@@ -24,6 +25,8 @@ public interface CommentsMapper {
     Comments selectByPrimaryKey(Integer id);
 
     List<GetHotComment> getHotComment(Integer postid);
+
+    List<GetAllComment> getAllComment(Integer postid);
 
     Likes getLikeStatus(Integer comment_id, String user_id);
 

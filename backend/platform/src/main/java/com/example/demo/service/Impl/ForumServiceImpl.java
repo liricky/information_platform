@@ -4,6 +4,7 @@ import com.example.demo.dao.*;
 import com.example.demo.model.databaseResulttype.*;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.ForumChangeLike;
+import com.example.demo.model.jsonRequest.ForumGetAllComment;
 import com.example.demo.model.ov.*;
 import com.example.demo.service.ForumService;
 import com.example.demo.tools.ResultTool;
@@ -253,5 +254,66 @@ public class ForumServiceImpl implements ForumService {
             forumGetHotCommentList.add(forumGetHotComment);
         }
         return ResultTool.success(forumGetHotCommentList);
+    }
+
+    @Override
+    public Result forumGetHotCommentWithoutToken(Integer postid) {
+        List<GetHotComment> getHotCommentList = commentsMapper.getHotComment(postid);
+        List<ForumGetHotComment> forumGetHotCommentList = new LinkedList<>();
+        for(GetHotComment getHotComment : getHotCommentList){
+            ForumGetHotComment forumGetHotComment = new ForumGetHotComment();
+            forumGetHotComment.setCommentid(getHotComment.getId());
+            forumGetHotComment.setAuthor(getHotComment.getUser_id());
+            Users users = usersMapper.getById(getHotComment.getUser_id());
+            forumGetHotComment.setAuthornickname(users.getName());
+            forumGetHotComment.setContent(getHotComment.getContent());
+            forumGetHotComment.setDate(getHotComment.getTime().toString());
+            forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            forumGetHotComment.setLikestatus("false");
+            forumGetHotCommentList.add(forumGetHotComment);
+        }
+        return ResultTool.success(forumGetHotCommentList);
+    }
+
+    //  通过帖子id得到帖子全部评论
+    @Override
+    public Result forumGetAllComment(ForumGetAllComment forumGetAllComment1) {
+        List<GetAllComment> getAllCommentList = commentsMapper.getAllComment(forumGetAllComment1.getPostId());
+        List<com.example.demo.model.ov.ForumGetAllComment> forumGetAllCommentList = new LinkedList<>();
+        for(GetAllComment getAllComment : getAllCommentList){
+            com.example.demo.model.ov.ForumGetAllComment forumGetAllComment = new com.example.demo.model.ov.ForumGetAllComment();
+            forumGetAllComment.setCommentid(getAllComment.getId());
+            forumGetAllComment.setAuthor(getAllComment.getUser_id());
+            Users users = usersMapper.getById(getAllComment.getUser_id());
+            forumGetAllComment.setAuthornickname(users.getName());
+            forumGetAllComment.setContent(getAllComment.getContent());
+            forumGetAllComment.setDate(getAllComment.getTime().toString());
+            forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            if(commentsMapper.getLikeStatus(forumGetAllComment1.getPostId(),forumGetAllComment1.getUserId()) == null)
+                forumGetAllComment.setLikestatus("false");
+            else
+                forumGetAllComment.setLikestatus("true");
+            forumGetAllCommentList.add(forumGetAllComment);
+        }
+        return ResultTool.success(forumGetAllCommentList);
+    }
+
+    @Override
+    public Result forumGetAllCommentWithoutToken(Integer postid) {
+        List<GetAllComment> getAllCommentList = commentsMapper.getAllComment(postid);
+        List<com.example.demo.model.ov.ForumGetAllComment> forumGetAllCommentList = new LinkedList<>();
+        for(GetAllComment getAllComment : getAllCommentList){
+            com.example.demo.model.ov.ForumGetAllComment forumGetAllComment = new com.example.demo.model.ov.ForumGetAllComment();
+            forumGetAllComment.setCommentid(getAllComment.getId());
+            forumGetAllComment.setAuthor(getAllComment.getUser_id());
+            Users users = usersMapper.getById(getAllComment.getUser_id());
+            forumGetAllComment.setAuthornickname(users.getName());
+            forumGetAllComment.setContent(getAllComment.getContent());
+            forumGetAllComment.setDate(getAllComment.getTime().toString());
+            forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            forumGetAllComment.setLikestatus("false");
+            forumGetAllCommentList.add(forumGetAllComment);
+        }
+        return ResultTool.success(forumGetAllCommentList);
     }
 }
