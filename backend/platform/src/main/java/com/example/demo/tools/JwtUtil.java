@@ -8,7 +8,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import java.util.Calendar;
 import java.util.Date;
 
-
+//  token
 public class JwtUtil {
     private final static byte[] ENCODE_KEY = "SHU-OrderCarSystem".getBytes();
     private static JWTVerifier jwtVerifier;

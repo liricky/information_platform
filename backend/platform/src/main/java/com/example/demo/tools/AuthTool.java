@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+// 一卡通登陆接口
 public class AuthTool {
     public static boolean getAuth(String userId, String password) {
         try {

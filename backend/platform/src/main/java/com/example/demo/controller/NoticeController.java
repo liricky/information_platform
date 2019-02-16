@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @CrossOrigin
-
+//  公告接口
 public class NoticeController {
     @Resource
     private NoticeService noticeService;
