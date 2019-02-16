@@ -53,6 +53,8 @@ public class UserServiceImpl implements UserService {
                     TokenResponse response = new TokenResponse();
                     response.setToken(JwtUtil.createJwt(user.getUserId()));
                     response.setIdentity(existedUser.getIdentity());
+                    response.setId(existedUser.getId());
+                    response.setUserNickname(existedUser.getName());
                     return ResultTool.success(response);
                 } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
                     // 如果用户在上海大学端更改了密码，我们访问接口进行验证，通过则更新数据库中用户的密码
@@ -96,6 +98,8 @@ public class UserServiceImpl implements UserService {
                     response.setIdentity(2);
                 }
                 usersMapper.insertSelective(systemUser);
+                response.setUserNickname(systemUser.getName());
+                response.setId(systemUser.getId());
                 response.setToken(JwtUtil.createJwt(user.getUserId()));
 
                 return ResultTool.success(response);
