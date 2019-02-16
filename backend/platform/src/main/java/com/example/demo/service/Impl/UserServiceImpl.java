@@ -8,6 +8,7 @@ import com.example.demo.model.jsonRequest.addFriend;
 import com.example.demo.model.jsonRequest.addToBlackList;
 import com.example.demo.model.jsonRequest.userRelationship;
 import com.example.demo.model.ov.Result;
+import com.example.demo.model.ov.UserGetFriend;
 import com.example.demo.service.UserService;
 import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,27 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private BlacklistMapper blacklistMapper;
+
+    @Override
+    public Result usergetfriend(String userid) {
+        FriendsExample friendsExample=new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(userid);
+        List<Friends> friendsList= friendsMapper.selectByExample(friendsExample);
+        if(friendsList.isEmpty()==true){
+            return ResultTool.error("好友列表为空");
+        }
+        List<UserGetFriend> userGetFriendList=new LinkedList<>();
+        for(Friends friends : friendsList){
+            UserGetFriend userGetFriend=new UserGetFriend();
+            userGetFriend.setUserid(friends.getUserb());
+
+            Users users = usersMapper.getById(friends.getUserb());
+            userGetFriend.setUsernickname(users.getName());
+            userGetFriendList.add(userGetFriend);
+        }
+        return ResultTool.success(userGetFriendList);
+    }
+
     //  全局根据id查找人
     @Override
     public Result findFriendById(String id) {

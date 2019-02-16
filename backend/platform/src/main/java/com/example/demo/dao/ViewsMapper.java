@@ -1,5 +1,9 @@
 package com.example.demo.dao;
 
+import com.example.demo.model.databaseResulttype.All;
+import com.example.demo.model.databaseResulttype.Best;
+import com.example.demo.model.databaseResulttype.NewPublish;
+import com.example.demo.model.databaseResulttype.NewReply;
 import com.example.demo.model.entity.Views;
 import com.example.demo.model.entity.ViewsExample;
 import java.util.List;
@@ -19,6 +23,14 @@ public interface ViewsMapper {
     List<Views> selectByExample(ViewsExample example);
 
     List<Views> getRecommend(Integer tags);
+
+    List<NewReply> getNewReply(Integer tags);
+
+    List<NewPublish> getNewPublish(Integer tags);
+
+    List<Best> getBest(Integer tags);
+
+    List<All> getAll(Integer tags);
 
     int getCommentNum(Integer id);
 

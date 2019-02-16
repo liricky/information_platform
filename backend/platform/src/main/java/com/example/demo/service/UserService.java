@@ -6,6 +6,8 @@ import com.example.demo.model.ov.Result;
 
 public interface UserService {
 
+    Result usergetfriend(String userid);
+
     //  全局根据id搜索
     Result findFriendById(String id);
     //  全局根据昵称搜索

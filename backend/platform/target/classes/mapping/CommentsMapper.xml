@@ -209,4 +209,32 @@
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--获取对应帖子热评-->
+  <select id="getHotComment" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.GetHotComment" >
+    select
+    C.id,C.view_id,C.user_id,C.content,C.time,count(*) as likenum
+    from Comments C inner join Likes on C.id = Likes.commend_id
+    where C.view_id = #{0}
+    group by Likes.commend_id
+    having count(*) > 10
+    order by likenum desc
+  </select>
+
+  <!--获取评论点赞数-->
+  <select id="getLikeNum" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
+    select
+    count(*)
+    from Likes
+    where  commend_id = #{0}
+    group by commend_id
+  </select>
+
+  <!--获取评论点赞状态-->
+  <select id="getLikeStatus" resultType="com.example.demo.model.entity.Likes" >
+    select
+    <include refid="Base_Column_List" />
+    from Likes
+    where  commend_id = #{0} and user_id = #{1}
+  </select>
 </mapper>

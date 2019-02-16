@@ -1,8 +1,11 @@
 package com.example.demo.dao;
 
+import com.example.demo.model.databaseResulttype.GetHotComment;
 import com.example.demo.model.entity.Comments;
 import com.example.demo.model.entity.CommentsExample;
 import java.util.List;
+
+import com.example.demo.model.entity.Likes;
 import org.apache.ibatis.annotations.Param;
 
 public interface CommentsMapper {
@@ -19,6 +22,12 @@ public interface CommentsMapper {
     List<Comments> selectByExample(CommentsExample example);
 
     Comments selectByPrimaryKey(Integer id);
+
+    List<GetHotComment> getHotComment(Integer postid);
+
+    Likes getLikeStatus(Integer comment_id, String user_id);
+
+    int getLikeNum(Integer commentid);
 
     int updateByExampleSelective(@Param("record") Comments record, @Param("example") CommentsExample example);
 

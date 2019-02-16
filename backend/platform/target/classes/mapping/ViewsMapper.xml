@@ -226,4 +226,70 @@
       tags = #{tags,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--筛选给用户推荐的帖子-->
+  <select id="getRecommend" parameterType="java.lang.Integer" resultType="com.example.demo.model.entity.Views" >
+    select
+    <include refid="Base_Column_List" />
+    from Views
+    where  tags = #{tags,jdbcType=INTEGER} and id in (select view_id from Likes group by view_id having count(*)>20 )
+    order by time desc
+  </select>
+
+  <!--获取帖子点赞数-->
+  <select id="getLikeNum" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
+    select
+    count(*)
+    from Likes
+    where  view_id = #{0}
+    group by view_id
+  </select>
+
+  <!--获取帖子评论数-->
+  <select id="getCommentNum" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
+    select
+    count(*)
+    from Comments
+    where  view_id = #{0}
+    group by view_id
+  </select>
+
+  <!--获取最新回复的帖子-->
+  <select id="getNewReply" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.NewReply" >
+    select
+    V.id,V.tags,V.title,V.puller,V.time,MAX(Comments.time) as commenttime
+    from Comments inner join Views V on Comments.view_id = V.id
+    where V.tags = #{0} and V.time > date_add(now(), interval -2 day)
+    group by V.id
+    order by Max(Comments.time) desc
+  </select>
+
+  <!--获取最新发布的帖子-->
+  <select id="getNewPublish" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.NewPublish" >
+    select
+    id,tags,title,puller,time
+    from Views
+    where tags = #{0} and time > date_add(now(), interval -2 day)
+    order by time desc
+  </select>
+
+  <!--获取版块精华的帖子-->
+  <select id="getBest" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.Best" >
+    select
+    V.id,V.tags,V.title,V.puller,V.time
+    from Likes inner join Views V on Likes.view_id = V.id
+    where V.tags = #{0}
+    group by V.id
+    having count(*) > 50
+    order by V.time desc
+  </select>
+
+  <!--获取版块全部的帖子-->
+  <select id="getAll" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.All" >
+    select
+    id,tags,title,puller,time
+    from Views
+    where tags = #{0} and time > date_add(now(), interval -7 day)
+    order by time desc
+  </select>
 </mapper>

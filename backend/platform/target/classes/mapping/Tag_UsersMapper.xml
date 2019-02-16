@@ -194,4 +194,13 @@
       extent = #{extent,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--添加通过用户id获取标签喜好度（降序）方法-->
+  <select id="getByUser" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Tag_Users
+    where user = #{user,jdbcType=VARCHAR}
+    order by extent desc
+  </select>
 </mapper>

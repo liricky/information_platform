@@ -304,4 +304,12 @@
       token = #{token,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <!--添加根据用户id获取昵称的方法-->
+  <select id="getById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Users
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
 </mapper>
