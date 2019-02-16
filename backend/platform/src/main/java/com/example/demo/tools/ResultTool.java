@@ -1,7 +1,6 @@
 package com.example.demo.tools;
 
 
-import com.example.demo.model.ResultCode;
 import com.example.demo.model.ov.Result;
 
 import java.util.List;

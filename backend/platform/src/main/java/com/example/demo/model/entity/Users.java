@@ -9,11 +9,11 @@ public class Users {
 
     private Integer identity;
 
-    private Boolean banstate;
+    private Integer bantype;
 
-    private String bantype;
+    private Integer banstate;
 
-    private Integer banreason;
+    private String banreason;
 
     private Date banstart;
 
@@ -49,28 +49,28 @@ public class Users {
         this.identity = identity;
     }
 
-    public Boolean getBanstate() {
-        return banstate;
-    }
-
-    public void setBanstate(Boolean banstate) {
-        this.banstate = banstate;
-    }
-
-    public String getBantype() {
+    public Integer getBantype() {
         return bantype;
     }
 
-    public void setBantype(String bantype) {
-        this.bantype = bantype == null ? null : bantype.trim();
+    public void setBantype(Integer bantype) {
+        this.bantype = bantype;
     }
 
-    public Integer getBanreason() {
+    public Integer getBanstate() {
+        return banstate;
+    }
+
+    public void setBanstate(Integer banstate) {
+        this.banstate = banstate;
+    }
+
+    public String getBanreason() {
         return banreason;
     }
 
-    public void setBanreason(Integer banreason) {
-        this.banreason = banreason;
+    public void setBanreason(String banreason) {
+        this.banreason = banreason == null ? null : banreason.trim();
     }
 
     public Date getBanstart() {
