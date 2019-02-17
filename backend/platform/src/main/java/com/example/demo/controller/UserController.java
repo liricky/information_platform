@@ -21,7 +21,7 @@ public class UserController {
     public Result searchFriend(@RequestBody searchPeople people, HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("Authorization");
         if (token == null) {
-            return ResultTool.error("请登录");
+            return ResultTool.error("登陆状态无效");
         }
         String type = people.getType();
         String data = people.getId();
@@ -48,8 +48,8 @@ public class UserController {
     @RequestMapping(value = "/user/addfriend",method = RequestMethod.POST)
     public Result addFriend(HttpServletRequest httpServletRequest,@RequestBody addFriend friend){
         String token = httpServletRequest.getHeader("Authorization");
-        if (token == null) {
-            return ResultTool.error("请登录");
+        if (token == "") {
+            return ResultTool.error("登陆状态无效");
         }
         return userService.addFriend(friend);
     }
@@ -57,8 +57,8 @@ public class UserController {
     @RequestMapping(value = "/user/addblacklist",method = RequestMethod.POST)
     public Result addToBlackList(HttpServletRequest httpServletRequest,@RequestBody addToBlackList blaclList){
         String token = httpServletRequest.getHeader("Authorization");
-        if (token == null) {
-            return ResultTool.error("请登录");
+        if (token == "") {
+            return ResultTool.error("登陆状态无效");
         }
         return userService.addToBlackList(blaclList);
     }
