@@ -3,6 +3,7 @@ package com.example.demo.service.Impl;
 import com.example.demo.model.entity.Private_Charts;
 import com.example.demo.model.entity.Private_ChartsExample;
 import com.example.demo.model.entity.Users;
+import com.example.demo.model.jsonRequest.MessageDetail;
 import com.example.demo.model.jsonRequest.MessageSend;
 import com.example.demo.model.ov.MessageReceive;
 import com.example.demo.model.ov.MessageSent;
@@ -107,5 +108,17 @@ public class MessageServiceImpl implements MessageService {
             return ResultTool.error(e.getMessage());
         }
         return ResultTool.success();
+    }
+
+    //  获取私信具体内容及改变私信阅读状态
+    @Override
+    public Result messagedetail(MessageDetail messageDetail) {
+        Private_Charts private_charts = private_chartsMapper.selectByPrimaryKey(messageDetail.getMessageid());
+        com.example.demo.model.ov.MessageDetail messageDetail1 = new com.example.demo.model.ov.MessageDetail();
+        messageDetail1.setMessageid(private_charts.getId());
+        messageDetail1.setTitle(private_charts.getTitle());
+        messageDetail1.setContent(private_charts.getContent());
+        messageDetail1.setDate(private_charts.getSendTime().toString());
+        return ResultTool.success(messageDetail1);
     }
 }

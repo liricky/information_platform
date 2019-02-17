@@ -64,8 +64,8 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.userdate.usernickname = res.userdate.usernickname;
-              this.userdate.userpoint = res.userdate.userpoint;
+              this.userdate.usernickname = res.data.usernickname;
+              this.userdate.userpoint = res.data.userpoint;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;

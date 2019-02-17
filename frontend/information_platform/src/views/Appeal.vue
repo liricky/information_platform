@@ -152,7 +152,7 @@
             let res = response.data;
             if (res.status === "success") {
               this.status2 = res.status;
-              this.msg = res.detail;
+              this.msg = res.data;
             } else {
               this.status2 = res.status;
               this.errormsg2 = res.message;

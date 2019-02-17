@@ -76,7 +76,7 @@
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {
-                  this.msg = res.userlist;
+                  this.msg = res.data;
                   this.status1 = res.status;
                   this.$Message.info('搜索完成!');
                   this.value = '';

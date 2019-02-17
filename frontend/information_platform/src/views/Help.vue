@@ -506,7 +506,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post = res.mission;
+              this.post = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
@@ -522,7 +522,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post1 = res.mission;
+              this.post1 = res.data;
               this.status2 = res.status;
             } else {
               this.status2 = res.status;
@@ -538,7 +538,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post2 = res.mission;
+              this.post2 = res.data;
               this.status3 = res.status;
             } else {
               this.status3 = res.status;
@@ -554,7 +554,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post3 = res.mission;
+              this.post3 = res.data;
               this.status4 = res.status;
             } else {
               this.status4 = res.status;
@@ -568,7 +568,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post4 = res.mission;
+              this.post4 = res.data;
               this.status11 = res.status;
             } else {
               this.status11 = res.status;
@@ -584,7 +584,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post5 = res.mission;
+              this.post5 = res.data;
               this.status12 = res.status;
             } else {
               this.status12 = res.status;
@@ -607,7 +607,7 @@
             let res = response.data;
             if(res.status === "success") {
               this.status10 = res.status;
-              if(res.type === 2 || res.type === 3)
+              if(res.data.type === 2 || res.data.type === 3)
                 this.sign = true;
               else
                 this.sign = false;

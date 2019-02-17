@@ -121,7 +121,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post = res.post;
+              this.post = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;

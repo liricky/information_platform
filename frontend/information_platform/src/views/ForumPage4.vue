@@ -200,7 +200,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post0 = res.post;
+              this.post0 = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
@@ -213,7 +213,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post1 = res.post;
+              this.post1 = res.data;
               this.status2 = res.status;
             } else {
               this.status2 = res.status;
@@ -226,7 +226,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post2 = res.post;
+              this.post2 = res.data;
               this.status3 = res.status;
             } else {
               this.status3 = res.status;
@@ -239,7 +239,7 @@
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post3 = res.post;
+              this.post3 = res.data;
               this.status4 = res.status;
             } else {
               this.status4 = res.status;
@@ -256,7 +256,7 @@
             let res = response.data;
             if(res.status === "success") {
               this.status5 = res.status;
-              if(res.type === 1 || res.type === 3)
+              if(res.data.type === 1 || res.data.type === 3)
                 this.sign = true;
               else
                 this.sign = false;

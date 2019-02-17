@@ -194,7 +194,7 @@
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.msg = res.receivemsg;
+                this.msg = res.data;
                 this.status1 = res.status;
               } else {
                 this.status1 = res.status;
@@ -210,7 +210,7 @@
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.rev = res.sendmsg;
+                this.rev = res.data;
                 this.status2 = res.status;
               } else {
                 this.status2 = res.status;
@@ -226,7 +226,7 @@
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.friend = res.friendmsg;
+                this.friend = res.data;
                 this.status3 = res.status;
               } else {
                 this.status3 = res.status;
@@ -245,17 +245,12 @@
               if(res.status === "success"){
                 // console.log(id);
                 this.status4 = res.status;
-                this.box_messageid = res.msg.messageid;
-                this.box_title = res.msg.title;
-                this.box_date = res.msg.date;
-                this.box_content = res.msg.content;
-                // console.log(this.msg);
+                this.box_messageid = res.data.messageid;
+                this.box_title = res.data.title;
+                this.box_date = res.data.date;
+                this.box_content = res.data.content;
                 for(let i of this.msg){
-                  // console.log("1");
-                  // console.log(i);
-                  // console.log(id);
                   if(i.messageid === id){
-                    // console.log(i.messageid);
                     this.$set(i,"status","");
                     break;
                   }

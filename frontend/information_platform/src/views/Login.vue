@@ -138,7 +138,6 @@
                 let res = response.data;
                 if (res.status === "success") {
                   this.errorTip = false;
-                  //to-do
                   var _this = this;
                   setTimeout(function () {
                     _this.$router.push({path: '/HomePage'})

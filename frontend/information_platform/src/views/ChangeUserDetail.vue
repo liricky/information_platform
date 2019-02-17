@@ -135,9 +135,9 @@
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.user.id = res.userdate.userid;
-            this.user.nickname = res.userdate.usernickname;
-            this.user.point = res.userdate.userpoint;
+            this.user.id = res.data.userid;
+            this.user.nickname = res.data.usernickname;
+            this.user.point = res.data.userpoint;
             this.status1 = res.status;
           } else {
             this.status1 = res.status;
@@ -188,13 +188,13 @@
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
-                this.status7 = res.code;
+                this.status7 = res.status;
                 this.$Message.info('修改密码成功！');
                 this.value2 = '';
                 this.value3 = '';
                 this.value4 = '';
               } else {
-                this.status7 = res.code;
+                this.status7 = res.status;
                 this.errormsg7 = res.message;
                 this.$Message.info('修改密码失败： ' + this.errormsg7);
               }
@@ -215,7 +215,7 @@
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.sendpost = res.post;
+            this.sendpost = res.data;
             this.status3 = res.status;
 
           } else {
@@ -232,7 +232,7 @@
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.replypost = res.reply;
+            this.replypost = res.data;
             this.status4 = res.status;
 
           } else {
