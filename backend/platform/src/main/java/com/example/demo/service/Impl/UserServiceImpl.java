@@ -2,6 +2,7 @@ package com.example.demo.service.Impl;
 
 import com.example.demo.dao.BlacklistMapper;
 import com.example.demo.dao.FriendsMapper;
+import com.example.demo.dao.Tag_UsersMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.addFriend;
@@ -39,6 +40,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private BlacklistMapper blacklistMapper;
 
+    @Resource
+    private Tag_UsersMapper tag_usersMapper;
+
     //  登陆
     @Override
     public Result login(loginUser user) {
@@ -56,6 +60,7 @@ public class UserServiceImpl implements UserService {
                     response.setIdentity(existedUser.getIdentity());
                     response.setId(user.getUserId());
                     response.setUserNickname(existedUser.getName());
+
                     return ResultTool.success(response);
                 } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
                     // 如果用户在上海大学端更改了密码，我们访问接口进行验证，通过则更新数据库中用户的密码
@@ -105,6 +110,14 @@ public class UserServiceImpl implements UserService {
                 response.setUserNickname(systemUser.getName());
                 response.setId(systemUser.getId());
                 response.setToken(JwtUtil.createJwt(user.getUserId()));
+                //  加入用户关系表
+                for(int i=1;i<=4;i++){
+                    Tag_Users tag_users=new Tag_Users();
+                    tag_users.setUser(user.getUserId());
+                    tag_users.setTag(i);
+                    tag_users.setExtent(0);
+                    tag_usersMapper.insert(tag_users);
+                }
 
                 return ResultTool.success(response);
             } else {
