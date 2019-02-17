@@ -4,6 +4,8 @@ import com.example.demo.model.databaseResulttype.GetAllComment;
 import com.example.demo.model.databaseResulttype.GetHotComment;
 import com.example.demo.model.entity.Comments;
 import com.example.demo.model.entity.CommentsExample;
+
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.example.demo.model.entity.Likes;

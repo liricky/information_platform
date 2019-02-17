@@ -3,9 +3,14 @@ package com.example.demo.service.Impl;
 import com.example.demo.dao.*;
 import com.example.demo.model.databaseResulttype.*;
 import com.example.demo.model.entity.*;
+import com.example.demo.model.jsonRequest.*;
+import com.example.demo.model.jsonRequest.ForumChangeCommentLike;
 import com.example.demo.model.jsonRequest.ForumChangeLike;
 import com.example.demo.model.jsonRequest.ForumGetAllComment;
+import com.example.demo.model.jsonRequest.ForumGetCommentLike;
 import com.example.demo.model.ov.*;
+import com.example.demo.model.ov.ForumGetHotComment;
+import com.example.demo.model.ov.ForumGetLike;
 import com.example.demo.service.ForumService;
 import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
@@ -187,7 +192,6 @@ public class ForumServiceImpl implements ForumService {
         Users users = usersMapper.getById(views.getPuller());
         forumDetail.setAuthornickname(users.getName());
         forumDetail.setDate(views.getTime().toString());
-
         return ResultTool.success(forumDetail);
     }
 
@@ -206,6 +210,7 @@ public class ForumServiceImpl implements ForumService {
     }
 
     //  改变用户在相应帖子中的点赞状态
+    //  对于用户和标签的关系也作出相应改变
     @Override
     public Result forumChangeLike(ForumChangeLike forumChangeLike) {
         LikesExample likesExample = new LikesExample();
@@ -216,6 +221,8 @@ public class ForumServiceImpl implements ForumService {
             if(forumChangeLike.getLikestatus().equals("true")) {
                 likesMapper.deleteByExample(likesExample);
                 forumChangeLike1.setLikestatus("false");
+                Views views = viewsMapper.selectByPrimaryKey(forumChangeLike.getPostid());
+                tag_usersMapper.updateUserTag6(forumChangeLike.getUserid(), views.getTags());
             } else
                 return ResultTool.error("数据状态不匹配");
         } else {
@@ -225,8 +232,10 @@ public class ForumServiceImpl implements ForumService {
                 likes.setUserId(forumChangeLike.getUserid());
                 likes.setTime(new Timestamp(System.currentTimeMillis()));
                 likes.setType(0);
-                likesMapper.insert(likes);
+                likesMapper.insertSelective(likes);
                 forumChangeLike1.setLikestatus("true");
+                Views views = viewsMapper.selectByPrimaryKey(forumChangeLike.getPostid());
+                tag_usersMapper.updateUserTag2(forumChangeLike.getUserid(), views.getTags());
             } else
                 return ResultTool.error("数据状态不匹配");
         }
@@ -315,5 +324,90 @@ public class ForumServiceImpl implements ForumService {
             forumGetAllCommentList.add(forumGetAllComment);
         }
         return ResultTool.success(forumGetAllCommentList);
+    }
+
+    //  通过帖子id及用户id生成新的帖子回复
+    //  对于用户和标签的关系也作出相应改变
+    @Override
+    public Result forumCreateComment(ForumCreateComment forumCreateComment) {
+        try {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Comments comments = new Comments();
+            comments.setViewId(forumCreateComment.getPostid());
+            comments.setUserId(forumCreateComment.getUserid());
+            comments.setContent(forumCreateComment.getContent());
+            comments.setTime(timestamp);
+            commentsMapper.insertSelective(comments);
+        } catch(Exception e){
+            return ResultTool.error(e.getMessage());
+        }
+        Views views = viewsMapper.selectByPrimaryKey(forumCreateComment.getPostid());
+        tag_usersMapper.updateUserTag3(forumCreateComment.getUserid(), views.getTags());
+        return ResultTool.success();
+    }
+
+    //  获取用户在相应回复中的点赞状态
+    @Override
+    public Result forumGetCommentLike(ForumGetCommentLike forumGetCommentLike) {
+        LikesExample likesExample = new LikesExample();
+        likesExample.createCriteria().andCommendIdEqualTo(forumGetCommentLike.getCommentid()).andUserIdEqualTo(forumGetCommentLike.getUserid());
+        List<Likes> likesList = likesMapper.selectByExample(likesExample);
+        com.example.demo.model.ov.ForumGetCommentLike forumGetCommentLike1 = new com.example.demo.model.ov.ForumGetCommentLike();
+        if(likesList != null)
+            forumGetCommentLike1.setLikestatus("true");
+        else
+            forumGetCommentLike1.setLikestatus("false");
+        return ResultTool.success(forumGetCommentLike1);
+    }
+
+    //  改变用户在相应回复中的点赞状态
+    @Override
+    public Result forumChangeCommentLike(ForumChangeCommentLike forumChangeCommentLike) {
+        LikesExample likesExample = new LikesExample();
+        likesExample.createCriteria().andCommendIdEqualTo(forumChangeCommentLike.getCommentid()).andUserIdEqualTo(forumChangeCommentLike.getUserid());
+        List<Likes> likesList = likesMapper.selectByExample(likesExample);
+        com.example.demo.model.ov.ForumChangeCommentLike forumChangeCommentLike1 = new com.example.demo.model.ov.ForumChangeCommentLike();
+        if(likesList != null){
+            if(forumChangeCommentLike.getLikestatus().equals("true")) {
+                likesMapper.deleteByExample(likesExample);
+                forumChangeCommentLike1.setLikestatus("false");
+                Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                tag_usersMapper.updateUserTag5(forumChangeCommentLike.getUserid(), views.getTags());
+            } else
+                return ResultTool.error("数据状态不匹配");
+        } else {
+            if (forumChangeCommentLike.getLikestatus().equals("false")){
+                Likes likes = new Likes();
+                likes.setViewId(forumChangeCommentLike.getCommentid());
+                likes.setUserId(forumChangeCommentLike.getUserid());
+                likes.setTime(new Timestamp(System.currentTimeMillis()));
+                likes.setType(1);
+                likesMapper.insertSelective(likes);
+                forumChangeCommentLike1.setLikestatus("true");
+                Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                tag_usersMapper.updateUserTag1(forumChangeCommentLike.getUserid(), views.getTags());
+            } else
+                return ResultTool.error("数据状态不匹配");
+        }
+        return ResultTool.success(forumChangeCommentLike1);
+    }
+
+    //  通过板块id及用户id生成新的帖子
+    @Override
+    public Result forumCreatePost(ForumCreatePost forumCreatePost) {
+        try {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Views views = new Views();
+            views.setTitle(forumCreatePost.getTitle());
+            views.setContent(forumCreatePost.getContent());
+            views.setTime(timestamp);
+            views.setPuller(forumCreatePost.getUserid());
+            views.setTags(forumCreatePost.getLabel());
+            viewsMapper.insertSelective(views);
+        }catch (Exception e){
+            return ResultTool.error(e.getMessage());
+        }
+        tag_usersMapper.updateUserTag4(forumCreatePost.getUserid(), forumCreatePost.getLabel());
+        return ResultTool.success();
     }
 }

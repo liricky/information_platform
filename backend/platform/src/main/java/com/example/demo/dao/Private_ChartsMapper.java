@@ -16,8 +16,6 @@ public interface Private_ChartsMapper {
 
     int insert(Private_Charts record);
 
-    int insertauto(String userid, String sendid, String title, String content, Timestamp sendtime, Integer state);
-
     int insertSelective(Private_Charts record);
 
     List<Private_Charts> selectByExample(Private_ChartsExample example);

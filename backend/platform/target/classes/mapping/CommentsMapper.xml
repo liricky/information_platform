@@ -237,4 +237,14 @@
     from Likes
     where  commend_id = #{0} and user_id = #{1}
   </select>
+
+  <!--获取对应帖子全部评论-->
+  <select id="getAllComment" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.GetAllComment" >
+    select
+    C.id,C.view_id,C.user_id,C.content,C.time,count(*) as likenum
+    from Comments C inner join Likes on C.id = Likes.commend_id
+    where C.view_id = #{0}
+    group by Likes.commend_id
+    order by C.time ASC
+  </select>
 </mapper>

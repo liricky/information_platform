@@ -203,4 +203,46 @@
     where user = #{user,jdbcType=VARCHAR}
     order by extent desc
   </select>
+
+  <!--更新用户标签关系 + 1-->
+  <update id="updateUserTag1" >
+    update Tag_Users
+    set extent = extent + 1
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
+
+  <!--更新用户标签关系 + 2-->
+  <update id="updateUserTag2" >
+    update Tag_Users
+    set extent = extent + 2
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
+
+  <!--更新用户标签关系 + 3-->
+  <update id="updateUserTag3" >
+    update Tag_Users
+    set extent = extent + 3
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
+
+  <!--更新用户标签关系 + 4-->
+  <update id="updateUserTag4" >
+    update Tag_Users
+    set extent = extent + 4
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
+
+  <!--更新用户标签关系 - 1-->
+  <update id="updateUserTag5" >
+    update Tag_Users
+    set extent = extent - 1
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
+
+  <!--更新用户标签关系 - 2-->
+  <update id="updateUserTag6" >
+    update Tag_Users
+    set extent = extent - 2
+    where Tag_Users.user = #{0} and tag = #{1}
+  </update>
 </mapper>

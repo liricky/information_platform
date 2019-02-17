@@ -90,13 +90,19 @@ public class MessageServiceImpl implements MessageService {
     }
 
     //  用户发送私信
-
     @Override
     public Result messagesend(MessageSend messageSend) {
         try {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             Integer state = 1;
-            private_chartsMapper.insertauto(messageSend.getUserid(), messageSend.getSendid(), messageSend.getTitle(), messageSend.getContent(), timestamp, state);
+            Private_Charts private_charts = new Private_Charts();
+            private_charts.setSender(messageSend.getUserid());
+            private_charts.setReceiver(messageSend.getSendid());
+            private_charts.setTitle(messageSend.getTitle());
+            private_charts.setContent(messageSend.getContent());
+            private_charts.setSendTime(timestamp);
+            private_charts.setState(state);
+            private_chartsMapper.insertSelective(private_charts);
         } catch (Exception e) {
             return ResultTool.error(e.getMessage());
         }

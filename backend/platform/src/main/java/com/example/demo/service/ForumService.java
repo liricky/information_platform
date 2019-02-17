@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.jsonRequest.ForumChangeLike;
-import com.example.demo.model.jsonRequest.ForumGetAllComment;
-import com.example.demo.model.jsonRequest.ForumGetHotComment;
-import com.example.demo.model.jsonRequest.ForumGetLike;
+import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
 
 public interface ForumService {
@@ -31,4 +28,12 @@ public interface ForumService {
     Result forumGetAllComment(ForumGetAllComment forumGetAllComment);
 
     Result forumGetAllCommentWithoutToken(Integer postid);
+
+    Result forumCreateComment(ForumCreateComment forumCreateComment);
+
+    Result forumGetCommentLike(ForumGetCommentLike forumGetCommentLike);
+
+    Result forumChangeCommentLike(ForumChangeCommentLike forumChangeCommentLike);
+
+    Result forumCreatePost(ForumCreatePost forumCreatePost);
 }

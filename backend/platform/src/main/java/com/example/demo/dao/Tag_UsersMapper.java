@@ -22,6 +22,18 @@ public interface Tag_UsersMapper {
 
     List<Tag_Users> getByUser(String userid);
 
+    int updateUserTag1(String user, Integer tag);
+
+    int updateUserTag2(String user, Integer tag);
+
+    int updateUserTag3(String user, Integer tag);
+
+    int updateUserTag4(String user, Integer tag);
+
+    int updateUserTag5(String user, Integer tag);
+
+    int updateUserTag6(String user, Integer tag);
+
     int updateByExampleSelective(@Param("record") Tag_Users record, @Param("example") Tag_UsersExample example);
 
     int updateByExample(@Param("record") Tag_Users record, @Param("example") Tag_UsersExample example);

@@ -83,22 +83,22 @@
           post: [],
           board: [
             {
-              id: 0,
+              id: 1,
               name: '体育',
               img: './../../static/sport.png'
             },
             {
-              id: 1,
+              id: 2,
               name: '学术',
               img: './../../static/study.png'
             },
             {
-              id: 2,
+              id: 3,
               name: '音乐',
               img: './../../static/music.png'
             },
             {
-              id: 3,
+              id: 4,
               name: '游戏',
               img: './../../static/game.png'
             }
@@ -130,13 +130,13 @@
           })
         },
         jumpPage(id){
-          if(id === 0)
+          if(id === 1)
             this.$router.push({path: '/ForumPage1'});
-          else if(id === 1)
-            this.$router.push({path: '/ForumPage2'});
           else if(id === 2)
-            this.$router.push({path: '/ForumPage3'});
+            this.$router.push({path: '/ForumPage2'});
           else if(id === 3)
+            this.$router.push({path: '/ForumPage3'});
+          else if(id === 4)
             this.$router.push({path: '/ForumPage4'});
         },
         // 尝试携参数跳转页面

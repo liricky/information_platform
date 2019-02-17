@@ -242,14 +242,4 @@
       state = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!--添加的增加数据方法-->
-  <insert id="insertauto" >
-    insert into Private_Charts (sender, receiver,
-      title, content, send_time,
-      state)
-    values (#{0}, #{1},
-      #{2}, #{3}, #{4},
-      #{5})
-  </insert>
 </mapper>
