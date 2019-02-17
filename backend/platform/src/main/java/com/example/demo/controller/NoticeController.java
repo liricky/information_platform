@@ -18,34 +18,34 @@ public class NoticeController {
     private NoticeService noticeService;
 
     //  获取全部公告
-    @RequestMapping(value = "/announcement",method = RequestMethod.GET)
-    public Result findAllNotice(HttpServletRequest httpServletRequest){
+    @RequestMapping(value = "/announcement", method = RequestMethod.GET)
+    public Result findAllNotice(HttpServletRequest httpServletRequest) {
         return noticeService.findAllNotice();
     }
 
     //  获取最新公告
-    @RequestMapping(value = "/announcement/new",method = RequestMethod.GET)
-    public Result findLatestNoticeByType(HttpServletRequest httpServletRequest){
+    @RequestMapping(value = "/announcement/new", method = RequestMethod.GET)
+    public Result findLatestNoticeByType(HttpServletRequest httpServletRequest) {
         return noticeService.findLatestNoticeByType();
     }
 
     //  根据日期获取公告
     @GetMapping("/announcement/{date}")
-    public Result findNoticeByDate(@PathVariable("date") String date){
+    public Result findNoticeByDate(@PathVariable("date") String date) {
         return noticeService.findNoticesByDate(date);
     }
 
     //  根据管理员获取公告信息
     @GetMapping("/manage/announcement/{managerId}")
-    public Result findNoticeByManagerId(@PathVariable("managerId") String managerId){
+    public Result findNoticeByManagerId(@PathVariable("managerId") String managerId) {
         return noticeService.findNoticesByManager(managerId);
     }
 
     //  管理员发布公告
-    @RequestMapping(value = "/manage/announcement/publish" ,method = RequestMethod.POST)
-    public Result createNotice(HttpServletRequest httpServletRequest,@RequestBody addNoticeJsonRequest addNotice){
+    @RequestMapping(value = "/manage/announcement/publish", method = RequestMethod.POST)
+    public Result createNotice(HttpServletRequest httpServletRequest, @RequestBody addNoticeJsonRequest addNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        if(token == null) {
+        if (token == null) {
             return ResultTool.error("请登录");
         }
 //        addNotice.setManagerId(addNotice.getManagerId());
@@ -54,11 +54,12 @@ public class NoticeController {
 //        addNotice.setType(addNotice.getType());
         return noticeService.PushNoticeByManager(addNotice);
     }
+
     //  管理员删除公告
-    @RequestMapping(value = "/manage/announcement/delete",method = RequestMethod.POST)
-    public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice){
+    @RequestMapping(value = "/manage/announcement/delete", method = RequestMethod.POST)
+    public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        if(token==null){
+        if (token == null) {
             return ResultTool.error("请登录");
         }
         return noticeService.DeleteNoticeByManager(deleteNotice);

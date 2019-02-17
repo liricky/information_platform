@@ -12,11 +12,15 @@ public interface UserService {
 
     //  全局根据id搜索
     Result findFriendById(String id);
+
     //  全局根据昵称搜索
     Result findFriendByNickname(String nickname);
+
     //  添加好友
     Result addFriend(addFriend addFriend);
+
     //  加入黑名单
     Result addToBlackList(addToBlackList blackList);
+
 
 }

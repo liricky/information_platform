@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private BlacklistMapper blacklistMapper;
 
+    //  登陆
     @Override
     public Result login(loginUser user) {
         if (user == null || user.getUserId() == null || "".equals(user.getUserId()) || user.getUserPwd() == null || "".equals(user.getUserPwd())) {
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
         Users existedUser = usersMapper.selectByPrimaryKey(user.getUserId());
         if (existedUser != null) {
             try {
-                if (existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
+                if (existedUser.getPassword().equals(user.getUserPwd())) {
                     //密码正确
                     TokenResponse response = new TokenResponse();
                     response.setToken(JwtUtil.createJwt(user.getUserId()));
@@ -93,7 +94,7 @@ public class UserServiceImpl implements UserService {
                 systemUser.setPassword(user.getUserPwd());
                 Matcher matcher = pattern.matcher(user.getUserId());
                 TokenResponse response = new TokenResponse();
-                if(matcher.find()) {
+                if (matcher.find()) {
                     systemUser.setIdentity(1);
                     response.setIdentity(1);
                 } else {
@@ -115,33 +116,34 @@ public class UserServiceImpl implements UserService {
     //  全局根据id查找人
     @Override
     public Result findFriendById(String id) {
-        UsersExample usersExample=new UsersExample();
+        UsersExample usersExample = new UsersExample();
         usersExample.createCriteria().andIdEqualTo(id);
-        List<Users> usersList=usersMapper.selectByExample(usersExample);
-        if(usersList.isEmpty()==true){
+        List<Users> usersList = usersMapper.selectByExample(usersExample);
+        if (usersList.isEmpty() == true) {
             return ResultTool.error("该id不存在");
         }
-        List<userRelationship> userRelationshipList=new LinkedList<>();
-        for(Users user:usersList){
-            userRelationship userRela=new userRelationship();
+        List<userRelationship> userRelationshipList = new LinkedList<>();
+        for (Users user : usersList) {
+            userRelationship userRela = new userRelationship();
             userRela.setUserId(user.getId());
             userRela.setUserNickname(user.getName());
             userRelationshipList.add(userRela);
         }
         return ResultTool.success(userRelationshipList);
     }
+
     //  全局根据昵称查找人
     @Override
     public Result findFriendByNickname(String nickname) {
-        UsersExample usersExample=new UsersExample();
+        UsersExample usersExample = new UsersExample();
         usersExample.createCriteria().andNameEqualTo(nickname);
-        List<Users> usersList=usersMapper.selectByExample(usersExample);
-        if(usersList.isEmpty()==true){
+        List<Users> usersList = usersMapper.selectByExample(usersExample);
+        if (usersList.isEmpty() == true) {
             return ResultTool.error("该昵称不存在");
         }
-        List<userRelationship> userRelationshipList=new LinkedList<>();
-        for(Users user:usersList){
-            userRelationship userRela=new userRelationship();
+        List<userRelationship> userRelationshipList = new LinkedList<>();
+        for (Users user : usersList) {
+            userRelationship userRela = new userRelationship();
             userRela.setUserId(user.getId());
             userRela.setUserNickname(user.getName());
             userRelationshipList.add(userRela);
@@ -152,17 +154,17 @@ public class UserServiceImpl implements UserService {
     //  添加好友
     @Override
     public Result addFriend(addFriend addFriend) {
-        String userIdA=addFriend.getUserId();
-        String userIdB=addFriend.getFriendId();
+        String userIdA = addFriend.getUserId();
+        String userIdB = addFriend.getFriendId();
         //先判断要加的好友是否存在
-        UsersExample usersExample=new UsersExample();
+        UsersExample usersExample = new UsersExample();
         usersExample.createCriteria().andIdEqualTo(userIdB);
-        List<Users> usersList=usersMapper.selectByExample(usersExample);
-        if(usersList.isEmpty()==true){
+        List<Users> usersList = usersMapper.selectByExample(usersExample);
+        if (usersList.isEmpty() == true) {
             return ResultTool.error("要加的人不存在");
         }
 
-        Friends friend=new Friends();
+        Friends friend = new Friends();
         friend.setUsera(userIdA);
         friend.setUserb(userIdB);
         friendsMapper.insert(friend);
@@ -172,23 +174,32 @@ public class UserServiceImpl implements UserService {
     //  加入黑名单
     @Override
     public Result addToBlackList(addToBlackList blackList) {
-        String userIdA=blackList.getUserId();
-        String userIdB=blackList.getBlacklistId();
+        String userIdA = blackList.getUserId();
+        String userIdB = blackList.getBlacklistId();
+//        //先判断要加的好友是否存在
+//        UsersExample usersExample = new UsersExample();
+//        usersExample.createCriteria().andIdEqualTo(userIdB);
+//        List<Users> usersList = usersMapper.selectByExample(usersExample);
+//        if (usersList.isEmpty() == true) {
+//            return ResultTool.error("要加的人不存在");
+//        }
         //  先判断是否在该用户好友列表中
-        FriendsExample friendsExample=new FriendsExample();
+        FriendsExample friendsExample = new FriendsExample();
         friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
-        List<Friends> friendsList=friendsMapper.selectByExample(friendsExample);
-        if(friendsList.isEmpty()==true){
+        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
+        if (friendsList.isEmpty() == true) {
             return ResultTool.error("该用户不在好友列表中");
         }
         //  从好友关系表中删除
         friendsMapper.deleteByExample(friendsExample);
         //  加入黑名单
-        Blacklist black=new Blacklist();
+        Blacklist black = new Blacklist();
         black.setUsera(userIdA);
         black.setUserb(userIdB);
         blacklistMapper.insert(black);
         return ResultTool.success();
 
     }
+
+
 }

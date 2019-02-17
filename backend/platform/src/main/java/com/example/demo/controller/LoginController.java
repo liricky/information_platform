@@ -13,9 +13,10 @@ import javax.annotation.Resource;
 public class LoginController {
     @Resource
     private UserService userService;
+
     //  登陆接口
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Result login(@RequestBody loginUser loginUser){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Result login(@RequestBody loginUser loginUser) {
         return userService.login(loginUser);
     }
 }
