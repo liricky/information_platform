@@ -234,7 +234,7 @@ public class ForumServiceImpl implements ForumService {
         likesExample.createCriteria().andViewIdEqualTo(forumGetLike.getPostid()).andUserIdEqualTo(forumGetLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);
         ForumGetLike forumGetLike1 = new ForumGetLike();
-        if(likesList != null)
+        if(!likesList.isEmpty())
             forumGetLike1.setLikestatus("true");
         else
             forumGetLike1.setLikestatus("false");
@@ -406,7 +406,7 @@ public class ForumServiceImpl implements ForumService {
         likesExample.createCriteria().andCommendIdEqualTo(forumGetCommentLike.getCommentid()).andUserIdEqualTo(forumGetCommentLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);
         com.example.demo.model.ov.ForumGetCommentLike forumGetCommentLike1 = new com.example.demo.model.ov.ForumGetCommentLike();
-        if(likesList != null)
+        if(!likesList.isEmpty())
             forumGetCommentLike1.setLikestatus("true");
         else
             forumGetCommentLike1.setLikestatus("false");
@@ -420,7 +420,7 @@ public class ForumServiceImpl implements ForumService {
         likesExample.createCriteria().andCommendIdEqualTo(forumChangeCommentLike.getCommentid()).andUserIdEqualTo(forumChangeCommentLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);
         com.example.demo.model.ov.ForumChangeCommentLike forumChangeCommentLike1 = new com.example.demo.model.ov.ForumChangeCommentLike();
-        if(likesList != null){
+        if(!likesList.isEmpty()){
             if(forumChangeCommentLike.getLikestatus().equals("true")) {
                 likesMapper.deleteByExample(likesExample);
                 forumChangeCommentLike1.setLikestatus("false");
@@ -434,7 +434,7 @@ public class ForumServiceImpl implements ForumService {
         } else {
             if (forumChangeCommentLike.getLikestatus().equals("false")){
                 Likes likes = new Likes();
-                likes.setViewId(forumChangeCommentLike.getCommentid());
+                likes.setCommendId(forumChangeCommentLike.getCommentid());
                 likes.setUserId(forumChangeCommentLike.getUserid());
                 likes.setTime(new Timestamp(System.currentTimeMillis()));
                 likes.setType(1);

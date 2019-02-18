@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.UsersMapper;
-import com.example.demo.model.jsonRequest.ForumChangeLike;
-import com.example.demo.model.jsonRequest.ForumGetHotComment;
-import com.example.demo.model.jsonRequest.ForumGetLike;
+import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.ForumService;
 import com.example.demo.tools.JwtTools;
@@ -156,12 +154,131 @@ public class ForumController {
 //        else{
 //            if(token != "") {
 //                ForumGetHotComment forumGetHotComment = new ForumGetHotComment();
-//                forumGetHotComment.setUserId(userId);
+//                forumGetHotComment.setUserId(userid);
 //                forumGetHotComment.setPostId(postid);
 //                return forumService.forumGetHotComment(forumGetHotComment);
 //            } else{
 //                return ResultTool.error("登录状态无效！");
 //            }
 //        }
+//    }
+
+    @GetMapping("/getcomment/{userid}/{postid}")
+    public Result forumGetComment(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("postid") Integer postid){
+        String token = httpServletRequest.getHeader("Authorization");
+        if(userid.equals("a"))
+            return forumService.forumGetAllCommentWithoutToken(postid);
+        else{
+            String userId = JwtTools.parseJwt(token);
+            if(userId.equals(userid)) {
+                ForumGetAllComment forumGetAllComment = new ForumGetAllComment();
+                forumGetAllComment.setUserId(userId);
+                forumGetAllComment.setPostId(postid);
+                return forumService.forumGetAllComment(forumGetAllComment);
+            } else{
+                return ResultTool.error("登录状态无效！");
+            }
+        }
+    }
+
+//    @GetMapping("/getcomment/{userid}/{postid}")
+//    public Result forumGetComment(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("postid") Integer postid){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(userid.equals("a"))
+//            return forumService.forumGetAllCommentWithoutToken(postid);
+//        else{
+//            if(token != "") {
+//                ForumGetAllComment forumGetAllComment = new ForumGetAllComment();
+//                forumGetAllComment.setUserId(userid);
+//                forumGetAllComment.setPostId(postid);
+//                return forumService.forumGetAllComment(forumGetAllComment);
+//            } else{
+//                return ResultTool.error("登录状态无效！");
+//            }
+//        }
+//    }
+
+    @PostMapping("/createcomment")
+    public Result forumCreateComment(HttpServletRequest httpServletRequest, @RequestBody ForumCreateComment forumCreateComment){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtTools.parseJwt(token);
+        if(!userId.equals(forumCreateComment.getUserid()))
+            return ResultTool.error("登录状态无效！");
+        else
+            return forumService.forumCreateComment(forumCreateComment);
+    }
+
+//    @PostMapping("/createcomment")
+//    public Result forumCreateComment(HttpServletRequest httpServletRequest, @RequestBody ForumCreateComment forumCreateComment){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else
+//            return forumService.forumCreateComment(forumCreateComment);
+//    }
+
+    @GetMapping("/getcommentlike/{userid}/{commentid}")
+    public Result forumGetCommentLike(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("commentid") Integer commentid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtTools.parseJwt(token);
+        if(!userid.equals(userId))
+            return ResultTool.error("登录状态无效！");
+        else {
+            ForumGetCommentLike forumGetCommentLike = new ForumGetCommentLike();
+            forumGetCommentLike.setUserid(userid);
+            forumGetCommentLike.setCommentid(commentid);
+            return forumService.forumGetCommentLike(forumGetCommentLike);
+        }
+    }
+
+//    @GetMapping("/getcommentlike/{userid}/{commentid}")
+//    public Result forumGetCommentLike(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("commentid") Integer commentid){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else {
+//            ForumGetCommentLike forumGetCommentLike = new ForumGetCommentLike();
+//            forumGetCommentLike.setUserid(userid);
+//            forumGetCommentLike.setCommentid(commentid);
+//            return forumService.forumGetCommentLike(forumGetCommentLike);
+//        }
+//    }
+
+    @PostMapping("/changecommentlike")
+    public Result forumChangeCommentLike(HttpServletRequest httpServletRequest, @RequestBody ForumChangeCommentLike forumChangeCommentLike){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtTools.parseJwt(token);
+        if(!userId.equals(forumChangeCommentLike.getUserid()))
+            return ResultTool.error("登录状态无效！");
+        else
+            return forumService.forumChangeCommentLike(forumChangeCommentLike);
+    }
+
+//    @PostMapping("/changecommentlike")
+//    public Result forumChangeCommentLike(HttpServletRequest httpServletRequest, @RequestBody ForumChangeCommentLike forumChangeCommentLike){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else
+//            return forumService.forumChangeCommentLike(forumChangeCommentLike);
+//    }
+
+    @PostMapping("/createpost")
+    public Result forumCreatePost(HttpServletRequest httpServletRequest, @RequestBody ForumCreatePost forumCreatePost){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtTools.parseJwt(token);
+        if(!userId.equals(forumCreatePost.getUserid()))
+            return ResultTool.error("登录状态无效！");
+        else
+            return forumService.forumCreatePost(forumCreatePost);
+    }
+
+//    @PostMapping("/createpost")
+//    public Result forumCreatePost(HttpServletRequest httpServletRequest, @RequestBody ForumCreatePost forumCreatePost){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else
+//            return forumService.forumCreatePost(forumCreatePost);
 //    }
 }
