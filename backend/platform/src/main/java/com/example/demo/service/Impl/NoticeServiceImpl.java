@@ -75,7 +75,7 @@ public class NoticeServiceImpl implements NoticeService {
         for (Notices notice : noticesList) {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setContent(notice.getContent());
-            findNoticeInfo.setDate(notice.getTime().toString());
+            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
             findNoticeInfo.setType(notice.getType().toString());
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setId(notice.getId().toString());
@@ -113,7 +113,7 @@ public class NoticeServiceImpl implements NoticeService {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(notice.getTime().toString());
+            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
@@ -144,7 +144,7 @@ public class NoticeServiceImpl implements NoticeService {
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(notice.getTime().toString());
+            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
         }
@@ -190,7 +190,7 @@ public class NoticeServiceImpl implements NoticeService {
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(notice.getTime().toString());
+            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
         }
@@ -270,5 +270,7 @@ public class NoticeServiceImpl implements NoticeService {
         return ResultTool.success();
 
     }
+
+
 
 }

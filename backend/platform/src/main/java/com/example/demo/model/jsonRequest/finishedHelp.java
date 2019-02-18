@@ -3,9 +3,9 @@ package com.example.demo.model.jsonRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-//获取互助系统已发布任务未完成的接口
+//  37获取已完成 70
 @Data
-public class claimedAndUnfinishedHelp {
+public class finishedHelp {
     @JsonProperty("missionid")
     String missionId;
     @JsonProperty("id")
@@ -18,8 +18,5 @@ public class claimedAndUnfinishedHelp {
     String startDate;
     @JsonProperty("enddate")
     String endDate;
-    @JsonProperty("phone")
-    String phone;
-    @JsonProperty("missionstatus")
-    String missionStatus;
+
 }

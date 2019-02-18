@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b172823-6183-4515-8cf2-b2509b902cb7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/changeHelpState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/publishTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,10 +81,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="210" column="45" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="45" />
+            <state relative-caret-position="75">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1085">
+              <caret line="291" column="46" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/publishTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
+            <state relative-caret-position="921">
               <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,10 +141,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/ResultTool.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="195">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,10 +153,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/AuthTool.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-795">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="262">
+              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,70 +165,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/SecurityTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/JwtUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
-              <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="44" />
+            <state relative-caret-position="-76">
+              <caret line="39" column="121" selection-start-line="39" selection-start-column="121" selection-end-line="39" selection-end-column="121" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/changeHelpState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="273" selection-start-line="273" selection-end-line="273" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,12 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Ban_ReasonsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/BlacklistMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/HelpMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/LikesMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/LostlistMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/ManagersMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/NoticesMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Private_ChartsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tag_UsersMapper.java" />
@@ -263,16 +264,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/searchPeople.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedByMeHelp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/publishTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/changeHelpState.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java" />
       </list>
     </option>
   </component>
@@ -457,7 +464,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550420129602" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550518775046" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -564,18 +571,21 @@
       <workItem from="1550380272607" duration="2926000" />
       <workItem from="1550386982789" duration="1376000" />
       <workItem from="1550393326713" duration="6261000" />
-      <workItem from="1550410348253" duration="2619000" />
+      <workItem from="1550410348253" duration="2852000" />
+      <workItem from="1550421585933" duration="544000" />
+      <workItem from="1550472265185" duration="178000" />
+      <workItem from="1550512133431" duration="6440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71302000" />
+    <option name="totallyTimeSpent" value="78697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23021002" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23990306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -584,8 +594,8 @@
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927953" visible="true" weight="0.33946252" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927953" weight="0.33946252" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -605,7 +615,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32932165" />
-      <window_info anchor="right" id="Database" order="6" weight="0.25605816" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.25605816" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3299712" />
@@ -621,13 +631,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Alarm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -651,16 +654,6 @@
     </entry>
     <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Comments" />
     <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Managers" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addNoticeJsonRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Notices" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/loginUser.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -723,16 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addToBlackList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Tag_Users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -757,54 +740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Help">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addFriend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -848,18 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/ResultTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/JwtUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="240">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -868,28 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/AuthTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-795">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="210" column="45" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="45" />
+        <state relative-caret-position="495">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -898,7 +807,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/SecurityTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="75">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -906,10 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/tools/JwtUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+        <state relative-caret-position="375">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -918,8 +827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="165">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -928,8 +837,102 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+        <state relative-caret-position="690">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a372d51f-9667-4954-a13c-b1f86bf60937/schema/platform_2/table/Help">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Alarm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/ClassTestService-master/test.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addFriend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addNoticeJsonRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedByMeHelp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addToBlackList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="921">
+          <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -938,8 +941,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="44" />
+        <state relative-caret-position="-76">
+          <caret line="39" column="121" selection-start-line="39" selection-start-column="121" selection-end-line="39" selection-end-column="121" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/publishTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/changeHelpState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/HelpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="273" selection-start-line="273" selection-end-line="273" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="291" column="46" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

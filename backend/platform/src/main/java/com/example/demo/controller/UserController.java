@@ -53,7 +53,7 @@ public class UserController {
         }
         return userService.addFriend(friend);
     }
-
+    //  加入黑名单
     @RequestMapping(value = "/user/addblacklist",method = RequestMethod.POST)
     public Result addToBlackList(HttpServletRequest httpServletRequest,@RequestBody addToBlackList blaclList){
         String token = httpServletRequest.getHeader("Authorization");
