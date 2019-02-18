@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Comments {
@@ -11,7 +12,7 @@ public class Comments {
 
     private String content;
 
-    private Date time;
+    private Timestamp time;
 
     public Integer getId() {
         return id;
@@ -45,11 +46,11 @@ public class Comments {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }

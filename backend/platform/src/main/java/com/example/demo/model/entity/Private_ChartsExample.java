@@ -1,7 +1,7 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Private_ChartsExample {
@@ -455,52 +455,52 @@ public class Private_ChartsExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeEqualTo(Date value) {
+        public Criteria andSendTimeEqualTo(Timestamp value) {
             addCriterion("send_time =", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeNotEqualTo(Date value) {
+        public Criteria andSendTimeNotEqualTo(Timestamp value) {
             addCriterion("send_time <>", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeGreaterThan(Date value) {
+        public Criteria andSendTimeGreaterThan(Timestamp value) {
             addCriterion("send_time >", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andSendTimeGreaterThanOrEqualTo(Timestamp value) {
             addCriterion("send_time >=", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeLessThan(Date value) {
+        public Criteria andSendTimeLessThan(Timestamp value) {
             addCriterion("send_time <", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeLessThanOrEqualTo(Date value) {
+        public Criteria andSendTimeLessThanOrEqualTo(Timestamp value) {
             addCriterion("send_time <=", value, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeIn(List<Date> values) {
+        public Criteria andSendTimeIn(List<Timestamp> values) {
             addCriterion("send_time in", values, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeNotIn(List<Date> values) {
+        public Criteria andSendTimeNotIn(List<Timestamp> values) {
             addCriterion("send_time not in", values, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeBetween(Date value1, Date value2) {
+        public Criteria andSendTimeBetween(Timestamp value1, Timestamp value2) {
             addCriterion("send_time between", value1, value2, "sendTime");
             return (Criteria) this;
         }
 
-        public Criteria andSendTimeNotBetween(Date value1, Date value2) {
+        public Criteria andSendTimeNotBetween(Timestamp value1, Timestamp value2) {
             addCriterion("send_time not between", value1, value2, "sendTime");
             return (Criteria) this;
         }

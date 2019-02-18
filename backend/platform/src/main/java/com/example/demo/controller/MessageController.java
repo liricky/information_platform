@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.UsersMapper;
-import com.example.demo.model.entity.Users;
 import com.example.demo.model.jsonRequest.MessageDetail;
 import com.example.demo.model.jsonRequest.MessageSend;
 import com.example.demo.model.ov.Result;
@@ -43,8 +42,6 @@ public class MessageController {
             return ResultTool.error("登录状态无效！");
         else
             return messageService.messagereceive(userid);
-
-
     }
 
 //    @GetMapping("/sent/{userid}")

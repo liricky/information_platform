@@ -63,10 +63,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(views.getPuller());
             forumRecommend.setAuthornickname(users.getName());
             forumRecommend.setDate(views.getTime().toString());
-            int commentnum = viewsMapper.getCommentNum(views.getId());
-            forumRecommend.setCommentnum(commentnum);
-            int likenum = viewsMapper.getLikeNum(views.getId());
-            forumRecommend.setLikenum(likenum);
+            if(viewsMapper.getCommentNum(views.getId()) instanceof Integer)
+                forumRecommend.setCommentnum(viewsMapper.getCommentNum(views.getId()));
+            else
+                forumRecommend.setCommentnum(0);
+            if(viewsMapper.getLikeNum(views.getId()) instanceof Integer)
+                forumRecommend.setLikenum(viewsMapper.getLikeNum(views.getId()));
+            else
+                forumRecommend.setLikenum(0);
             forumRecommendList.add(forumRecommend);
             if(temp == 1)
                 break;
@@ -82,10 +86,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(views.getPuller());
             forumRecommend.setAuthornickname(users.getName());
             forumRecommend.setDate(views.getTime().toString());
-            int commentnum = viewsMapper.getCommentNum(views.getId());
-            forumRecommend.setCommentnum(commentnum);
-            int likenum = viewsMapper.getLikeNum(views.getId());
-            forumRecommend.setLikenum(likenum);
+            if(viewsMapper.getCommentNum(views.getId()) instanceof Integer)
+                forumRecommend.setCommentnum(viewsMapper.getCommentNum(views.getId()));
+            else
+                forumRecommend.setCommentnum(0);
+            if(viewsMapper.getLikeNum(views.getId()) instanceof Integer)
+                forumRecommend.setLikenum(viewsMapper.getLikeNum(views.getId()));
+            else
+                forumRecommend.setLikenum(0);
             forumRecommendList.add(forumRecommend);
             if(temp == 1)
                 break;
@@ -109,8 +117,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(newReply.getPuller());
             forumNewReply.setAuthornickname(users.getName());
             forumNewReply.setDate(newReply.getTime().toString());
-            forumNewReply.setCommentnum(viewsMapper.getCommentNum(newReply.getId()));
-            forumNewReply.setLikenum(viewsMapper.getLikeNum(newReply.getId()));
+            if(viewsMapper.getCommentNum(newReply.getId()) instanceof Integer)
+                forumNewReply.setCommentnum(viewsMapper.getCommentNum(newReply.getId()));
+            else
+                forumNewReply.setCommentnum(0);
+            if(viewsMapper.getLikeNum(newReply.getId()) instanceof Integer)
+                forumNewReply.setLikenum(viewsMapper.getLikeNum(newReply.getId()));
+            else
+                forumNewReply.setLikenum(0);
             forumNewReplyList.add(forumNewReply);
         }
         return ResultTool.success(forumNewReplyList);
@@ -130,8 +144,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(newPublish.getPuller());
             forumNewPublish.setAuthornickname(users.getName());
             forumNewPublish.setDate(newPublish.getTime().toString());
-            forumNewPublish.setCommentnum(viewsMapper.getCommentNum(newPublish.getId()));
-            forumNewPublish.setLikenum(viewsMapper.getLikeNum(newPublish.getId()));
+            if(viewsMapper.getCommentNum(newPublish.getId()) instanceof Integer)
+                forumNewPublish.setCommentnum(viewsMapper.getCommentNum(newPublish.getId()));
+            else
+                forumNewPublish.setCommentnum(0);
+            if(viewsMapper.getLikeNum(newPublish.getId()) instanceof Integer)
+                forumNewPublish.setLikenum(viewsMapper.getLikeNum(newPublish.getId()));
+            else
+                forumNewPublish.setLikenum(0);
             forumNewPublishList.add(forumNewPublish);
         }
         return ResultTool.success(forumNewPublishList);
@@ -151,8 +171,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(best.getPuller());
             forumBest.setAuthornickname(users.getName());
             forumBest.setDate(best.getTime().toString());
-            forumBest.setCommentnum(viewsMapper.getCommentNum(best.getId()));
-            forumBest.setLikenum(viewsMapper.getLikeNum(best.getId()));
+            if(viewsMapper.getCommentNum(best.getId()) instanceof Integer)
+                forumBest.setCommentnum(viewsMapper.getCommentNum(best.getId()));
+            else
+                forumBest.setCommentnum(0);
+            if(viewsMapper.getLikeNum(best.getId()) instanceof Integer)
+                forumBest.setLikenum(viewsMapper.getLikeNum(best.getId()));
+            else
+                forumBest.setLikenum(0);
             forumBestList.add(forumBest);
         }
         return ResultTool.success(forumBestList);
@@ -172,8 +198,14 @@ public class ForumServiceImpl implements ForumService {
             Users users = usersMapper.getById(all.getPuller());
             forumAll.setAuthornickname(users.getName());
             forumAll.setDate(all.getTime().toString());
-            forumAll.setCommentnum(viewsMapper.getCommentNum(all.getId()));
-            forumAll.setLikenum(viewsMapper.getLikeNum(all.getId()));
+            if(viewsMapper.getCommentNum(all.getId()) instanceof Integer)
+                forumAll.setCommentnum(viewsMapper.getCommentNum(all.getId()));
+            else
+                forumAll.setCommentnum(0);
+            if(viewsMapper.getLikeNum(all.getId()) instanceof Integer)
+                forumAll.setLikenum(viewsMapper.getLikeNum(all.getId()));
+            else
+                forumAll.setLikenum(0);
             forumAllList.add(forumAll);
         }
         return ResultTool.success(forumAllList);
@@ -217,12 +249,15 @@ public class ForumServiceImpl implements ForumService {
         likesExample.createCriteria().andViewIdEqualTo(forumChangeLike.getPostid()).andUserIdEqualTo(forumChangeLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);
         com.example.demo.model.ov.ForumChangeLike forumChangeLike1 = new com.example.demo.model.ov.ForumChangeLike();
-        if(likesList != null){
+        if(!likesList.isEmpty()){
             if(forumChangeLike.getLikestatus().equals("true")) {
                 likesMapper.deleteByExample(likesExample);
                 forumChangeLike1.setLikestatus("false");
                 Views views = viewsMapper.selectByPrimaryKey(forumChangeLike.getPostid());
-                tag_usersMapper.updateUserTag6(forumChangeLike.getUserid(), views.getTags());
+                Tag_Users tag_users = new Tag_Users();
+                tag_users.setUser(forumChangeLike.getUserid());
+                tag_users.setTag(views.getTags());
+                tag_usersMapper.updateUserTag6(tag_users);
             } else
                 return ResultTool.error("数据状态不匹配");
         } else {
@@ -235,7 +270,10 @@ public class ForumServiceImpl implements ForumService {
                 likesMapper.insertSelective(likes);
                 forumChangeLike1.setLikestatus("true");
                 Views views = viewsMapper.selectByPrimaryKey(forumChangeLike.getPostid());
-                tag_usersMapper.updateUserTag2(forumChangeLike.getUserid(), views.getTags());
+                Tag_Users tag_users = new Tag_Users();
+                tag_users.setUser(forumChangeLike.getUserid());
+                tag_users.setTag(views.getTags());
+                tag_usersMapper.updateUserTag2(tag_users);
             } else
                 return ResultTool.error("数据状态不匹配");
         }
@@ -255,7 +293,10 @@ public class ForumServiceImpl implements ForumService {
             forumGetHotComment.setAuthornickname(users.getName());
             forumGetHotComment.setContent(getHotComment.getContent());
             forumGetHotComment.setDate(getHotComment.getTime().toString());
-            forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            if(commentsMapper.getLikeNum(getHotComment.getId()) instanceof Integer)
+                forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            else
+                forumGetHotComment.setLikenum(0);
             if(commentsMapper.getLikeStatus(forumGetHotComment1.getPostId(),forumGetHotComment1.getUserId()) == null)
                 forumGetHotComment.setLikestatus("false");
             else
@@ -277,7 +318,10 @@ public class ForumServiceImpl implements ForumService {
             forumGetHotComment.setAuthornickname(users.getName());
             forumGetHotComment.setContent(getHotComment.getContent());
             forumGetHotComment.setDate(getHotComment.getTime().toString());
-            forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            if(commentsMapper.getLikeNum(getHotComment.getId()) instanceof Integer)
+                forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
+            else
+                forumGetHotComment.setLikenum(0);
             forumGetHotComment.setLikestatus("false");
             forumGetHotCommentList.add(forumGetHotComment);
         }
@@ -297,7 +341,10 @@ public class ForumServiceImpl implements ForumService {
             forumGetAllComment.setAuthornickname(users.getName());
             forumGetAllComment.setContent(getAllComment.getContent());
             forumGetAllComment.setDate(getAllComment.getTime().toString());
-            forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            if(commentsMapper.getLikeNum(getAllComment.getId()) instanceof Integer)
+                forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            else
+                forumGetAllComment.setLikenum(0);
             if(commentsMapper.getLikeStatus(forumGetAllComment1.getPostId(),forumGetAllComment1.getUserId()) == null)
                 forumGetAllComment.setLikestatus("false");
             else
@@ -319,7 +366,10 @@ public class ForumServiceImpl implements ForumService {
             forumGetAllComment.setAuthornickname(users.getName());
             forumGetAllComment.setContent(getAllComment.getContent());
             forumGetAllComment.setDate(getAllComment.getTime().toString());
-            forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            if(commentsMapper.getLikeNum(getAllComment.getId()) instanceof Integer)
+                forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
+            else
+                forumGetAllComment.setLikenum(0);
             forumGetAllComment.setLikestatus("false");
             forumGetAllCommentList.add(forumGetAllComment);
         }
@@ -342,7 +392,10 @@ public class ForumServiceImpl implements ForumService {
             return ResultTool.error(e.getMessage());
         }
         Views views = viewsMapper.selectByPrimaryKey(forumCreateComment.getPostid());
-        tag_usersMapper.updateUserTag3(forumCreateComment.getUserid(), views.getTags());
+        Tag_Users tag_users = new Tag_Users();
+        tag_users.setUser(forumCreateComment.getUserid());
+        tag_users.setTag(views.getTags());
+        tag_usersMapper.updateUserTag3(tag_users);
         return ResultTool.success();
     }
 
@@ -372,7 +425,10 @@ public class ForumServiceImpl implements ForumService {
                 likesMapper.deleteByExample(likesExample);
                 forumChangeCommentLike1.setLikestatus("false");
                 Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
-                tag_usersMapper.updateUserTag5(forumChangeCommentLike.getUserid(), views.getTags());
+                Tag_Users tag_users = new Tag_Users();
+                tag_users.setUser(forumChangeCommentLike.getUserid());
+                tag_users.setTag(views.getTags());
+                tag_usersMapper.updateUserTag5(tag_users);
             } else
                 return ResultTool.error("数据状态不匹配");
         } else {
@@ -385,7 +441,10 @@ public class ForumServiceImpl implements ForumService {
                 likesMapper.insertSelective(likes);
                 forumChangeCommentLike1.setLikestatus("true");
                 Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
-                tag_usersMapper.updateUserTag1(forumChangeCommentLike.getUserid(), views.getTags());
+                Tag_Users tag_users = new Tag_Users();
+                tag_users.setUser(forumChangeCommentLike.getUserid());
+                tag_users.setTag(views.getTags());
+                tag_usersMapper.updateUserTag1(tag_users);
             } else
                 return ResultTool.error("数据状态不匹配");
         }
@@ -407,7 +466,10 @@ public class ForumServiceImpl implements ForumService {
         }catch (Exception e){
             return ResultTool.error(e.getMessage());
         }
-        tag_usersMapper.updateUserTag4(forumCreatePost.getUserid(), forumCreatePost.getLabel());
+        Tag_Users tag_users = new Tag_Users();
+        tag_users.setUser(forumCreatePost.getUserid());
+        tag_users.setTag(forumCreatePost.getLabel());
+        tag_usersMapper.updateUserTag4(tag_users);
         return ResultTool.success();
     }
 }

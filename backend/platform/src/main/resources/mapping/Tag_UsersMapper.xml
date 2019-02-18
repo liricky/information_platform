@@ -205,44 +205,44 @@
   </select>
 
   <!--更新用户标签关系 + 1-->
-  <update id="updateUserTag1" >
+  <update id="updateUserTag1" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent + 1
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 
   <!--更新用户标签关系 + 2-->
-  <update id="updateUserTag2" >
+  <update id="updateUserTag2" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent + 2
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 
   <!--更新用户标签关系 + 3-->
-  <update id="updateUserTag3" >
+  <update id="updateUserTag3" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent + 3
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 
   <!--更新用户标签关系 + 4-->
-  <update id="updateUserTag4" >
+  <update id="updateUserTag4" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent + 4
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 
   <!--更新用户标签关系 - 1-->
-  <update id="updateUserTag5" >
+  <update id="updateUserTag5" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent - 1
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 
   <!--更新用户标签关系 - 2-->
-  <update id="updateUserTag6" >
+  <update id="updateUserTag6" parameterType="com.example.demo.model.entity.Tag_Users">
     update Tag_Users
     set extent = extent - 2
-    where Tag_Users.user = #{0} and tag = #{1}
+    where Tag_Users.user = #{user,jdbcType=VARCHAR} and tag = #{tag,jdbcType=INTEGER}
   </update>
 </mapper>

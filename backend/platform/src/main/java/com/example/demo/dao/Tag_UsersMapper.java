@@ -4,6 +4,7 @@ import com.example.demo.model.entity.Tag_Users;
 import com.example.demo.model.entity.Tag_UsersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 public interface Tag_UsersMapper {
     int countByExample(Tag_UsersExample example);
@@ -22,17 +23,17 @@ public interface Tag_UsersMapper {
 
     List<Tag_Users> getByUser(String userid);
 
-    int updateUserTag1(String user, Integer tag);
+    int updateUserTag1(Tag_Users tag_users);
 
-    int updateUserTag2(String user, Integer tag);
+    int updateUserTag2(Tag_Users tag_users);
 
-    int updateUserTag3(String user, Integer tag);
+    int updateUserTag3(Tag_Users tag_users);
 
-    int updateUserTag4(String user, Integer tag);
+    int updateUserTag4(Tag_Users tag_users);
 
-    int updateUserTag5(String user, Integer tag);
+    int updateUserTag5(Tag_Users tag_users);
 
-    int updateUserTag6(String user, Integer tag);
+    int updateUserTag6(Tag_Users tag_users);
 
     int updateByExampleSelective(@Param("record") Tag_Users record, @Param("example") Tag_UsersExample example);
 

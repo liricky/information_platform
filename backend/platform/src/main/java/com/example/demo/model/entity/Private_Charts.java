@@ -1,6 +1,6 @@
 package com.example.demo.model.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Private_Charts {
     private Integer id;
@@ -13,7 +13,7 @@ public class Private_Charts {
 
     private String content;
 
-    private Date sendTime;
+    private Timestamp sendTime;
 
     private Integer state;
 
@@ -57,11 +57,11 @@ public class Private_Charts {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getSendTime() {
+    public Timestamp getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(Date sendTime) {
+    public void setSendTime(Timestamp sendTime) {
         this.sendTime = sendTime;
     }
 

@@ -32,7 +32,7 @@ public interface CommentsMapper {
 
     Likes getLikeStatus(Integer comment_id, String user_id);
 
-    int getLikeNum(Integer commentid);
+    Integer getLikeNum(Integer commentid);
 
     int updateByExampleSelective(@Param("record") Comments record, @Param("example") CommentsExample example);
 

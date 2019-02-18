@@ -34,9 +34,9 @@ public interface ViewsMapper {
 
     List<All> getAll(Integer tags);
 
-    int getCommentNum(Integer id);
+    Integer getCommentNum(Integer id);
 
-    int getLikeNum(Integer id);
+    Integer getLikeNum(Integer id);
 
     Views selectByPrimaryKey(Integer id);
 

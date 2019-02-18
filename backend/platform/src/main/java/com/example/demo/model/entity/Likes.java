@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Likes {
@@ -9,7 +10,7 @@ public class Likes {
 
     private String userId;
 
-    private Date time;
+    private Timestamp time;
 
     private Integer type;
 
@@ -39,11 +40,11 @@ public class Likes {
         this.userId = userId == null ? null : userId.trim();
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

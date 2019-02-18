@@ -10,7 +10,7 @@ const store = new Vuex.Store({
     // token: "dsaf",
     userNickname: "" || localStorage.getItem("userNickname"),
     // userNickname: "li",
-    userId: "" || localStorage.getItem("userId")
+    userId: "a" || localStorage.getItem("userId")
     // userId: "16122075"
   },
   mutations: {
