@@ -82,7 +82,7 @@ public class MessageServiceImpl implements MessageService {
             messageSent.setReceiverid(private_charts.getReceiver());
 
             //获取用户昵称需要从用户表中另外获取
-            Users users = usersMapper.getById(private_charts.getId().toString());
+            Users users = usersMapper.getById(private_charts.getReceiver());
             messageSent.setReceivernickname(users.getName());
 
             messageSentList.add(messageSent);
@@ -114,7 +114,12 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Result messagedetail(MessageDetail messageDetail) {
         Private_Charts private_charts = private_chartsMapper.selectByPrimaryKey(messageDetail.getMessageid());
+        if(messageDetail.getUserid().equals(private_charts.getReceiver()))
+            private_charts.setState(0);
+        else
+            return ResultTool.error("越限接收！");
         com.example.demo.model.ov.MessageDetail messageDetail1 = new com.example.demo.model.ov.MessageDetail();
+        private_chartsMapper.updateByPrimaryKeySelective(private_charts);
         messageDetail1.setMessageid(private_charts.getId());
         messageDetail1.setTitle(private_charts.getTitle());
         messageDetail1.setContent(private_charts.getContent());

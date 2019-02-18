@@ -39,35 +39,70 @@ public class MessageController {
     public Result messageReceive(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
         String userId = JwtTools.parseJwt(token);
-        if(userid == userId)
-            return messageService.messagereceive(userid);
-        else
+        if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
+        else
+            return messageService.messagereceive(userid);
+
 
     }
+
+//    @GetMapping("/sent/{userid}")
+//    public Result messageSent(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else
+//            return messageService.messagesent(userid);
+//    }
 
     @GetMapping("/sent/{userid}")
     public Result messageSent(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        if(token == "")
+        String userId = JwtTools.parseJwt(token);
+        if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else
             return messageService.messagesent(userid);
     }
 
+//    @PostMapping("/send")
+//    public Result messageSend(HttpServletRequest httpServletRequest, @RequestBody MessageSend messageSend){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else
+//            return messageService.messagesend(messageSend);
+//    }
+
     @PostMapping("/send")
     public Result messageSend(HttpServletRequest httpServletRequest, @RequestBody MessageSend messageSend){
         String token = httpServletRequest.getHeader("Authorization");
-        if(token == "")
+        String userId = JwtTools.parseJwt(token);
+        if(!userId.equals(messageSend.getUserid()))
             return ResultTool.error("登录状态无效！");
         else
             return messageService.messagesend(messageSend);
     }
 
+//    @GetMapping("/detail/{userid}/{messageid}")
+//    public Result messageDetail(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("messageid") Integer messageid){
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if(token == "")
+//            return ResultTool.error("登录状态无效！");
+//        else {
+//            MessageDetail messageDetail = new MessageDetail();
+//            messageDetail.setMessageid(messageid);
+//            messageDetail.setUserid(userid);
+//            return messageService.messagedetail(messageDetail);
+//        }
+//    }
+
     @GetMapping("/detail/{userid}/{messageid}")
     public Result messageDetail(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("messageid") Integer messageid){
         String token = httpServletRequest.getHeader("Authorization");
-        if(token == "")
+        String userId = JwtTools.parseJwt(token);
+        if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else {
             MessageDetail messageDetail = new MessageDetail();
