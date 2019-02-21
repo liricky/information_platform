@@ -25,17 +25,17 @@ export default new Router({
       path: '/Message',
       name: 'Message',
       component: () => import('@/views/Message'),
-      // meta:{
-      //   requireAuth: true
-      // }
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Appeal',
       name: 'Appeal',
       component:() => import('@/views/Appeal'),
-      // meta:{
-      //   requireAuth: true
-      // }
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Announcement',
@@ -56,9 +56,9 @@ export default new Router({
       path: '/ForumCreate',
       name: 'ForumCreate',
       component: () => import('@/views/ForumCreate'),
-      // meta:{
-      //   requireAuth: true
-      // }
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/ForumPage1',
@@ -89,17 +89,17 @@ export default new Router({
       path: '/Help',
       name: 'Help',
       component: () => import('@/views/Help'),
-      // meta:{
-      //   requireAuth: true
-      // }
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/Report',
       name: 'Report',
       component: () => import('@/views/Report'),
-      // meta:{
-      //   requireAuth: true
-      // }
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/UserDetail',
@@ -115,9 +115,9 @@ export default new Router({
       path: '/ChangeUserDetail',
       name: 'ChangeUserDetail',
       component: () => import('@/views/ChangeUserDetail'),
-      // meta: {
-      //   requireAuth: true
-      // }
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/LostAFound/Board',
