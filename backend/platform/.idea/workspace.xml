@@ -1,12 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Views.java" line="12" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="8b172823-6183-4515-8cf2-b2509b902cb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/announcement.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/announcement_new.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/lostafound_board.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/lostafound_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/lostafound_myboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/lostafound_publish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_announcement.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_announcement_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_announcement_publish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_forum.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_forum_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_if.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_inbox_appeal.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_inbox_report.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_user.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_user_forbid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_user_password.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/information_platform/mock/manage_user_release.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/information_platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/information_platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/DemoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/ForumController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/MessageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/NoticeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/AlarmMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Ban_ReasonsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/BlacklistMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/CommentsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/FriendsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/HelpMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/LikesMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/LostlistMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/ManagersMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/NoticesMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Private_ChartsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/TagsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Unlock_ApplyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/dao/UsersMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ResultCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/databaseResulttype/GetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/databaseResulttype/GetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Alarm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/AlarmExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/AlarmExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/AlarmExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/AlarmExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Ban_Reasons.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Ban_ReasonsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Blacklist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/BlacklistExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/BlacklistExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/BlacklistExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/BlacklistExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Comments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/CommentsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/CommentsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/CommentsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/CommentsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Friends.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/FriendsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/FriendsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/FriendsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/FriendsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Help.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/HelpExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/HelpExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/HelpExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/HelpExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Likes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LikesExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LikesExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LikesExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LikesExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Lostlist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LostlistExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LostlistExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LostlistExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/LostlistExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Managers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ManagersExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ManagersExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ManagersExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ManagersExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Notices.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/NoticesExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/NoticesExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/NoticesExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/NoticesExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Private_Charts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Private_ChartsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Private_ChartsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Private_ChartsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Private_ChartsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_UsersExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_UsersExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_UsersExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tag_UsersExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Tags.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/TagsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/TagsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/TagsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/TagsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_Apply.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_ApplyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Users.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/UsersExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/UsersExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/UsersExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/UsersExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Views.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Views.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ViewsExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ViewsExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ViewsExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/ViewsExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumChangeCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumChangeLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumCreateComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumCreatePost.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumGetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumGetCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumGetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ForumGetLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/MessageDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/MessageSend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/addFriend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/addNoticeJsonRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/addToBlackList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/loginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/searchPeople.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/unclaimHelp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/userRelationship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/FindNoticeInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumBest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumChangeCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumChangeLike.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumChangeLike.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumGetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumGetCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumGetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumGetLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumNewPublish.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumNewReply.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/ForumRecommend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/MessageDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/MessageReceive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/MessageSent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/UserGetFriend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/response/TokenResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/ForumService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/HelpService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/ForumServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/HelpServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/MessageServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/MessageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/NoticeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/tools/AuthTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/tools/JwtTools.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/tools/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/tools/ResultTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/tools/SecurityTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/config/dev.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/components/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/components/Head.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/Board.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/Board.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/MyBoard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/MyBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/Publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/LostAFound/Publish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/AnnouncementDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/AnnouncementDelete.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/AnnouncementPublish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/AnnouncementPublish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/ForumDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/ForumDelete.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/Inbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/Inbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/User_Manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/User_Manage.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,87 +223,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="platform" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Comments: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Likes: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Managers: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Notices: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Private_Charts: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Tag_Users: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Tags: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Unlock_Apply: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Users: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="platform" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Views: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -126,7 +237,7 @@
           <entry key="Tags" value="1" />
           <entry key="Users" value="7" />
           <entry key="Views" value="5" />
-          <entry key="java" value="178" />
+          <entry key="java" value="174" />
           <entry key="sql" value="4" />
           <entry key="xml" value="46" />
           <entry key="yml" value="1" />
@@ -135,7 +246,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="59" />
-          <entry key="JAVA" value="178" />
+          <entry key="JAVA" value="174" />
           <entry key="Scratch" value="4" />
           <entry key="XML" value="46" />
           <entry key="YAML" value="1" />
@@ -157,13 +268,12 @@
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="2" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -183,6 +293,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="446" column="58" lean-forward="true" selection-start-line="446" selection-start-column="58" selection-end-line="446" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
@@ -194,74 +334,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CommentsMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Comments.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-              <folding>
-                <element signature="e#930#931#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/ViewsExample.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Views.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#594#595#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#774#775#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7a9b87c4-ef3d-4368-bf75-e505f5912d4f/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2584">
-              <caret line="136" selection-start-line="136" selection-end-line="136" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -290,6 +364,7 @@
       <find>createc</find>
       <find>updateUserTag</find>
       <find>likesList</find>
+      <find>setMissionId</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -301,7 +376,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/tools/JwtUtil.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a372d51f-9667-4954-a13c-b1f86bf60937/console.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" />
@@ -352,6 +426,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7a9b87c4-ef3d-4368-bf75-e505f5912d4f/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/unclaimHelp.java" />
       </list>
     </option>
   </component>
@@ -463,73 +538,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="databaseResulttype" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="jsonRequest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="ov" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -541,30 +549,6 @@
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="Impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapping" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -588,7 +572,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -696,19 +680,20 @@
       <workItem from="1550404181937" duration="4322000" />
       <workItem from="1550412234159" duration="8247000" />
       <workItem from="1550457239028" duration="27655000" />
-      <workItem from="1550494754867" duration="29000" />
-      <workItem from="1550655473244" duration="476000" />
-      <workItem from="1550716357048" duration="612000" />
+      <workItem from="1550569617691" duration="799000" />
+      <workItem from="1550570426421" duration="63000" />
+      <workItem from="1550570597921" duration="768000" />
+      <workItem from="1550734341493" duration="216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100321000" />
+    <option name="totallyTimeSpent" value="101050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1814301" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23745997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -730,7 +715,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.09968187" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32767764" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32739726" />
       <window_info anchor="bottom" id="Database Console" order="15" visible="true" weight="0.21527041" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -738,7 +723,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32817504" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1307364" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.13020277" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3299712" />
@@ -792,48 +777,10 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Tags">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Alarm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/AlarmExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="515" column="9" lean-forward="true" selection-start-line="515" selection-start-column="9" selection-end-line="515" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Private_ChartsExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8759">
-          <caret line="483" column="60" lean-forward="true" selection-start-line="483" selection-start-column="60" selection-end-line="483" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Private_Charts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Alarm.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/AlarmExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Private_ChartsExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Private_Charts.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/ViewsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
@@ -841,27 +788,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Likes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/CommentsExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/LikesExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Likes.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/CommentsExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Comments.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/ViewsExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/Views.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/entity/LikesExample.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/ForumService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -869,27 +801,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE-sources.jar!/org/springframework/web/bind/annotation/RequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/MessageSend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumChangeLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE-sources.jar!/org/springframework/web/bind/annotation/RequestBody.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/MessageSend.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumChangeLike.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -918,76 +832,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumGetHotComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumGetAllComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/ForumGetAllComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumCreateComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/ForumGetLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/ForumGetCommentLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumGetLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Comments">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumGetCommentLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumChangeCommentLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumGetHotComment.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumGetAllComment.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/ForumGetAllComment.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumCreateComment.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/ForumGetLike.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/ov/ForumGetCommentLike.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumGetLike.java" />
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Comments" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumGetCommentLike.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumChangeCommentLike.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-610">
@@ -1014,34 +868,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Views">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Likes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Tag_Users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/ForumCreatePost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Views" />
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Likes" />
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Tag_Users" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/ForumCreatePost.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1053,13 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="465" column="29" lean-forward="true" selection-start-line="465" selection-start-column="29" selection-end-line="465" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1077,13 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/loginUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7a9b87c4-ef3d-4368-bf75-e505f5912d4f/console.sql" />
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Users" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/loginUser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/unclaimHelp.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/ForumController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4123">
@@ -1091,6 +911,20 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1103,61 +937,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CommentsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Comments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#930#931#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/ViewsExample.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7a9b87c4-ef3d-4368-bf75-e505f5912d4f/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2584">
-          <caret line="136" selection-start-line="136" selection-end-line="136" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Views.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state relative-caret-position="214">
+          <caret line="446" column="58" lean-forward="true" selection-start-line="446" selection-start-column="58" selection-end-line="446" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
           </folding>
         </state>
       </provider>

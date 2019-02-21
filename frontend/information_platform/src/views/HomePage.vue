@@ -18,14 +18,14 @@
       <Layout style="height: 380px">
         <Sider hide-trigger width="300" style="background: white"><calendar style="width: 100%;height: 100%;margin-left: 0px"></calendar></Sider>
         <Content style="margin-top: 10px">
-          <b style="font-size: 20px;"><Icon type="ios-crop" />推荐栏</b>
+          <b style="font-size: 20px;"><Icon type="ios-crop" />最近公告</b>
           <Collapse simple style="text-align: left">
             <Panel v-for="(msg,index) in msg.slice(0,8)">
-              <span >{{msg.title}}</span><div style="display: inline;margin-left: 60%">{{msg.addresser}}</div><div style="display:inline;margin-left: 10%">{{msg.date}}</div>
+              <span >{{msg.title}}</span><div style="display: inline;width: 30%;float: right; margin-right: 10%"><div style="display: inline;float:right;margin-right: 10%">{{msg.date}}</div><div style="display:inline;float:left">{{msg.type}}</div></div>
               <p slot="content" style="text-align: justify">{{msg.content}}</p>
               <div slot="content">
                 <ButtonGroup shape="circle" style="margin-left: 85%;margin-top: 10px;" size="small">
-                  <Button type="info">前往该贴</Button>
+                  <Button type="info" @click="jumpDetail(msg.type)"><div v-if="msg.type === '失物启示'">详情</div><div v-else>更多</div></Button>
                 </ButtonGroup>
               </div>
             </Panel>
@@ -46,46 +46,11 @@
     import tophead from '@/components/Head.vue'
     import bottom from '@/components/Bottom.vue'
     import calendar from '@/components/calendar.vue'
+    import axios from 'axios'
     export default {
         data() {
             return {
                 msg:[
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
-                  {
-                    title:'史蒂夫·乔布斯',
-                    content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                    date:'2012-2-2',
-                    addresser:'刘某人'
-                  },
                 ]
             }
         },
@@ -94,5 +59,38 @@
           tophead,
           calendar
         },
+        methods:{
+          getdata() {
+            axios({
+              url:apiRoot+'/api/announcement/new',
+              method:'get'
+            }).then((response) => {
+              let res = response.data;
+              if(res.status === "success") {
+                this.msg = res.data;
+                this.classify();
+              } else {
+                this.status1 = res.status;
+                this.errormsg1 = res.message;
+                this.$Message.info('获取失败： ' + this.errormsg1);
+              }
+            })
+          },
+          jumpDetail(type){
+            if(type === "失物启示"){
+              this.$router.push({
+                path: '/lostafound/board'
+              })
+            }
+            else{
+              this.$router.push({
+                path: '/announcement'
+              })
+            }
+          }
+      },
+      created(){
+        this.getdata();
+      }
     }
 </script>

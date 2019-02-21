@@ -50,6 +50,7 @@
 <script>
   import tophead from '../../components/Head.vue'
   import bottom from '../../components/Bottom.vue'
+  import axios from 'axios'
   export default {
     name: "Publish",
     components :{
@@ -60,28 +61,53 @@
       return{
         value1:'',
         value2:'',
-        value3:''
+        value3:'',
+        status1: '',
+        errormsg1: '',
      }
     },
     methods:{
       push(){
-        if(this.value1 ==''){
+        var myDate = new Date();
+        var date = myDate.getFullYear()+"-"+ (myDate.getMonth()+1)+"-"+myDate.getDate();
+        if(this.value1 ===''){
           this.$Message.warning('标题不能为空');
         }
-        else if(this.value2 == ''){
+        else if(this.value2 === ''){
           this.$Message.warning('详细信息不能为空');
         }
-        else if(this.value3 == ''){
+        else if(this.value3 === ''){
           this.$Message.warning('联系方式不能为空');
         }
         else if(this.value2.length>200){
           this.$Message.warning('详细信息不能超过200字');
         }
         else{
-          this.$Message.success('发布成功');
-          this.value1='';
-          this.value2='';
-          this.value3='';
+          axios({
+            url: '/api/lostafound/publish',
+            headers: {Authorization: this.$store.state.token},
+            data:{
+              userid: this.$store.state.userId,
+              username:this.$store.state.userNickname,
+              title: this.value1,
+              content: this.value2,
+              connect: this.value3,
+              date: date,
+            },
+            method:'post'
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              this.$Message.success('发布成功');
+              this.value1='';
+              this.value2='';
+              this.value3='';
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('发布失败： ' + this.errormsg1);
+            }
+          })
         }
       }
     }

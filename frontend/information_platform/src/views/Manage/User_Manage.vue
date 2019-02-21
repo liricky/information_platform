@@ -97,7 +97,7 @@
                       <Input v-model="formValidate.forbid_reason" placeholder="封禁原因"></Input>
                     </FormItem>
                     <FormItem label="封禁结束时间" prop="forbid_date">
-                      <DatePicker type="date" placeholder="Select date" v-model="formValidate.forbid_date"></DatePicker>
+                      <DatePicker type="date" :options="options" placeholder="Select date" style="width: 200px" @on-change="handleChange" format="yyyy-MM-dd"></DatePicker>
                     </FormItem>
                   </Form>
                 </div>
@@ -112,6 +112,7 @@
 
 <script>
     import msider from '../../components/M_Sider.vue'
+    import axios from 'axios'
     export default {
         name: "User_Manage",
         components:{
@@ -128,6 +129,39 @@
               forbid_reason:'',
               forbid_date:''
             },
+            status1: '',
+            errormsg1: '',
+            options: {
+              disabledDate (date) {
+                return date && date.valueOf() < Date.now() - 86400000;
+              },
+              shortcuts:[
+                {
+                  text: 'One week',
+                  value () {
+                    const date = new Date();
+                    date.setTime(date.getTime() + 3600 * 1000 * 24 * 7);
+                    return date;
+                  }
+                },
+                {
+                  text: '30 days',
+                  value () {
+                    const date = new Date();
+                    date.setTime(date.getTime() + 3600 * 1000 * 24 * 30);
+                    return date;
+                  }
+                },
+                {
+                  text: '365 days',
+                  value () {
+                    const date = new Date();
+                    date.setTime(date.getTime() + 3600 * 1000 * 24 * 365);
+                    return date;
+                  }
+                },
+              ]
+            },
             ruleValidate: {
               forbid_reason: [
                 { required: true, message: 'The reason cannot be empty', trigger: 'blur' }
@@ -139,66 +173,34 @@
                 { required: true, type: 'date', message: 'Please select the date', trigger: 'change' }
               ],
             },
-            msg:[
-              {
-                id:0,
-                name:'789',
-                number:'16121789',
-                status:'封禁',
-                forbid_type:'论坛封禁',
-                forbid_reason:'敏感词汇',
-                password:'123123',
-                forbid_date:'2012-2-2'
-              },
-              {
-                id:1,
-                name:'789',
-                number:'16121789',
-                status:'封禁',
-                forbid_type:'论坛封禁',
-                forbid_reason:'敏感词汇',
-                password:'123123',
-                forbid_date:'2012-2-2'
-              },
-              {
-                id:2,
-                name:'789',
-                number:'16121789',
-                status:'封禁',
-                forbid_type:'论坛封禁',
-                forbid_reason:'敏感词汇',
-                password:'123123',
-                forbid_date:'2012-2-2'
-              },
-              {
-                id:3,
-                name:'789',
-                number:'16121789',
-                status:'未封禁',
-                forbid_type:'',
-                forbid_reason:'',
-                password:'123123',
-                forbid_date:''
-              },
-              {
-                id:4,
-                name:'789',
-                number:'16121789',
-                status:'未封禁',
-                forbid_type:'',
-                forbid_reason:'',
-                password:'123123',
-                forbid_date:''
-              }
-            ]
+            msg:[]
 
           }
         },
       methods:{
+        getdata(){
+          axios({
+            url:apiRoot+'/manage/user/'+this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method:'get'
+            }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              this.msg = res.data;
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('获取失败： ' + this.errormsg1);
+            }
+          })
+        },
+        handleChange(date) {
+          this.formValidate.forbid_date = date;
+        },
         changechoose1(id){
           var i = 0;
           for(i=0;i<this.msg.length;i++){
-            if(id == this.msg[i].id){
+            if(id === this.msg[i].id){
               this.choice = this.msg[i];
               break;
             }
@@ -208,7 +210,7 @@
         changechoose2(id){
           var i = 0;
           for(i=0;i<this.msg.length;i++){
-            if(id == this.msg[i].id){
+            if(id === this.msg[i].id){
               this.choice = this.msg[i];
               break;
             }
@@ -216,15 +218,33 @@
           this.modal2=true;
         },
         ok1 (id) {
-          var i = 0;
-          for(i=0;i<this.msg.length;i++){
-            if(id == this.msg[i].id){
-              this.msg[i].password = this.value;
-              break;
+          axios({
+            url:apiRoot+'/manage/user/password',
+            headers: {Authorization: this.$store.state.token},
+            data:{
+              manageid: this.$store.state.userId,
+              id:id,
+              password:this.value,
+            },
+            method:'post'
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              var i = 0;
+              for(i=0;i<this.msg.length;i++){
+                if(id === this.msg[i].id){
+                  this.msg[i].password = this.value;
+                  break;
+                }
+              }
+              this.value = '';
+              this.$Message.info('密码修改成功');
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('修改失败： ' + this.errormsg1);
             }
-          }
-          this.value = '';
-          this.$Message.info('密码修改成功');
+          })
         },
         cancel1 () {
           this.value = '';
@@ -233,18 +253,37 @@
         ok2(id){
             var i =0;
             for(i=0;i<this.msg.length;i++){
-              if(id == this.msg[i].id){
-                if(this.msg[i].status == '未封禁'){
-                  if(this.formValidate.forbid_date != '' && this.formValidate.forbid_reason != '' && this.formValidate.forbid_type != '') {
-                    this.msg[i].status = '封禁';
-                    this.msg[i].forbid_date = this.formValidate.forbid_date;
-                    this.msg[i].forbid_reason = this.formValidate.forbid_reason;
-                    this.msg[i].forbid_type = this.formValidate.forbid_type;
-                    this.$Message.success('封禁成功');
-                    this.formValidate.forbid_date = '';
-                    this.formValidate.forbid_reason = '';
-                    this.formValidate.forbid_type = '';
-                    break;
+              if(id === this.msg[i].id){
+                if(this.msg[i].status === '未封禁'){
+                  if(this.formValidate.forbid_date !== '' && this.formValidate.forbid_reason !== '' && this.formValidate.forbid_type !== '') {
+                    axios.post({
+                      url:apiRoot+'/manage/user/forbid',
+                      headers: {Authorization: this.$store.state.token},
+                      data:{
+                        manageid: this.$store.state.userId,
+                        id:id,
+                        forbid_type:this.formValidate.forbid_type,
+                        forbid_reason:this.formValidate.forbid_reason,
+                        forbid_date:this.formValidate.forbid_date
+                      },
+                      method:'post'
+                    }).then((response) => {
+                      let res = response.data;
+                      if(res.status === "success") {
+                        this.msg[i].status = '封禁';
+                        this.msg[i].forbid_date = this.formValidate.forbid_date;
+                        this.msg[i].forbid_reason = this.formValidate.forbid_reason;
+                        this.msg[i].forbid_type = this.formValidate.forbid_type;
+                        this.$Message.success('封禁成功');
+                        this.formValidate.forbid_date = '';
+                        this.formValidate.forbid_reason = '';
+                        this.formValidate.forbid_type = '';
+                      } else {
+                        this.status1 = res.status;
+                        this.errormsg1 = res.message;
+                        this.$Message.info('封禁失败： ' + this.errormsg1);
+                      }
+                    })
                   }
                   else {
                     this.$Message.error('表单填写不完整');
@@ -252,12 +291,26 @@
                   }
                 }
                 else {
-                  this.msg[i].status = '未封禁';
-                  this.msg[i].forbid_date = '';
-                  this.msg[i].forbid_reason = '';
-                  this.msg[i].forbid_type = '';
                   this.$Message.success('解除封禁成功');
+                  axios({
+                    url:apiRoot+'/manage/user/release/'+this.$store.state.userId+'/'+id,
+                    headers: {Authorization: this.$store.state.token},
+                    method:'post'
+                  }).then((response) => {
+                    let res = response.data;
+                    if(res.status === "success") {
+                      this.msg[i].status = '未封禁';
+                      this.msg[i].forbid_date = '';
+                      this.msg[i].forbid_reason = '';
+                      this.msg[i].forbid_type = '';
+                    } else {
+                      this.status1 = res.status;
+                      this.errormsg1 = res.message;
+                      this.$Message.info('解封失败：' + this.errormsg1);
+                    }
+                  })
                 }
+                break;
               }
             }
         },
@@ -267,6 +320,9 @@
           this.formValidate.forbid_type = '';
           this.$Message.info('取消修改');
         },
+      },
+      created(){
+          this.getdata()
       }
     }
 </script>

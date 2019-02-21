@@ -9,7 +9,7 @@
                 <Divider orientation="left"class="title" ><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a1" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -25,7 +25,7 @@
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a3" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -37,7 +37,7 @@
                 <Divider orientation="left" class="title"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                     <Panel v-for="a in a1">
-                      <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                      <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                       <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                     </Panel>
                 </Collapse>
@@ -48,7 +48,7 @@
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a2">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -59,7 +59,7 @@
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -76,102 +76,39 @@
 <script>
   import tophead from '@/components/Head.vue'
   import bottom from '@/components/Bottom.vue'
+  import axios from 'axios'
     export default {
         name: "Announcement",
       data(){
           return{
             msg:[
-              {
-                title:'史蒂夫·乔布斯(系统通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'系统通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(系统通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'系统通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(系统通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'系统通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(系统通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'系统通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(调休通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'调休通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(调休通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'调休通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(调休通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'调休通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(调休通知)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'调休通知'
-              },
-              {
-                title:'史蒂夫·乔布斯(失物启示)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'失物启示'
-              },
-              {
-                title:'史蒂夫·乔布斯(失物启示)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'失物启示'
-              },
-              {
-                title:'史蒂夫·乔布斯(失物启示)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'失物启示'
-              },
-              {
-                title:'史蒂夫·乔布斯(失物启示)',
-                content:'史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。',
-                date:'2012-2-2',
-                addresser:'刘某人',
-                type:'失物启示'
-              }
             ],
             a1:[],
             a2:[],
             a3:[],
+            status1: '',
+            errormsg1: '',
           }
       },
       methods: {
+        getdata() {
+          axios({
+            url:'/announcement',
+            method:'get'
+          }).then((response) => {
+            console.log(response)
+            let res = response.data;
+            if(res.status === "success") {
+              this.msg = res.data;
+              console.log(this.msg);
+              this.classify();
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('获取失败： ' + this.errormsg1);
+            }
+          })
+        },
         classify() {
           let i = 0, j = 0, k = 0, index;
           for (index = 0; index < this.msg.length; index++) {
@@ -196,9 +133,8 @@
         tophead,
         bottom
       },
-      mounted () {
-        this.classify();
-        console.log(this.a1);
+      created () {
+        this.getdata();
       }
     }
 

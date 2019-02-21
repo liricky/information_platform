@@ -31,13 +31,13 @@
                     <Divider orientation="left"><b>联系方式</b></Divider>
                     <p>{{n.connect}}</p>
                     <div style="margin-top: 10px">{{n.date}}</div>
-                    <Button type="error" style="float: right" @click="modal1 = true">删除</Button>
+                    <Button type="error" style="float: right" @click="choose(n.id)">删除</Button>
                     <Modal
                       v-model="modal1"
                       title="删除！！！"
-                      @on-ok="ok"
-                      @on-cancel="cancel">
-                      <p>是否删除!!</p>
+                      @on-ok="ok(msgclick.id)"
+                      @on-cancel="cancel()">
+                      <p>帖子id：{{msgclick.id}} 是否删除!!</p>
                     </Modal>
                   </Card>
                 </Col>
@@ -54,6 +54,7 @@
 <script>
   import tophead from '../../components/Head.vue'
   import bottom from '../../components/Bottom.vue'
+  import axios from 'axios'
   export default {
     name: "MyBoard",
     components :{
@@ -64,51 +65,63 @@
       return{
         modal1:false,
         msg:[
-          {
-            title:'手机丢失',
-            content: '在A303丢失，手机颜色红色·······',
-            connect:'QQ:12345567',
-            addresser:'123',
-            date:'2012-2-2'
-          },
-          {
-            title:'手机丢失',
-            content: '在A303丢失，手机颜色红色·······',
-            connect:'QQ:12345567',
-            addresser:'123',
-            date:'2012-2-2'
-          },
-          {
-            title:'手机丢失',
-            content: '在A303丢失，手机颜色红色·······',
-            connect:'QQ:12345567',
-            addresser:'123',
-            date:'2012-2-2'
-          },
-          {
-            title:'手机丢失',
-            content: '在A303丢失，手机颜色红色·······',
-            connect:'QQ:12345567',
-            addresser:'123',
-            date:'2012-2-2'
-          },
-          {
-            title:'手机丢失',
-            content: '在A303丢失，手机颜色红色·······',
-            connect:'QQ:12345567',
-            addresser:'123',
-            date:'2012-2-2'
-          }
-        ]
+        ],
+        msgclick:{}
       }
     },
     methods:{
-      ok(){
-        this.$Message.success('删除成功！');
-      },
+      ok(id){
+        axios("/lostafound/delete", {
+          url: apiRoot + '/lostafound/delete/' + this.$store.state.userId+'/'+this.msgclick.id,
+          headers: {Authorization: this.$store.state.token},
+          method:'post'
+        }).then((response) => {
+          let res = response.data;
+          if (res.status === "success"){
+            for(var i =0 ;i<this.msg.length;i++){
+              if(this.msg[i].id === this.msgclick.id){
+                this.msg.splice(i,1);
+                this.$Message.success('删除成功！');
+                break;
+              }
+            }
+          }
+          else{
+            this.$Message.info('刪除失败： ' + res.message);
+          }
+        })
+        },
       cancel(){
         this.$Message.info('取消了删除');
+      },
+    choose(id){
+      var i = 0;
+      for(i=0;i<this.msg.length;i++){
+        if(id === this.msg[i].id){
+          this.msgclick = this.msg[i];
+        }
       }
+      this.modal1=true;
+    },
+      getdata(){
+        axios({
+          url: apiRoot + '/lostafound/myboard/' + this.$store.state.userId,
+          headers: {Authorization: this.$store.state.token},
+          method:'get'
+        }).then((response) => {
+          let res = response.data;
+          if(res.status === "success") {
+            this.msg = res.board;
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+          }
+        })
+      }
+    },
+    created()
+    {
+      this.getdata();
     }
   }
 </script>

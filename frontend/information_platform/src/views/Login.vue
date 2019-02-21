@@ -128,7 +128,8 @@
               this.errorTip1 = true;
             } else {
               axios({
-                url: apiRoot + '/login',
+                // url: apiRoot + '/login',
+                url: '/api/login',
                 method: 'post',
                 data: {
                   userId: this.loginForm.userId,

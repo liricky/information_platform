@@ -8,6 +8,15 @@ import lombok.Data;
 public class unclaimHelp {
     @JsonProperty("missionid")
     String missionId;
+
+//    public String getMissionId() {
+//        return missionId;
+//    }
+//
+//    public void setMissionId(String missionId) {
+//        this.missionId = missionId;
+//    }
+
     @JsonProperty("authorid")
     String authorId;
     @JsonProperty("authornickname")

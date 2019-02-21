@@ -2,10 +2,204 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d578acab-875f-4d50-91c4-3d98533c92ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/announcement.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/announcement_new.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/lostafound_board.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/lostafound_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/lostafound_myboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/lostafound_publish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_announcement.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_announcement_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_announcement_publish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_forum.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_forum_delete.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_if.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_inbox_appeal.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_inbox_report.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_user.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_user_forbid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_user_password.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/information_platform/mock/manage_user_release.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/information_platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/information_platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/DemoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/ForumController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/MessageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/NoticeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/AlarmMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/Ban_ReasonsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/BlacklistMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/CommentsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/FriendsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/HelpMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/LikesMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/LostlistMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/ManagersMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/NoticesMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/Private_ChartsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/TagsMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/Unlock_ApplyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/dao/UsersMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ResultCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/databaseResulttype/GetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/databaseResulttype/GetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Alarm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/AlarmExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/AlarmExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/AlarmExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/AlarmExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Ban_Reasons.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Ban_ReasonsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Ban_ReasonsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Blacklist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/BlacklistExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/BlacklistExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/BlacklistExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/BlacklistExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Comments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/CommentsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/CommentsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/CommentsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/CommentsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Friends.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/FriendsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/FriendsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/FriendsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/FriendsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Help.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/HelpExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/HelpExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/HelpExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/HelpExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Likes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LikesExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LikesExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LikesExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LikesExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Lostlist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LostlistExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LostlistExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LostlistExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/LostlistExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Managers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ManagersExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ManagersExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ManagersExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ManagersExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Notices.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/NoticesExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/NoticesExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/NoticesExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/NoticesExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Private_Charts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Private_ChartsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Private_ChartsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Private_ChartsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Private_ChartsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_UsersExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_UsersExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_UsersExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tag_UsersExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Tags.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/TagsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/TagsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/TagsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/TagsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Unlock_Apply.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Unlock_ApplyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Unlock_ApplyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Users.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/UsersExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/UsersExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/UsersExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/UsersExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Views.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/Views.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ViewsExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ViewsExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ViewsExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/entity/ViewsExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumChangeCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumChangeLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumCreateComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumCreatePost.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumGetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumGetCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumGetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/ForumGetLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/MessageDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/MessageSend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/addFriend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/addNoticeJsonRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/addToBlackList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/claimedAndUnfinishedHelp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/deleteNoticeJsonRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/loginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/searchPeople.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/unclaimHelp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/jsonRequest/userRelationship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/FindNoticeInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumBest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumChangeCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumChangeLike.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumChangeLike.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumGetAllComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumGetCommentLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumGetHotComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumGetLike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumNewPublish.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumNewReply.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/ForumRecommend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/MessageDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/MessageReceive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/MessageSent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/model/ov/UserGetFriend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/response/TokenResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/ForumService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/HelpService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/ForumServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/HelpServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/MessageServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/NoticeServiceImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/NoticeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/MessageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/NoticeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/AuthTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/JwtTools.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/ResultTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/SecurityTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/config/dev.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Announcement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Announcement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/AnnouncementDate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/AnnouncementDate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/Board.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/Board.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/MyBoard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/MyBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/Publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/Publish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/AnnouncementDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/AnnouncementDelete.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/AnnouncementPublish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/AnnouncementPublish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/ForumDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/ForumDelete.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/Inbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/Inbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/User_Manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Manage/User_Manage.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/frontend/information_platform/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,49 +214,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue">
+        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
-              <caret line="78" column="3" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/HomePage.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2641">
-              <caret line="139" column="40" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-              <folding>
-                <element signature="n#style#0;n#Row#0;n#TabPane#0;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#Row#0;n#TabPane#2;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="119" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -80,37 +235,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js">
+        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4313">
-              <caret line="279" column="33" lean-forward="true" selection-start-line="279" selection-start-column="33" selection-end-line="279" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+            <state relative-caret-position="266">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -184,7 +312,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,6 +393,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,18 +464,19 @@
       <workItem from="1550652732245" duration="62000" />
       <workItem from="1550718511150" duration="3167000" />
       <workItem from="1550733215065" duration="844000" />
+      <workItem from="1550763762958" duration="681000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26883000" />
+    <option name="totallyTimeSpent" value="27949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1080" extended-state="4" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8305085" visible="true" weight="0.28815368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8283898" visible="true" weight="0.28815368" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.16949153" side_tool="true" visible="true" weight="0.28815368" />
+      <window_info id="npm" order="2" sideWeight="0.17161018" side_tool="true" visible="true" weight="0.28815368" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -357,7 +486,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.068855934" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -369,9 +498,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/mock/helpclaimfinish.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/mock/helpgetfinish.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -493,29 +619,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/config/dev.env.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/config/prod.env.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Announcement.vue">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-          <folding>
-            <element signature="e#2465#2498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -620,7 +728,38 @@
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2641">
-          <caret line="139" column="40" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
+          <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="279" column="33" selection-start-line="279" selection-start-column="33" selection-end-line="279" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/config/dev.env.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#Row#0;n#TabPane#0;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#Row#0;n#TabPane#2;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-843">
+          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <element signature="e#2465#2498#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,35 +773,27 @@
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
-          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/config/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2223">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="119" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#Row#0;n#TabPane#0;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#Row#0;n#TabPane#2;n#Tabs#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="119" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="380">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -676,10 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/build/webpack.dev.conf.js">
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4313">
-          <caret line="279" column="33" lean-forward="true" selection-start-line="279" selection-start-column="33" selection-end-line="279" selection-end-column="33" />
+        <state relative-caret-position="266">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -47,7 +47,7 @@
           </Col>
           <Col span="3">
             <ButtonGroup>
-              <Button type="success" to="/ForumDetail" ghost>前往</Button>
+              <Button type="success" @click="jumpDetail(n.id)" ghost>前往</Button>
               <Button type="error" @click="choose(n.id)" ghost>删除</Button>
             </ButtonGroup>
             <Modal
@@ -67,6 +67,7 @@
 </template>
 <script>
   import msider from '../../components/M_Sider.vue'
+  import axios from 'axios'
     export default {
         name: "ForumDelete",
         components:{
@@ -76,42 +77,49 @@
           return {
             modal1:false,
             msgclick:{},
-            msg:[
-              {
-                id:0,
-                title:"hahahaha",
-                type:"体育",
-                addresser:"刘某人",
-                date:'2012-2-2'
-              },
-              {
-                id:1,
-                title:"hahahaha",
-                type:"体育",
-                addresser:"刘某人",
-                date:'2012-2-2'
-              },
-              {
-                id:2,
-                title:"hahahaha",
-                type:"体育",
-                addresser:"刘某人",
-                date:'2012-2-2'
-              },
-              {
-                id:3,
-                title:"123aha",
-                type:"体育",
-                addresser:"刘某人",
-                date:'2012-2-2'
-              },
-            ]
+            status1: '',
+            errormsg1: '',
+            msg:[]
           }
       },
       methods:{
+        getdata(){
+          axios({
+            url:apiRoot+'/manage/forum/'+this.$store.state.userId,
+            headers: {Authorization: this.$store.state.token},
+            method:'get'
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              this.msg = res.data;
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('获取失败：' + this.errormsg1);
+            }
+          })
+        },
         ok (id) {
-          console.log(id);
-          this.$Message.success('id:'+id+' 删除成功');
+          axios({
+            url:apiRoot+'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
+            headers: {Authorization: this.$store.state.token},
+            method:'post'
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              for(var i =0 ;i<this.msg.length;i++){
+                if(this.msg[i].id === id){
+                  this.msg.splice(i,1);
+                  break;
+                }
+              }
+              this.$Message.success('id:'+id+' 删除成功');
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('删除失败：' + this.errormsg1);
+            }
+          })
         },
         cancel () {
           this.$Message.info('取消了删除');
@@ -119,12 +127,23 @@
         choose(id){
           var i = 0;
           for(i=0;i<this.msg.length;i++){
-            if(id == this.msg[i].id){
+            if(id === this.msg[i].id){
               this.msgclick = this.msg[i];
             }
           }
           this.modal1=true;
+        },
+        jumpDetail(id){
+          this.$router.push({
+            path: '/ForumDetail',
+            query: {
+              id : id
+            }
+          })
         }
+      },
+      created(){
+          this.getdata();
       }
     }
 </script>

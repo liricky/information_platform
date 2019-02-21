@@ -47,6 +47,8 @@
 <script>
   import tophead from '../../components/Head.vue'
   import bottom from '../../components/Bottom.vue'
+  import axios from 'axios'
+
     export default {
         name: "Board",
        components :{
@@ -56,43 +58,30 @@
       data(){
           return{
             msg:[
-              {
-                title:'手机丢失',
-                content: '在A303丢失，手机颜色红色·······',
-                connect:'QQ:12345567',
-                addresser:'123',
-                date:'2012-2-2'
-              },
-              {
-                title:'手机丢失',
-                content: '在A303丢失，手机颜色红色·······',
-                connect:'QQ:12345567',
-                addresser:'123',
-                date:'2012-2-2'
-              },
-              {
-                title:'手机丢失',
-                content: '在A303丢失，手机颜色红色·······',
-                connect:'QQ:12345567',
-                addresser:'123',
-                date:'2012-2-2'
-              },
-              {
-                title:'手机丢失',
-                content: '在A303丢失，手机颜色红色·······',
-                connect:'QQ:12345567',
-                addresser:'123',
-                date:'2012-2-2'
-              },
-              {
-                title:'手机丢失',
-                content: '在A303丢失，手机颜色红色·······',
-                connect:'QQ:12345567',
-                addresser:'123',
-                date:'2012-2-2'
-              }
-            ]
+            ],
+            status1:'',
+            errormsg1:''
         }
+      },
+      methods: {
+          getdata(){
+            axios({
+              url:apiRoot +"/lostafound/board",
+              methods:'get'
+            }).then((response) => {
+              let res = response.data;
+              if(res.status === "success") {
+                this.msg = res.board;
+              } else {
+                this.status1 = res.status;
+                this.errormsg1 = res.message;
+                this.$Message.info('信息获取失败： ' + this.errormsg1);
+              }
+            })
+          }
+      },
+      created(){
+          this.getdata();
       }
     }
 </script>
