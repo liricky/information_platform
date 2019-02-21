@@ -60,7 +60,7 @@
         </TabPane>
       </Tabs>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 <style scoped>
@@ -78,6 +78,10 @@
   .center1{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>

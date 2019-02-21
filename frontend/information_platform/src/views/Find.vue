@@ -25,7 +25,8 @@
         </Row>
       </div>
       <br>
-      <bottom></bottom>
+      <div class="fill"> </div>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
@@ -35,6 +36,13 @@
   }
   .cardcol{
     margin: 4px auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

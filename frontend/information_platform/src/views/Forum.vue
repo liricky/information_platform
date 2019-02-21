@@ -36,8 +36,9 @@
           </div>
         </TabPane>
       </Tabs>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 <style scoped>
@@ -68,6 +69,13 @@
   }
   .back{
     float: top;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

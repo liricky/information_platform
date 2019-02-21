@@ -87,7 +87,8 @@
         </Row>
       </TabPane>
     </Tabs>
-    <bottom></bottom>
+    <div class="fill"> </div>
+    <bottom class="bottom"></bottom>
     <Modal v-model="modal1">
       <h1 slot="header" style="text-align:center">
         <span>{{this.box_title}}</span>
@@ -148,6 +149,13 @@
   .icon{
     position: relative;
     bottom: 4px;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

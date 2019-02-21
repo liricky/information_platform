@@ -74,8 +74,9 @@
           </Col>
         </Row>
       </div>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
     <Modal
       v-model="modal1"
       title="评论"
@@ -98,6 +99,13 @@
   }
   .card{
     border: 1px solid black;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

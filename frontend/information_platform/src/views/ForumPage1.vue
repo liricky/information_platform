@@ -97,8 +97,9 @@
           </TabPane>
         </Tabs>
       </div>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 <style scoped>
@@ -126,6 +127,13 @@
   .sendbutton{
    position: relative;
     left:45%;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

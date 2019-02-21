@@ -17,13 +17,17 @@
         <Button type="primary" size="large" @click="addblacklist">加入黑名单</Button>
       </div>
       <br>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
   .center{
     width: 20%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>

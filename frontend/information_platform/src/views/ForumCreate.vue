@@ -12,13 +12,17 @@
         <Button type="info" size="large" icon="md-log-out" @click=createpost>发送</Button>
       </div>
       <br>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
   .center{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>

@@ -141,8 +141,9 @@
             </Row>
           </TabPane>
         </Tabs>
+        <div class="fill"> </div>
       </div>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
       <Modal
         v-model="modal1"
         title="认领任务"
@@ -192,6 +193,13 @@
   }
   .flag{
     float: right;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
