@@ -205,6 +205,9 @@
           axios({
             url:'/forum/newreply/' + this.labelid,
             method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -216,8 +219,11 @@
             }
           });
           axios({
-            url: '/forum/newpublish/' + this.labelid,
+            url:'/forum/newpublish/' + this.labelid,
             method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -231,6 +237,9 @@
           axios({
             url:'/forum/best/' + this.labelid,
             method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -244,6 +253,9 @@
           axios({
             url:'/forum/all/' + this.labelid,
             method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -258,7 +270,10 @@
         checktype(){
           axios({
             url:'/appeal/get/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;

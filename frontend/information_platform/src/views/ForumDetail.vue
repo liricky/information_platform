@@ -221,6 +221,9 @@
         axios({
           url: '/forum/detail/' + this.postid,
           method: 'get',
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
@@ -240,7 +243,10 @@
         if(this.$store.state.userId === "") {
           axios({
             url: '/forum/gethotcomment/' + 'a' + '/' + this.postid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -254,7 +260,10 @@
           });
           axios({
             url: '/forum/getcomment/' + 'a' + '/' + this.postid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -269,7 +278,10 @@
         } else {
           axios({
             url: '/forum/gethotcomment/' + this.$store.state.userId + '/' + this.postid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -283,7 +295,10 @@
           });
           axios({
             url: '/forum/getcomment/' + this.$store.state.userId + '/' + this.postid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -299,7 +314,10 @@
         if(this.$store.state.token) {
           axios({
             url:'/forum/getlike/' + this.$store.state.userId + '/' + this.postid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -320,7 +338,10 @@
           } else {
             axios({
               url:'/forum/createcomment',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userid: this.$store.state.userId,
@@ -348,7 +369,10 @@
         if(this.$store.state.token) {
           axios({
             url:'/forum/changelike',
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'post',
             data: {
               userid: this.$store.state.userId,
@@ -376,7 +400,10 @@
         if(this.$store.state.token) {
           axios({
             url:'/forum/getcommentlike/' + this.$store.state.userId + '/' + commentid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -398,7 +425,10 @@
         if(this.$store.state.token) {
           axios({
             url:'/forum/changecommentlike',
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'post',
             data: {
               userid: this.$store.state.userId,
@@ -436,7 +466,10 @@
       checktype(){
         axios({
           url:'/appeal/get/' + this.$store.state.userId,
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'get',
         }).then((response) => {
           let res = response.data;

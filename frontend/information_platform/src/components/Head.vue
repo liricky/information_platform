@@ -83,7 +83,10 @@
         axios({
           // url: apiRoot + '/logout',
           url: '/logout',
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method:'post',
           data: {
             userid: this.$store.state.userId,

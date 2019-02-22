@@ -133,6 +133,9 @@
                   userId: this.loginForm.userId,
                   userPwd: this.loginForm.userPwd,
                 },
+                headers: {
+                  'Content-Type': 'application/json;charset=UTF-8'
+                },
                 method: 'post',
               }).then((response) => {
                 let res = response.data;

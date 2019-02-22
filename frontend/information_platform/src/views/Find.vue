@@ -81,6 +81,9 @@
               axios({
                 url:'/user/findfriend/' + this.find + '/' + this.value,
                 method: 'get',
+                headers: {
+                  'Content-Type': 'application/json;charset=UTF-8'
+                }
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {

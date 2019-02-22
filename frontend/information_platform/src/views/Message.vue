@@ -197,7 +197,10 @@
           getrev(){
             axios({
               url:'/message/receive/' + this.$store.state.userId,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'get',
             }).then((response) => {
               let res = response.data;
@@ -213,7 +216,10 @@
           getsent(){
             axios({
               url:'/message/sent/' + this.$store.state.userId,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'get',
             }).then((response) => {
               let res = response.data;
@@ -229,7 +235,10 @@
           getfriend(){
             axios({
               url:'/user/getfriend/' + this.$store.state.userId,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'get',
             }).then((response) => {
               let res = response.data;
@@ -246,7 +255,10 @@
             this.modal1 = true;
             axios({
               url:'/message/detail/' + this.$store.state.userId + '/' + id,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'get',
             }).then((response)=>{
               let res = response.data;
@@ -285,7 +297,10 @@
             else {
               axios({
                 url:'/message/send',
-                headers: {Authorization: this.$store.state.token},
+                headers: {
+                  "Authorization": this.$store.state.token,
+                  'Content-Type': 'application/json;charset=UTF-8'
+                },
                 method: 'post',
                 data: {
                   userid: this.$store.state.userId,

@@ -13,10 +13,7 @@ import com.example.demo.model.ov.Result;
 import com.example.demo.model.ov.UserGetFriend;
 import com.example.demo.response.TokenResponse;
 import com.example.demo.service.UserService;
-import com.example.demo.tools.AuthTool;
-import com.example.demo.tools.JwtUtil;
-import com.example.demo.tools.ResultTool;
-import com.example.demo.tools.SecurityTool;
+import com.example.demo.tools.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -131,6 +128,7 @@ public class UserServiceImpl implements UserService {
                 response.setUserNickname(systemUser.getName());
                 response.setId(systemUser.getId());
                 response.setToken(JwtUtil.createJwt(user.getUserId()));
+
                 //  加入用户关系表
                 for(int i=1;i<=4;i++){
                     Tag_Users tag_users=new Tag_Users();

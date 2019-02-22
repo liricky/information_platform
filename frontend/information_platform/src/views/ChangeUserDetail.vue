@@ -134,7 +134,10 @@
         this.user.nickname = this.$store.state.userNickname;
         axios({
           url: '/user/showmyself/' + this.$store.state.userId,
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'get',
         }).then((response) => {
           let res = response.data;
@@ -157,7 +160,10 @@
         if(this.value1) {
           axios({
             url:'/user/setmyself',
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'post',
             data: {
               userid: this.$store.state.userId,
@@ -182,7 +188,10 @@
           if (this.value3 === this.value4 && this.value3) {
             axios({
               url:'/editpwd',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userID: this.$store.state.userId,
@@ -214,7 +223,10 @@
       getpost(){
         axios({
           url:'/user/getpost/' + this.$store.state.userId,
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'get',
         }).then((response) => {
           let res = response.data;
@@ -231,7 +243,10 @@
       getcomment(){
         axios({
           url:'/user/getcomment/' + this.$store.state.userId,
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'get',
         }).then((response) => {
           let res = response.data;
@@ -248,7 +263,10 @@
       deletepost(id){
         axios({
           url:'/user/deletepost',
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'post',
           data: {
             userid: this.$store.state.userId,
@@ -277,7 +295,10 @@
       deletecomment(id){
         axios({
           url:'/user/deletecomment',
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method: 'post',
           data: {
             userid: this.$store.state.userId,

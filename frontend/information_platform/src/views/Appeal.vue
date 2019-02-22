@@ -123,7 +123,10 @@
           else {
             axios({
               url:'/appeal/send',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userid: this.$store.state.userId,
@@ -150,7 +153,10 @@
         init(){
           axios({
             url: apiRoot + '/appeal/getdetail/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;

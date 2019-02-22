@@ -20,9 +20,6 @@ axios.defaults.baseURL = 'http://localhost:8081/api'
 axios.interceptors.request.use(
   config => {
     config.data = JSON.stringify(config.data)
-    config.headers = {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
     return config
   }
 )

@@ -63,7 +63,10 @@
           this.userdate.userid = this.$route.query.id;
           axios({
             url:'/user/getuserinfo/' + this.$store.state.userId + '/' + this.userdate.userid,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -81,7 +84,10 @@
           if(this.$store.state.token) {
             axios({
               url:'/user/addfriend',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userid: this.$store.state.userId,
@@ -107,7 +113,10 @@
           if(this.$store.state.token) {
             axios({
               url:'/user/addblacklist',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userid: this.$store.state.userId,

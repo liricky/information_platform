@@ -281,7 +281,10 @@
           else {
             axios({
               url:'/help/claim',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 missionid: this.temp,
@@ -327,7 +330,10 @@
           else {
             axios({
               url:'/help/cancel',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 missionid: this.temp,
@@ -372,7 +378,10 @@
           else {
             axios({
               url:'/help/claimfinish',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 missionid: id,
@@ -413,7 +422,10 @@
           else {
             axios({
               url:'/help/sentfinish',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 missionid: id,
@@ -461,7 +473,10 @@
           else {
             axios({
               url:'/help/send',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method: 'post',
               data: {
                 userid: this.$store.state.userId,
@@ -511,6 +526,9 @@
           axios({
             url:'/help/all',
             method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -525,7 +543,10 @@
         helpongoing(){
           axios({
             url:'/help/ongoing/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -541,7 +562,10 @@
         helpsent(){
           axios({
             url:'/help/sent/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -557,7 +581,10 @@
         helpfinish(){
           axios({
             url:'/help/sendfinish/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -571,7 +598,10 @@
           });
           axios({
             url:'/help/getfinish/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -587,7 +617,10 @@
         helpunget(){
           axios({
             url:'/help/unget/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -609,7 +642,10 @@
         checktype(){
           axios({
             url:'/appeal/get/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;

@@ -125,7 +125,10 @@
         getrecommendpost(){
           axios({
             url:'/forum/recommend/' + this.$store.state.userId,
-            headers: {"Authorization": this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method: 'get',
           }).then((response) => {
             let res = response.data;
