@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d578acab-875f-4d50-91c4-3d98533c92ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/src/main/java/com/example/demo/tools/JwtTools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/ForumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/controller/MessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/target/classes/com/example/demo/tools/JwtTools.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Find.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Find.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Forum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Forum.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage1.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage2.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage3.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/ForumPage4.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Help.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Help.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" afterDir="false" />
-    </list>
+    <list default="true" id="d578acab-875f-4d50-91c4-3d98533c92ea" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/frontend/information_platform/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -63,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3838">
-              <caret line="299" column="60" selection-start-line="299" selection-start-column="60" selection-end-line="299" selection-end-column="60" />
+            <state relative-caret-position="209">
+              <caret line="162" column="22" lean-forward="true" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -90,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-62">
@@ -184,7 +156,6 @@
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Login.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue" />
-        <option value="$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Find.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/ForumCreate.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/ForumDetail.vue" />
@@ -196,6 +167,7 @@
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Message.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/Report.vue" />
         <option value="$PROJECT_DIR$/frontend/information_platform/src/views/UserDetail.vue" />
+        <option value="$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue" />
       </list>
     </option>
   </component>
@@ -368,24 +340,23 @@
       <workItem from="1550824681960" duration="6051000" />
       <workItem from="1550838003091" duration="38000" />
       <workItem from="1550840715440" duration="332000" />
-      <workItem from="1550841694472" duration="1738000" />
+      <workItem from="1550841694472" duration="2003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53353000" />
+    <option name="totallyTimeSpent" value="53618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1080" extended-state="4" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82112676" visible="true" weight="0.2860192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8220339" visible="true" weight="0.2860192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.17887324" side_tool="true" visible="true" weight="0.2860192" />
+      <window_info id="npm" order="2" sideWeight="0.1779661" side_tool="true" visible="true" weight="0.2860192" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24788135" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24788135" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -703,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3838">
-          <caret line="299" column="60" selection-start-line="299" selection-start-column="60" selection-end-line="299" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/Appeal.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1705">
@@ -724,6 +688,13 @@
           <folding>
             <element signature="e#2465#2498#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/ChangeUserDetail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="162" column="22" lean-forward="true" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
         </state>
       </provider>
     </entry>

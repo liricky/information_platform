@@ -37,9 +37,7 @@ public class ForumController {
     @GetMapping("/recommend/{userid}")
     public Result forumRecommend(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        System.out.println(token);
         String userId = JwtUtil.parseJwt(token);
-        System.out.println("进入到了这里");
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else
