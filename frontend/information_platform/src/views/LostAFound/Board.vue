@@ -66,7 +66,8 @@
       methods: {
           getdata(){
             axios({
-              url:apiRoot +"/lostafound/board",
+              // url:apiRoot +"/lostafound/board",
+              url:"/lostafound/board",
               methods:'get'
             }).then((response) => {
               let res = response.data;

@@ -64,7 +64,7 @@
           }
           else{
             axios({
-              url:apiRoot+'/manage/announcement/publish',
+              url:'/manage/announcement/publish',
               headers: {Authorization: this.$store.state.token},
               data:{
                 manageid: this.$store.state.userId,

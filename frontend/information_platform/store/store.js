@@ -10,17 +10,21 @@ const store = new Vuex.Store({
     // token: "dsaf",
     userNickname: "" || localStorage.getItem("userNickname"),
     // userNickname: "li",
-    userId: "a" || localStorage.getItem("userId")
+    userId: "" || localStorage.getItem("userId"),
     // userId: "16122075"
   },
   mutations: {
-    isLogin(state,msg){
-      state.token = msg.token;
-      state.userNickname = msg.userNickname;
-      state.userId = msg.userId
-      localStorage.setItem("token",msg.token);
-      localStorage.setItem("userNickname",msg.userNickname);
-      localStorage.setItem("userId",msg.userId);
+    isLogin1(state,msg){
+      state.token = msg;
+      localStorage.setItem("token",msg);
+    },
+    isLogin2(state,msg){
+      state.userNickname = msg;
+      localStorage.setItem("userNickname",msg);
+    },
+    isLogin3(state,msg){
+      state.userId = msg;
+      localStorage.setItem("userId",msg);
     },
     isLogout(state){
       state.token = "";

@@ -62,7 +62,7 @@
         getParams(){
           this.userdate.userid = this.$route.query.id;
           axios({
-            url: apiRoot + '/user/getuserinfo/' + this.$store.state.userId + '/' + this.userdate.userid,
+            url:'/user/getuserinfo/' + this.$store.state.userId + '/' + this.userdate.userid,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -80,7 +80,7 @@
         addfriend(){
           if(this.$store.state.token) {
             axios({
-              url: apiRoot + '/user/addfriend',
+              url:'/user/addfriend',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -106,7 +106,7 @@
         addblacklist(){
           if(this.$store.state.token) {
             axios({
-              url: apiRoot + '/user/addblacklist',
+              url:'/user/addblacklist',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {

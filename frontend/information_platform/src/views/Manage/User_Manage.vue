@@ -180,7 +180,7 @@
       methods:{
         getdata(){
           axios({
-            url:apiRoot+'/manage/user/'+this.$store.state.userId,
+            url:'/manage/user/'+this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method:'get'
             }).then((response) => {
@@ -219,7 +219,7 @@
         },
         ok1 (id) {
           axios({
-            url:apiRoot+'/manage/user/password',
+            url:'/manage/user/password',
             headers: {Authorization: this.$store.state.token},
             data:{
               manageid: this.$store.state.userId,
@@ -257,7 +257,7 @@
                 if(this.msg[i].status === '未封禁'){
                   if(this.formValidate.forbid_date !== '' && this.formValidate.forbid_reason !== '' && this.formValidate.forbid_type !== '') {
                     axios.post({
-                      url:apiRoot+'/manage/user/forbid',
+                      url:'/manage/user/forbid',
                       headers: {Authorization: this.$store.state.token},
                       data:{
                         manageid: this.$store.state.userId,
@@ -293,7 +293,7 @@
                 else {
                   this.$Message.success('解除封禁成功');
                   axios({
-                    url:apiRoot+'/manage/user/release/'+this.$store.state.userId+'/'+id,
+                    url:'/manage/user/release/'+this.$store.state.userId+'/'+id,
                     headers: {Authorization: this.$store.state.token},
                     method:'post'
                   }).then((response) => {

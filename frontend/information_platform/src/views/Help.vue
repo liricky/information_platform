@@ -280,7 +280,7 @@
             this.$Message.info('联系方式不能为空！');
           else {
             axios({
-              url: apiRoot + '/help/claim',
+              url:'/help/claim',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -326,7 +326,7 @@
             this.$Message.info('原因不能为空！');
           else {
             axios({
-              url: apiRoot + '/help/cancel',
+              url:'/help/cancel',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -371,7 +371,7 @@
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
             axios({
-              url: apiRoot + '/help/claimfinish',
+              url:'/help/claimfinish',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -412,7 +412,7 @@
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
             axios({
-              url: apiRoot + '/help/sentfinish',
+              url:'/help/sentfinish',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -460,7 +460,7 @@
             this.$Message.info('任务内容、联系方式及设置时间不能为空');
           else {
             axios({
-              url: apiRoot + '/help/send',
+              url:'/help/send',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -509,7 +509,7 @@
         },
         helpall(){
           axios({
-            url: apiRoot + '/help/all',
+            url:'/help/all',
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -524,7 +524,7 @@
         },
         helpongoing(){
           axios({
-            url: apiRoot + '/help/ongoing/' + this.$store.state.userId,
+            url:'/help/ongoing/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -540,7 +540,7 @@
         },
         helpsent(){
           axios({
-            url: apiRoot + '/help/sent/' + this.$store.state.userId,
+            url:'/help/sent/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -556,7 +556,7 @@
         },
         helpfinish(){
           axios({
-            url: apiRoot + '/help/sendfinish/' + this.$store.state.userId,
+            url:'/help/sendfinish/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -570,7 +570,7 @@
             }
           });
           axios({
-            url: apiRoot + '/help/getfinish/' + this.$store.state.userId,
+            url:'/help/getfinish/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -586,7 +586,7 @@
         },
         helpunget(){
           axios({
-            url: apiRoot + '/help/unget/' + this.$store.state.userId,
+            url:'/help/unget/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {
@@ -608,7 +608,7 @@
         },
         checktype(){
           axios({
-            url: apiRoot + '/appeal/get/' + this.$store.state.userId,
+            url:'/appeal/get/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {

@@ -99,7 +99,7 @@
       </div>
       <div class="fill"> </div>
     </div>
-    <bottom class="bottom"></bottom>
+    <bottom class="bottom1"></bottom>
   </div>
 </template>
 <style scoped>
@@ -128,7 +128,7 @@
    position: relative;
     left:45%;
   }
-  .bottom{
+  .bottom1{
     position: fixed;
     bottom: 0px;
   }
@@ -192,7 +192,7 @@
               this.$router.push({
                 path: '/ForumCreate',
                 query: {
-                  label: 0
+                  label: 1
                 }
               })
             }
@@ -203,7 +203,7 @@
         },
         init(){
           axios({
-            url: apiRoot + '/forum/newreply/' + this.labelid,
+            url:'/forum/newreply/' + this.labelid,
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -216,7 +216,7 @@
             }
           });
           axios({
-            url: apiRoot + '/forum/newpublish/' + this.labelid,
+            url:'/forum/newpublish/' + this.labelid,
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -229,7 +229,7 @@
             }
           });
           axios({
-            url: apiRoot + '/forum/best/' + this.labelid,
+            url:'/forum/best/' + this.labelid,
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -242,7 +242,7 @@
             }
           });
           axios({
-            url: apiRoot  + '/forum/all/' + this.labelid,
+            url:'/forum/all/' + this.labelid,
             method: 'get',
           }).then((response) => {
             let res = response.data;
@@ -257,7 +257,7 @@
         },
         checktype(){
           axios({
-            url: apiRoot + '/appeal/get/' + this.$store.state.userId,
+            url:'/appeal/get/' + this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method: 'get',
           }).then((response) => {

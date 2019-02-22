@@ -14,7 +14,7 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 
-// mock code
+// // mock code
 // const express = require('express')
 // const app = express()
 // const login = require('./../mock/login')
@@ -65,7 +65,7 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 // const logout = require('./../mock/logout')
 // const routes = express.Router()
 // app.use('/api',routes)
-//mock code
+// //mock code
 
 
 const devWebpackConfig = merge(baseWebpackConfig, {

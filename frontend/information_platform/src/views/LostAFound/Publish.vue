@@ -84,7 +84,7 @@
         }
         else{
           axios({
-            url: '/api/lostafound/publish',
+            url: '/lostafound/publish',
             headers: {Authorization: this.$store.state.token},
             data:{
               userid: this.$store.state.userId,

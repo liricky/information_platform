@@ -66,7 +66,7 @@
       methods:{
           getdata(){
             axios({
-              url:apiRoot+'/manage/inbox/report/'+this.$store.state.userId,
+              url:'/manage/inbox/report/'+this.$store.state.userId,
               headers: {Authorization: this.$store.state.token},
               method:'get'
             }).then((response) => {
@@ -80,7 +80,7 @@
               }
             });
             axios({
-              url:apiRoot+'/manage/inbox/appeal/'+this.$store.state.userId,
+              url:'/manage/inbox/appeal/'+this.$store.state.userId,
               headers: {Authorization: this.$store.state.token},
               method:'get'
             }).then((response) => {

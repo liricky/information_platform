@@ -118,13 +118,14 @@
         bottom
       },
       created(){
-        this.getrecommendpost();
+        if(this.$store.state.token)
+          this.getrecommendpost();
       },
       methods: {
         getrecommendpost(){
           axios({
-            url: apiRoot + '/forum/recommend/' + this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            url:'/forum/recommend/' + this.$store.state.userId,
+            headers: {"Authorization": this.$store.state.token},
             method: 'get',
           }).then((response) => {
             let res = response.data;

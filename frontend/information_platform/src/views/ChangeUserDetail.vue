@@ -133,7 +133,7 @@
         this.user.id = this.$store.state.userId;
         this.user.nickname = this.$store.state.userNickname;
         axios({
-          url: apiRoot + '/user/showmyself/' + this.$store.state.userId,
+          url: '/user/showmyself/' + this.$store.state.userId,
           headers: {Authorization: this.$store.state.token},
           method: 'get',
         }).then((response) => {
@@ -156,7 +156,7 @@
       setmyself(){
         if(this.value1) {
           axios({
-            url: apiRoot + '/user/setmyself',
+            url:'/user/setmyself',
             headers: {Authorization: this.$store.state.token},
             method: 'post',
             data: {
@@ -181,7 +181,7 @@
         if(this.value2 && this.value3 && this.value4) {
           if (this.value3 === this.value4 && this.value3) {
             axios({
-              url: apiRoot + '/editpwd',
+              url:'/editpwd',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {
@@ -213,7 +213,7 @@
       },
       getpost(){
         axios({
-          url: apiRoot + '/user/getpost/' + this.$store.state.userId,
+          url:'/user/getpost/' + this.$store.state.userId,
           headers: {Authorization: this.$store.state.token},
           method: 'get',
         }).then((response) => {
@@ -230,7 +230,7 @@
       },
       getcomment(){
         axios({
-          url: apiRoot + '/user/getcomment/' + this.$store.state.userId,
+          url:'/user/getcomment/' + this.$store.state.userId,
           headers: {Authorization: this.$store.state.token},
           method: 'get',
         }).then((response) => {
@@ -247,7 +247,7 @@
       },
       deletepost(id){
         axios({
-          url: apiRoot + '/user/deletepost',
+          url:'/user/deletepost',
           headers: {Authorization: this.$store.state.token},
           method: 'post',
           data: {
@@ -276,7 +276,7 @@
       },
       deletecomment(id){
         axios({
-          url: apiRoot + '/user/deletecomment',
+          url:'/user/deletecomment',
           headers: {Authorization: this.$store.state.token},
           method: 'post',
           data: {

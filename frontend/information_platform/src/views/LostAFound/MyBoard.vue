@@ -72,7 +72,7 @@
     methods:{
       ok(id){
         axios("/lostafound/delete", {
-          url: apiRoot + '/lostafound/delete/' + this.$store.state.userId+'/'+this.msgclick.id,
+          url: '/lostafound/delete/' + this.$store.state.userId+'/'+this.msgclick.id,
           headers: {Authorization: this.$store.state.token},
           method:'post'
         }).then((response) => {
@@ -105,7 +105,7 @@
     },
       getdata(){
         axios({
-          url: apiRoot + '/lostafound/myboard/' + this.$store.state.userId,
+          url:'/lostafound/myboard/' + this.$store.state.userId,
           headers: {Authorization: this.$store.state.token},
           method:'get'
         }).then((response) => {

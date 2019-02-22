@@ -122,7 +122,7 @@
             this.$Message.info('申诉类别、申述标题及申诉内容不能为空！');
           else {
             axios({
-              url: apiRoot + '/appeal/send',
+              url:'/appeal/send',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {

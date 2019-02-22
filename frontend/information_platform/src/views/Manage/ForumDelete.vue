@@ -85,7 +85,7 @@
       methods:{
         getdata(){
           axios({
-            url:apiRoot+'/manage/forum/'+this.$store.state.userId,
+            url:'/manage/forum/'+this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method:'get'
           }).then((response) => {
@@ -101,7 +101,7 @@
         },
         ok (id) {
           axios({
-            url:apiRoot+'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
+            url:'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
             headers: {Authorization: this.$store.state.token},
             method:'post'
           }).then((response) => {

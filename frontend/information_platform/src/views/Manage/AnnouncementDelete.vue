@@ -79,7 +79,7 @@
       methods: {
         getdata(){
           axios({
-            url:apiRoot+'/manage/announcement/'+this.$store.state.userId,
+            url:'/manage/announcement/'+this.$store.state.userId,
             headers: {Authorization: this.$store.state.token},
             method:'get'
           }).then((response) => {
@@ -112,7 +112,7 @@
         },
         ok (id,type) {
           axios({
-            url:apiRoot+'/manage/announcement/delete',
+            url:'/manage/announcement/delete',
             headers: {Authorization: this.$store.state.token},
             data:{
               manageid: this.$store.state.userId,

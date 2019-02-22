@@ -7,6 +7,23 @@ import lombok.Data;
 public class loginUser {
     @JsonProperty("userId")
     String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @JsonProperty("userPwd")
     String userPwd;
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
+    }
 }

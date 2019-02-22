@@ -72,7 +72,7 @@
             this.$Message.info("举报原因不能为空！");
           } else {
             axios({
-              url: apiRoot + '/report/create',
+              url:'/report/create',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {

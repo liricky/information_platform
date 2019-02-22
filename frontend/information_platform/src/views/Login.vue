@@ -128,13 +128,12 @@
               this.errorTip1 = true;
             } else {
               axios({
-                // url: apiRoot + '/login',
-                url: '/api/login',
-                method: 'post',
+                url: '/login',
                 data: {
                   userId: this.loginForm.userId,
                   userPwd: this.loginForm.userPwd,
-                }
+                },
+                method: 'post',
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {
@@ -146,7 +145,9 @@
                   localStorage.setItem('token',res.data.token)
                   localStorage.setItem('userNickname',res.data.userNickname)
                   localStorage.setItem('userId',res.data.userId)
-                  this.$store.commit('isLogin',{token:res.data.token,userNickname:res.data.userNickname,userId:res.data.userId})
+                  this.$store.commit('isLogin1',res.data.token)
+                  this.$store.commit('isLogin2',res.data.userNickname)
+                  this.$store.commit('isLogin3',res.data.userId)
                   this.$Message.info("登录成功！");
                 } else {
                   this.errorTip = true;

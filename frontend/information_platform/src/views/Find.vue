@@ -79,7 +79,7 @@
               this.$Message.info('搜索方式及搜索信息不能为空!');
             else {
               axios({
-                url: apiRoot + '/user/findfriend/' + this.find + '/' + this.value,
+                url:'/user/findfriend/' + this.find + '/' + this.value,
                 method: 'get',
               }).then((response) => {
                 let res = response.data;

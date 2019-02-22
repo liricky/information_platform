@@ -53,7 +53,7 @@
             this.$Message.info('帖子标题和内容不能为空!');
           } else{
             axios({
-              url: apiRoot + '/forum/createpost',
+              url:'/forum/createpost',
               headers: {Authorization: this.$store.state.token},
               method: 'post',
               data: {

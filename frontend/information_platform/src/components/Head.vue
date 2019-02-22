@@ -82,7 +82,7 @@
       jumpLogout(){
         axios({
           // url: apiRoot + '/logout',
-          url: '/api/logout',
+          url: '/logout',
           headers: {Authorization: this.$store.state.token},
           method:'post',
           data: {

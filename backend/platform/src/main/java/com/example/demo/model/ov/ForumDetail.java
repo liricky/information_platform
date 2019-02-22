@@ -7,12 +7,21 @@ import lombok.Data;
 public class ForumDetail {
     @JsonProperty("postid")
     Integer postid;
+
     @JsonProperty("label")
     Integer label;
     @JsonProperty("title")
     String title;
     @JsonProperty("content")
     String content;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @JsonProperty("author")
     String author;
     @JsonProperty("authornickname")

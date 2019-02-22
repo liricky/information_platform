@@ -100,19 +100,14 @@
       getdata(date){
         console.log(date);
         axios({
-          url:'/announcement',
+          url:'/announcement/'+date,
+
           method:'get'
+
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.msg = res.data;
-            var i = 0,j=0;
-            for(i = 0; i < this.msg.length; i++){
-              if(this.msg[i].date === date){
-                this.aDate.splice(j++, 1, this.msg[i]);
-              }
-            }
-            console.log(this.aDate)
+            this.aDate = res.data;
             this.classify();
           } else {
             this.status1 = res.status;
@@ -120,12 +115,7 @@
             this.$Message.info('获取失败： ' + this.errormsg1);
           }
         })
-        // var i = 0,j=0;
-        // for(i = 0; i < this.msg.length; i++){
-        //   if(this.msg[i].date == date){
-        //     this.aDate.splice(j++, 1, this.msg[i]);
-        //   }
-        // }
+
       },
       classify() {
         let i = 0, j = 0, k = 0, index;
@@ -134,13 +124,13 @@
           //     this.a1.splice(i++, 1, this.msg[index])
           // }
           switch (this.aDate[index].type){
-            case '系统通知':
+            case '1':
               this.a1.splice(i++, 1, this.aDate[index]);
               break;
-            case '调休通知':
+            case '2':
               this.a2.splice(j++, 1, this.aDate[index]);
               break;
-            case '失物启示':
+            case '3':
               this.a3.splice(k++, 1, this.aDate[index]);
               break;
           }

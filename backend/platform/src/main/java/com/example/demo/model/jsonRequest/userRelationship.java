@@ -8,6 +8,23 @@ import lombok.Data;
 public class userRelationship {
     @JsonProperty("id")
     String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @JsonProperty("nickname")
     String userNickname;
+
+    public String getUserNickname() {
+        return userNickname;
+    }
+
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
+    }
 }

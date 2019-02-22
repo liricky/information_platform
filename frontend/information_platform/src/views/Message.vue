@@ -196,7 +196,7 @@
         methods:{
           getrev(){
             axios({
-              url: apiRoot + '/message/receive/' + this.$store.state.userId,
+              url:'/message/receive/' + this.$store.state.userId,
               headers: {Authorization: this.$store.state.token},
               method: 'get',
             }).then((response) => {
@@ -212,7 +212,7 @@
           },
           getsent(){
             axios({
-              url: apiRoot + '/message/sent/' + this.$store.state.userId,
+              url:'/message/sent/' + this.$store.state.userId,
               headers: {Authorization: this.$store.state.token},
               method: 'get',
             }).then((response) => {
@@ -228,7 +228,7 @@
           },
           getfriend(){
             axios({
-              url: apiRoot + '/user/getfriend/' + this.$store.state.userId,
+              url:'/user/getfriend/' + this.$store.state.userId,
               headers: {Authorization: this.$store.state.token},
               method: 'get',
             }).then((response) => {
@@ -245,7 +245,7 @@
           show(id){
             this.modal1 = true;
             axios({
-              url: apiRoot + '/message/detail/' + this.$store.state.userId + '/' + id,
+              url:'/message/detail/' + this.$store.state.userId + '/' + id,
               headers: {Authorization: this.$store.state.token},
               method: 'get',
             }).then((response)=>{
@@ -284,7 +284,7 @@
               this.$Message.info('标题、正文及发送目标不能为空！');
             else {
               axios({
-                url: apiRoot + '/message/send',
+                url:'/message/send',
                 headers: {Authorization: this.$store.state.token},
                 method: 'post',
                 data: {

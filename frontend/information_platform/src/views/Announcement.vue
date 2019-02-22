@@ -9,7 +9,7 @@
                 <Divider orientation="left"class="title" ><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a1" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -17,7 +17,7 @@
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a2" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;margin-left: 60%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -25,7 +25,7 @@
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="(a,index) in a3" v-if="index < 3">
-                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -37,7 +37,7 @@
                 <Divider orientation="left" class="title"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                     <Panel v-for="a in a1">
-                      <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                      <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                       <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                     </Panel>
                 </Collapse>
@@ -48,7 +48,7 @@
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a2">
-                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -59,7 +59,7 @@
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
                   <Panel v-for="a in a3">
-                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
@@ -116,13 +116,13 @@
             //     this.a1.splice(i++, 1, this.msg[index])
             // }
             switch (this.msg[index].type){
-              case '系统通知':
+              case '1':
                 this.a1.splice(i++, 1, this.msg[index]);
                 break
-              case '调休通知':
+              case '2':
                 this.a2.splice(j++, 1, this.msg[index]);
                 break
-              case '失物启示':
+              case '3':
                 this.a3.splice(k++, 1, this.msg[index]);
                 break
             }
