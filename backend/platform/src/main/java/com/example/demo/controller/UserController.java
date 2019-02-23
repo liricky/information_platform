@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.jsonRequest.addFriend;
-import com.example.demo.model.jsonRequest.addToBlackList;
-import com.example.demo.model.jsonRequest.searchPeople;
+import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.UserService;
 import com.example.demo.tools.JwtUtil;
@@ -75,4 +73,63 @@ public class UserController {
         return userService.addToBlackList(blaclList);
     }
 
+    @GetMapping("/user/getfriend/{userid}")
+    public Result userGetFriend(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.usergetfriend(userid);
+    }
+
+    @PostMapping("/user/deletepost")
+    public Result userDeletePost(HttpServletRequest httpServletRequest, @RequestBody UserDeletePost userDeletePost){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userDeletePost.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userDeletePost(userDeletePost);
+    }
+
+    @GetMapping("/user/getpost/{userid}")
+    public Result userGetPost(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userGetPost(userid);
+    }
+
+    @PostMapping("/user/deletecomment")
+    public Result userDeletePost(HttpServletRequest httpServletRequest, @RequestBody UserDeleteComment userDeleteComment){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userDeleteComment.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userDeleteComment(userDeleteComment);
+    }
+
+    @GetMapping("/user/getcomment/{userid}")
+    public Result userGetComment(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userGetComment(userid);
+    }
+
+    @PostMapping("/logout")
+    public Result logout(HttpServletRequest httpServletRequest, @RequestBody Logout logout){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(logout.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return ResultTool.success();
+    }
 }

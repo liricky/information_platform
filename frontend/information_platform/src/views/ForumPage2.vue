@@ -4,7 +4,7 @@
     <div class="center">
       <div class="top">
         <div>
-          <img :src=pagesrc2 width="80%" height="380px"/>
+          <img :src=pagesrc2 width="60%" height="400px"/>
         </div>
         <!--<Button class="followbutton" type="primary" size="large"><font size="4">关注</font></Button>-->
       </div>

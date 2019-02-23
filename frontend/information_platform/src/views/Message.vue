@@ -49,13 +49,13 @@
           <!--<br>-->
           <font size="6" v-if="status3 === 'fail'">{{errormsg3}}</font>
           <div class="leftback">
-            <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="friend===null">
+            <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="status3 === 'success'">
               <Radio class="sendperson" v-for="(friend,index) in friend" :label="friend.userid">
                 <Icon class="icon" type="md-person" size="20"></Icon>
                 <span><font size="5px">{{friend.usernickname}}</font></span>
               </Radio>
             </RadioGroup>
-            <h3 v-if="friend!=null">您尚未添加好友</h3>
+            <h3 v-if="status3 === 'fail'">您尚未添加好友</h3>
           </div>
           <div class="rightback">
             <br>

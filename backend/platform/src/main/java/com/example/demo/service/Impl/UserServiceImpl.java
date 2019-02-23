@@ -1,22 +1,20 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.dao.BlacklistMapper;
-import com.example.demo.dao.FriendsMapper;
-import com.example.demo.dao.Tag_UsersMapper;
-import com.example.demo.dao.UsersMapper;
+import com.example.demo.controller.UserController;
+import com.example.demo.dao.*;
 import com.example.demo.model.entity.*;
-import com.example.demo.model.jsonRequest.addFriend;
-import com.example.demo.model.jsonRequest.addToBlackList;
-import com.example.demo.model.jsonRequest.loginUser;
-import com.example.demo.model.jsonRequest.userRelationship;
+import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
+import com.example.demo.model.ov.UserGetComment;
 import com.example.demo.model.ov.UserGetFriend;
+import com.example.demo.model.ov.UserGetPost;
 import com.example.demo.response.TokenResponse;
 import com.example.demo.service.UserService;
 import com.example.demo.tools.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.swing.text.View;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
@@ -40,6 +38,12 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private Tag_UsersMapper tag_usersMapper;
+
+    @Resource
+    private ViewsMapper viewsMapper;
+
+    @Resource
+    private CommentsMapper commentsMapper;
 
     @Override
     public Result usergetfriend(String userid) {
@@ -233,5 +237,112 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    //  删除用户自己所发帖的接口
+    @Override
+    public Result userDeletePost(UserDeletePost userDeletePost) {
+        ViewsExample viewsExample = new ViewsExample();
+        viewsExample.createCriteria().andPullerEqualTo(userDeletePost.getUserid()).andIdEqualTo(userDeletePost.getPostid());
+        List<Views> viewsList = viewsMapper.selectByExample(viewsExample);
+        if(viewsList.isEmpty()){
+            return ResultTool.error("要删除的帖子不存在！");
+        } else{
+            try {
+                viewsMapper.deleteByPrimaryKey(userDeletePost.getPostid());
+            } catch (Exception e){
+                return ResultTool.error("删除帖子出错！");
+            }
+            return ResultTool.success();
+        }
+    }
 
+    //  获取用户历史发帖的接口
+    @Override
+    public Result userGetPost(String userid) {
+        ViewsExample viewsExample = new ViewsExample();
+        viewsExample.createCriteria().andPullerEqualTo(userid);
+        List<Views> viewsList = viewsMapper.selectByExample(viewsExample);
+        if(viewsList.isEmpty()){
+            return ResultTool.error("无历史发帖！");
+        } else{
+            List<UserGetPost> userGetPostList = new LinkedList<>();
+            for(Views views : viewsList) {
+                UserGetPost userGetPost = new UserGetPost();
+                userGetPost.setPostid(views.getId());
+                if(views.getTags() == 1)
+                    userGetPost.setLabel("体育");
+                else if(views.getTags() == 2)
+                    userGetPost.setLabel("学术");
+                else if(views.getTags() == 3)
+                    userGetPost.setLabel("音乐");
+                else if(views.getTags() == 4)
+                    userGetPost.setLabel("游戏");
+                userGetPost.setTitle(views.getTitle());
+                userGetPost.setAuthor(views.getPuller());
+                //获取用户昵称需要从用户表中另外获取
+                Users users = usersMapper.getById(views.getPuller());
+                userGetPost.setAuthornickname(users.getName());
+                userGetPost.setDate(views.getTime().toString());
+                if(viewsMapper.getCommentNum(views.getId()) instanceof Integer)
+                    userGetPost.setCommentnum(viewsMapper.getCommentNum(views.getId()));
+                else
+                    userGetPost.setCommentnum(0);
+                if(viewsMapper.getLikeNum(views.getId()) instanceof Integer)
+                    userGetPost.setLikenum(viewsMapper.getLikeNum(views.getId()));
+                else
+                    userGetPost.setLikenum(0);
+                userGetPostList.add(userGetPost);
+            }
+            return ResultTool.success(userGetPostList);
+        }
+    }
+
+    //  删除用户自己回帖的接口
+    @Override
+    public Result userDeleteComment(UserDeleteComment userDeleteComment) {
+        CommentsExample commentsExample = new CommentsExample();
+        commentsExample.createCriteria().andUserIdEqualTo(userDeleteComment.getUserid()).andIdEqualTo(userDeleteComment.getCommentid());
+        List<Comments> commentsList = commentsMapper.selectByExample(commentsExample);
+        if(commentsList.isEmpty()){
+            return ResultTool.error("要删除的回帖不存在！");
+        } else{
+            try {
+                commentsMapper.deleteByPrimaryKey(userDeleteComment.getCommentid());
+            } catch (Exception e){
+                return ResultTool.error("删除回帖出错！");
+            }
+            return ResultTool.success();
+        }
+    }
+
+    //  获取用户历史回帖记录的接口
+    @Override
+    public Result userGetComment(String userid) {
+        CommentsExample commentsExample = new CommentsExample();
+        commentsExample.createCriteria().andUserIdEqualTo(userid);
+        List<Comments> commentsList = commentsMapper.selectByExample(commentsExample);
+        if(commentsList.isEmpty()){
+            return ResultTool.error("无历史回帖！");
+        } else{
+            List<UserGetComment> userGetCommentList = new LinkedList<>();
+            for(Comments comments : commentsList) {
+                UserGetComment userGetComment = new UserGetComment();
+                userGetComment.setId(comments.getId());
+                userGetComment.setPostid(comments.getViewId());
+                Views views = viewsMapper.selectByPrimaryKey(comments.getViewId());
+                userGetComment.setTitle(views.getTitle());
+                userGetComment.setContent(comments.getContent());
+                userGetComment.setAuthor(comments.getUserId());
+                //获取用户昵称需要从用户表中另外获取
+                Users users = usersMapper.getById(comments.getUserId());
+                userGetComment.setAuthornickname(users.getName());
+                userGetComment.setDate(comments.getTime().toString());
+                if(commentsMapper.getLikeNum(comments.getId()) instanceof Integer)
+                    userGetComment.setLikenum(commentsMapper.getLikeNum(comments.getId()));
+                else
+                    userGetComment.setLikenum(0);
+                userGetCommentList.add(userGetComment);
+            }
+            return ResultTool.success(userGetCommentList);
+        }
+    }
 }

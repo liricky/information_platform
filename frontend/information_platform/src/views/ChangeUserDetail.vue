@@ -35,7 +35,7 @@
         <TabPane label="历史发帖">
           <Row class="cardbox" style="background:#eee;padding:20px">
             <Col class="cardcol" span="25" v-for="(sendpost,index) in sendpost" :key="sendpost.postid">
-              <div>
+              <div @click="jumpDetail(sendpost.postid)">
                 <Icon type="md-trash" size="25" @click="deletepost(sendpost.postid)"/>
                 <Card class="card" :bordered="true">
                   <h1 class="headline" slot="title">{{sendpost.label}} {{sendpost.title}}</h1>
@@ -48,7 +48,7 @@
         <TabPane label="历史回帖">
           <Row class="cardbox" style="background:#eee;padding:20px">
             <Col class="cardcol" span="25" v-for="(replypost,index) in replypost" :key="replypost.id">
-              <div>
+              <div @click="jumpDetail(replypost.postid)">
                 <Icon type="md-trash" size="25" @click="deletecomment(replypost.id)"/>
                 <Card class="card" :bordered="true">
                   <h2 class="headline" slot="title">主帖标题:{{replypost.title}} <br> 回复内容:{{replypost.content}}</h2>
@@ -60,6 +60,7 @@
         </TabPane>
       </Tabs>
     </div>
+    <div class="fill"> </div>
     <bottom class="bottom"></bottom>
   </div>
 </template>
@@ -82,6 +83,9 @@
   .bottom{
     position: fixed;
     bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
@@ -129,6 +133,14 @@
       this.getcomment();
     },
     methods: {
+      jumpDetail(id){
+        this.$router.push({
+          path: '/ForumDetail',
+          query: {
+            id : id
+          }
+        })
+      },
       getParams(){
         this.user.id = this.$store.state.userId;
         this.user.nickname = this.$store.state.userNickname;
