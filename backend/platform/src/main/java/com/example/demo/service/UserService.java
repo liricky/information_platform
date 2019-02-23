@@ -29,4 +29,6 @@ public interface UserService {
     Result userDeleteComment(UserDeleteComment userDeleteComment);
 
     Result userGetComment(String userid);
+
+    Result editPwd(EditPwd editPwd);
 }

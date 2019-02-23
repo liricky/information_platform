@@ -345,4 +345,28 @@ public class UserServiceImpl implements UserService {
             return ResultTool.success(userGetCommentList);
         }
     }
+
+    //  修改用户密码的接口
+    @Override
+    public Result editPwd(EditPwd editPwd) {
+        Users users = usersMapper.selectByPrimaryKey(editPwd.getUserId());
+        if(users == null){
+            return ResultTool.error("用户无效");
+        } else{
+            if(users.getPassword().equals(editPwd.getUserOldPwd())){
+                Users users1 = new Users();
+                users1.setId(editPwd.getUserId());
+                users1.setPassword(editPwd.getUserNewPwd());
+                try {
+                    usersMapper.updateByPrimaryKeySelective(users1);
+                } catch(Exception e){
+                    return ResultTool.error("修改发生错误");
+                }
+                return ResultTool.success();
+            } else{
+                return ResultTool.error("原始密码不正确，如果忘记原密码请联系管理员！");
+            }
+        }
+
+    }
 }

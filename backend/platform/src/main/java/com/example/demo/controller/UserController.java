@@ -132,4 +132,14 @@ public class UserController {
         }
         return ResultTool.success();
     }
+
+    @PostMapping("/editpwd")
+    public Result editPwd(HttpServletRequest httpServletRequest, @RequestBody EditPwd editPwd){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(editPwd.getUserId())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.editPwd(editPwd);
+    }
 }

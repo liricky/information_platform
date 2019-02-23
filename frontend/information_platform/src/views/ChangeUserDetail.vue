@@ -14,17 +14,17 @@
       <br>
       <nobr>
         <font size="4">原用户密码： </font>
-        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" />
+        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" type="password"/>
       </nobr>
       <br>
       <nobr>
         <font size="4">新用户密码： </font>
-        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" />
+        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" type="password"/>
       </nobr>
       <br>
       <nobr>
         <font size="4">确认新用户密码： </font>
-        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" />
+        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" type="password"/>
       </nobr>
       <br>
       <Button type="primary" size="large" @click="set">确认修改</Button>

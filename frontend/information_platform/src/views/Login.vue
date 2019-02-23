@@ -18,12 +18,12 @@
             <section class="box-login v5-input-txt" id="box-login">
               <form id="login_form" action="" method="post" autocomplete="off">
                 <div class="form-group"><Input id="input1" prefix="md-contact" placeholder="请输入账号" style="width: auto" v-model="loginForm.userId"/></div>
-                <div class="form-group"><Input id="input2" prefix="md-key" placeholder="请输入密码" style="width: auto" v-model="loginForm.userPwd"/></div>
+                <div class="form-group"><Input id="input2" prefix="md-key" placeholder="请输入密码" style="width: auto" v-model="loginForm.userPwd" type="password"/></div>
               </form>
               <div class="login-box marginB10">
-                <div class="error-show" v-show="errorTip">账号或密码错误</div>
-                <div class="error-show" v-show="errorTip1">账号和密码不能为空</div>
-                <Button type="primary" @click="login">登 录</Button>
+                <div class="error-show" v-show="errorTip"><h3>账号或密码错误</h3></div>
+                <div class="error-show" v-show="errorTip1"><h3>账号和密码不能为空</h3></div>
+                <Button type="primary" @click="login"><h3>登 录</h3></Button>
                 <div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
               </div>
             </section>
