@@ -231,20 +231,19 @@
   </select>
 
   <!--获取评论点赞状态-->
-  <select id="getLikeStatus" resultType="com.example.demo.model.entity.Likes" >
+  <select id="getLikeStatus" parameterType="com.example.demo.model.entity.Comments" resultType="com.example.demo.model.entity.Likes" >
     select
-    <include refid="Base_Column_List" />
+    id,view_id,user_id,time,type,commend_id
     from Likes
-    where  commend_id = #{0} and user_id = #{1}
+    where  commend_id = #{id,jdbcType=INTEGER} and user_id = #{userId,jdbcType=VARCHAR}
   </select>
 
   <!--获取对应帖子全部评论-->
   <select id="getAllComment" parameterType="java.lang.Integer" resultType="com.example.demo.model.databaseResulttype.GetAllComment" >
     select
-    C.id,C.view_id,C.user_id,C.content,C.time,count(*) as likenum
-    from Comments C inner join Likes on C.id = Likes.commend_id
+    C.id,C.view_id,C.user_id,C.content,C.time
+    from Comments C
     where C.view_id = #{0}
-    group by Likes.commend_id
     order by C.time ASC
   </select>
 </mapper>

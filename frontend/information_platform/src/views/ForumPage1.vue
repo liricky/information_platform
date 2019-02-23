@@ -12,7 +12,8 @@
         <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
         <Tabs type="card">
           <TabPane label="最新回复">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post0.length === 0">还没有最新回复的帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post0.length != 0">
               <Col class="cardcol" span="25" v-for="(post0,index) in post0" :key="post0.postid">
                 <div @click="jumpDetail(post0.postid)">
                   <Card class="card" :bordered="true">
@@ -33,7 +34,8 @@
             </Row>
           </TabPane>
           <TabPane label="最新发布">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post1.length === 0">还没有最新发布的帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post1.length != 0">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.postid">
                 <div @click="jumpDetail(post1.postid)">
                   <Card class="card" :bordered="true">
@@ -54,7 +56,8 @@
             </Row>
           </TabPane>
           <TabPane label="精华">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post2.length === 0">还没有精华帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post2.length != 0">
               <Col class="cardcol" span="25" v-for="(post2,index) in post2" :key="post2.postid">
                 <div @click="jumpDetail(post2.postid)">
                   <Card class="card" :bordered="true">
@@ -75,7 +78,8 @@
             </Row>
           </TabPane>
           <TabPane label="全部">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post3.length === 0">该版块还没有帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post3.length != 0">
               <Col class="cardcol" span="25" v-for="(post3,index) in post3" :key="post3.postid">
                 <div @click="jumpDetail(post3.postid)">
                   <Card class="card" :bordered="true">

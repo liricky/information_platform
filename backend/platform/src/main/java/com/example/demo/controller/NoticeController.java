@@ -4,6 +4,7 @@ import com.example.demo.model.jsonRequest.addNoticeJsonRequest;
 import com.example.demo.model.jsonRequest.deleteNoticeJsonRequest;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.NoticeService;
+import com.example.demo.tools.JwtUtil;
 import com.example.demo.tools.ResultTool;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,34 +37,64 @@ public class NoticeController {
     }
 
     //  根据管理员获取公告信息
+//    @GetMapping("/manage/announcement/{managerId}")
+//    public Result findNoticeByManagerId(@PathVariable("managerId") String managerId,HttpServletRequest httpServletRequest) {
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if (token == "") {
+//            return ResultTool.error("登陆状态无效");
+//        }
+//        return noticeService.findNoticesByManager(managerId);
+//    }
+
     @GetMapping("/manage/announcement/{managerId}")
     public Result findNoticeByManagerId(@PathVariable("managerId") String managerId,HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("Authorization");
-        if (token == "") {
+        String userId = JwtUtil.parseJwt(token);
+        if (!userId.equals(managerId)) {
             return ResultTool.error("登陆状态无效");
         }
         return noticeService.findNoticesByManager(managerId);
     }
 
     //  管理员发布公告
+//    @RequestMapping(value = "/manage/announcement/publish", method = RequestMethod.POST)
+//    public Result createNotice(HttpServletRequest httpServletRequest, @RequestBody addNoticeJsonRequest addNotice) {
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if (token == "") {
+//            return ResultTool.error("登陆状态无效");
+//        }
+////        addNotice.setManagerId(addNotice.getManagerId());
+////        addNotice.setTitle(addNotice.getTitle());
+////        addNotice.setContent(addNotice.getContent());
+////        addNotice.setType(addNotice.getType());
+//        return noticeService.PushNoticeByManager(addNotice);
+//    }
+
     @RequestMapping(value = "/manage/announcement/publish", method = RequestMethod.POST)
     public Result createNotice(HttpServletRequest httpServletRequest, @RequestBody addNoticeJsonRequest addNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        if (token == "") {
+        String userId = JwtUtil.parseJwt(token);
+        if (!userId.equals(addNotice.getManagerId())) {
             return ResultTool.error("登陆状态无效");
         }
-//        addNotice.setManagerId(addNotice.getManagerId());
-//        addNotice.setTitle(addNotice.getTitle());
-//        addNotice.setContent(addNotice.getContent());
-//        addNotice.setType(addNotice.getType());
         return noticeService.PushNoticeByManager(addNotice);
     }
 
     //  管理员删除公告
+//    @RequestMapping(value = "/manage/announcement/delete", method = RequestMethod.POST)
+//    public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice) {
+//        String token = httpServletRequest.getHeader("Authorization");
+//        if (token == "") {
+//            return ResultTool.error("登陆状态无效");
+//        }
+//        return noticeService.DeleteNoticeByManager(deleteNotice);
+//    }
+
     @RequestMapping(value = "/manage/announcement/delete", method = RequestMethod.POST)
     public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        if (token == "") {
+        String userId = JwtUtil.parseJwt(token);
+        if (!userId.equals(deleteNotice.getManagerId())) {
             return ResultTool.error("登陆状态无效");
         }
         return noticeService.DeleteNoticeByManager(deleteNotice);

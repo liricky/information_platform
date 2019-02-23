@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
         FriendsExample friendsExample=new FriendsExample();
         friendsExample.createCriteria().andUseraEqualTo(userid);
         List<Friends> friendsList= friendsMapper.selectByExample(friendsExample);
-        if(friendsList.isEmpty()==true){
+        if(friendsList.isEmpty()){
             return ResultTool.error("好友列表为空");
         }
         List<UserGetFriend> userGetFriendList=new LinkedList<>();

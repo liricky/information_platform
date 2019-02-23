@@ -30,7 +30,7 @@ public interface CommentsMapper {
 
     List<GetAllComment> getAllComment(Integer postid);
 
-    Likes getLikeStatus(Integer comment_id, String user_id);
+    Likes getLikeStatus(Comments comments);
 
     Integer getLikeNum(Integer commentid);
 

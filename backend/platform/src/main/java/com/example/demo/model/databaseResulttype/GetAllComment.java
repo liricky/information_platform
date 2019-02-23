@@ -8,7 +8,6 @@ public class GetAllComment {
     private String user_id;
     private String content;
     private Timestamp time;
-    private Integer likenum;
 
     public Integer getId() {
         return id;
@@ -48,13 +47,5 @@ public class GetAllComment {
 
     public void setTime(Timestamp time) {
         this.time = time;
-    }
-
-    public Integer getLikenum() {
-        return likenum;
-    }
-
-    public void setLikenum(Integer likenum) {
-        this.likenum = likenum;
     }
 }

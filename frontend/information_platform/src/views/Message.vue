@@ -3,9 +3,9 @@
     <tophead></tophead>
     <Tabs type="card" id="cardbox">
       <TabPane label="收件箱">
-        <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
-        <br>
-        <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
+        <!--<font size="10" v-if="status1 === 'fail'">信息获取失败</font>-->
+        <!--<br>-->
+        <font size="6" v-if="status1 === 'fail'">{{errormsg1}}</font>
         <Dropdown id="drop" v-if="status1 === 'success'" placement="bottom-start" @on-click="checkshow">
           <a href="javascript:void(0)">
             <font size="3px">筛选信息</font>
@@ -45,22 +45,23 @@
       </TabPane>
       <TabPane label="写信">
         <div class="background">
-          <font size="10" v-if="status3 === 'fail'">信息获取失败</font>
-          <br>
-          <font size="4" v-if="status3 === 'fail'">{{errormsg3}}</font>
+          <!--<font size="10" v-if="status3 === 'fail'">信息获取失败</font>-->
+          <!--<br>-->
+          <font size="6" v-if="status3 === 'fail'">{{errormsg3}}</font>
           <div class="leftback">
-            <RadioGroup v-model="sendto" class="radiogroup" vertical>
+            <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="friend===null">
               <Radio class="sendperson" v-for="(friend,index) in friend" :label="friend.userid">
                 <Icon class="icon" type="md-person" size="20"></Icon>
                 <span><font size="5px">{{friend.usernickname}}</font></span>
               </Radio>
             </RadioGroup>
+            <h3 v-if="friend!=null">您尚未添加好友</h3>
           </div>
           <div class="rightback">
             <br>
             <div id="inputbox">
               <Input class="input" v-model="value1" size="large" placeholder="标题"/>
-              <Input class="input" v-model="value2" type="textarea" :rows="40" placeholder="正文" />
+              <Input class="input" v-model="value2" type="textarea" :rows="20" placeholder="正文" />
             </div>
             <br>
             <div id="sendbuttonbox">
@@ -71,10 +72,10 @@
         </div>
       </TabPane>
       <TabPane label="已发送">
-        <font size="10" v-if="status2 === 'fail'">信息获取失败</font>
-        <br>
-        <font size="4" v-if="status2 === 'fail'">{{errormsg2}}</font>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <!--<font size="10" v-if="status2 === 'fail'">信息获取失败</font>-->
+        <!--<br>-->
+        <font size="6" v-if="status2 === 'fail'">{{errormsg2}}</font>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="status2 === 'success'">
           <Col class="cardcol" span="25" v-for="(rev,index) in rev">
             <div @click=show(rev.messageid)>
               <Card class="card" :bordered="true">

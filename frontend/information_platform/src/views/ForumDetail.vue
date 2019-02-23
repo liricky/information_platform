@@ -30,7 +30,8 @@
       <br>
       <div class="bottomback" v-if="status1 === 'success'">
         <divider><font size="5">热评</font></divider>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <h2 v-if="hotreply.length === 0">还没有热评哦！</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="hotreply.length != 0">
           <Col class="cardcol" span="25" v-for="(hotreply,index) in hotreply" :key="hotreply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
@@ -52,7 +53,8 @@
           </Col>
         </Row>
         <divider><font size="5">评论</font></divider>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <h2 v-if="reply.length === 0">还没有评论哦！</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="reply.length != 0">
           <Col class="cardcol" span="25" v-for="(reply,index) in reply" :key="reply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
@@ -377,7 +379,7 @@
             data: {
               userid: this.$store.state.userId,
               postid: this.postid,
-              likestatus: this.likestatus === "true" ? "false" : "true",
+              likestatus: this.likestatus,
             }
           }).then((response) => {
             let res = response.data;
@@ -423,6 +425,10 @@
       },
       changecommentlikestatus(commentid){
         if(this.$store.state.token) {
+          for(let item of this.reply){
+            if(item.commentid === commentid)
+              var liketemp = item.likestatus;
+          }
           axios({
             url:'/forum/changecommentlike',
             headers: {
@@ -433,7 +439,7 @@
             data: {
               userid: this.$store.state.userId,
               commentid: commentid,
-              likestatus: this.getcommentlikestatus(commentid) === "true" ? "false" : "true",
+              likestatus: liketemp,
             }
           }).then((response) => {
             let res = response.data;
@@ -443,12 +449,14 @@
               for (let i of this.reply) {
                 if(i.commentid === commentid){
                   this.$set(i,"likestatus",i.likestatus === "true" ? "false" : "true");
+                  this.$set(i,"likenum",i.likestatus === "true" ? i.likenum = i.likenum + 1 : i.likenum = i.likenum - 1);
                   break;
                 }
               }
               for (let i of this.hotreply) {
                 if(i.commentid === commentid){
                   this.$set(i,"likestatus",i.likestatus === "true" ? "false" : "true");
+                  this.$set(i,"likenum",i.likestatus === "true" ? i.likenum = i.likenum + 1 : i.likenum = i.likenum - 1);
                   break;
                 }
               }

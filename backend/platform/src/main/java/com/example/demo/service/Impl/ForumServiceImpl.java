@@ -13,6 +13,7 @@ import com.example.demo.model.ov.ForumGetHotComment;
 import com.example.demo.model.ov.ForumGetLike;
 import com.example.demo.service.ForumService;
 import com.example.demo.tools.ResultTool;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ForumServiceImpl implements ForumService {
     @Resource
     private ViewsMapper viewsMapper;
@@ -297,7 +299,10 @@ public class ForumServiceImpl implements ForumService {
                 forumGetHotComment.setLikenum(commentsMapper.getLikeNum(getHotComment.getId()));
             else
                 forumGetHotComment.setLikenum(0);
-            if(commentsMapper.getLikeStatus(forumGetHotComment1.getPostId(),forumGetHotComment1.getUserId()) == null)
+            Comments comments = new Comments();
+            comments.setUserId(forumGetHotComment1.getUserId());
+            comments.setId(getHotComment.getId());
+            if(commentsMapper.getLikeStatus(comments) == null)
                 forumGetHotComment.setLikestatus("false");
             else
                 forumGetHotComment.setLikestatus("true");
@@ -345,7 +350,10 @@ public class ForumServiceImpl implements ForumService {
                 forumGetAllComment.setLikenum(commentsMapper.getLikeNum(getAllComment.getId()));
             else
                 forumGetAllComment.setLikenum(0);
-            if(commentsMapper.getLikeStatus(forumGetAllComment1.getPostId(),forumGetAllComment1.getUserId()) == null)
+            Comments comments = new Comments();
+            comments.setUserId(forumGetAllComment1.getUserId());
+            comments.setId(getAllComment.getId());
+            if(commentsMapper.getLikeStatus(comments) == null)
                 forumGetAllComment.setLikestatus("false");
             else
                 forumGetAllComment.setLikestatus("true");
@@ -416,6 +424,7 @@ public class ForumServiceImpl implements ForumService {
     //  改变用户在相应回复中的点赞状态
     @Override
     public Result forumChangeCommentLike(ForumChangeCommentLike forumChangeCommentLike) {
+        log.info(forumChangeCommentLike.getLikestatus());
         LikesExample likesExample = new LikesExample();
         likesExample.createCriteria().andCommendIdEqualTo(forumChangeCommentLike.getCommentid()).andUserIdEqualTo(forumChangeCommentLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);
