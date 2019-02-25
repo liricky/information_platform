@@ -142,4 +142,32 @@ public class UserController {
         }
         return userService.editPwd(editPwd);
     }
+
+    @GetMapping("/user/getuserinfo/{searchuserid}")
+    public Result userGetUserInfo(@PathVariable("searchuserid") String searchuserid){
+        if(searchuserid == null)
+            return ResultTool.error("参数错误");
+        else
+            return userService.userGetUserInfo(searchuserid);
+    }
+
+    @GetMapping("/user/showmyself/{userid}")
+    public Result userShowMyself(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userShowMyself(userId);
+    }
+
+    @PostMapping("/user/setmyself")
+    public Result userSetMyself(HttpServletRequest httpServletRequest, @RequestBody UserSetMyself userSetMyself){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userSetMyself.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.userSetMyself(userSetMyself);
+    }
 }

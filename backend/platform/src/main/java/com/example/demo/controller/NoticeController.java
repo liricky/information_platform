@@ -46,6 +46,7 @@ public class NoticeController {
 //        return noticeService.findNoticesByManager(managerId);
 //    }
 
+    //  根据管理员获取公告信息
     @GetMapping("/manage/announcement/{managerId}")
     public Result findNoticeByManagerId(@PathVariable("managerId") String managerId,HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("Authorization");
@@ -63,13 +64,10 @@ public class NoticeController {
 //        if (token == "") {
 //            return ResultTool.error("登陆状态无效");
 //        }
-////        addNotice.setManagerId(addNotice.getManagerId());
-////        addNotice.setTitle(addNotice.getTitle());
-////        addNotice.setContent(addNotice.getContent());
-////        addNotice.setType(addNotice.getType());
 //        return noticeService.PushNoticeByManager(addNotice);
 //    }
 
+    //  管理员发布公告
     @RequestMapping(value = "/manage/announcement/publish", method = RequestMethod.POST)
     public Result createNotice(HttpServletRequest httpServletRequest, @RequestBody addNoticeJsonRequest addNotice) {
         String token = httpServletRequest.getHeader("Authorization");
@@ -90,6 +88,7 @@ public class NoticeController {
 //        return noticeService.DeleteNoticeByManager(deleteNotice);
 //    }
 
+    //  管理员删除公告
     @RequestMapping(value = "/manage/announcement/delete", method = RequestMethod.POST)
     public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice) {
         String token = httpServletRequest.getHeader("Authorization");

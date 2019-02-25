@@ -31,4 +31,10 @@ public interface UserService {
     Result userGetComment(String userid);
 
     Result editPwd(EditPwd editPwd);
+
+    Result userGetUserInfo(String userId);
+
+    Result userShowMyself(String userId);
+
+    Result userSetMyself(UserSetMyself userSetMyself);
 }

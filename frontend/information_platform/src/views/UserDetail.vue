@@ -62,9 +62,8 @@
         getParams(){
           this.userdate.userid = this.$route.query.id;
           axios({
-            url:'/user/getuserinfo/' + this.$store.state.userId + '/' + this.userdate.userid,
+            url:'/user/getuserinfo/'+ this.userdate.userid,
             headers: {
-              "Authorization": this.$store.state.token,
               'Content-Type': 'application/json;charset=UTF-8'
             },
             method: 'get',

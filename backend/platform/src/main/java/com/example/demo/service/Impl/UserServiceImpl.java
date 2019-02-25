@@ -4,10 +4,7 @@ import com.example.demo.controller.UserController;
 import com.example.demo.dao.*;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.*;
-import com.example.demo.model.ov.Result;
-import com.example.demo.model.ov.UserGetComment;
-import com.example.demo.model.ov.UserGetFriend;
-import com.example.demo.model.ov.UserGetPost;
+import com.example.demo.model.ov.*;
 import com.example.demo.response.TokenResponse;
 import com.example.demo.service.UserService;
 import com.example.demo.tools.*;
@@ -197,10 +194,43 @@ public class UserServiceImpl implements UserService {
         usersExample.createCriteria().andIdEqualTo(userIdB);
         List<Users> usersList = usersMapper.selectByExample(usersExample);
         if (usersList.isEmpty() == true) {
-            return ResultTool.error("要加的人不存在");
+            return ResultTool.error("用户不存在");
+        }
+        //先判断要加的好友是否存在
+        UsersExample usersExample1 = new UsersExample();
+        usersExample1.createCriteria().andIdEqualTo(userIdA);
+        List<Users> usersList1 = usersMapper.selectByExample(usersExample);
+        if (usersList1.isEmpty() == true) {
+            return ResultTool.error("用户不存在");
+        }
+
+        FriendsExample friendsExample = new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
+        if(!friendsList.isEmpty())
+            return ResultTool.success();
+
+        BlacklistExample blacklistExample = new BlacklistExample();
+        blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
+        if (!blacklists.isEmpty()) {
+            blacklistMapper.deleteByExample(blacklistExample);
+        }
+        BlacklistExample blacklistExample1 = new BlacklistExample();
+        blacklistExample1.createCriteria().andUseraEqualTo(userIdB).andUserbEqualTo(userIdA);
+        List<Blacklist> blacklists1 = blacklistMapper.selectByExample(blacklistExample1);
+        if (!blacklists1.isEmpty()) {
+            blacklistMapper.deleteByExample(blacklistExample1);
         }
 
         Friends friend = new Friends();
+        friend.setUsera(userIdA);
+        friend.setUserb(userIdB);
+        friendsMapper.insert(friend);
+
+        userIdB = addFriend.getUserId();
+        userIdA = addFriend.getFriendId();
+        Friends friend1 = new Friends();
         friend.setUsera(userIdA);
         friend.setUserb(userIdB);
         friendsMapper.insert(friend);
@@ -219,19 +249,48 @@ public class UserServiceImpl implements UserService {
 //        if (usersList.isEmpty() == true) {
 //            return ResultTool.error("要加的人不存在");
 //        }
+
+        //先判断要加的好友是否存在
+        UsersExample usersExample = new UsersExample();
+        usersExample.createCriteria().andIdEqualTo(userIdB);
+        List<Users> usersList = usersMapper.selectByExample(usersExample);
+        if (usersList.isEmpty() == true) {
+            return ResultTool.error("用户不存在");
+        }
+        //先判断要加的好友是否存在
+        UsersExample usersExample1 = new UsersExample();
+        usersExample1.createCriteria().andIdEqualTo(userIdA);
+        List<Users> usersList1 = usersMapper.selectByExample(usersExample);
+        if (usersList1.isEmpty() == true) {
+            return ResultTool.error("用户不存在");
+        }
+
+        BlacklistExample blacklistExample = new BlacklistExample();
+        blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
+        if(!blacklists.isEmpty())
+            return ResultTool.success();
+
         //  先判断是否在该用户好友列表中
         FriendsExample friendsExample = new FriendsExample();
         friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
         List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
-        if (friendsList.isEmpty() == true) {
-            return ResultTool.error("该用户不在好友列表中");
+        if (!friendsList.isEmpty()) {
+            friendsMapper.deleteByExample(friendsExample);
         }
-        //  从好友关系表中删除
-        friendsMapper.deleteByExample(friendsExample);
+        FriendsExample friendsExample1 = new FriendsExample();
+        friendsExample1.createCriteria().andUseraEqualTo(userIdB).andUserbEqualTo(userIdA);
+        List<Friends> friendsList1 = friendsMapper.selectByExample(friendsExample1);
+        if (!friendsList1.isEmpty()) {
+            friendsMapper.deleteByExample(friendsExample1);
+        }
         //  加入黑名单
         Blacklist black = new Blacklist();
         black.setUsera(userIdA);
         black.setUserb(userIdB);
+        blacklistMapper.insert(black);
+        black.setUsera(userIdB);
+        black.setUserb(userIdA);
         blacklistMapper.insert(black);
         return ResultTool.success();
 
@@ -368,5 +427,54 @@ public class UserServiceImpl implements UserService {
             }
         }
 
+    }
+
+    //  用户查看其他用户的可见信息
+    @Override
+    public Result userGetUserInfo(String userId) {
+        Users users = usersMapper.selectByPrimaryKey(userId);
+        if(users == null){
+            return ResultTool.error("用户无效");
+        } else{
+            UserGetUserInfo userGetUserInfo = new UserGetUserInfo();
+            userGetUserInfo.setUserid(users.getId());
+            userGetUserInfo.setUsernickname(users.getName());
+            userGetUserInfo.setUserPoint(users.getCoins());
+            return ResultTool.success(userGetUserInfo);
+        }
+    }
+
+    //  用户获取自身账户所有可见信息的接口
+    @Override
+    public Result userShowMyself(String userId) {
+        Users users = usersMapper.selectByPrimaryKey(userId);
+        if(users == null){
+            return ResultTool.error("用户无效");
+        } else{
+            UserShowMyself userShowMyself = new UserShowMyself();
+            userShowMyself.setUserid(users.getId());
+            userShowMyself.setUsernickname(users.getName());
+            userShowMyself.setUserPoint(users.getCoins());
+            return ResultTool.success(userShowMyself);
+        }
+    }
+
+    //  用户获取
+    @Override
+    public Result userSetMyself(UserSetMyself userSetMyself) {
+        Users users = usersMapper.selectByPrimaryKey(userSetMyself.getUserid());
+        if(users == null){
+            return ResultTool.error("用户无效");
+        } else{
+            Users users1 = new Users();
+            users1.setId(userSetMyself.getUserid());
+            users1.setName(userSetMyself.getUsernickname());
+            try {
+                usersMapper.updateByPrimaryKeySelective(users1);
+            }catch (Exception e){
+                return ResultTool.error("修改信息出现错误");
+            }
+            return ResultTool.success();
+        }
     }
 }
