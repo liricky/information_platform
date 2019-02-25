@@ -1,7 +1,7 @@
 <template>
   <div class="head-content">
     <div id="word">
-      <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
+      <img id="pic" src="./../assets/logo.jpg" height="17%" width="18%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
         <!--<Button type="primary" shape="circle" @click="jumpLogin">登录</Button>-->
@@ -9,7 +9,7 @@
         <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
         <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
         <Icon type="md-settings" size="25" v-if="$store.state.token" @click="jumpToChangeUserDetail"/>
-        <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white"></font>
+        <font id="name" size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white"></font>
         &nbsp;&nbsp;
 
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
@@ -136,5 +136,8 @@
     align-items: center;
     justify-content: center;
   }
-
+  #pic{
+    position: relative;
+    top: 1%;
+  }
 </style>
