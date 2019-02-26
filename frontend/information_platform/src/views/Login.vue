@@ -1,110 +1,72 @@
 <template>
-  <div class="login-content">
-    <div id="head1">
-      <div id="headpic">
-        <img id="pichead" src="./../../static/back.jpg" width="30%"/>
-      </div>
+  <div class="main">
+    <div class="headline">
+
+      <font size="10">学生选课成绩管理系统</font>
     </div>
-    <div id="next">
-      <div id="pic">
-        <img id="piccontent" src="./../../static/back.png" width="50%"/>
-      </div>
-      <div id="ground">
-        <div id="body1">
-          <div class="modal-header">
-            <h1>综合信息平台</h1>
-          </div>
-          <div class="modal-body">
-            <section class="box-login v5-input-txt" id="box-login">
-              <form id="login_form" action="" method="post" autocomplete="off">
-                <div class="form-group"><Input id="input1" prefix="md-contact" placeholder="请输入账号" style="width: auto" v-model="loginForm.userId"/></div>
-                <div class="form-group"><Input id="input2" prefix="md-key" placeholder="请输入密码" style="width: auto" v-model="loginForm.userPwd"/></div>
-              </form>
-              <div class="login-box marginB10">
-                <div class="error-show" v-show="errorTip">账号或密码错误</div>
-                <div class="error-show" v-show="errorTip1">账号和密码不能为空</div>
-                <Button type="primary" @click="login">登 录</Button>
-                <div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
+    <div class="loginBox">
+      <br>
+      <h1 class="title">登录</h1>
+      <br>
+      <font size="4">&nbsp;&nbsp;学号：</font>
+      <Input v-model="loginForm.userId" placeholder="请输入学号/工号" prefix="md-contact" style="width: 300px" />
+      &nbsp;&nbsp;
+      <br>
+      <font size="4">&nbsp;&nbsp;密码：</font>
+      <Input v-model="loginForm.userPwd" placeholder="请输入密码" prefix="md-key" style="width: 300px" type="password"/>
+      &nbsp;&nbsp;
+      <br>
+      <divider></divider>
+      <div class="error-show"><h3 v-show="errorTip">账号或密码错误</h3><h3 v-show="errorTip1">账号和密码不能为空</h3></div>
+      <Button class="loginButton" type="primary" @click="login"><h3>登 录</h3></Button>
+      <font size="5">*</font>
     </div>
   </div>
 </template>
 <style scoped>
-  .modal-header{
-    width: 100%;
-    margin: 2% auto;
-    font-size: 1em;
+  .loginBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #61fffc;
+    box-shadow:10px 20px 50px white inset;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    opacity: 0.9;
   }
-  .form-group{
-    width: 100%;
-    margin: 2% auto;
+  .loginButton{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -15%);
   }
-  .login-box marginB10{
-    margin: 2% auto;
-    float: top;
-    width: 100%;
+  .title{
+    text-align: center;
   }
-  #input1{
-    float: top;
+  .headline{
+    position: absolute;
+    left: 50%;
+    top:15%;
+    transform: translate(-50%, 0);
+    opacity: 0.8;
   }
-  #input2{
-    float: top;
-  }
-  #ground{
+  .main{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     position: relative;
-    width: 35%;
-    float: left;
+    top: -65px;
+    background: url("./../assets/loginbackground.png") no-repeat;
   }
-  #head1{
-    position: relative;
-    width:90%;
-    margin: 3% auto;
-    float: top;
+  .error-show{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
   }
-  #pichead{
-    position: relative;
-    margin: auto;
-  }
-  #next{
-    position: relative;
-    width:90%;
-    margin: 3% auto;
-    float:top
-  }
-  #pic{
-    position: relative;
-    width: 65%;
-    float: left;
-  }
-  #piccontent{
-    position: relative;
-    margin: auto;
-  }
-  #headpic{
-    position: relative;
-    margin: 2% auto;
-    width: 65%;
-    float: left;
-  }
-  .login-content{
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: url("./../../static/back1.jpg");
-  }
-  #body1{
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    right: 15%;
-    top: 40%;
-  }
-
 </style>
 <script>
   import axios from 'axios'
@@ -126,15 +88,23 @@
           login(){
             if(!this.loginForm.userId||!this.loginForm.userPwd){
               this.errorTip1 = true;
+              this.errorTip = false;
             } else {
-              axios.post("/login", {
-                userId: this.loginForm.userId,
-                userPwd: this.loginForm.userPwd,
+              axios({
+                url: '/login',
+                data: {
+                  userId: this.loginForm.userId,
+                  userPwd: this.loginForm.userPwd,
+                },
+                headers: {
+                  'Content-Type': 'application/json;charset=UTF-8'
+                },
+                method: 'post',
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {
                   this.errorTip = false;
-                  //to-do
+                  this.errorTip1 = false;
                   var _this = this;
                   setTimeout(function () {
                     _this.$router.push({path: '/HomePage'})
@@ -142,8 +112,12 @@
                   localStorage.setItem('token',res.data.token)
                   localStorage.setItem('userNickname',res.data.userNickname)
                   localStorage.setItem('userId',res.data.userId)
-                  this.$store.commit('isLogin',{token:res.data.token,userNickname:res.data.userNickname,userId:res.data.userId})
+                  this.$store.commit('isLogin1',res.data.token)
+                  this.$store.commit('isLogin2',res.data.userNickname)
+                  this.$store.commit('isLogin3',res.data.userId)
+                  this.$Message.info("登录成功！");
                 } else {
+                  this.errorTip1 = false;
                   this.errorTip = true;
                 }
               })

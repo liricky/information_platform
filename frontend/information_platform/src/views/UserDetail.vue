@@ -17,13 +17,17 @@
         <Button type="primary" size="large" @click="addblacklist">加入黑名单</Button>
       </div>
       <br>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
   .center{
     width: 20%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>
@@ -57,15 +61,17 @@
       methods:{
         getParams(){
           this.userdate.userid = this.$route.query.id;
-          axios.get("/user/getuserinfo", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            searchuserid: this.userdate.userid,
+          axios({
+            url:'/user/getuserinfo/'+ this.userdate.userid,
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.userdate.usernickname = res.userdate.usernickname;
-              this.userdate.userpoint = res.userdate.userpoint;
+              this.userdate.usernickname = res.data.usernickname;
+              this.userdate.userpoint = res.data.userpoint;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
@@ -75,10 +81,17 @@
         },
         addfriend(){
           if(this.$store.state.token) {
-            axios.post("/user/addfriend", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              friendid: this.userdate.userid,
+            axios({
+              url:'/user/addfriend',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                friendid: this.userdate.userid,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -97,10 +110,17 @@
         },
         addblacklist(){
           if(this.$store.state.token) {
-            axios.post("/user/addblacklist", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              blacklistid: this.userdate.userid,
+            axios({
+              url:'/user/addblacklist',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                blacklistid: this.userdate.userid,
+              }
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {

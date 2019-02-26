@@ -83,14 +83,21 @@
           this.$Message.warning('详细信息不能超过200字');
         }
         else{
-          axios.post("/lostafound/publish", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            username:this.$store.state.userNickname,
-            title: this.value1,
-            content: this.value2,
-            connect: this.value3,
-            date: date,
+          axios({
+            url: '/lostafound/publish',
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            data:{
+              userid: this.$store.state.userId,
+              username:this.$store.state.userNickname,
+              title: this.value1,
+              content: this.value2,
+              connect: this.value3,
+              date: date,
+            },
+            method:'post'
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {

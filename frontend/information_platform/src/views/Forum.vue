@@ -4,10 +4,10 @@
     <div class="center">
       <Tabs class="cards" type="card">
         <TabPane label="推荐">
-          <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
-          <br>
-          <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
-          <Row class="cardbox" style="background:#eee;padding:20px"  v-if="status1 === 'success'">
+          <font size="10" v-if="!$store.state.token">请登录后获取为您推荐的内容</font>
+          <font size="10" v-else-if="$store.state.token && status1 === 'fail'">信息获取失败</font>
+          <font size="4" v-else-if="$store.state.token && status1 === 'fail'">{{errormsg1}}</font>
+          <Row class="cardbox" style="background:#eee;padding:20px"  v-if="$store.state.token && status1 === 'success'">
             <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.postid">
               <div @click="jumpDetail(post.postid)" class="back">
                 <Card class="card" :bordered="true">
@@ -36,8 +36,9 @@
           </div>
         </TabPane>
       </Tabs>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 <style scoped>
@@ -69,6 +70,13 @@
   .back{
     float: top;
   }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
+  }
 </style>
 <script>
     import tophead from '@/components/Head'
@@ -83,22 +91,22 @@
           post: [],
           board: [
             {
-              id: 0,
+              id: 1,
               name: '体育',
               img: './../../static/sport.png'
             },
             {
-              id: 1,
+              id: 2,
               name: '学术',
               img: './../../static/study.png'
             },
             {
-              id: 2,
+              id: 3,
               name: '音乐',
               img: './../../static/music.png'
             },
             {
-              id: 3,
+              id: 4,
               name: '游戏',
               img: './../../static/game.png'
             }
@@ -110,17 +118,22 @@
         bottom
       },
       created(){
-        this.getrecommendpost();
+        if(this.$store.state.token)
+          this.getrecommendpost();
       },
       methods: {
         getrecommendpost(){
-          axios.get("/forum/recommend", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/forum/recommend/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post = res.post;
+              this.post = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
@@ -129,13 +142,13 @@
           })
         },
         jumpPage(id){
-          if(id === 0)
+          if(id === 1)
             this.$router.push({path: '/ForumPage1'});
-          else if(id === 1)
-            this.$router.push({path: '/ForumPage2'});
           else if(id === 2)
-            this.$router.push({path: '/ForumPage3'});
+            this.$router.push({path: '/ForumPage2'});
           else if(id === 3)
+            this.$router.push({path: '/ForumPage3'});
+          else if(id === 4)
             this.$router.push({path: '/ForumPage4'});
         },
         // 尝试携参数跳转页面

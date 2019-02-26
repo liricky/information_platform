@@ -1,6 +1,7 @@
 <template>
   <div>
     <tophead></tophead>
+    <!--<h1>{{user.id}}</h1>-->
     <div class="center">
       <font size="4">用户id： {{user.id}}</font>
       <br>
@@ -13,17 +14,17 @@
       <br>
       <nobr>
         <font size="4">原用户密码： </font>
-        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" />
+        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" type="password"/>
       </nobr>
       <br>
       <nobr>
         <font size="4">新用户密码： </font>
-        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" />
+        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" type="password"/>
       </nobr>
       <br>
       <nobr>
         <font size="4">确认新用户密码： </font>
-        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" />
+        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" type="password"/>
       </nobr>
       <br>
       <Button type="primary" size="large" @click="set">确认修改</Button>
@@ -34,7 +35,7 @@
         <TabPane label="历史发帖">
           <Row class="cardbox" style="background:#eee;padding:20px">
             <Col class="cardcol" span="25" v-for="(sendpost,index) in sendpost" :key="sendpost.postid">
-              <div>
+              <div @click="jumpDetail(sendpost.postid)">
                 <Icon type="md-trash" size="25" @click="deletepost(sendpost.postid)"/>
                 <Card class="card" :bordered="true">
                   <h1 class="headline" slot="title">{{sendpost.label}} {{sendpost.title}}</h1>
@@ -47,7 +48,7 @@
         <TabPane label="历史回帖">
           <Row class="cardbox" style="background:#eee;padding:20px">
             <Col class="cardcol" span="25" v-for="(replypost,index) in replypost" :key="replypost.id">
-              <div>
+              <div @click="jumpDetail(replypost.postid)">
                 <Icon type="md-trash" size="25" @click="deletecomment(replypost.id)"/>
                 <Card class="card" :bordered="true">
                   <h2 class="headline" slot="title">主帖标题:{{replypost.title}} <br> 回复内容:{{replypost.content}}</h2>
@@ -59,7 +60,8 @@
         </TabPane>
       </Tabs>
     </div>
-    <bottom></bottom>
+    <div class="fill"> </div>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 <style scoped>
@@ -77,6 +79,13 @@
   .center1{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
@@ -124,18 +133,30 @@
       this.getcomment();
     },
     methods: {
+      jumpDetail(id){
+        this.$router.push({
+          path: '/ForumDetail',
+          query: {
+            id : id
+          }
+        })
+      },
       getParams(){
         this.user.id = this.$store.state.userId;
         this.user.nickname = this.$store.state.userNickname;
-        axios.get("/user/showmyself", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
+        axios({
+          url: '/user/showmyself/' + this.$store.state.userId,
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'get',
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.user.id = res.userdate.userid;
-            this.user.nickname = res.userdate.usernickname;
-            this.user.point = res.userdate.userpoint;
+            this.user.id = res.data.userid;
+            this.user.nickname = res.data.usernickname;
+            this.user.point = res.data.userpoint;
             this.status1 = res.status;
           } else {
             this.status1 = res.status;
@@ -149,10 +170,17 @@
       },
       setmyself(){
         if(this.value1) {
-          axios.post("/user/setmyself", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            usernickname: this.value1,
+          axios({
+            url:'/user/setmyself',
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              usernickname: this.value1,
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
@@ -170,20 +198,28 @@
       setpwd(){
         if(this.value2 && this.value3 && this.value4) {
           if (this.value3 === this.value4 && this.value3) {
-            axios.post("/editpwd", {
-              userID: this.$store.state.userId,
-              userOldPwd: this.value2,
-              userNewPwd: this.value3,
+            axios({
+              url:'/editpwd',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userID: this.$store.state.userId,
+                userOldPwd: this.value2,
+                userNewPwd: this.value3
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
-                this.status7 = res.code;
+                this.status7 = res.status;
                 this.$Message.info('修改密码成功！');
                 this.value2 = '';
                 this.value3 = '';
                 this.value4 = '';
               } else {
-                this.status7 = res.code;
+                this.status7 = res.status;
                 this.errormsg7 = res.message;
                 this.$Message.info('修改密码失败： ' + this.errormsg7);
               }
@@ -197,13 +233,17 @@
         }
       },
       getpost(){
-        axios.get("/user/getpost", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
+        axios({
+          url:'/user/getpost/' + this.$store.state.userId,
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'get',
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.sendpost = res.post;
+            this.sendpost = res.data;
             this.status3 = res.status;
 
           } else {
@@ -213,13 +253,17 @@
         })
       },
       getcomment(){
-        axios.get("/user/getcomment", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
+        axios({
+          url:'/user/getcomment/' + this.$store.state.userId,
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'get',
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.replypost = res.reply;
+            this.replypost = res.data;
             this.status4 = res.status;
 
           } else {
@@ -229,10 +273,17 @@
         })
       },
       deletepost(id){
-        axios.post("/user/deletepost", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
-          postid: id,
+        axios({
+          url:'/user/deletepost',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'post',
+          data: {
+            userid: this.$store.state.userId,
+            postid: id,
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
@@ -254,10 +305,17 @@
         })
       },
       deletecomment(id){
-        axios.post("/user/deletecomment", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
-          commentid: id,
+        axios({
+          url:'/user/deletecomment',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'post',
+          data: {
+            userid: this.$store.state.userId,
+            commentid: id,
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {

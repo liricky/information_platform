@@ -22,7 +22,7 @@
           <Collapse simple style="text-align: left">
             <Panel v-for="(msg,index) in msg.slice(0,8)">
               <span >{{msg.title}}</span><div style="display: inline;width: 30%;float: right; margin-right: 10%"><div style="display: inline;float:right;margin-right: 10%">{{msg.date}}</div><div style="display:inline;float:left">{{msg.type}}</div></div>
-              <p slot="content" style="text-align: justify">{{msg.content}}</p>
+              <p slot="content" style="text-align: justify;text-indent:25px">{{msg.content}}</p>
               <div slot="content">
                 <ButtonGroup shape="circle" style="margin-left: 85%;margin-top: 10px;" size="small">
                   <Button type="info" @click="jumpDetail(msg.type)"><div v-if="msg.type === '失物启示'">详情</div><div v-else>更多</div></Button>
@@ -61,14 +61,42 @@
         },
         methods:{
           getdata() {
-            axios.get("/announcement/new").then((response) => {
+            axios({
+              url:'/announcement/new',
+              method:'get'
+            }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.msg = res.announcement;
-                this.classify();
+                this.msg = res.data;
+                for(let i=0;i<this.msg.length;i++){
+                  switch(this.msg[i].type){
+                    case '1':
+                      this.msg[i].type = '系統通知';
+                      break;
+                    case '2':
+                      this.msg[i].type = '调休通知';
+                      break;
+                    case '3':
+                      this.msg[i].type = '失物启示'
+                  }
+                }
               } else {
                 this.status1 = res.status;
                 this.errormsg1 = res.message;
+                for(let i;i<this.msg.length;i++){
+                  switch (this.msg[i].type){
+                    case '1':
+                      this.msg[i].type ='系统通知';
+                      break;
+                    case '2':
+                      this.msg[i].type ='调休通知';
+                      break;
+                    case '3':
+                      this.msg[i].type ='失物启示';
+                      break;
+
+                  }
+                }
                 this.$Message.info('获取失败： ' + this.errormsg1);
               }
             })

@@ -65,10 +65,17 @@
       },
       methods: {
           getdata(){
-            axios.get("/lostafound/board").then((response) => {
+            axios({
+              // url:apiRoot +"/lostafound/board",
+              url:"/lostafound/board",
+              methods:'get',
+              headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+            }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.msg = res.board;
+                this.msg = res.data;
               } else {
                 this.status1 = res.status;
                 this.errormsg1 = res.message;

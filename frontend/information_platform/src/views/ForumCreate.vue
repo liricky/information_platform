@@ -12,13 +12,17 @@
         <Button type="info" size="large" icon="md-log-out" @click=createpost>发送</Button>
       </div>
       <br>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
   .center{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>
@@ -48,12 +52,19 @@
           if(this.value1 === '' || this.value2 === ''){
             this.$Message.info('帖子标题和内容不能为空!');
           } else{
-            axios.post("/forum/createpost", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
-              title: this. value1,
-              content: this.value2,
-              label: this.label,
+            axios({
+              url:'/forum/createpost',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                title: this. value1,
+                content: this.value2,
+                label: this.label,
+              }
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {

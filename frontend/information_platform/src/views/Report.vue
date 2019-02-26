@@ -20,13 +20,21 @@
         <Button type="primary" size="large" @click="submit"><font size="4">提交</font></Button>
       </div>
       <br>
-      <bottom></bottom>
+      <div class="fill"> </div>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
   .center{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
@@ -63,13 +71,20 @@
           if(this.value1 === ''){
             this.$Message.info("举报原因不能为空！");
           } else {
-            axios.post("/report/create", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              reportid: this.reportid,
-              reason: this.value1,
-              type: this.type,
-              id: this.id,
+            axios({
+              url:'/report/create',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                reportid: this.reportid,
+                reason: this.value1,
+                type: this.type,
+                id: this.id,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {

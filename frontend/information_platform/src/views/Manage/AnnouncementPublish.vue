@@ -63,12 +63,25 @@
             this.$Message.warning('类型不能为空');
           }
           else{
-            axios.post("/manage/announcement/publish", {
-              token: this.$store.state.token,
-              manageid: this.$store.state.userId,
-              title:this.value1,
-              content:this.value2,
-              type:this.type
+            if(this.type ==="系统通知"){
+              this.type = '1';
+            }
+            else {
+              this.type = '2';
+            }
+            axios({
+              url:'/manage/announcement/publish',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              data:{
+                managerid: this.$store.state.userId,
+                title:this.value1,
+                content:this.value2,
+                type:this.type
+              },
+              method:'post'
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {

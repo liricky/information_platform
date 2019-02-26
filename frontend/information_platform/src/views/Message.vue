@@ -3,9 +3,9 @@
     <tophead></tophead>
     <Tabs type="card" id="cardbox">
       <TabPane label="收件箱">
-        <font size="10" v-if="status1 === 'fail'">信息获取失败</font>
-        <br>
-        <font size="4" v-if="status1 === 'fail'">{{errormsg1}}</font>
+        <!--<font size="10" v-if="status1 === 'fail'">信息获取失败</font>-->
+        <!--<br>-->
+        <font size="6" v-if="status1 === 'fail'">{{errormsg1}}</font>
         <Dropdown id="drop" v-if="status1 === 'success'" placement="bottom-start" @on-click="checkshow">
           <a href="javascript:void(0)">
             <font size="3px">筛选信息</font>
@@ -45,22 +45,23 @@
       </TabPane>
       <TabPane label="写信">
         <div class="background">
-          <font size="10" v-if="status3 === 'fail'">信息获取失败</font>
-          <br>
-          <font size="4" v-if="status3 === 'fail'">{{errormsg3}}</font>
+          <!--<font size="10" v-if="status3 === 'fail'">信息获取失败</font>-->
+          <!--<br>-->
+          <font size="6" v-if="status3 === 'fail'">{{errormsg3}}</font>
           <div class="leftback">
-            <RadioGroup v-model="sendto" class="radiogroup" vertical>
+            <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="status3 === 'success'">
               <Radio class="sendperson" v-for="(friend,index) in friend" :label="friend.userid">
                 <Icon class="icon" type="md-person" size="20"></Icon>
                 <span><font size="5px">{{friend.usernickname}}</font></span>
               </Radio>
             </RadioGroup>
+            <h3 v-if="status3 === 'fail'">您尚未添加好友</h3>
           </div>
           <div class="rightback">
             <br>
             <div id="inputbox">
               <Input class="input" v-model="value1" size="large" placeholder="标题"/>
-              <Input class="input" v-model="value2" type="textarea" :rows="40" placeholder="正文" />
+              <Input class="input" v-model="value2" type="textarea" :rows="20" placeholder="正文" />
             </div>
             <br>
             <div id="sendbuttonbox">
@@ -71,10 +72,10 @@
         </div>
       </TabPane>
       <TabPane label="已发送">
-        <font size="10" v-if="status2 === 'fail'">信息获取失败</font>
-        <br>
-        <font size="4" v-if="status2 === 'fail'">{{errormsg2}}</font>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <!--<font size="10" v-if="status2 === 'fail'">信息获取失败</font>-->
+        <!--<br>-->
+        <font size="6" v-if="status2 === 'fail'">{{errormsg2}}</font>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="status2 === 'success'">
           <Col class="cardcol" span="25" v-for="(rev,index) in rev">
             <div @click=show(rev.messageid)>
               <Card class="card" :bordered="true">
@@ -87,7 +88,8 @@
         </Row>
       </TabPane>
     </Tabs>
-    <bottom></bottom>
+    <div class="fill"> </div>
+    <bottom class="bottom"></bottom>
     <Modal v-model="modal1">
       <h1 slot="header" style="text-align:center">
         <span>{{this.box_title}}</span>
@@ -149,6 +151,13 @@
     position: relative;
     bottom: 4px;
   }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
+  }
 </style>
 <script>
   import tophead from '@/components/Head.vue'
@@ -187,13 +196,17 @@
         },
         methods:{
           getrev(){
-            axios.get("/message/receive", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url:'/message/receive/' + this.$store.state.userId,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.msg = res.receivemsg;
+                this.msg = res.data;
                 this.status1 = res.status;
               } else {
                 this.status1 = res.status;
@@ -202,13 +215,17 @@
             })
           },
           getsent(){
-            axios.get("/message/sent", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url:'/message/sent/' + this.$store.state.userId,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.rev = res.sendmsg;
+                this.rev = res.data;
                 this.status2 = res.status;
               } else {
                 this.status2 = res.status;
@@ -217,13 +234,17 @@
             })
           },
           getfriend(){
-            axios.get("/user/getfriend", {
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
+            axios({
+              url:'/user/getfriend/' + this.$store.state.userId,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'get',
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
-                this.friend = res.friendmsg;
+                this.friend = res.data;
                 this.status3 = res.status;
               } else {
                 this.status3 = res.status;
@@ -233,26 +254,24 @@
           },
           show(id){
             this.modal1 = true;
-            axios.get("/message/detail",{
-              token: this.$store.state.token,
-              userId: this.$store.state.userId,
-              messageid: id,
+            axios({
+              url:'/message/detail/' + this.$store.state.userId + '/' + id,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'get',
             }).then((response)=>{
               let res = response.data;
               if(res.status === "success"){
                 // console.log(id);
                 this.status4 = res.status;
-                this.box_messageid = res.msg.messageid;
-                this.box_title = res.msg.title;
-                this.box_date = res.msg.date;
-                this.box_content = res.msg.content;
-                // console.log(this.msg);
+                this.box_messageid = res.data.messageid;
+                this.box_title = res.data.title;
+                this.box_date = res.data.date;
+                this.box_content = res.data.content;
                 for(let i of this.msg){
-                  // console.log("1");
-                  // console.log(i);
-                  // console.log(id);
                   if(i.messageid === id){
-                    // console.log(i.messageid);
                     this.$set(i,"status","");
                     break;
                   }
@@ -277,12 +296,19 @@
             if(this.value1 === '' || this.value2 === '' || this.sendto === '')
               this.$Message.info('标题、正文及发送目标不能为空！');
             else {
-              axios.post("/message/send", {
-                token: this.$store.state.token,
-                userId: this.$store.state.userId,
-                sendId: this.sendto,
-                title: this.value1,
-                content: this.value2,
+              axios({
+                url:'/message/send',
+                headers: {
+                  "Authorization": this.$store.state.token,
+                  'Content-Type': 'application/json;charset=UTF-8'
+                },
+                method: 'post',
+                data: {
+                  userid: this.$store.state.userId,
+                  sendid: this.sendto,
+                  title: this.value1,
+                  content: this.value2,
+                }
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {

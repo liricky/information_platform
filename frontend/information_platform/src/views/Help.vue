@@ -27,6 +27,25 @@
               </Col>
             </Row>
           </TabPane>
+          <TabPane label="待认领">
+            <Row class="cardbox" style="background:#eee;padding:20px">
+              <Col class="cardcol" span="25" v-for="(post5,index) in post5" :key="post5.missionid">
+                <Card class="card" :bordered="true">
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post5.missionid,post5.authorid)"/>
+                  <div class="leftback">
+                    <div>
+                      <font size="4" @click="jumpUserDetail(post5.authorid)">by:{{post5.authorid}} {{post5.authornickname}}</font>
+                      <br>
+                      <font size="4">开始时间:{{post5.startdate}}<br>截止时间:{{post5.enddate}}</font>
+                    </div>
+                    <font size="3">{{post5.content}}</font>
+                    <br>
+                    <Button type="primary" @click="cancelmission(post5.missionid)"><font size="2">放弃任务</font></Button>
+                  </div>
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
           <TabPane label="已认领">
             <Row class="cardbox" style="background:#eee;padding:20px">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.missionid">
@@ -122,8 +141,9 @@
             </Row>
           </TabPane>
         </Tabs>
+        <div class="fill"> </div>
       </div>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
       <Modal
         v-model="modal1"
         title="认领任务"
@@ -174,6 +194,13 @@
   .flag{
     float: right;
   }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
+  }
 </style>
 <script>
   import tophead from '@/components/Head'
@@ -188,6 +215,7 @@
               post2: [],
               post3: [],
               post4: [],
+              post5: [],
               status1: '',
               errormsg1: '',
               status2: '',
@@ -210,6 +238,8 @@
               errormsg10: '',
               status11: '',
               errormsg11: '',
+              status12: '',
+              errormsg12: '',
               type: '',
               value1: '',
               value2: '',
@@ -233,6 +263,7 @@
         this.helpongoing();
         this.helpsent();
         this.helpfinish();
+        this.helpunget();
         this.checktype();
       },
       methods: {
@@ -248,11 +279,18 @@
           if(this.value1 === '')
             this.$Message.info('联系方式不能为空！');
           else {
-            axios.post("/help/claim", {
-              missionid: this.temp,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              phone: this.value1,
+            axios({
+              url:'/help/claim',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                missionid: this.temp,
+                userid: this.$store.state.userId,
+                phone: this.value1,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -290,10 +328,17 @@
           if(this.value2 === '')
             this.$Message.info('原因不能为空！');
           else {
-            axios.post("/help/cancel", {
-              missionid: this.temp,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url:'/help/cancel',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                missionid: this.temp,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -331,10 +376,17 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/help/claimfinish", {
-              missionid: id,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url:'/help/claimfinish',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                missionid: id,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -368,10 +420,17 @@
           if(this.sign)
             this.$Message.info("您已被封禁，无法使用该功能，如有疑问可进行申诉！");
           else {
-            axios.post("/help/sentfinish", {
-              missionid: id,
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
+            axios({
+              url:'/help/sentfinish',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                missionid: id,
+                userid: this.$store.state.userId,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -412,12 +471,19 @@
           if(this.value3 === '' || this.value4 === '' || this.datevalue === null || this.timevalue === null)
             this.$Message.info('任务内容、联系方式及设置时间不能为空');
           else {
-            axios.post("/help/send", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              content: this.value3,
-              phone: this.value4,
-              enddate: this.datevalue + " " + this.timevalue,
+            axios({
+              url:'/help/send',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                content: this.value3,
+                phone: this.value4,
+                enddate: this.datevalue + " " + this.timevalue,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -448,9 +514,6 @@
             }
           })
         },
-        // jumpUserDetail(id) {
-        //   this.$router.push({path: '/UserDetail'})
-        // },
         jumpUserDetail(id) {
           this.$router.push({
             path: '/UserDetail',
@@ -460,11 +523,16 @@
           })
         },
         helpall(){
-          axios.get("/help/all", {
+          axios({
+            url:'/help/all',
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post = res.mission;
+              this.post = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
@@ -473,13 +541,17 @@
           })
         },
         helpongoing(){
-          axios.get("/help/ongoing", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/help/ongoing/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post1 = res.mission;
+              this.post1 = res.data;
               this.status2 = res.status;
             } else {
               this.status2 = res.status;
@@ -488,13 +560,17 @@
           })
         },
         helpsent(){
-          axios.get("/help/sent", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/help/sent/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post2 = res.mission;
+              this.post2 = res.data;
               this.status3 = res.status;
             } else {
               this.status3 = res.status;
@@ -503,32 +579,59 @@
           })
         },
         helpfinish(){
-          axios.get("/help/sendfinish", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/help/sendfinish/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post3 = res.mission;
+              this.post3 = res.data;
               this.status4 = res.status;
             } else {
               this.status4 = res.status;
               this.errormsg4 = res.message;
             }
           });
-          axios.get("/help/getfinish", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/help/getfinish/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post4 = res.mission;
+              this.post4 = res.data;
               this.status11 = res.status;
             } else {
               this.status11 = res.status;
               this.errormsg11 = res.message;
             }
           })
+        },
+        helpunget(){
+          axios({
+            url:'/help/unget/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
+          }).then((response) => {
+            let res = response.data;
+            if(res.status === "success") {
+              this.post5 = res.data;
+              this.status12 = res.status;
+            } else {
+              this.status12 = res.status;
+              this.errormsg12 = res.message;
+            }
+          });
         },
         handle1(date){
           this.datevalue = date;
@@ -537,14 +640,18 @@
           this.timevalue = time;
         },
         checktype(){
-          axios.get("/appeal/get", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/appeal/get/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
               this.status10 = res.status;
-              if(res.type === 2 || res.type === 3)
+              if(res.data.type === 2 || res.data.type === 3)
                 this.sign = true;
               else
                 this.sign = false;

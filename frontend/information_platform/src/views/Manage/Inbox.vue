@@ -56,78 +56,8 @@
       data(){
           return {
             msg1:[
-              // {
-              // report:'A',
-              // reported: 'B',
-              // date:'2012-2-2',
-              // type:'论坛举报',
-              // reason:'123123123213213'
-              // },
-              // {
-              //   report:'A',
-              //   reported: 'B',
-              //   date:'2012-2-2',
-              //   type:'论坛举报',
-              //   reason:'123123123213213'
-              // },
-              // {
-              //   report:'A',
-              //   reported: 'B',
-              //   date:'2012-2-2',
-              //   type:'论坛举报',
-              //   reason:'123123123213213'
-              // },
-              // {
-              //   report:'A',
-              //   reported: 'B',
-              //   date:'2012-2-2',
-              //   type:'论坛举报',
-              //   reason:'123123123213213'
-              // },
-              // {
-              //   report:'A',
-              //   reported: 'B',
-              //   date:'2012-2-2',
-              //   type:'论坛举报',
-              //   reason:'123123123213213'
-              // }
             ],
             msg2:[
-              // {
-              //   title:'123123',
-              //   report:'A',
-              //   type:'论坛违规',
-              //   reason:'123123123123',
-              //   date:"2012-2-2"
-              // },
-              // {
-              //   title:'1231223',
-              //   report:'A',
-              //   type:'论坛违规',
-              //   reason:'123123123123',
-              //   date:"2012-2-2"
-              // },
-              // {
-              //   title:'123123',
-              //   report:'A',
-              //   type:'论坛违规',
-              //   reason:'123123123123',
-              //   date:"2012-2-2"
-              // },
-              // {
-              //   title:'123123',
-              //   report:'A',
-              //   type:'论坛违规',
-              //   reason:'123123123123',
-              //   date:"2012-2-2"
-              // },
-              // {
-              //   title:'123123',
-              //   report:'A',
-              //   type:'论坛违规',
-              //   reason:'123123123123',
-              //   date:"2012-2-2"
-              // }
             ],
             status1: '',
             errormsg1: '',
@@ -135,9 +65,13 @@
       },
       methods:{
           getdata(){
-            axios.get("/manage/inbox/report", {
-              token: this.$store.state.token,
-              manageid: this.$store.state.userId,
+            axios({
+              url:'/manage/inbox/report/'+this.$store.state.userId,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method:'get'
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
@@ -148,9 +82,13 @@
                 this.$Message.info('获取失败： ' + this.errormsg1);
               }
             });
-            axios.get("/manage/inbox/appeal", {
-              token: this.$store.state.token,
-              manageid: this.$store.state.userId,
+            axios({
+              url:'/manage/inbox/appeal/'+this.$store.state.userId,
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method:'get'
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {

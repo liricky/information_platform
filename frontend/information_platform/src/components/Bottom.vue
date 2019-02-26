@@ -31,6 +31,7 @@
 <style scoped>
   #map{
     width: 100%;
+    height: 120px;
     background: #245086;
   }
   #contain{

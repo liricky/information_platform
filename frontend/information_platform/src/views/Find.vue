@@ -25,7 +25,8 @@
         </Row>
       </div>
       <br>
-      <bottom></bottom>
+      <div class="fill"> </div>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
@@ -35,6 +36,13 @@
   }
   .cardcol{
     margin: 4px auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
@@ -70,13 +78,16 @@
             if(this.find === '' || this.value === '')
               this.$Message.info('搜索方式及搜索信息不能为空!');
             else {
-              axios.get("/user/findfriend", {
-                type: this.find,
-                id: this.value,
+              axios({
+                url:'/user/findfriend/' + this.find + '/' + this.value,
+                method: 'get',
+                headers: {
+                  'Content-Type': 'application/json;charset=UTF-8'
+                }
               }).then((response) => {
                 let res = response.data;
                 if (res.status === "success") {
-                  this.msg = res.userlist;
+                  this.msg = res.data;
                   this.status1 = res.status;
                   this.$Message.info('搜索完成!');
                   this.value = '';

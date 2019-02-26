@@ -4,7 +4,7 @@
     <div class="center">
       <div class="top">
         <div>
-          <img :src=pagesrc4 width="80%" height="380px"/>
+          <img :src=pagesrc4 width="60%" height="400px"/>
         </div>
         <!--<Button class="followbutton" type="primary" size="large"><font size="4">关注</font></Button>-->
       </div>
@@ -12,7 +12,8 @@
         <Button class="sendbutton" type="primary" shape="circle" icon="ios-create" size="large" @click=jumpToForumCreate><font size="3">发帖</font></Button>
         <Tabs type="card">
           <TabPane label="最新回复">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post0.length === 0">还没有最新回复的帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post0.length != 0">
               <Col class="cardcol" span="25" v-for="(post0,index) in post0" :key="post0.postid">
                 <div @click="jumpDetail(post0.postid)">
                   <Card class="card" :bordered="true">
@@ -33,7 +34,8 @@
             </Row>
           </TabPane>
           <TabPane label="最新发布">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post1.length === 0">还没有最新发布的帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post1.length != 0">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.postid">
                 <div @click="jumpDetail(post1.postid)">
                   <Card class="card" :bordered="true">
@@ -54,7 +56,8 @@
             </Row>
           </TabPane>
           <TabPane label="精华">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post2.length === 0">还没有精华帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post2.length != 0">
               <Col class="cardcol" span="25" v-for="(post2,index) in post2" :key="post2.postid">
                 <div @click="jumpDetail(post2.postid)">
                   <Card class="card" :bordered="true">
@@ -75,7 +78,8 @@
             </Row>
           </TabPane>
           <TabPane label="全部">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="post3.length === 0">该版块还没有帖子哦，去别处看看吧！</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="post3.length != 0">
               <Col class="cardcol" span="25" v-for="(post3,index) in post3" :key="post3.postid">
                 <div @click="jumpDetail(post3.postid)">
                   <Card class="card" :bordered="true">
@@ -97,8 +101,9 @@
           </TabPane>
         </Tabs>
       </div>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom1"></bottom>
   </div>
 </template>
 <style scoped>
@@ -127,6 +132,13 @@
    position: relative;
     left:45%;
   }
+  .bottom1{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
+  }
 </style>
 <script>
   import tophead from '@/components/Head'
@@ -140,7 +152,7 @@
             pagesrc2: './../../static/pagesrc2.png',
             pagesrc3: './../../static/pagesrc3.png',
             pagesrc4: './../../static/pagesrc4.png',
-            labelid: 3,
+            labelid: 4,
             post0: [],
             post1: [],
             post2: [],
@@ -184,7 +196,7 @@
               this.$router.push({
                 path: '/ForumCreate',
                 query: {
-                  label: 3
+                  label: 4
                 }
               })
             }
@@ -194,48 +206,64 @@
           }
         },
         init(){
-          axios.get("/forum/newreply", {
-            label: this.labelid,
+          axios({
+            url:'/forum/newreply/' + this.labelid,
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post0 = res.post;
+              this.post0 = res.data;
               this.status1 = res.status;
             } else {
               this.status1 = res.status;
               this.errormsg1 = res.message;
             }
           });
-          axios.get("/forum/newpublish", {
-            label: this.labelid,
+          axios({
+            url:'/forum/newpublish/' + this.labelid,
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post1 = res.post;
+              this.post1 = res.data;
               this.status2 = res.status;
             } else {
               this.status2 = res.status;
               this.errormsg2 = res.message;
             }
           });
-          axios.get("/forum/best", {
-            label: this.labelid,
+          axios({
+            url:'/forum/best/' + this.labelid,
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post2 = res.post;
+              this.post2 = res.data;
               this.status3 = res.status;
             } else {
               this.status3 = res.status;
               this.errormsg3 = res.message;
             }
           });
-          axios.get("/forum/all", {
-            label: this.labelid,
+          axios({
+            url:'/forum/all/' + this.labelid,
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              this.post3 = res.post;
+              this.post3 = res.data;
               this.status4 = res.status;
             } else {
               this.status4 = res.status;
@@ -244,14 +272,18 @@
           })
         },
         checktype(){
-          axios.get("/appeal/get", {
-            token: this.$store.state.token,
-            userId: this.$store.state.userId,
+          axios({
+            url:'/appeal/get/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
               this.status5 = res.status;
-              if(res.type === 1 || res.type === 3)
+              if(res.data.type === 1 || res.data.type === 3)
                 this.sign = true;
               else
                 this.sign = false;

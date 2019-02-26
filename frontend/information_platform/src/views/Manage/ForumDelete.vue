@@ -84,9 +84,13 @@
       },
       methods:{
         getdata(){
-          axios.get("/manage/forum", {
-            token: this.$store.state.token,
-            manageid: this.$store.state.userId,
+          axios({
+            url:'/manage/forum/'+this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method:'get'
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
@@ -99,11 +103,13 @@
           })
         },
         ok (id) {
-          // this.$Message.success('id:'+id+' 删除成功');
-          axios.post("/manage/forum/delete", {
-            token: this.$store.state.token,
-            manageid: this.$store.state.userId,
-            id:id,
+          axios({
+            url:'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method:'post'
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {

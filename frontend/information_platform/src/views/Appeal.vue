@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <bottom></bottom>
+      <bottom class="bottom"></bottom>
     </div>
 </template>
 <style scoped>
@@ -72,6 +72,10 @@
   .center{
     width: 80%;
     margin: auto;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
   }
 </style>
 <script>
@@ -114,16 +118,22 @@
       },
       methods:{
         sendappeal(){
-          // console.log(this.value3);
           if(this.value1 === '' || this.value2 === '' || this.value3 === '')
             this.$Message.info('申诉类别、申述标题及申诉内容不能为空！');
           else {
-            axios.post("/appeal/send", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              type: this.value3,
-              title: this.value1,
-              reason: this.value2,
+            axios({
+              url:'/appeal/send',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                type: this.value3,
+                title: this.value1,
+                reason: this.value2,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -141,14 +151,18 @@
           }
         },
         init(){
-          axios.get("/appeal/getdetail", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
+          axios({
+            url: apiRoot + '/appeal/getdetail/' + this.$store.state.userId,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
               this.status2 = res.status;
-              this.msg = res.detail;
+              this.msg = res.data;
             } else {
               this.status2 = res.status;
               this.errormsg2 = res.message;

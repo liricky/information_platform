@@ -3,19 +3,19 @@
   "message": null,
   "friendmsg": [
     {
-      "userid": 0,
+      "userid": "0",
       "usernickname": "li"
     },
     {
-      "userid": 1,
+      "userid": "1",
       "usernickname": "du"
     },
     {
-      "userid": 2,
+      "userid": "2",
       "usernickname": "tang"
     },
     {
-      "userid": 3,
+      "userid": "3",
       "usernickname": "abc"
     }
   ]

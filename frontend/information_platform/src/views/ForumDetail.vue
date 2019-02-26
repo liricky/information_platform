@@ -30,7 +30,8 @@
       <br>
       <div class="bottomback" v-if="status1 === 'success'">
         <divider><font size="5">热评</font></divider>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <h2 v-if="hotreply.length === 0">还没有热评哦！</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="hotreply.length != 0">
           <Col class="cardcol" span="25" v-for="(hotreply,index) in hotreply" :key="hotreply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
@@ -52,7 +53,8 @@
           </Col>
         </Row>
         <divider><font size="5">评论</font></divider>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <h2 v-if="reply.length === 0">还没有评论哦！</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="reply.length != 0">
           <Col class="cardcol" span="25" v-for="(reply,index) in reply" :key="reply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
@@ -74,8 +76,9 @@
           </Col>
         </Row>
       </div>
+      <div class="fill"> </div>
     </div>
-    <bottom></bottom>
+    <bottom class="bottom"></bottom>
     <Modal
       v-model="modal1"
       title="评论"
@@ -98,6 +101,13 @@
   }
   .card{
     border: 1px solid black;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>
@@ -210,132 +220,111 @@
         this.postid = this.$route.query.id;
       },
       getDetail(){
-        axios.get("/forum/detail", {
-          postid: this.postid,
+        axios({
+          url: '/forum/detail/' + this.postid,
+          method: 'get',
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+          }
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.post.postid = res.post.postid;
-            this.post.label = res.post.label;
-            this.post.title = res.post.title;
-            this.post.content = res.post.content;
-            this.post.author = res.post.author;
-            this.post.authornickname = res.post.authornickname;
-            this.post.date = res.post.date;
+            this.post.postid = res.data.postid;
+            this.post.label = res.data.label;
+            this.post.title = res.data.title;
+            this.post.content = res.data.content;
+            this.post.author = res.data.author;
+            this.post.authornickname = res.data.authornickname;
+            this.post.date = res.data.date;
             this.status1 = res.status;
           } else {
             this.status1 = res.status;
             this.errormsg1 = res.message;
           }
         });
-        // axios.get("/forum/gethotcomment", {
-        //   postid: this.postid,
-        // }).then((response) => {
-        //   let res = response.data;
-        //   if(res.status === "success") {
-        //     this.hotreply = res.hotreply;
-        //     this.status2 = res.status;
-        //     if(this.$store.state.token) {
-        //       for (let i of this.hotreply) {
-        //         axios.get("/forum/getcommentlike", {
-        //           token: this.$store.state.token,
-        //           userid: this.$store.state.userId,
-        //           commentid: i.commentid,
-        //         }).then((response) => {
-        //           let res = response.data;
-        //           if (res.status === "success") {
-        //             this.status7 = res.status;
-        //             this.$set(i,"likestatus",res.likestatus);
-        //             // i.likestatus = res.likestatus;
-        //             this.test = 1;
-        //           } else {
-        //             this.status7 = res.status;
-        //             this.errormsg7 = res.message;
-        //           }
-        //         });
-        //       }
-        //     }
-        //   } else {
-        //     this.status2 = res.status;
-        //     this.errormsg2 = res.message;
-        //   }
-        // });
-        axios.get("/forum/gethotcomment", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
-          postid: this.postid,
-        }).then((response) => {
-          let res = response.data;
-          if(res.status === "success") {
-            this.hotreply = res.hotreply;
-            this.status2 = res.status;
-            // if(this.$store.state.token) {
-            //   for (let i of this.hotreply) {
-            //     axios.get("/forum/getcommentlike", {
-            //       token: this.$store.state.token,
-            //       userid: this.$store.state.userId,
-            //       commentid: i.commentid,
-            //     }).then((response) => {
-            //       let res = response.data;
-            //       if (res.status === "success") {
-            //         this.status7 = res.status;
-            //         this.$set(i,"likestatus",res.likestatus);
-            //         // i.likestatus = res.likestatus;
-            //         this.test = 1;
-            //       } else {
-            //         this.status7 = res.status;
-            //         this.errormsg7 = res.message;
-            //       }
-            //     });
-            //   }
-            // }
-          } else {
-            this.status2 = res.status;
-            this.errormsg2 = res.message;
-          }
-        });
-        axios.get("/forum/getcomment", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
-          postid: this.postid,
-        }).then((response) => {
-          let res = response.data;
-          if(res.status === "success") {
-            this.reply = res.reply;
-            this.status3 = res.status;
-            // if(this.$store.state.token) {
-            //   for (let i of this.reply) {
-            //     axios.get("/forum/getcommentlike", {
-            //       token: this.$store.state.token,
-            //       userid: this.$store.state.userId,
-            //       commentid: i.commentid,
-            //     }).then((response) => {
-            //       let res = response.data;
-            //       if (res.status === "success") {
-            //         this.status7 = res.status;
-            //         this.$set(i,"likestatus",res.likestatus);
-            //         // i.likestatus = res.likestatus;
-            //       } else {
-            //         this.status7 = res.status;
-            //         this.errormsg7 = res.message;
-            //       }
-            //     });
-            //   }
-            // }
-          } else {
-            this.status3 = res.status;
-            this.errormsg3 = res.message;
-          }
-        });
-        if(this.$store.state.token) {
-          axios.get("/forum/getlike", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            postid: this.postid,
+        if(this.$store.state.userId === "") {
+          axios({
+            url: '/forum/gethotcomment/' + 'a' + '/' + this.postid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
-              this.likestatus = res.likestatus;
+              this.hotreply = res.data;
+              this.status2 = res.status;
+            } else {
+              this.status2 = res.status;
+              this.errormsg2 = res.message;
+            }
+          });
+          axios({
+            url: '/forum/getcomment/' + 'a' + '/' + this.postid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.reply = res.data;
+              this.status3 = res.status;
+            } else {
+              this.status3 = res.status;
+              this.errormsg3 = res.message;
+            }
+          });
+        } else {
+          axios({
+            url: '/forum/gethotcomment/' + this.$store.state.userId + '/' + this.postid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.hotreply = res.data;
+              this.status2 = res.status;
+            } else {
+              this.status2 = res.status;
+              this.errormsg2 = res.message;
+            }
+          });
+          axios({
+            url: '/forum/getcomment/' + this.$store.state.userId + '/' + this.postid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.reply = res.data;
+              this.status3 = res.status;
+            } else {
+              this.status3 = res.status;
+              this.errormsg3 = res.message;
+            }
+          });
+        }
+        if(this.$store.state.token) {
+          axios({
+            url:'/forum/getlike/' + this.$store.state.userId + '/' + this.postid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
+          }).then((response) => {
+            let res = response.data;
+            if (res.status === "success") {
+              this.likestatus = res.data.likestatus;
               this.status4 = res.status;
             } else {
               this.status4 = res.status;
@@ -349,11 +338,18 @@
           if (this.value1 === "") {
             this.$Message.info('评论内容不能为空！');
           } else {
-            axios.post("/forum/createcomment", {
-              token: this.$store.state.token,
-              userid: this.$store.state.userId,
-              content: this.value1,
-              postid: this.postid,
+            axios({
+              url:'/forum/createcomment',
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
+              method: 'post',
+              data: {
+                userid: this.$store.state.userId,
+                content: this.value1,
+                postid: this.postid,
+              }
             }).then((response) => {
               let res = response.data;
               if (res.status === "success") {
@@ -373,16 +369,23 @@
       },
       changelikestatus(){
         if(this.$store.state.token) {
-          axios.post("/forum/changelike", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            postid: this.postid,
-            likestatus: this.likestatus === "true" ? "false" : "true",
+          axios({
+            url:'/forum/changelike',
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              postid: this.postid,
+              likestatus: this.likestatus,
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
               this.status6 = res.status;
-              this.likestatus = res.likestatus;
+              this.likestatus = res.data.likestatus;
               this.$Message.info('修改点赞状态成功！');
             } else {
               this.status6 = res.status;
@@ -397,15 +400,18 @@
       },
       getcommentlikestatus(commentid){
         if(this.$store.state.token) {
-          axios.get("/forum/getcommentlike", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            commentid: commentid,
+          axios({
+            url:'/forum/getcommentlike/' + this.$store.state.userId + '/' + commentid,
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'get',
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
               this.status7 = res.status;
-              return res.likestatus;
+              return res.data.likestatus;
             } else {
               this.status7 = res.status;
               this.errormsg7 = res.message;
@@ -419,11 +425,22 @@
       },
       changecommentlikestatus(commentid){
         if(this.$store.state.token) {
-          axios.post("/forum/changecommentlike", {
-            token: this.$store.state.token,
-            userid: this.$store.state.userId,
-            commentid: commentid,
-            likestatus: this.getcommentlikestatus(commentid) === "true" ? "false" : "true",
+          for(let item of this.reply){
+            if(item.commentid === commentid)
+              var liketemp = item.likestatus;
+          }
+          axios({
+            url:'/forum/changecommentlike',
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            method: 'post',
+            data: {
+              userid: this.$store.state.userId,
+              commentid: commentid,
+              likestatus: liketemp,
+            }
           }).then((response) => {
             let res = response.data;
             if (res.status === "success") {
@@ -432,12 +449,14 @@
               for (let i of this.reply) {
                 if(i.commentid === commentid){
                   this.$set(i,"likestatus",i.likestatus === "true" ? "false" : "true");
+                  this.$set(i,"likenum",i.likestatus === "true" ? i.likenum = i.likenum + 1 : i.likenum = i.likenum - 1);
                   break;
                 }
               }
               for (let i of this.hotreply) {
                 if(i.commentid === commentid){
                   this.$set(i,"likestatus",i.likestatus === "true" ? "false" : "true");
+                  this.$set(i,"likenum",i.likestatus === "true" ? i.likenum = i.likenum + 1 : i.likenum = i.likenum - 1);
                   break;
                 }
               }
@@ -453,14 +472,18 @@
         }
       },
       checktype(){
-        axios.get("/appeal/get", {
-          token: this.$store.state.token,
-          userId: this.$store.state.userId,
+        axios({
+          url:'/appeal/get/' + this.$store.state.userId,
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method: 'get',
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
             this.status9 = res.status;
-            if(res.type === 1 || res.type === 3)
+            if(res.data.type === 1 || res.data.type === 3)
               this.sign = true;
             else
               this.sign = false;

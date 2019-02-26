@@ -1,7 +1,7 @@
 <template>
   <div class="head-content">
     <div id="word">
-      <img id="pic" src="./../assets/logo.jpg" height="17%" width="17%"/>
+      <img id="pic" src="./../assets/logo.jpg" height="17%" width="18%"/>
       <img src="./../assets/headline.png" height="40%" width="40%"/>
       <div id="loginbtn">
         <!--<Button type="primary" shape="circle" @click="jumpLogin">登录</Button>-->
@@ -9,10 +9,11 @@
         <!--<font size="4" v-text="$store.state.userId" color="white" @click=""></font>-->
         <!--<font size="4" v-text="$store.state.token" color="white" @click=""></font>-->
         <Icon type="md-settings" size="25" v-if="$store.state.token" @click="jumpToChangeUserDetail"/>
-        <font size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white" @click=""></font>
+        <font id="name" size="4" v-if="$store.state.token" v-text="$store.state.userNickname" color="white"></font>
         &nbsp;&nbsp;
-        <Button type="primary" shape="circle" v-if="managetype && $store.state.token" to="/Manage/User">管理</Button>
+
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
+        <Button type="primary" shape="circle" v-if="ifmanage" to="/Manage/User">管理</Button>
         <Button type="primary" shape="circle" @click="jumpLogout" v-if="$store.state.token">退出</Button>
       </div>
     </div>
@@ -32,7 +33,7 @@
         <!--</MenuItem>-->
         <MenuItem id="announcement2" name="/LostAFound/Board">
           <Icon type="ios-list-box"/>
-          失物招领
+          寻找失物
         </MenuItem>
         <MenuItem id="help" name="/Help">
           <Icon type="ios-hand" />
@@ -42,10 +43,6 @@
           <Icon type="ios-text" />
           论坛
         </MenuItem>
-        <!--<MenuItem id="info1" to="/info1">-->
-          <!--<Icon type="ios-people" />-->
-          <!--群组消息-->
-        <!--</MenuItem>-->
         <MenuItem id="info2" name="/Message" >
           <Icon type="ios-mail" />
           私信
@@ -66,12 +63,14 @@
   import './../assets/headline.png'
   import './../assets/logo.jpg'
   import axios from 'axios'
-  import store from './../../store/store'
+
   export default {
     data () {
       return {
         theme1: 'light',
-        managetype:false,
+        status: '',
+        errormsg: '',
+        ifmanage:false,
       }
     },
     methods: {
@@ -79,8 +78,31 @@
         this.$router.push({path: '/Login'});
       },
       jumpLogout(){
-        this.$store.commit('isLogout');
-        this.$router.push({path: '/HomePage'});
+        axios({
+          // url: apiRoot + '/logout',
+          url: '/logout',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          method:'post',
+          data: {
+            userid: this.$store.state.userId,
+          }
+        }).then((response) => {
+          let res = response.data;
+          if (res.status === "success") {
+            this.status = res.status;
+            this.ifmanage = false;
+            this.$store.commit('isLogout');
+            this.$router.push({path: '/HomePage'});
+            this.$Message.info("退出成功！");
+          } else {
+            this.status = res.status;
+            this.errormsg = res.message;
+            this.$Message.info("出现错误: " + this.errormsg);
+          }
+        })
       },
       routerTo(name){
         this.$router.push(name)
@@ -88,25 +110,30 @@
       jumpToChangeUserDetail(){
         this.$router.push({path: '/ChangeUserDetail'})
       },
-      ifmanage(){
-        axios.post("/ifmanage", {
-          token: this.$store.state.token,
-          userid: this.$store.state.userId,
+      ifManage(){
+        axios({
+          url:'/ifmanage/'+this.$store.state.userId,
+          method:'get',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          }
         }).then((response) => {
-          let res = response.data;
           console.log(response)
+          let res = response.data;
           if(res.status === "success") {
-            this.managetype=res.ifmanage;
+            this.ifmanage = res.data.ifmanage;
+            console.log(this.ifmanage);
           } else {
             this.status1 = res.status;
             this.errormsg1 = res.message;
-            this.$Message.info('失败：' + this.errormsg1);
+            this.$Message.info('获取失败： ' + this.errormsg1);
           }
         })
-      }
+      },
     },
     created(){
-      this.ifmanage();
+      this.ifManage();
     }
   }
 </script>
@@ -117,7 +144,7 @@
   }
   .head-content{
     position: relative;
-    top: -50px;
+    top: -65px;
     width: 100%;
   }
   #word{
@@ -132,5 +159,8 @@
     align-items: center;
     justify-content: center;
   }
-
+  #pic{
+    position: relative;
+    top: 1%;
+  }
 </style>
