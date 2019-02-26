@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.jsonRequest.LostAFoundDelete;
+import com.example.demo.model.jsonRequest.LostAFoundPublish;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.LostFindService;
 import com.example.demo.tools.JwtUtil;
 import com.example.demo.tools.ResultTool;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -31,5 +30,25 @@ public class LostFindController {
             return ResultTool.error("登录状态无效");
         }
         return lostFindService.lostFoundMyboard(userId);
+    }
+
+    @PostMapping("/lostafound/delete")
+    public Result lostAFoundDelete(HttpServletRequest httpServletRequest, @RequestBody LostAFoundDelete lostAFoundDelete){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(lostAFoundDelete.getUserid())){
+            return ResultTool.error("登录状态验证无效");
+        }
+        return lostFindService.lostFoundDelete(lostAFoundDelete);
+    }
+
+    @PostMapping("/lostafound/publish")
+    public Result lostAFoundPublish(HttpServletRequest httpServletRequest, @RequestBody LostAFoundPublish lostAFoundPublish){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(lostAFoundPublish.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return lostFindService.lostFoundPublish(lostAFoundPublish);
     }
 }
