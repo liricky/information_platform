@@ -67,7 +67,10 @@
           getdata(){
             axios({
               url:'/manage/inbox/report/'+this.$store.state.userId,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method:'get'
             }).then((response) => {
               let res = response.data;
@@ -81,7 +84,10 @@
             });
             axios({
               url:'/manage/inbox/appeal/'+this.$store.state.userId,
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               method:'get'
             }).then((response) => {
               let res = response.data;

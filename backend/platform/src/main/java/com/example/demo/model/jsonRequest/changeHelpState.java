@@ -8,6 +8,23 @@ import lombok.Data;
 public class changeHelpState {
     @JsonProperty("userid")
     String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @JsonProperty("missionid")
     String missionId;
+
+    public String getMissionId() {
+        return missionId;
+    }
+
+    public void setMissionId(String missionId) {
+        this.missionId = missionId;
+    }
 }

@@ -94,7 +94,10 @@
         getdata() {
           axios({
             url:'/announcement',
-            method:'get'
+            method:'get',
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
           }).then((response) => {
             console.log(response)
             let res = response.data;

@@ -86,7 +86,10 @@
         getdata(){
           axios({
             url:'/manage/forum/'+this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method:'get'
           }).then((response) => {
             let res = response.data;
@@ -102,7 +105,10 @@
         ok (id) {
           axios({
             url:'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method:'post'
           }).then((response) => {
             let res = response.data;

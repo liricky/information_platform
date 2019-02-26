@@ -63,11 +63,20 @@
             this.$Message.warning('类型不能为空');
           }
           else{
+            if(this.type ==="系统通知"){
+              this.type = '1';
+            }
+            else {
+              this.type = '2';
+            }
             axios({
               url:'/manage/announcement/publish',
-              headers: {Authorization: this.$store.state.token},
+              headers: {
+                "Authorization": this.$store.state.token,
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
               data:{
-                manageid: this.$store.state.userId,
+                managerid: this.$store.state.userId,
                 title:this.value1,
                 content:this.value2,
                 type:this.type

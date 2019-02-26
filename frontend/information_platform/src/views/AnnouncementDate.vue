@@ -101,8 +101,10 @@
         console.log(date);
         axios({
           url:'/announcement/'+date,
-
-          method:'get'
+          method:'get',
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
 
         }).then((response) => {
           let res = response.data;

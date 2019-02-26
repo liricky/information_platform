@@ -73,7 +73,10 @@
       ok(id){
         axios("/lostafound/delete", {
           url: '/lostafound/delete/' + this.$store.state.userId+'/'+this.msgclick.id,
-          headers: {Authorization: this.$store.state.token},
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
           method:'post'
         }).then((response) => {
           let res = response.data;

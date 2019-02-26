@@ -424,7 +424,7 @@ public class ForumServiceImpl implements ForumService {
     //  改变用户在相应回复中的点赞状态
     @Override
     public Result forumChangeCommentLike(ForumChangeCommentLike forumChangeCommentLike) {
-        log.info(forumChangeCommentLike.getLikestatus());
+//        log.info(forumChangeCommentLike.getLikestatus());
         LikesExample likesExample = new LikesExample();
         likesExample.createCriteria().andCommendIdEqualTo(forumChangeCommentLike.getCommentid()).andUserIdEqualTo(forumChangeCommentLike.getUserid());
         List<Likes> likesList = likesMapper.selectByExample(likesExample);

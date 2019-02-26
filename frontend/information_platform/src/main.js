@@ -44,13 +44,14 @@ router.beforeEach((to, from, next) => {
     }
   }
   else if(to.meta.requireManage) {
-    axios.post("/ifmanage", {
-      token: store.state.token,
-      userid: store.state.userId,
+    axios({
+      url: '/ifmanage/'+store.state.userId,
+      headers: {"Authorization": store.state.token},
+      method: 'get',
     }).then((response) => {
       let res = response.data;
       if(res.status === "success") {
-        if(res.ifmanage){
+        if(res.data.ifmanage){
           next();
         }else {
           next({
@@ -61,7 +62,8 @@ router.beforeEach((to, from, next) => {
         this.$Message.info('失败');
       }
     })
-  } else {
+  }
+  else {
     next();
   }
 })

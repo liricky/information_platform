@@ -80,10 +80,14 @@
         getdata(){
           axios({
             url:'/manage/announcement/'+this.$store.state.userId,
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             method:'get'
           }).then((response) => {
             let res = response.data;
+            console.log(res);
             if(res.status === "success") {
               this.msg = res.data;
               this.classify();
@@ -98,13 +102,13 @@
           let i = 0, j = 0, k = 0, index;
           for (index = 0; index < this.msg.length; index++) {
             switch (this.msg[index].type){
-              case '系统通知':
+              case '1':
                 this.a1.splice(i++, 1, this.msg[index]);
                 break
-              case '调休通知':
+              case '2':
                 this.a2.splice(j++, 1, this.msg[index]);
                 break
-              case '失物启示':
+              case '3':
                 this.a3.splice(k++, 1, this.msg[index]);
                 break
             }
@@ -113,9 +117,12 @@
         ok (id,type) {
           axios({
             url:'/manage/announcement/delete',
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
             data:{
-              manageid: this.$store.state.userId,
+              managerid: this.$store.state.userId,
               id:id,
             },
             method:'post'
@@ -123,7 +130,7 @@
             let res = response.data;
             if(res.status === "success") {
               switch (type){
-                case '系统通知':
+                case "1":
                   for(var i =0 ;i<this.a1.length;i++){
                     if(this.a1[i].id === id){
                       this.a1.splice(i,1);
@@ -131,7 +138,7 @@
                     }
                   }
                   break
-                case '调休通知':
+                case "2":
                   for(var i =0 ;i<this.a2.length;i++){
                     if(this.a2[i].id === id){
                       this.a2.splice(i,1);
@@ -139,7 +146,7 @@
                     }
                   }
                   break
-                case '失物启示':
+                case "3":
                   for(var i =0 ;i<this.a3.length;i++){
                     if(this.a3[i].id === id){
                       this.a3.splice(i,1);

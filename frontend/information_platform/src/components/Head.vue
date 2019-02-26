@@ -13,6 +13,7 @@
         &nbsp;&nbsp;
 
         <Button type="primary" shape="circle" @click="jumpLogin" v-if="!$store.state.token">登录</Button>
+        <Button type="primary" shape="circle" v-if="ifmanage" to="/Manage/User">管理</Button>
         <Button type="primary" shape="circle" @click="jumpLogout" v-if="$store.state.token">退出</Button>
       </div>
     </div>
@@ -69,6 +70,7 @@
         theme1: 'light',
         status: '',
         errormsg: '',
+        ifmanage:false,
       }
     },
     methods: {
@@ -91,6 +93,7 @@
           let res = response.data;
           if (res.status === "success") {
             this.status = res.status;
+            this.ifmanage = false;
             this.$store.commit('isLogout');
             this.$router.push({path: '/HomePage'});
             this.$Message.info("退出成功！");
@@ -106,7 +109,31 @@
       },
       jumpToChangeUserDetail(){
         this.$router.push({path: '/ChangeUserDetail'})
-      }
+      },
+      ifManage(){
+        axios({
+          url:'/ifmanage/'+this.$store.state.userId,
+          method:'get',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          }
+        }).then((response) => {
+          console.log(response)
+          let res = response.data;
+          if(res.status === "success") {
+            this.ifmanage = res.data.ifmanage;
+            console.log(this.ifmanage);
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+            this.$Message.info('获取失败： ' + this.errormsg1);
+          }
+        })
+      },
+    },
+    created(){
+      this.ifManage();
     }
   }
 </script>
@@ -117,7 +144,7 @@
   }
   .head-content{
     position: relative;
-    top: -50px;
+    top: -65px;
     width: 100%;
   }
   #word{

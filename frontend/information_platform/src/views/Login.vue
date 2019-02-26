@@ -57,6 +57,7 @@
     width: 100vw;
     overflow: hidden;
     position: relative;
+    top: -65px;
     background: url("./../assets/loginbackground.png") no-repeat;
   }
   .error-show{

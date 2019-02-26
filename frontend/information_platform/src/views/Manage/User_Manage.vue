@@ -222,7 +222,7 @@
             url:'/manage/user/password',
             headers: {Authorization: this.$store.state.token},
             data:{
-              manageid: this.$store.state.userId,
+              managerid: this.$store.state.userId,
               id:id,
               password:this.value,
             },
@@ -258,9 +258,12 @@
                   if(this.formValidate.forbid_date !== '' && this.formValidate.forbid_reason !== '' && this.formValidate.forbid_type !== '') {
                     axios.post({
                       url:'/manage/user/forbid',
-                      headers: {Authorization: this.$store.state.token},
+                      headers: {
+                        "Authorization": this.$store.state.token,
+                        'Content-Type': 'application/json;charset=UTF-8'
+                      },
                       data:{
-                        manageid: this.$store.state.userId,
+                        managerid: this.$store.state.userId,
                         id:id,
                         forbid_type:this.formValidate.forbid_type,
                         forbid_reason:this.formValidate.forbid_reason,
@@ -294,7 +297,10 @@
                   this.$Message.success('解除封禁成功');
                   axios({
                     url:'/manage/user/release/'+this.$store.state.userId+'/'+id,
-                    headers: {Authorization: this.$store.state.token},
+                    headers: {
+                      "Authorization": this.$store.state.token,
+                      'Content-Type': 'application/json;charset=UTF-8'
+                    },
                     method:'post'
                   }).then((response) => {
                     let res = response.data;

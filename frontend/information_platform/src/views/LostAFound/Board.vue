@@ -68,7 +68,10 @@
             axios({
               // url:apiRoot +"/lostafound/board",
               url:"/lostafound/board",
-              methods:'get'
+              methods:'get',
+              headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+              },
             }).then((response) => {
               let res = response.data;
               if(res.status === "success") {
