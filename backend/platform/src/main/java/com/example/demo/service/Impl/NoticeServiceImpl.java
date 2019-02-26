@@ -1,5 +1,6 @@
 package com.example.demo.service.Impl;
 
+import com.example.demo.dao.LostlistMapper;
 import com.example.demo.dao.ManagersMapper;
 import com.example.demo.model.entity.Managers;
 import com.example.demo.model.entity.ManagersExample;
@@ -27,6 +28,9 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Resource
     private ManagersMapper managersMapper;
+
+    @Resource
+    private LostlistMapper lostlistMapper;
 
     //  按照发布公告的日期排序
     private void OrderByTime(List<Notices> noticesLinkedList) {
@@ -75,7 +79,8 @@ public class NoticeServiceImpl implements NoticeService {
         for (Notices notice : noticesList) {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setContent(notice.getContent());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+//            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setType(notice.getType().toString());
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setId(notice.getId().toString());
@@ -113,7 +118,8 @@ public class NoticeServiceImpl implements NoticeService {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+//            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
@@ -144,7 +150,8 @@ public class NoticeServiceImpl implements NoticeService {
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+//            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
         }
@@ -190,7 +197,8 @@ public class NoticeServiceImpl implements NoticeService {
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(new Timestamp(System.currentTimeMillis()).toString());
+//            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
         }
@@ -266,6 +274,11 @@ public class NoticeServiceImpl implements NoticeService {
             return ResultTool.error("要删除的公告不存在");
         }
 
+        for(Notices notices : existNotice){
+            if(notices.getType() == 3){
+                lostlistMapper.deleteByPrimaryKey(notices.getId());
+            }
+        }
         noticeMapper.deleteByExample(noticesExample);
         return ResultTool.success();
 

@@ -170,4 +170,14 @@ public class UserController {
         }
         return userService.userSetMyself(userSetMyself);
     }
+
+    @GetMapping("/ifmanage/{userid}")
+    public Result ifManage(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId = JwtUtil.parseJwt(token);
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.ifmanage(userId);
+    }
 }

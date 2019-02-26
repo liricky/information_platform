@@ -111,7 +111,7 @@
         }).then((response) => {
           let res = response.data;
           if(res.status === "success") {
-            this.msg = res.board;
+            this.msg = res.data;
           } else {
             this.status1 = res.status;
             this.errormsg1 = res.message;

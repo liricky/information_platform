@@ -32,7 +32,7 @@
         <!--</MenuItem>-->
         <MenuItem id="announcement2" name="/LostAFound/Board">
           <Icon type="ios-list-box"/>
-          失物招领
+          寻找失物
         </MenuItem>
         <MenuItem id="help" name="/Help">
           <Icon type="ios-hand" />
@@ -42,10 +42,6 @@
           <Icon type="ios-text" />
           论坛
         </MenuItem>
-        <!--<MenuItem id="info1" to="/info1">-->
-          <!--<Icon type="ios-people" />-->
-          <!--群组消息-->
-        <!--</MenuItem>-->
         <MenuItem id="info2" name="/Message" >
           <Icon type="ios-mail" />
           私信

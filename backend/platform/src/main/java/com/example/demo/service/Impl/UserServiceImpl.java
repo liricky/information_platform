@@ -42,6 +42,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private CommentsMapper commentsMapper;
 
+    @Resource
+    private ManagersMapper managersMapper;
+
     @Override
     public Result usergetfriend(String userid) {
         FriendsExample friendsExample=new FriendsExample();
@@ -475,6 +478,23 @@ public class UserServiceImpl implements UserService {
                 return ResultTool.error("修改信息出现错误");
             }
             return ResultTool.success();
+        }
+    }
+
+    //  确定是否为管理员接口
+    @Override
+    public Result ifmanage(String userid) {
+        ManagersExample managersExample = new ManagersExample();
+        managersExample.createCriteria().andIdEqualTo(userid);
+        List<Managers> managersList = managersMapper.selectByExample(managersExample);
+        if(managersList.isEmpty()){
+            IfManage ifManage = new IfManage();
+            ifManage.setIfmanage(false);
+            return ResultTool.success(ifManage);
+        } else{
+            IfManage ifManage = new IfManage();
+            ifManage.setIfmanage(true);
+            return ResultTool.success(ifManage);
         }
     }
 }

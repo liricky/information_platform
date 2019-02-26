@@ -37,4 +37,6 @@ public interface UserService {
     Result userShowMyself(String userId);
 
     Result userSetMyself(UserSetMyself userSetMyself);
+
+    Result ifmanage(String userid);
 }
