@@ -1,42 +1,50 @@
 <template>
   <div class="homepage-content">
     <tophead></tophead>
-    <Layout>
-      <Header  style="height: 200px;">
-        <Carousel v-model="value1" loop style="height: 200px">
-          <CarouselItem>
-            <div class="demo-carousel">1</div>
-          </CarouselItem>
-          <CarouselItem>
-            <div class="demo-carousel">2</div>
-          </CarouselItem>
-          <CarouselItem>
-            <div class="demo-carousel">3</div>
-          </CarouselItem>
-        </Carousel>
-      </Header>
-      <Layout style="height: 380px">
-        <Sider hide-trigger width="300" style="background: white"><calendar style="width: 100%;height: 100%;margin-left: 0px"></calendar></Sider>
-        <Content style="margin-top: 10px">
-          <b style="font-size: 20px;"><Icon type="ios-crop" />最近公告</b>
-          <Collapse simple style="text-align: left">
-            <Panel v-for="(msg,index) in msg.slice(0,8)">
-              <span >{{msg.title}}</span><div style="display: inline;width: 30%;float: right; margin-right: 10%"><div style="display: inline;float:right;margin-right: 10%">{{msg.date}}</div><div style="display:inline;float:left">{{msg.type}}</div></div>
-              <p slot="content" style="text-align: justify;text-indent:25px">{{msg.content}}</p>
-              <div slot="content">
-                <ButtonGroup shape="circle" style="margin-left: 85%;margin-top: 10px;" size="small">
-                  <Button type="info" @click="jumpDetail(msg.type)"><div v-if="msg.type === '失物启示'">详情</div><div v-else>更多</div></Button>
-                </ButtonGroup>
-              </div>
-            </Panel>
-          </Collapse>
-        </Content>
-      </Layout>
-    </Layout>
-    <!--<div>this is template body</div>-->
+    <Row >
+      <Layout>
+        <Header  style="height: 200px;background: white">
+          <Carousel loop style="height: 200px" autoplay>
+            <CarouselItem>
+              <div class="demo-carousel">1</div>
+            </CarouselItem>
+            <CarouselItem>
+              <div class="demo-carousel">2</div>
+            </CarouselItem>
+            <CarouselItem>
+              <div class="demo-carousel">3</div>
+            </CarouselItem>
+          </Carousel>
+        </Header>
+        <Col span="22" offset="1">
+          <Layout style="min-height: 380px;">
+            <Sider hide-trigger width="300" style="background: #fafafa;margin-top: 20px">
+              <b style="font-size: 20px;"><Icon type="md-calendar" />日历</b>
+              <calendar style="width: 100%;height: 100%;margin-left: 0px"></calendar>
+            </Sider>
+            <Content style="margin-top: 20px;margin-left: 20px">
+              <b style="font-size: 20px;"><Icon type="ios-crop" />最近公告</b>
+              <Collapse simple style="text-align: left;width: 95%;">
+                <Panel v-for="(msg,index) in msg.slice(0,8)">
+                  <span >{{msg.title}}</span><div style="display: inline;width: 30%;float: right; margin-right: 10%"><div style="display: inline;float:right;margin-right: 10%">{{msg.date}}</div><div style="display:inline;float:left">{{msg.type}}</div></div>
+                  <p slot="content" style="text-align: justify;text-indent:25px">{{msg.content}}</p>
+                  <div slot="content">
+                    <ButtonGroup shape="circle" style="margin-left: 85%;margin-top: 10px;" size="small">
+                      <Button type="info" @click="jumpDetail(msg.type)"><div v-if="msg.type === '失物启示'">详情</div><div v-else>更多</div></Button>
+                    </ButtonGroup>
+                  </div>
+                </Panel>
+              </Collapse>
+            </Content>
+          </Layout>
+          </Col>
+        </Layout>
+      <!--</Col>-->
+    </Row>
     <bottom></bottom>
   </div>
 </template>
+
 <style scoped>
   /*.homepage-content{*/
     /*position: static;*/

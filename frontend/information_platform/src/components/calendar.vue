@@ -52,6 +52,9 @@ module.exports = {
 			pYear: '',
 			pMonth: '',
 			pDay: '',
+
+      //今天日期
+      thisDay:''
 		}
 	},
 	methods: {
@@ -165,7 +168,6 @@ module.exports = {
 			this.sDay = dayObj.day;
 			this.hideFlag = true;
 			this.msg = this.showDate();
-			alert("这是回调，你选择的是 " + this.showDate());
 			this.callback && this.callback();
 		},
 
@@ -223,8 +225,16 @@ module.exports = {
 				return startDate + " 至 " + endDate;
 			}
 		},
-
+    getDay(){
+      var myDate = new Date();
+      this.thisDay = myDate.getDate();
+    }
 	},
+  created(){
+	  this.getDay();
+    console.log(this.daysData);
+    console.log(this.thisDay);
+  }
 }
 </script>
 
@@ -257,7 +267,8 @@ module.exports = {
 												((dayObj.day == pDay && pMonth == sMonth && pYear == sYear) ||
 												(dayObj.day == nDay && nMonth == sMonth && nYear == sYear)),
 								'red' : dayObj.active && (index == 0 || index == 6) &&
-										dayObj.day != pDay && dayObj.day != nDay}]"
+										dayObj.day != pDay && dayObj.day != nDay,
+								 'today' : dayObj.day == thisDay && dayObj.active}]"
 								@click="chooseInterval(dayObj)">{{dayObj.day}}</td>
 						</tr>
 					</template>
@@ -285,7 +296,7 @@ module.exports = {
 	}
 	.month-box{
 		text-align: center;
-		background-color: #c61b01;
+		background-color: #245086;
 		line-height: 40px;
 	}
 	.month-box span{
@@ -312,7 +323,7 @@ module.exports = {
 		padding: 0 10px;
 		width: 100%;
 		text-align: center;
-		border: 2px solid #ccc;
+		/*border: 2px solid #ccc;*/
 		border-top: 0;
 	}
 
@@ -326,17 +337,18 @@ module.exports = {
 	}
 	.active-date:hover{
 		color: #fff;
-		background-color: #c61b01;
+		background-color: #245086;
 	}
 	.choose-date{
 		color: #fff;
-		background-color: #c61b01;
+		background-color: #245086;
 	}
 	.unactive-date{
 		color: #ccc;
 	}
 	.red{
-		color: #c61b01;
+		/*color:#245086;*/
+    color: deepskyblue;
 	}
 	.next-month{
 		margin:12px 10px 0 0;
@@ -362,4 +374,9 @@ module.exports = {
 		padding: 5px 25px;
 		margin:10px 20px;
 	}
+
+  .today{
+    color: #fff;
+    background-color: #245086;
+  }
 </style>
