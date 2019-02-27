@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c2d25d9-0250-44ce-9983-eb3326a4c1f3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/components/calendar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/components/calendar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Login.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -602,12 +596,12 @@
       <workItem from="1551093155360" duration="307000" />
       <workItem from="1551145641913" duration="7053000" />
       <workItem from="1551190506340" duration="2786000" />
-      <workItem from="1551239996843" duration="1892000" />
+      <workItem from="1551239996843" duration="2249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165283000" />
+    <option name="totallyTimeSpent" value="165640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -631,7 +625,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.098726116" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986979" visible="true" weight="0.33972603" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986979" weight="0.33972603" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24609375" />
