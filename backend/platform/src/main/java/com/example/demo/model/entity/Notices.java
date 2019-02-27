@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Notices {
@@ -13,7 +14,7 @@ public class Notices {
 
     private Integer type;
 
-    private Date time;
+    private Timestamp time;
 
     public Integer getId() {
         return id;
@@ -59,7 +60,7 @@ public class Notices {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }

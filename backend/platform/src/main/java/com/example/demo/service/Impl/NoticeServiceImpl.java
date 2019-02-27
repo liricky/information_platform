@@ -75,7 +75,7 @@ public class NoticeServiceImpl implements NoticeService {
         for (Notices notice : noticesList) {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setContent(notice.getContent());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setType(notice.getType().toString());
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setId(notice.getId().toString());
@@ -113,7 +113,7 @@ public class NoticeServiceImpl implements NoticeService {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
@@ -121,7 +121,7 @@ public class NoticeServiceImpl implements NoticeService {
         return ResultTool.success(findNoticeInfoList);
     }
 
-    //  查询该管理员发布的所有公告
+    //  根据管理员id查询全部公告
     @Override
     public Result findNoticesByManager(String managerId) {
         //  先判断是否是管理员
@@ -131,12 +131,12 @@ public class NoticeServiceImpl implements NoticeService {
         if (existManger.isEmpty() == true) {
             return ResultTool.error("管理员不存在");
         }
-
+        //查询所有公告
         NoticesExample noticesExample = new NoticesExample();
-        noticesExample.createCriteria().andPullerEqualTo(managerId);
+        noticesExample.createCriteria().andIdIsNotNull();
         List<Notices> noticesList = noticeMapper.selectByExample(noticesExample);
         if (noticesList.isEmpty() == true) {
-            return ResultTool.error("该管理员没有发过公告");
+            return ResultTool.error("没有公告");
         }
         List<FindNoticeInfo> findNoticeInfoList = new LinkedList<>();
         for (Notices notice : noticesList) {
@@ -144,7 +144,7 @@ public class NoticeServiceImpl implements NoticeService {
             findNoticeInfo.setTitle(notice.getTitle());
             findNoticeInfo.setContent(notice.getContent());
             findNoticeInfo.setType(notice.getType().toString());
-            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+            findNoticeInfo.setDate(notice.getTime().toString());
             findNoticeInfo.setId(notice.getId().toString());
             findNoticeInfoList.add(findNoticeInfo);
         }
@@ -204,14 +204,10 @@ public class NoticeServiceImpl implements NoticeService {
         String title = noticeJsonRequest.getTitle();
         String content = noticeJsonRequest.getContent();
         String type_s = noticeJsonRequest.getType();
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
+//        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
         //  时间格式处理
-        Date time = new Date();
-        try {
-            time = Timestamp.valueOf(time_s);
-        } catch (Exception e) {
-            System.out.println("时间转换出错");
-        }
+        Timestamp time=new Timestamp(System.currentTimeMillis());
+
 
         //  判断该提交人是否是管理员
         ManagersExample managersExample = new ManagersExample();

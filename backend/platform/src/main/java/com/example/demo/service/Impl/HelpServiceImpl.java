@@ -149,6 +149,7 @@ public class HelpServiceImpl implements HelpService {
     //  发布人获得已完成任务
     @Override
     public Result getFinishedTaskByPusher(String userId) {
+        System.out.println("userid"+userId);
         Date time;
         String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
         time = Timestamp.valueOf(time_s);
@@ -165,8 +166,9 @@ public class HelpServiceImpl implements HelpService {
             finishedHelp.setId(help.getReceiver());
             finishedHelp.setNickname(getUsername(help.getReceiver()));
             finishedHelp.setContent(help.getContent());
-            finishedHelp.setStartDate(Timestamp.valueOf(help.getStartTime().toString()).toString());
-            finishedHelp.setEndDate(Timestamp.valueOf(help.getEndTime().toString()).toString());
+            finishedHelp.setStartDate(help.getStartTime().toString());
+            finishedHelp.setEndDate(help.getEndTime().toString());
+            finishedHelp.setEndDate(help.getStartTime().toString());
             finishedHelpList.add(finishedHelp);
         }
         return ResultTool.success(finishedHelpList);
@@ -240,7 +242,7 @@ public class HelpServiceImpl implements HelpService {
         if(checkId(publishTask.getUserId())==false){
             return ResultTool.error("用户不存在");
         }
-        Date time;
+        Timestamp time;
         String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
         time = Timestamp.valueOf(time_s);
         Help item=new Help();
