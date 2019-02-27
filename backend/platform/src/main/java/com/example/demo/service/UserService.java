@@ -39,4 +39,12 @@ public interface UserService {
     Result userSetMyself(UserSetMyself userSetMyself);
 
     Result ifmanage(String userid);
+
+    Result reportCreate(ReportCreate reportCreate);
+
+    Result appealSend(AppealSend appealSend);
+
+    Result appealGet(String userId);
+
+    Result appealGetDetail(String userid);
 }

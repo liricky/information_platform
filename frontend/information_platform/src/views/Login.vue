@@ -2,7 +2,7 @@
   <div class="main">
     <div class="headline">
 
-      <font size="10">学生选课成绩管理系统</font>
+      <font size="10" color="white"><b>综合信息平台</b></font>
     </div>
     <div class="loginBox">
       <br>

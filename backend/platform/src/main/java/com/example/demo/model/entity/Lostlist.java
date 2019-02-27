@@ -1,6 +1,6 @@
 package com.example.demo.model.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Lostlist {
     private Integer id;
@@ -11,7 +11,7 @@ public class Lostlist {
 
     private String content;
 
-    private Date time;
+    private Timestamp time;
 
     private byte[] picture;
 
@@ -47,11 +47,11 @@ public class Lostlist {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

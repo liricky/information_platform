@@ -1,7 +1,7 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class UsersExample {
@@ -505,52 +505,52 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andBanstartEqualTo(Date value) {
+        public Criteria andBanstartEqualTo(Timestamp value) {
             addCriterion("banStart =", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartNotEqualTo(Date value) {
+        public Criteria andBanstartNotEqualTo(Timestamp value) {
             addCriterion("banStart <>", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartGreaterThan(Date value) {
+        public Criteria andBanstartGreaterThan(Timestamp value) {
             addCriterion("banStart >", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartGreaterThanOrEqualTo(Date value) {
+        public Criteria andBanstartGreaterThanOrEqualTo(Timestamp value) {
             addCriterion("banStart >=", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartLessThan(Date value) {
+        public Criteria andBanstartLessThan(Timestamp value) {
             addCriterion("banStart <", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartLessThanOrEqualTo(Date value) {
+        public Criteria andBanstartLessThanOrEqualTo(Timestamp value) {
             addCriterion("banStart <=", value, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartIn(List<Date> values) {
+        public Criteria andBanstartIn(List<Timestamp> values) {
             addCriterion("banStart in", values, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartNotIn(List<Date> values) {
+        public Criteria andBanstartNotIn(List<Timestamp> values) {
             addCriterion("banStart not in", values, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartBetween(Date value1, Date value2) {
+        public Criteria andBanstartBetween(Timestamp value1, Timestamp value2) {
             addCriterion("banStart between", value1, value2, "banstart");
             return (Criteria) this;
         }
 
-        public Criteria andBanstartNotBetween(Date value1, Date value2) {
+        public Criteria andBanstartNotBetween(Timestamp value1, Timestamp value2) {
             addCriterion("banStart not between", value1, value2, "banstart");
             return (Criteria) this;
         }
@@ -565,52 +565,52 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andBanendEqualTo(Date value) {
+        public Criteria andBanendEqualTo(Timestamp value) {
             addCriterion("banEnd =", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendNotEqualTo(Date value) {
+        public Criteria andBanendNotEqualTo(Timestamp value) {
             addCriterion("banEnd <>", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendGreaterThan(Date value) {
+        public Criteria andBanendGreaterThan(Timestamp value) {
             addCriterion("banEnd >", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendGreaterThanOrEqualTo(Date value) {
+        public Criteria andBanendGreaterThanOrEqualTo(Timestamp value) {
             addCriterion("banEnd >=", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendLessThan(Date value) {
+        public Criteria andBanendLessThan(Timestamp value) {
             addCriterion("banEnd <", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendLessThanOrEqualTo(Date value) {
+        public Criteria andBanendLessThanOrEqualTo(Timestamp value) {
             addCriterion("banEnd <=", value, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendIn(List<Date> values) {
+        public Criteria andBanendIn(List<Timestamp> values) {
             addCriterion("banEnd in", values, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendNotIn(List<Date> values) {
+        public Criteria andBanendNotIn(List<Timestamp> values) {
             addCriterion("banEnd not in", values, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendBetween(Date value1, Date value2) {
+        public Criteria andBanendBetween(Timestamp value1, Timestamp value2) {
             addCriterion("banEnd between", value1, value2, "banend");
             return (Criteria) this;
         }
 
-        public Criteria andBanendNotBetween(Date value1, Date value2) {
+        public Criteria andBanendNotBetween(Timestamp value1, Timestamp value2) {
             addCriterion("banEnd not between", value1, value2, "banend");
             return (Criteria) this;
         }

@@ -3,7 +3,8 @@
       <tophead></tophead>
       <div class="center">
         <h1>封禁内容</h1>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <h2 v-if="this.msg.length === 0">暂无被封禁内容</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.msg.length > 0">
           <Col class="cardcol" span="25" v-for="(msg,index) in msg">
             <Card class="card" :bordered="true">
               <h1 class="headline" slot="title">封禁类别:{{msg.type}}</h1>
@@ -14,29 +15,36 @@
           </Col>
         </Row>
       </div>
-      <br>
       <div>
-        <div class="back">
-          <div class="leftback">
-            <font id="font" size="4">请选择申诉类别</font>
-            <br>
-            <Select v-model="value3" size="large" style="width:100px">
-              <Option v-for="item in optionlist" :value="item.id" :key="item.id">{{item.label}}</Option>
-            </Select>
-          </div>
-          <div class="rightback">
-            <div id="inputbox">
+        <div class="backboard">
+          <divider></divider>
+          <div class="back">
+            <div class="leftback">
+              <div class="fillbox"> </div>
+              <font id="font" size="4">请选择申诉类别</font>
               <br>
-              <Input class="input" v-model="value1" size="large" placeholder="申诉标题"/>
-              <Input class="input" v-model="value2" type="textarea" :rows="25" placeholder="申诉理由" />
-              <br>
-              <br>
-              <button id="sendbutton" type="primary" size="large" @click="sendappeal">发 送</button>
+              <div class="fillbox1"> </div>
+              <Select v-model="value3" size="large" style="width:100px">
+                <Option v-for="item in optionlist" :value="item.id" :key="item.id">{{item.label}}</Option>
+              </Select>
+              <div  class="fillbox"> </div>
             </div>
-            <br>
+            <div class="rightback">
+              <div id="inputbox">
+                <br>
+                <Input class="input" v-model="value1" type="textarea" :rows="2" placeholder="申诉标题"/>
+                <div class="fillbox2"> </div>
+                <Input class="input" v-model="value2" type="textarea" :rows="20" placeholder="申诉理由" />
+                <br>
+                <br>
+                <button id="sendbutton" type="primary" size="large" @click="sendappeal"><font size="3">发 送</font></button>
+              </div>
+              <br>
+            </div>
           </div>
         </div>
       </div>
+      <div class="fill"> </div>
       <bottom class="bottom"></bottom>
     </div>
 </template>
@@ -58,8 +66,11 @@
     background: lightgrey;
   }
   .back{
-    width: 80%;
     display: flex;
+    margin: auto;
+  }
+  .backboard{
+    width: 80%;
     margin: auto;
   }
   #inputbox{
@@ -77,6 +88,18 @@
     position: fixed;
     bottom: 0px;
   }
+  .fill{
+    height: 120px;
+  }
+  .fillbox{
+    height: 35px;
+  }
+  .fillbox1{
+    height: 20px;
+  }
+  .fillbox2{
+    height: 10px;
+  }
 </style>
 <script>
     import tophead from '@/components/Head'
@@ -88,12 +111,12 @@
           return {
             optionlist:[
               {
-                id: 0,
+                id: 1,
                 value: "论坛封禁",
                 label: "论坛封禁"
               },
               {
-                id: 1,
+                id: 2,
                 value: "互助封禁",
                 label: "互助封禁"
               }

@@ -78,6 +78,7 @@ public class LostFindServiceImpl implements LostFindService {
     //  删除失物招领信息
     @Override
     public Result lostFoundDelete(LostAFoundDelete lostAFoundDelete) {
+        System.out.println("进来了");
         if(!lostlistMapper.selectByPrimaryKey(lostAFoundDelete.getPostid()).getPuller().equals(lostAFoundDelete.getUserid())){
             return ResultTool.error("传入参数错误");
         }
@@ -99,14 +100,13 @@ public class LostFindServiceImpl implements LostFindService {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         notices.setTime(timestamp);
         notices.setType(3);
-        Integer tempNoticeId;
         try {
-            tempNoticeId = noticesMapper.insertSelectiveAndGetId(notices);
+            noticesMapper.insertSelectiveAndGetId(notices);
         } catch (Exception e){
-            return ResultTool.error("操作失败");
+            return ResultTool.error("操作失败1");
         }
         Lostlist lostlist = new Lostlist();
-        lostlist.setId(tempNoticeId);
+        lostlist.setId(notices.getId());
         lostlist.setPuller(lostAFoundPublish.getUserid());
         lostlist.setTitle(lostAFoundPublish.getTitle());
         lostlist.setContent(lostAFoundPublish.getConnect());

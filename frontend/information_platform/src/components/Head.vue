@@ -27,13 +27,9 @@
           <Icon type="md-open" />
           公告
         </MenuItem>
-        <!--<MenuItem id="announcement1" to="/announcement1">-->
-          <!--<Icon type="ios-list-box" />-->
-          <!--校园事务-->
-        <!--</MenuItem>-->
         <MenuItem id="announcement2" name="/LostAFound/Board">
           <Icon type="ios-list-box"/>
-          寻找失物
+          寻物启事
         </MenuItem>
         <MenuItem id="help" name="/Help">
           <Icon type="ios-hand" />

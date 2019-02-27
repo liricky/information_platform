@@ -227,7 +227,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <insert id="insertSelectiveAndGetId" parameterType="com.example.demo.model.entity.Notices" >
-    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="productId">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into Notices

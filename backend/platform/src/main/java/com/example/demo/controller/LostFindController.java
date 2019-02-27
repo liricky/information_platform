@@ -25,7 +25,12 @@ public class LostFindController {
     @GetMapping("/lostafound/myboard/{userid}")
     public Result lostAFoundMyBoard(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
@@ -35,7 +40,12 @@ public class LostFindController {
     @PostMapping("/lostafound/delete")
     public Result lostAFoundDelete(HttpServletRequest httpServletRequest, @RequestBody LostAFoundDelete lostAFoundDelete){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(lostAFoundDelete.getUserid())){
             return ResultTool.error("登录状态验证无效");
         }
@@ -45,7 +55,12 @@ public class LostFindController {
     @PostMapping("/lostafound/publish")
     public Result lostAFoundPublish(HttpServletRequest httpServletRequest, @RequestBody LostAFoundPublish lostAFoundPublish){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(lostAFoundPublish.getUserid())){
             return ResultTool.error("登录状态无效");
         }

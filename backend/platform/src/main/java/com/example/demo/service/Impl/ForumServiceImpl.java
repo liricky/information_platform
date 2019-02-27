@@ -59,7 +59,16 @@ public class ForumServiceImpl implements ForumService {
         for(Views views : viewsList){
             ForumRecommend forumRecommend = new ForumRecommend();
             forumRecommend.setPostid(views.getId());
-            forumRecommend.setLabel(views.getTags().toString());
+            if(views.getTags() == 1)
+                forumRecommend.setLabel("体育");
+            else if(views.getTags() == 2)
+                forumRecommend.setLabel("学术");
+            else if(views.getTags() == 3)
+                forumRecommend.setLabel("音乐");
+            else if (views.getTags() == 4)
+                forumRecommend.setLabel("游戏");
+            else
+                return ResultTool.error("获取内容包含无效信息");
             forumRecommend.setTitle(views.getTitle());
             forumRecommend.setAuthor(views.getPuller());
             Users users = usersMapper.getById(views.getPuller());
@@ -82,7 +91,16 @@ public class ForumServiceImpl implements ForumService {
         for(Views views : viewsList1){
             ForumRecommend forumRecommend = new ForumRecommend();
             forumRecommend.setPostid(views.getId());
-            forumRecommend.setLabel(views.getTags().toString());
+            if(views.getTags() == 1)
+                forumRecommend.setLabel("体育");
+            else if(views.getTags() == 2)
+                forumRecommend.setLabel("学术");
+            else if(views.getTags() == 3)
+                forumRecommend.setLabel("音乐");
+            else if (views.getTags() == 4)
+                forumRecommend.setLabel("游戏");
+            else
+                return ResultTool.error("获取内容包含无效信息");
             forumRecommend.setTitle(views.getTitle());
             forumRecommend.setAuthor(views.getPuller());
             Users users = usersMapper.getById(views.getPuller());

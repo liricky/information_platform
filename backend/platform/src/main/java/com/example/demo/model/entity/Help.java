@@ -1,6 +1,6 @@
 package com.example.demo.model.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Help {
     private Integer id;
@@ -11,9 +11,9 @@ public class Help {
 
     private String content;
 
-    private Date startTime;
+    private Timestamp startTime;
 
-    private Date endTime;
+    private Timestamp endTime;
 
     private Integer state;
 
@@ -57,19 +57,19 @@ public class Help {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public Timestamp getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
 

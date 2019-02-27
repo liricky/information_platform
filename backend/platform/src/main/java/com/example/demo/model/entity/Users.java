@@ -1,6 +1,6 @@
 package com.example.demo.model.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Users {
     private String id;
@@ -15,9 +15,9 @@ public class Users {
 
     private String banreason;
 
-    private Date banstart;
+    private Timestamp banstart;
 
-    private Date banend;
+    private Timestamp banend;
 
     private Integer coins;
 
@@ -71,19 +71,19 @@ public class Users {
         this.banreason = banreason == null ? null : banreason.trim();
     }
 
-    public Date getBanstart() {
+    public Timestamp getBanstart() {
         return banstart;
     }
 
-    public void setBanstart(Date banstart) {
+    public void setBanstart(Timestamp banstart) {
         this.banstart = banstart;
     }
 
-    public Date getBanend() {
+    public Timestamp getBanend() {
         return banend;
     }
 
-    public void setBanend(Date banend) {
+    public void setBanend(Timestamp banend) {
         this.banend = banend;
     }
 
