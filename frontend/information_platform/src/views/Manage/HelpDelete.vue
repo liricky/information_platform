@@ -11,7 +11,7 @@
         <Card>
           <div style="min-height: 500px;text-align: left">
             <Collapse style="background: white;width: 90%;margin:0 auto" >
-              <Panel v-for="a in msg">
+              <Panel v-for="a in msg":key="a.id">
                 <span >id:{{a.missionid}}</span>
                 <div style="display:inline;position: absolute;left: 20%">发布人id:{{a.authorid}}</div>
                 <div style="display:inline;position: absolute;left: 40%">开始时间：{{a.startdate}}</div>

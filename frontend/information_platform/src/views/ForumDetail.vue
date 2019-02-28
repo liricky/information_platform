@@ -35,7 +35,10 @@
           <Col class="cardcol" span="25" v-for="(hotreply,index) in hotreply" :key="hotreply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
-                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
+
+                <Icon class="flag" type="ios-flag" size="30" v-if="!ifmanage" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
+                <Icon class="flag" type="md-close" size="30"  @click="choose(hotreply.commentid)"/>
+
                 <font size="4" @click="jumpUserDetail(hotreply.author)">by: {{hotreply.author}} {{hotreply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{hotreply.date}}</font>
@@ -44,8 +47,8 @@
               <font size="4">{{hotreply.content}}</font>
               <div class="rightback">
                 <div>
-                  <Icon type="ios-heart" size="19" v-if="$store.state.token && hotreply.likestatus === 'true'" @click="changecommentlikestatus(hotreply.commentid)"/>
-                  <Icon type="ios-heart-outline" size="19" v-else @click="changecommentlikestatus(hotreply.commentid)"/>
+                  <Icon class="icon" type="ios-heart" size="19" v-if="$store.state.token && hotreply.likestatus === 'true'" @click="changecommentlikestatus(hotreply.commentid)"/>
+                  <Icon class="icon" type="ios-heart-outline" size="19" v-else @click="changecommentlikestatus(hotreply.commentid)"/>
                   <font size="4">{{hotreply.likenum}}</font>
                 </div>
               </div>
@@ -58,7 +61,10 @@
           <Col class="cardcol" span="25" v-for="(reply,index) in reply" :key="reply.commentid">
             <Card class="card" :bordered="true">
               <div class="comment">
-                <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport2(reply.commentid,reply.author)"/>
+
+                <Icon class="flag" type="ios-flag" size="30" v-if="!ifmanage" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
+                <Icon class="flag" type="md-close" size="30" v-else @click="choose(reply.commentid)"/>
+
                 <font size="4" @click="jumpUserDetail(reply.author)">by: {{reply.author}} {{reply.authornickname}}</font>
                 <br>
                 <font size="4">date: {{reply.date}}</font>
@@ -67,14 +73,25 @@
               <font size="4">{{reply.content}}</font>
               <div class="rightback">
                 <div>
-                  <Icon type="ios-heart" size="19" v-if="$store.state.token && reply.likestatus === 'true'" @click="changecommentlikestatus(reply.commentid)"/>
-                  <Icon type="ios-heart-outline" size="19" v-else @click="changecommentlikestatus(reply.commentid)"/>
+                  <Icon class="icon" type="ios-heart" size="19" v-if="$store.state.token && reply.likestatus === 'true'" @click="changecommentlikestatus(reply.commentid)"/>
+                  <Icon class="icon" type="ios-heart-outline" size="19" v-else @click="changecommentlikestatus(reply.commentid)"/>
                   <font size="4">{{reply.likenum}}</font>
                 </div>
               </div>
             </Card>
           </Col>
         </Row>
+        <Button type="primary" @click="modal1 = true">Display dialog box</Button>
+
+        <Modal
+          v-model="modal2"
+          title="删除回复"
+          @on-ok="ok(msgclick.commentid)"
+          @on-cancel="cancel2">
+          <p>是否删除id：{{msgclick.messageid}}</p>
+          <p>内容为：{{msgclick.content}}的回复</p>
+        </Modal>
+
       </div>
       <div class="fill"> </div>
     </div>
@@ -98,6 +115,12 @@
   }
   .flag{
     float: right;
+  }
+  .flag:hover{
+    cursor: pointer;
+  }
+  .icon:hover{
+    cursor: pointer;
   }
   .card{
     border: 1px solid black;
@@ -154,6 +177,9 @@
         value1: '',
         type: '',
         sign: '',
+        ifmanage:false,
+        modal2:false,
+        msgclick:{},
       }
     },
     components: {
@@ -165,6 +191,7 @@
       this.getParams();
       this.getDetail();
       this.checktype();
+      this.ifManage();
     },
     methods: {
       ok() {
@@ -492,7 +519,76 @@
             this.errormsg9 = res.message;
           }
         })
-      }
+      },
+      ifManage(){
+        if (this.$store.state.userId){
+          axios({
+            url:'/ifmanage/'+this.$store.state.userId,
+            method:'get',
+            headers: {
+              "Authorization": this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'
+            }
+          }).then((response) => {
+            console.log(response)
+            let res = response.data;
+            if(res.status === "success") {
+              this.ifmanage = res.data.ifmanage;
+            } else {
+              this.status1 = res.status;
+              this.errormsg1 = res.message;
+              this.$Message.info('获取失败： ' + this.errormsg1);
+            }
+          })
+        }
+      },
+      choose(id){
+        var i = 0;
+        for(i=0;i<this.reply.length;i++){
+          if(id === this.reply[i].commentid){
+            this.msgclick = this.reply[i];
+          }
+        }
+        this.modal2=true;
+      },
+      ok (id) {
+        axios({
+          url:'/manage/commentdelete',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          },
+          data:{
+            managerid: this.$store.state.userId,
+            id:id,
+          },
+          method:'post'
+        }).then((response) => {
+          let res = response.data;
+          if(res.status === "success") {
+            for(var i =0 ;i<this.reply.length;i++){
+              if(this.reply[i].commentid === id){
+                this.reply.splice(i,1);
+                break;
+              }
+            }
+            for(var i =0 ;i<this.hotreply.length;i++){
+              if(this.hotreply[i].commentid === id){
+                this.hotreply.splice(i,1);
+                break;
+              }
+            }
+            this.$Message.success('删除成功');
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+            this.$Message.info('删除失败：' + this.errormsg1);
+          }
+        })
+      },
+      cancel2 () {
+        this.$Message.info('删除取消');
+      },
     },
     // Vue的侦听器,用来检测数据的变化,变化时执行对应函数
     watch: {
