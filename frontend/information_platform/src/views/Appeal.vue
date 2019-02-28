@@ -5,7 +5,7 @@
         <h1>封禁内容</h1>
         <h2 v-if="this.msg.length === 0">暂无被封禁内容</h2>
         <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.msg.length > 0">
-          <Col class="cardcol" span="25" v-for="msg in msg">
+          <Col class="cardcol" span="25" v-for="msg in msg" :key="msg.type">
             <Card class="card" :bordered="true">
               <h1 class="headline" slot="title">封禁类别:{{msg.type}}</h1>
               <h3>封禁内容：{{msg.content}}</h3>

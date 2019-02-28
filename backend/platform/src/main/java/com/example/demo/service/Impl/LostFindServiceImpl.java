@@ -36,6 +36,7 @@ public class LostFindServiceImpl implements LostFindService {
     @Override
     public Result lostFoundBoard() {
         NoticesExample noticesExample = new NoticesExample();
+        noticesExample.setOrderByClause("time DESC");
         noticesExample.createCriteria().andTypeEqualTo(3);
         List<Notices> noticesList = noticesMapper.selectByExample(noticesExample);
         List<LostAFoundBoard> lostAFoundBoardList = new LinkedList<>();
@@ -59,6 +60,7 @@ public class LostFindServiceImpl implements LostFindService {
     @Override
     public Result lostFoundMyboard(String userid) {
         NoticesExample noticesExample = new NoticesExample();
+        noticesExample.setOrderByClause("time DESC");
         noticesExample.createCriteria().andTypeEqualTo(3).andPullerEqualTo(userid);
         List<Notices> noticesList = noticesMapper.selectByExample(noticesExample);
         List<LostAFoundMyBoard> lostAFoundMyBoardList = new LinkedList<>();
