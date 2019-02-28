@@ -620,7 +620,8 @@ public class UserServiceImpl implements UserService {
                 return ResultTool.error("无效的信息");
             }
             appealGetDetail.setReason(alarm.getReason());
-            appealGetDetail.setDate(alarm.getTime().toString());
+            Users users = usersMapper.selectByPrimaryKey(userid);
+            appealGetDetail.setDate(users.getBanend().toString());
             appealGetDetailList.add(appealGetDetail);
         }
         return ResultTool.success(appealGetDetailList);
