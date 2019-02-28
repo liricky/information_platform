@@ -31,7 +31,7 @@
                       <Divider orientation="left"><b>联系方式</b></Divider>
                       <p>{{n.connect}}</p>
                       <div style="margin-top: 10px">{{n.date}}</div>
-                      <p style="float: right">{{n.addresser}}</p>
+                      <p style="float: right">{{n.author}}</p>
                     </Card>
                   </Col>
                 </Content>

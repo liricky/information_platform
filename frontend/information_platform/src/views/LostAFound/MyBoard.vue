@@ -37,7 +37,7 @@
                       title="删除！！！"
                       @on-ok="ok(msgclick.id)"
                       @on-cancel="cancel()">
-                      <p>帖子id：{{msgclick.id}} 是否删除!!</p>
+                      <p>标题：{{msgclick.title}} 是否删除!!</p>
                     </Modal>
                   </Card>
                 </Col>
