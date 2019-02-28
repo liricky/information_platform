@@ -14,7 +14,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>系统通知</b></Divider>
                 <Collapse style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="a in a1">
+                  <Panel v-for="a in a1" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div><Button type="error" style="position: absolute;left: 80%" @click="choose(a.id)">删除</Button>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                     <Modal
@@ -33,7 +33,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="(a,index) in a2">
+                  <Panel v-for="(a,index) in a2" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div><Button type="error" style="position: absolute;left: 80%" @click="choose(a.id)">删除</Button>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
@@ -44,7 +44,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>失物启示</b></Divider>
                 <Collapse style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="a in a3">
+                  <Panel v-for="a in a3" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div><Button type="error" style="position: absolute;left: 80%" @click="choose(a.id)">删除</Button>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>

@@ -50,7 +50,12 @@ public class NoticeController {
     @GetMapping("/manage/announcement/{managerId}")
     public Result findNoticeByManagerId(@PathVariable("managerId") String managerId,HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if (!userId.equals(managerId)) {
             return ResultTool.error("登陆状态无效");
         }
@@ -71,7 +76,12 @@ public class NoticeController {
     @RequestMapping(value = "/manage/announcement/publish", method = RequestMethod.POST)
     public Result createNotice(HttpServletRequest httpServletRequest, @RequestBody addNoticeJsonRequest addNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if (!userId.equals(addNotice.getManagerId())) {
             return ResultTool.error("登陆状态无效");
         }
@@ -92,7 +102,12 @@ public class NoticeController {
     @RequestMapping(value = "/manage/announcement/delete", method = RequestMethod.POST)
     public Result deleteNotice(HttpServletRequest httpServletRequest, @RequestBody deleteNoticeJsonRequest deleteNotice) {
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if (!userId.equals(deleteNotice.getManagerId())) {
             return ResultTool.error("登陆状态无效");
         }

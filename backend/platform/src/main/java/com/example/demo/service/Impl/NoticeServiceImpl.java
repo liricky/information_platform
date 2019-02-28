@@ -94,16 +94,18 @@ public class NoticeServiceImpl implements NoticeService {
     public Result findNoticesByDate(String date) {
         String start = date + " 00:00:00";
         String end = date + " 23:59:59";
-        Date start_time = new Date();
-        Date end_time = new Date();
-        System.out.println(start);
-        System.out.println(end);
-        try {
-            start_time = Timestamp.valueOf(start);
-            end_time = Timestamp.valueOf(end);
-        } catch (Exception e) {
-            System.out.println("时间转换错误");
-        }
+        DateFormat format = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+        format.setLenient(false);
+        Timestamp start_time;
+        Timestamp end_time;
+//        try {
+//            start_time = Timestamp.valueOf(start);
+//            end_time = Timestamp.valueOf(end);
+//        } catch (Exception e) {
+//            System.out.println("时间转换错误");
+//        }
+        start_time = Timestamp.valueOf(start);
+        end_time = Timestamp.valueOf(end);
         System.out.println(start_time.toString());
         System.out.println(end_time.toString());
         NoticesExample noticesExample = new NoticesExample();
@@ -214,12 +216,7 @@ public class NoticeServiceImpl implements NoticeService {
         String type_s = noticeJsonRequest.getType();
         String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
         //  时间格式处理
-        Date time = new Date();
-        try {
-            time = Timestamp.valueOf(time_s);
-        } catch (Exception e) {
-            System.out.println("时间转换出错");
-        }
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
         //  判断该提交人是否是管理员
         ManagersExample managersExample = new ManagersExample();
@@ -245,7 +242,7 @@ public class NoticeServiceImpl implements NoticeService {
         notice.setContent(content);
         notice.setPuller(managerId);
         notice.setType(type);
-        notice.setTime(time);
+        notice.setTime(timestamp);
         //  插入数据库
         noticeMapper.insert(notice);
         return ResultTool.success();

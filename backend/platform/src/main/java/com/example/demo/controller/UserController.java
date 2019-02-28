@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.entity.Help;
 import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.UserService;
@@ -47,7 +48,12 @@ public class UserController {
     @RequestMapping(value = "/user/addfriend",method = RequestMethod.POST)
     public Result addFriend(HttpServletRequest httpServletRequest,@RequestBody addFriend friend){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if (!userId.equals(friend.getUserId())) {
             return ResultTool.error("登陆状态无效");
         }
@@ -66,7 +72,12 @@ public class UserController {
     @RequestMapping(value = "/user/addblacklist",method = RequestMethod.POST)
     public Result addToBlackList(HttpServletRequest httpServletRequest,@RequestBody addToBlackList blaclList){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if (!userId.equals(blaclList.getUserId())) {
             return ResultTool.error("登陆状态无效");
         }
@@ -76,7 +87,12 @@ public class UserController {
     @GetMapping("/user/getfriend/{userid}")
     public Result userGetFriend(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
@@ -86,7 +102,12 @@ public class UserController {
     @PostMapping("/user/deletepost")
     public Result userDeletePost(HttpServletRequest httpServletRequest, @RequestBody UserDeletePost userDeletePost){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userDeletePost.getUserid())){
             return ResultTool.error("登录状态无效");
         }
@@ -96,7 +117,12 @@ public class UserController {
     @GetMapping("/user/getpost/{userid}")
     public Result userGetPost(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
@@ -106,7 +132,12 @@ public class UserController {
     @PostMapping("/user/deletecomment")
     public Result userDeletePost(HttpServletRequest httpServletRequest, @RequestBody UserDeleteComment userDeleteComment){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userDeleteComment.getUserid())){
             return ResultTool.error("登录状态无效");
         }
@@ -116,7 +147,12 @@ public class UserController {
     @GetMapping("/user/getcomment/{userid}")
     public Result userGetComment(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
@@ -126,7 +162,12 @@ public class UserController {
     @PostMapping("/logout")
     public Result logout(HttpServletRequest httpServletRequest, @RequestBody Logout logout){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(logout.getUserid())){
             return ResultTool.error("登录状态无效");
         }
@@ -136,7 +177,12 @@ public class UserController {
     @PostMapping("/editpwd")
     public Result editPwd(HttpServletRequest httpServletRequest, @RequestBody EditPwd editPwd){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(editPwd.getUserId())){
             return ResultTool.error("登录状态无效");
         }
@@ -154,7 +200,12 @@ public class UserController {
     @GetMapping("/user/showmyself/{userid}")
     public Result userShowMyself(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
@@ -164,7 +215,12 @@ public class UserController {
     @PostMapping("/user/setmyself")
     public Result userSetMyself(HttpServletRequest httpServletRequest, @RequestBody UserSetMyself userSetMyself){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userSetMyself.getUserid())){
             return ResultTool.error("登录状态无效");
         }
@@ -174,10 +230,75 @@ public class UserController {
     @GetMapping("/ifmanage/{userid}")
     public Result ifManage(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(userid)){
             return ResultTool.error("登录状态无效");
         }
         return userService.ifmanage(userId);
+    }
+
+    @PostMapping("/report/create")
+    public Result reportCreate(HttpServletRequest httpServletRequest, @RequestBody ReportCreate reportCreate){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
+        if(!userId.equals(reportCreate.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.reportCreate(reportCreate);
+    }
+
+    @PostMapping("/appeal/send")
+    public Result appealSend(HttpServletRequest httpServletRequest, @RequestBody AppealSend appealSend){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
+        if(!userId.equals(appealSend.getUserid())){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.appealSend(appealSend);
+    }
+
+    @GetMapping("/appeal/get/{userid}")
+    public Result appealGet(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.appealGet(userId);
+    }
+
+    @GetMapping("/appeal/getdetail/{userid}")
+    public Result appealGetDetail(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
+        if(!userId.equals(userid)){
+            return ResultTool.error("登录状态无效");
+        }
+        return userService.appealGetDetail(userId);
     }
 }

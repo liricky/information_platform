@@ -36,8 +36,12 @@ public class MessageController {
     @GetMapping("/receive/{userid}")
     public Result messageReceive(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
-        System.out.println(userId);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else
@@ -56,7 +60,12 @@ public class MessageController {
     @GetMapping("/sent/{userid}")
     public Result messageSent(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else
@@ -75,7 +84,12 @@ public class MessageController {
     @PostMapping("/send")
     public Result messageSend(HttpServletRequest httpServletRequest, @RequestBody MessageSend messageSend){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(messageSend.getUserid()))
             return ResultTool.error("登录状态无效！");
         else
@@ -98,7 +112,12 @@ public class MessageController {
     @GetMapping("/detail/{userid}/{messageid}")
     public Result messageDetail(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("messageid") Integer messageid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else {

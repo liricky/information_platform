@@ -35,7 +35,7 @@
               <div>操作</div>
             </Col>
           </Row>
-          <Row style="margin-top: 20px" v-for="n in msg">
+          <Row style="margin-top: 20px" v-for="n in msg" :key="n.number">
             <Col span="3">
               <div>{{n.number}}</div>
             </Col>

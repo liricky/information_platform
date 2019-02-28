@@ -27,13 +27,9 @@
           <Icon type="md-open" />
           公告
         </MenuItem>
-        <!--<MenuItem id="announcement1" to="/announcement1">-->
-          <!--<Icon type="ios-list-box" />-->
-          <!--校园事务-->
-        <!--</MenuItem>-->
         <MenuItem id="announcement2" name="/LostAFound/Board">
           <Icon type="ios-list-box"/>
-          寻找失物
+          寻物启事
         </MenuItem>
         <MenuItem id="help" name="/Help">
           <Icon type="ios-hand" />
@@ -111,27 +107,25 @@
         this.$router.push({path: '/ChangeUserDetail'})
       },
       ifManage(){
-        if(this.$store.state.userId){
-          axios({
-            url:'/ifmanage/'+this.$store.state.userId,
-            method:'get',
-            headers: {
-              "Authorization": this.$store.state.token,
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          }).then((response) => {
-            console.log(response)
-            let res = response.data;
-            if(res.status === "success") {
-              this.ifmanage = res.data.ifmanage;
-              console.log(this.ifmanage);
-            } else {
-              this.status1 = res.status;
-              this.errormsg1 = res.message;
-              this.$Message.info('获取失败： ' + this.errormsg1);
-            }
-          })
-        }
+        axios({
+          url:'/ifmanage/'+this.$store.state.userId,
+          method:'get',
+          headers: {
+            "Authorization": this.$store.state.token,
+            'Content-Type': 'application/json;charset=UTF-8'
+          }
+        }).then((response) => {
+          console.log(response)
+          let res = response.data;
+          if(res.status === "success") {
+            this.ifmanage = res.data.ifmanage;
+            console.log(this.ifmanage);
+          } else {
+            this.status1 = res.status;
+            this.errormsg1 = res.message;
+            this.$Message.info('获取失败： ' + this.errormsg1);
+          }
+        })
       },
     },
     created(){

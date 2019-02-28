@@ -37,7 +37,12 @@ public class ForumController {
     @GetMapping("/recommend/{userid}")
     public Result forumRecommend(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else
@@ -98,7 +103,12 @@ public class ForumController {
     @GetMapping("/getlike/{userid}/{postid}")
     public Result forumGetLike(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("postid") Integer postid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else {
@@ -121,7 +131,12 @@ public class ForumController {
     @PostMapping("/changelike")
     public Result forumChangeLike(HttpServletRequest httpServletRequest, @RequestBody ForumChangeLike forumChangeLike){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(forumChangeLike.getUserid()))
             return ResultTool.error("登录状态无效！");
         else
@@ -134,7 +149,12 @@ public class ForumController {
         if(userid.equals("a"))
             return forumService.forumGetHotCommentWithoutToken(postid);
         else{
-            String userId = JwtUtil.parseJwt(token);
+            String userId;
+            try{
+                userId = JwtUtil.parseJwt(token);
+            }catch (Exception e){
+                return ResultTool.error("登录状态无效");
+            }
             if(userId.equals(userid)) {
                 ForumGetHotComment forumGetHotComment = new ForumGetHotComment();
                 forumGetHotComment.setUserId(userId);
@@ -169,7 +189,12 @@ public class ForumController {
         if(userid.equals("a"))
             return forumService.forumGetAllCommentWithoutToken(postid);
         else{
-            String userId = JwtUtil.parseJwt(token);
+            String userId;
+            try{
+                userId = JwtUtil.parseJwt(token);
+            }catch (Exception e){
+                return ResultTool.error("登录状态无效");
+            }
             if(userId.equals(userid)) {
                 ForumGetAllComment forumGetAllComment = new ForumGetAllComment();
                 forumGetAllComment.setUserId(userId);
@@ -201,7 +226,12 @@ public class ForumController {
     @PostMapping("/createcomment")
     public Result forumCreateComment(HttpServletRequest httpServletRequest, @RequestBody ForumCreateComment forumCreateComment){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(forumCreateComment.getUserid()))
             return ResultTool.error("登录状态无效！");
         else
@@ -220,7 +250,12 @@ public class ForumController {
     @GetMapping("/getcommentlike/{userid}/{commentid}")
     public Result forumGetCommentLike(HttpServletRequest httpServletRequest, @PathVariable("userid") String userid, @PathVariable("commentid") Integer commentid){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userid.equals(userId))
             return ResultTool.error("登录状态无效！");
         else {
@@ -247,7 +282,12 @@ public class ForumController {
     @PostMapping("/changecommentlike")
     public Result forumChangeCommentLike(HttpServletRequest httpServletRequest, @RequestBody ForumChangeCommentLike forumChangeCommentLike){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(forumChangeCommentLike.getUserid()))
             return ResultTool.error("登录状态无效！");
         else
@@ -266,7 +306,12 @@ public class ForumController {
     @PostMapping("/createpost")
     public Result forumCreatePost(HttpServletRequest httpServletRequest, @RequestBody ForumCreatePost forumCreatePost){
         String token = httpServletRequest.getHeader("Authorization");
-        String userId = JwtUtil.parseJwt(token);
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
         if(!userId.equals(forumCreatePost.getUserid()))
             return ResultTool.error("登录状态无效！");
         else

@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import javax.swing.text.View;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -44,6 +45,18 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private ManagersMapper managersMapper;
+
+    @Resource
+    private AlarmMapper alarmMapper;
+
+    @Resource
+    private Unlock_ApplyMapper unlock_applyMapper;
+
+    @Resource
+    private Ban_ReasonsMapper ban_reasonsMapper;
+
+    @Resource
+    private HelpMapper helpMapper;
 
     @Override
     public Result usergetfriend(String userid) {
@@ -496,5 +509,121 @@ public class UserServiceImpl implements UserService {
             ifManage.setIfmanage(true);
             return ResultTool.success(ifManage);
         }
+    }
+
+    //  用户对帖子或回复或任务进行举报
+    @Override
+    public Result reportCreate(ReportCreate reportCreate) {
+        Users users = usersMapper.selectByPrimaryKey(reportCreate.getUserid());
+        if(users == null){
+            return ResultTool.error("参数信息错误");
+        }
+        Alarm alarm = new Alarm();
+        alarm.setAlarmingUser(reportCreate.getUserid());
+        alarm.setAlarmedUser(reportCreate.getReportid());
+        alarm.setReason(reportCreate.getReason());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        alarm.setTime(timestamp);
+        alarm.setAlarmType(reportCreate.getType());
+        if(reportCreate.getType() == 1) {   //  1为回帖,2为帖子,3为任务
+            alarm.setCommendId(reportCreate.getId());
+            alarm.setViewType(1);
+        } else if(reportCreate.getType() == 2) {
+            alarm.setViewId(reportCreate.getId());
+            alarm.setViewType(2);
+        } else if(reportCreate.getType() == 3) {
+            alarm.setTaskId(reportCreate.getId());
+            alarm.setViewType(0);
+        } else
+            return ResultTool.error("无效的参数");
+        try {
+            alarmMapper.insertSelective(alarm);
+        } catch(Exception e){
+            return ResultTool.error("操作过程出现错误");
+        }
+        return ResultTool.success();
+    }
+
+    //  被封禁用户提交申诉类别
+    @Override
+    public Result appealSend(AppealSend appealSend) {
+        Users users = usersMapper.selectByPrimaryKey(appealSend.getUserid());
+        if(users == null){
+            return ResultTool.error("参数信息错误");
+        }
+        Unlock_Apply unlock_apply = new Unlock_Apply();
+        unlock_apply.setApplyer(appealSend.getUserid());
+        unlock_apply.setTitle(appealSend.getTitle());
+        unlock_apply.setContent(appealSend.getReason());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        unlock_apply.setTime(timestamp);
+        unlock_apply.setType(appealSend.getType());  //  1为论坛封禁,2为互助系统封禁
+        try{
+            unlock_applyMapper.insertSelective(unlock_apply);
+        }catch (Exception e){
+            return ResultTool.error("操作过程出现错误");
+        }
+        return ResultTool.success();
+    }
+
+    //  获取用户是否被封禁以及用户被何种封禁
+    @Override
+    public Result appealGet(String userId) {
+        Users users = usersMapper.selectByPrimaryKey(userId);
+        AppealGet appealGet = new AppealGet();
+        if(users.getBantype() == null) {
+            appealGet.setType(0);
+        } else{
+            appealGet.setType(users.getBantype());
+        }
+        return ResultTool.success(appealGet);
+    }
+
+    //  用户获取封禁原因的接口
+    @Override
+    public Result appealGetDetail(String userid) {
+        Ban_ReasonsExample ban_reasonsExample = new Ban_ReasonsExample();
+        ban_reasonsExample.createCriteria().andBannedIdEqualTo(userid);
+        List<Ban_Reasons> ban_reasonsList = ban_reasonsMapper.selectByExample(ban_reasonsExample);
+        List<AppealGetDetail> appealGetDetailList = new LinkedList<>();
+        for(Ban_Reasons ban_reasons : ban_reasonsList){
+            AppealGetDetail appealGetDetail = new AppealGetDetail();
+            Alarm alarm = alarmMapper.selectByPrimaryKey(ban_reasons.getAlarmId());
+            if(alarm.getAlarmType() == 1){
+                appealGetDetail.setType("论坛回帖封禁");
+                Comments comments;
+                try {
+                    comments = commentsMapper.selectByPrimaryKey(alarm.getCommendId());
+                }catch (Exception e){
+                    return ResultTool.error("部分详细内容已删除");
+                }
+                appealGetDetail.setContent(comments.getContent());
+            } else if(alarm.getAlarmType() == 2){
+                appealGetDetail.setType("论坛发帖封禁");
+                Views views;
+                try {
+                    views = viewsMapper.selectByPrimaryKey(alarm.getViewId());
+                } catch (Exception e){
+                    return ResultTool.error("部分详细内容已删除");
+                }
+                appealGetDetail.setContent(views.getTitle());
+            } else if(alarm.getAlarmType() == 3){
+                appealGetDetail.setType("任务封禁");
+                Help help;
+                try {
+                    help = helpMapper.selectByPrimaryKey(alarm.getTaskId());
+                } catch (Exception e){
+                    return ResultTool.error("部分详细内容已删除");
+                }
+                appealGetDetail.setContent(help.getTitle());
+            } else{
+                return ResultTool.error("无效的信息");
+            }
+            appealGetDetail.setReason(alarm.getReason());
+            Users users = usersMapper.selectByPrimaryKey(userid);
+            appealGetDetail.setDate(users.getBanend().toString());
+            appealGetDetailList.add(appealGetDetail);
+        }
+        return ResultTool.success(appealGetDetailList);
     }
 }

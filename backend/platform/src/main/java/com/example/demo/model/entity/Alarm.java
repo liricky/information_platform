@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Alarm {
@@ -11,7 +12,7 @@ public class Alarm {
 
     private Integer alarmType;
 
-    private Date time;
+    private Timestamp time;
 
     private String reason;
 
@@ -55,11 +56,11 @@ public class Alarm {
         this.alarmType = alarmType;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

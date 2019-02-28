@@ -7,6 +7,8 @@ import com.example.demo.model.entity.Lostlist;
 import com.example.demo.model.entity.Notices;
 import com.example.demo.model.entity.NoticesExample;
 import com.example.demo.model.entity.Users;
+import com.example.demo.model.jsonRequest.LostAFoundDelete;
+import com.example.demo.model.jsonRequest.LostAFoundPublish;
 import com.example.demo.model.ov.LostAFoundBoard;
 import com.example.demo.model.ov.LostAFoundMyBoard;
 import com.example.demo.model.ov.Result;
@@ -15,6 +17,7 @@ import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +36,7 @@ public class LostFindServiceImpl implements LostFindService {
     @Override
     public Result lostFoundBoard() {
         NoticesExample noticesExample = new NoticesExample();
+        noticesExample.setOrderByClause("time DESC");
         noticesExample.createCriteria().andTypeEqualTo(3);
         List<Notices> noticesList = noticesMapper.selectByExample(noticesExample);
         List<LostAFoundBoard> lostAFoundBoardList = new LinkedList<>();
@@ -56,6 +60,7 @@ public class LostFindServiceImpl implements LostFindService {
     @Override
     public Result lostFoundMyboard(String userid) {
         NoticesExample noticesExample = new NoticesExample();
+        noticesExample.setOrderByClause("time DESC");
         noticesExample.createCriteria().andTypeEqualTo(3).andPullerEqualTo(userid);
         List<Notices> noticesList = noticesMapper.selectByExample(noticesExample);
         List<LostAFoundMyBoard> lostAFoundMyBoardList = new LinkedList<>();
@@ -70,5 +75,49 @@ public class LostFindServiceImpl implements LostFindService {
             lostAFoundMyBoardList.add(lostAFoundMyBoard);
         }
         return ResultTool.success(lostAFoundMyBoardList);
+    }
+
+    //  删除失物招领信息
+    @Override
+    public Result lostFoundDelete(LostAFoundDelete lostAFoundDelete) {
+        if(!lostlistMapper.selectByPrimaryKey(lostAFoundDelete.getPostid()).getPuller().equals(lostAFoundDelete.getUserid())){
+            return ResultTool.error("传入参数错误");
+        }
+        try{
+            lostlistMapper.deleteByPrimaryKey(lostAFoundDelete.getPostid());
+            noticesMapper.deleteByPrimaryKey(lostAFoundDelete.getPostid());
+        } catch (Exception e){
+            return ResultTool.error("删除参数错误");
+        }
+        return ResultTool.success();
+    }
+
+    //  用户发布失物招领接口
+    @Override
+    public Result lostFoundPublish(LostAFoundPublish lostAFoundPublish) {
+        Notices notices = new Notices();
+        notices.setPuller(lostAFoundPublish.getUserid());
+        notices.setTitle(lostAFoundPublish.getTitle());
+        notices.setContent(lostAFoundPublish.getContent());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        notices.setTime(timestamp);
+        notices.setType(3);
+        try {
+            noticesMapper.insertSelectiveAndGetId(notices);
+        } catch (Exception e){
+            return ResultTool.error("操作失败1");
+        }
+        Lostlist lostlist = new Lostlist();
+        lostlist.setId(notices.getId());
+        lostlist.setPuller(lostAFoundPublish.getUserid());
+        lostlist.setTitle(lostAFoundPublish.getTitle());
+        lostlist.setContent(lostAFoundPublish.getConnect());
+        lostlist.setTime(timestamp);
+        try {
+            lostlistMapper.insertSelective(lostlist);
+        } catch (Exception e){
+            return ResultTool.error("操作失败");
+        }
+        return ResultTool.success();
     }
 }

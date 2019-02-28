@@ -16,6 +16,8 @@ public interface NoticesMapper {
 
     int insertSelective(Notices record);
 
+    int insertSelectiveAndGetId(Notices record);
+
     List<Notices> selectByExample(NoticesExample example);
 
     Notices selectByPrimaryKey(Integer id);

@@ -33,12 +33,10 @@ public class HelpServiceImpl implements HelpService {
     //  获取互助系统未认领任务接口
     @Override
     public Result getUnclaimedTasks() {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
         //未认领&&未过期任务
-        helpExample.createCriteria().andStateEqualTo(0).andStartTimeLessThan(time).andEndTimeGreaterThan(time);
+        helpExample.createCriteria().andStateEqualTo(0).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("不存在未认领任务");
@@ -67,11 +65,9 @@ public class HelpServiceImpl implements HelpService {
     @Override
     //  获取我已发布未截止且有人认领的且未完成务接口
     public Result getPushedByMe(String userId) {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
-        helpExample.createCriteria().andPullerEqualTo(userId).andStartTimeLessThan(time).andEndTimeGreaterThan(time).andStateNotEqualTo(3).andStateNotEqualTo(0);
+        helpExample.createCriteria().andPullerEqualTo(userId).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp).andStateNotEqualTo(3).andStateNotEqualTo(0);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("不存在你发布&&被认领的&&未完成任务");
@@ -95,11 +91,9 @@ public class HelpServiceImpl implements HelpService {
     //  获取我已经认领并且正在进行中没有截止的任务
     @Override
     public Result getClaimedByMe(String userId) {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
-        helpExample.createCriteria().andReceiverEqualTo(userId).andStartTimeLessThan(time).andEndTimeGreaterThan(time).andStateNotEqualTo(3).andStateNotEqualTo(0);
+        helpExample.createCriteria().andReceiverEqualTo(userId).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp).andStateNotEqualTo(3).andStateNotEqualTo(0);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("不存在你发布&&被认领的&&未完成任务");
@@ -123,11 +117,9 @@ public class HelpServiceImpl implements HelpService {
     //  接受人获得已完成任务
     @Override
     public Result getFinishedTaskByReceive(String userId) {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
-        helpExample.createCriteria().andReceiverEqualTo(userId).andStateEqualTo(3).andStartTimeLessThan(time).andEndTimeGreaterThan(time);
+        helpExample.createCriteria().andReceiverEqualTo(userId).andStateEqualTo(3).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("已完成任务不存在");
@@ -149,11 +141,9 @@ public class HelpServiceImpl implements HelpService {
     //  发布人获得已完成任务
     @Override
     public Result getFinishedTaskByPusher(String userId) {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
-        helpExample.createCriteria().andPullerEqualTo(userId).andStateEqualTo(3).andStartTimeLessThan(time).andEndTimeGreaterThan(time);
+        helpExample.createCriteria().andPullerEqualTo(userId).andStateEqualTo(3).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("已完成任务不存在");
@@ -175,11 +165,9 @@ public class HelpServiceImpl implements HelpService {
     //  发布人查看已发布未接受任务
     @Override
     public Result getUnclaimedTasksByPuller(String userId) {
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         HelpExample helpExample = new HelpExample();
-        helpExample.createCriteria().andPullerEqualTo(userId).andStateEqualTo(0).andStartTimeLessThan(time).andEndTimeGreaterThan(time);
+        helpExample.createCriteria().andPullerEqualTo(userId).andStateEqualTo(0).andStartTimeLessThan(timestamp).andEndTimeGreaterThan(timestamp);
         List<Help> helpList = helpMapper.selectByExample(helpExample);
         if (helpList.isEmpty() == true) {
             return ResultTool.error("已完成任务不存在");
@@ -240,14 +228,12 @@ public class HelpServiceImpl implements HelpService {
         if(checkId(publishTask.getUserId())==false){
             return ResultTool.error("用户不存在");
         }
-        Date time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Help item=new Help();
         item.setPuller(publishTask.getUserId());
         item.setTitle("互助系统任务");
         item.setContent(publishTask.getContent());
-        item.setStartTime(time);
+        item.setStartTime(timestamp);
         item.setEndTime(Timestamp.valueOf(publishTask.getEndDate()));
         item.setState(0);
         item.setPusherPhone(publishTask.getPhone());

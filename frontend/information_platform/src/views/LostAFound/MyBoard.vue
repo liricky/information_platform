@@ -24,7 +24,7 @@
             </Sider>
             <Layout>
               <Content :style="{margin: '20px', background: '#fff', minHeight: '500px'}">
-                <Col span="9" offset="1" v-for="n in msg" class="card">
+                <Col span="9" offset="1" v-for="n in msg" class="card" :key="n.title">
                   <Card>
                     <b slot="title">{{n.title}}</b>
                     <p>{{n.content}}</p>
@@ -77,11 +77,11 @@
             "Authorization": this.$store.state.token,
             'Content-Type': 'application/json;charset=UTF-8'
           },
-          data:{
-            userid:this.$store.state.userId,
-            postid:this.msgclick.id
-          },
-          method:'post'
+          method:'post',
+          data: {
+            userid: this.$store.state.userId,
+            postid: this.msgclick.id
+          }
         }).then((response) => {
           let res = response.data;
           if (res.status === "success"){

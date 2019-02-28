@@ -9,7 +9,7 @@
               <div style="min-height: 700px">
                 <Divider orientation="left"class="title" v-if="a1.length != 0"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="(a,index) in a1" v-if="index < 3">
+                  <Panel v-for="(a,index) in a1" v-if="index < 3" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
@@ -17,27 +17,27 @@
                 <b class="more" v-if="a1.length != 0">......</b>
                 <Divider orientation="left" class="title" v-if="a2.length != 0"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="(a,index) in a2" v-if="index < 3">
+                  <Panel v-for="(a,index) in a2" v-if="index < 3" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
                 <b class="more" v-if="a2.length != 0">......</b>
-                <!--<Divider orientation="left" class="title" v-if="a3.length != 0"><b>失物启示</b></Divider>-->
-                <!--<Collapse value="0" style="background: white;width: 80%;margin:0 auto" >-->
-                  <!--<Panel v-for="(a,index) in a3" v-if="index < 3">-->
-                    <!--<span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>-->
-                    <!--<p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>-->
-                  <!--</Panel>-->
-                <!--</Collapse>-->
-                <!--<b class="more" v-if="a3.length != 0">......</b>-->
+                <Divider orientation="left" class="title" v-if="a3.length != 0"><b>失物启示</b></Divider>
+                <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
+                  <Panel v-for="(a,index) in a3" v-if="index < 3" :key="a.title">
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
+                  </Panel>
+                </Collapse>
+                <b class="more" v-if="a3.length != 0">......</b>
               </div>
             </TabPane>
             <TabPane label="系统通知">
               <div style="min-height: 700px">
                 <Divider orientation="left" class="title"><b>系统通知</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="a in a1">
+                  <Panel v-for="a in a1" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
@@ -48,24 +48,24 @@
               <div style="min-height: 700px">
                 <Divider orientation="left" class="title"><b>假日调休</b></Divider>
                 <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="a in a2">
+                  <Panel v-for="a in a2" :key="a.title">
                     <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
                     <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
                   </Panel>
                 </Collapse>
               </div>
             </TabPane>
-            <!--<TabPane label="失物启示">-->
-              <!--<div style="min-height: 700px">-->
-                <!--<Divider orientation="left" class="title"><b>失物启示</b></Divider>-->
-                <!--<Collapse value="0" style="background: white;width: 80%;margin:0 auto" >-->
-                  <!--<Panel v-for="a in a3">-->
-                    <!--<span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>-->
-                    <!--<p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>-->
-                  <!--</Panel>-->
-                <!--</Collapse>-->
-              <!--</div>-->
-            <!--</TabPane>-->
+            <TabPane label="失物启示">
+              <div style="min-height: 700px">
+                <Divider orientation="left" class="title"><b>失物启示</b></Divider>
+                <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
+                  <Panel v-for="a in a3" :key="a.title">
+                    <span >{{a.title}}</span><div style="display:inline;float: right;margin-right: 10%">{{a.date}}</div>
+                    <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
+                  </Panel>
+                </Collapse>
+              </div>
+            </TabPane>
           </Tabs>
         </Col>
       </Row>

@@ -18,7 +18,7 @@
           </DropdownMenu>
         </Dropdown>
         <Row class="cardbox" style="background:#eee;padding:20px" v-if="status1 === 'success'">
-          <Col class="cardcol" span="25" v-for="(msg,index) in msg" :key="msg.messageid">
+          <Col class="cardcol" span="25" v-for="msg in msg" :key="msg.messageid">
             <div @click=show(msg.messageid)  v-if="check === 0">
               <Card class="card" :bordered="true" v-if="1">
                 <h1 class="headline" slot="title">{{msg.status}} {{msg.title}}</h1>
@@ -50,7 +50,7 @@
           <font size="6" v-if="status3 === 'fail'">{{errormsg3}}</font>
           <div class="leftback">
             <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="status3 === 'success'">
-              <Radio class="sendperson" v-for="(friend,index) in friend" :label="friend.userid">
+              <Radio class="sendperson" v-for="friend in friend" :key="friend.userid">
                 <Icon class="icon" type="md-person" size="20"></Icon>
                 <span><font size="5px">{{friend.usernickname}}</font></span>
               </Radio>
@@ -76,7 +76,7 @@
         <!--<br>-->
         <font size="6" v-if="status2 === 'fail'">{{errormsg2}}</font>
         <Row class="cardbox" style="background:#eee;padding:20px" v-if="status2 === 'success'">
-          <Col class="cardcol" span="25" v-for="(rev,index) in rev">
+          <Col class="cardcol" span="25" v-for="rev in rev" :key="rev.messageid">
             <div @click=show(rev.messageid)>
               <Card class="card" :bordered="true">
                 <h1 class="headline" slot="title">{{rev.title}}</h1>
