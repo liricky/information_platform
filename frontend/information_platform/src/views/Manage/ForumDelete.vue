@@ -29,7 +29,7 @@
             <div>操作</div>
           </Col>
         </Row>
-        <Row :gutter="16" style="margin-top: 20px;" v-for="n in msg">
+        <Row :gutter="16" style="margin-top: 20px;" v-for="n in msg" :key="n.id">
           <Col span="2">
             <div>{{n.id}}</div>
           </Col>

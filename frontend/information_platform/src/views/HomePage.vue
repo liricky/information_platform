@@ -20,7 +20,7 @@
         <Content style="margin-top: 10px">
           <b style="font-size: 20px;"><Icon type="ios-crop" />最近公告</b>
           <Collapse simple style="text-align: left">
-            <Panel v-for="(msg,index) in msg.slice(0,8)">
+            <Panel v-for="msg in msg" :key="msg.title">
               <span >{{msg.title}}</span><div style="display: inline;width: 30%;float: right; margin-right: 10%"><div style="display: inline;float:right;margin-right: 10%">{{msg.date}}</div><div style="display:inline;float:left">{{msg.type}}</div></div>
               <p slot="content" style="text-align: justify;text-indent:25px">{{msg.content}}</p>
               <div slot="content">

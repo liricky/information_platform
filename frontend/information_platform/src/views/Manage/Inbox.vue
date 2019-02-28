@@ -14,7 +14,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>举报信息</b></Divider>
                 <Collapse>
-                  <Panel  v-for="n in msg1">
+                  <Panel  v-for="n in msg1"  :key="a.title">
                     <span>举报</span><div style="display: inline;margin-left: 20%">被举报人：{{n.reported}}</div>
                     <div style="display:inline;position: absolute;left: 50%">举报人：{{n.report}}</div>
                     <div style="display:inline;position: absolute;left: 80%">举报时间：{{n.date}}</div>
@@ -29,7 +29,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>申诉信息</b></Divider>
                 <Collapse>
-                  <Panel v-for="n in msg2">
+                  <Panel v-for="n in msg2" :key="a.title">
                     <span>{{n.title}}</span><div style="display: inline;position: absolute;left: 50%">申诉人：{{n.report}}</div><div style="display: inline;position: absolute;left: 70%">申诉时间：{{n.date}}</div>
                     <p slot="content">申诉类型：{{n.type}}</p>
                     <p slot="content" style="margin-top: 10px">申诉原因：</p>

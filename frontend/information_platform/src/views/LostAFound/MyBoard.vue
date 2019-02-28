@@ -24,7 +24,7 @@
             </Sider>
             <Layout>
               <Content :style="{margin: '20px', background: '#fff', minHeight: '500px'}">
-                <Col span="9" offset="1" v-for="n in msg" class="card">
+                <Col span="9" offset="1" v-for="n in msg" class="card" :key="n.title">
                   <Card>
                     <b slot="title">{{n.title}}</b>
                     <p>{{n.content}}</p>
