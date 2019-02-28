@@ -279,6 +279,9 @@
           if(this.value1 === '')
             this.$Message.info('联系方式不能为空！');
           else {
+            console.log(this.temp);
+            console.log(this.$store.state.userId);
+            console.log(this.value1);
             axios({
               url:'/help/claim',
               headers: {
