@@ -80,12 +80,12 @@ public class LostFindServiceImpl implements LostFindService {
     //  删除失物招领信息
     @Override
     public Result lostFoundDelete(LostAFoundDelete lostAFoundDelete) {
-        System.out.println("进来了");
         if(!lostlistMapper.selectByPrimaryKey(lostAFoundDelete.getPostid()).getPuller().equals(lostAFoundDelete.getUserid())){
             return ResultTool.error("传入参数错误");
         }
         try{
             lostlistMapper.deleteByPrimaryKey(lostAFoundDelete.getPostid());
+            noticesMapper.deleteByPrimaryKey(lostAFoundDelete.getPostid());
         } catch (Exception e){
             return ResultTool.error("删除参数错误");
         }
