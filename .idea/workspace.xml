@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eec8fe1b-aeb7-4512-a82d-b54253146671" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/platform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,7 +25,7 @@
       <file leaf-file-name="AnnouncementDate.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/AnnouncementDate.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="475">
               <caret line="25" selection-start-line="25" selection-end-line="32" selection-end-column="71" />
             </state>
           </provider>
@@ -72,11 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Head.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Head.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="125" column="48" lean-forward="true" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
+            <state relative-caret-position="2394">
+              <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyBoard.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/MyBoard.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1121">
+              <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -171,8 +178,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,14 +212,6 @@
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="information_platform" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="information_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="information_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="information_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -222,11 +222,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="information_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="information_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="information_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="LostAFound" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +311,8 @@
       <updated>1551190145526</updated>
       <workItem from="1551190148415" duration="4552000" />
       <workItem from="1551240107199" duration="8726000" />
-      <workItem from="1551252752249" duration="427000" />
+      <workItem from="1551252752249" duration="1266000" />
+      <workItem from="1551277586232" duration="1018000" />
     </task>
     <task id="LOCAL-00001" summary="对接">
       <created>1551190362896</created>
@@ -326,22 +335,28 @@
       <option name="project" value="LOCAL" />
       <updated>1551250267151</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="更新 获取管理员状态：增加是否登陆判断">
+      <created>1551253254036</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1551253254036</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13833000" />
+    <option name="totallyTimeSpent" value="15690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32876712" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -375,7 +390,8 @@
     <MESSAGE value="对接" />
     <MESSAGE value="更新" />
     <MESSAGE value="首页，公告页面更新&#10;日历组件更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="首页，公告页面更新&#10;日历组件更新" />
+    <MESSAGE value="更新 获取管理员状态：增加是否登陆判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新 获取管理员状态：增加是否登陆判断" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/Board.vue">
@@ -476,9 +492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -587,9 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -625,13 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/MyBoard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -704,15 +707,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/AnnouncementDate.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="475">
           <caret line="25" selection-start-line="25" selection-end-line="32" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/components/Head.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="125" column="48" lean-forward="true" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
+        <state relative-caret-position="2394">
+          <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/information_platform/src/views/LostAFound/MyBoard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1121">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
         </state>
       </provider>
     </entry>
