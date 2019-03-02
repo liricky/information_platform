@@ -1,11 +1,9 @@
 package com.example.demo.service.Impl;
 
 import com.example.demo.dao.HelpMapper;
+import com.example.demo.dao.ManagersMapper;
 import com.example.demo.dao.UsersMapper;
-import com.example.demo.model.entity.Help;
-import com.example.demo.model.entity.HelpExample;
-import com.example.demo.model.entity.Users;
-import com.example.demo.model.entity.UsersExample;
+import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.Result;
 import com.example.demo.service.HelpService;
@@ -28,6 +26,9 @@ public class HelpServiceImpl implements HelpService {
 
     @Resource
     private UsersMapper usersMapper;
+
+    @Resource
+    private ManagersMapper managersMapper;
 
     //  状态0=未认领 1=已经认领但是未完成 2=一方完成 3=两方完成
     //  获取互助系统未认领任务接口
@@ -236,9 +237,22 @@ public class HelpServiceImpl implements HelpService {
         }
     }
 
+    //  检查管理员身份
+    private boolean checkManagerId(String id){
+        ManagersExample managersExample=new ManagersExample();
+        managersExample.createCriteria().andIdEqualTo(id);
+        List<Managers> managersList=managersMapper.selectByExample(managersExample);
+        if(managersList.isEmpty()==true){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     //  用户发布任务
     @Override
-    public Result publishTaks(publishTask publishTask) {
+    public Result publishTask(publishTask publishTask) {
         if(checkId(publishTask.getUserId())==false){
             return ResultTool.error("用户不存在");
         }
@@ -304,6 +318,41 @@ public class HelpServiceImpl implements HelpService {
         usersMapper.updateByPrimaryKeySelective(item);
     }
 
+    //  管理员获取全部互助系统任务接口
+    @Override
+    public Result findAllHelp(String id) {
+        //管理人员身份验证
+        if(checkManagerId(id)==false){
+            return ResultTool.error("管理员身份无效");
+        }
+        HelpExample helpExample=new HelpExample();
+        helpExample.createCriteria().andIdIsNotNull();
+        List<Help> helpList=helpMapper.selectByExample(helpExample);
+        List<allHelpTask> taskList=new LinkedList<>();
+        for(Help help:helpList){
+            allHelpTask item=new allHelpTask();
+            item.setContent(help.getContent());
+            item.setStartDate(help.getStartTime().toString());
+            item.setEndDate(help.getEndTime().toString());
+            item.setMissionId(help.getId().toString());
+            item.setId(help.getPuller());
+            taskList.add(item);
+        }
+        return ResultTool.success(taskList);
+    }
 
-
+    //  管理员删除任务#73
+    @Override
+    public Result deleteTaskByManager(String managerId, int taskId) {
+        //管理人员身份验证
+        if(checkManagerId(managerId)==false){
+            return ResultTool.error("管理员身份无效");
+        }
+        Help help=helpMapper.selectByPrimaryKey(taskId);
+        if(help==null){
+            return ResultTool.error("公告不存在");
+        }
+        helpMapper.deleteByPrimaryKey(taskId);
+        return ResultTool.success();
+    }
 }
