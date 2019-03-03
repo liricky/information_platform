@@ -204,6 +204,7 @@ public class HelpServiceImpl implements HelpService {
     //  用户认领任务
     @Override
     public Result claimTask(claimTask claimTask) {
+
         if(checkId(claimTask.getUserId())==false){
             return ResultTool.error("用户不存在");
         }
@@ -213,7 +214,13 @@ public class HelpServiceImpl implements HelpService {
         }catch (Exception e){
             return ResultTool.error("任务类型中有非法字符");
         }
-
+        //  查询是否用户自己认领自己的任务
+        Help check=new Help();
+        check=helpMapper.selectByPrimaryKey(missionId);
+        if(check.getPuller().equals(claimTask.getUserId())){
+            return ResultTool.error("您不能认领自己发布的任务");
+        }
+        //  更新数据库
         Help item=new Help();
         item.setId(missionId);
         item.setReceiver(claimTask.getUserId());
@@ -267,6 +274,7 @@ public class HelpServiceImpl implements HelpService {
         item.setEndTime(Timestamp.valueOf(publishTask.getEndDate()));
         item.setState(0);
         item.setPusherPhone(publishTask.getPhone());
+        item.setReceiver("");
         helpMapper.insert(item);
         return ResultTool.success();
     }

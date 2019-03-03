@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.entity.Help;
 import com.example.demo.model.jsonRequest.changeHelpState;
 import com.example.demo.model.jsonRequest.claimTask;
 import com.example.demo.model.jsonRequest.publishTask;
@@ -111,7 +112,7 @@ public class HelperController {
 
     //  管理员获取全部任务接口 #72
     @GetMapping(value = "/manage/help/{manageid}")
-    public Result getAllHelpByManager(@PathVariable("managerid") String userid,HttpServletRequest httpServletRequest){
+    public Result getAllHelpByManager(@PathVariable("manageid") String userid,HttpServletRequest httpServletRequest){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -125,9 +126,10 @@ public class HelperController {
         return  helpService.findAllHelp(id);
     }
 
+
     //  用户认领任务接口 #38
-    @RequestMapping(value = "/help/claim",method=RequestMethod.GET)
-    public Result claimTask(HttpServletRequest httpServletRequest, claimTask claimTask){
+    @RequestMapping(value = "/help/claim",method=RequestMethod.POST)
+    public Result claimTask(HttpServletRequest httpServletRequest, @RequestBody claimTask claimTask){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -135,8 +137,11 @@ public class HelperController {
         }catch (Exception e){
             return ResultTool.error("登陆状态无效");
         }
+        System.out.println(claimTask.getUserId()+" "+id);
         if (!claimTask.getUserId().equals(id)){
+
             return ResultTool.error("登陆状态无效");
+
         }
         return  helpService.claimTask(claimTask);
 
@@ -144,7 +149,7 @@ public class HelperController {
 
     //  用户发布任务接口 #39
     @RequestMapping(value = "/help/send",method = RequestMethod.POST)
-    public  Result publishTask(HttpServletRequest httpServletRequest, publishTask publishTask){
+    public  Result publishTask(HttpServletRequest httpServletRequest, @RequestBody publishTask publishTask){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -160,7 +165,7 @@ public class HelperController {
 
     //  用户放弃任务接口 #40
     @RequestMapping(value = "/help/cancel",method = RequestMethod.POST)
-    public Result cancelTask(HttpServletRequest httpServletRequest, changeHelpState changeHelpState){
+    public Result cancelTask(HttpServletRequest httpServletRequest, @RequestBody changeHelpState changeHelpState){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -176,11 +181,11 @@ public class HelperController {
 
     //  认领人确认完成任务接口 #41
     @RequestMapping(value = "/help/claimfinish",method = RequestMethod.POST)
-    public Result finishedByClaimer(HttpServletRequest httpServletRequest,changeHelpState changeHelpState){
+    public Result finishedByClaimer(HttpServletRequest httpServletRequest,@RequestBody changeHelpState changeHelpState){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
-            id= JwtUtil.parseJwt(token);
+            id= JwtUtil.parseJwt(token);System.out.println(id);
         }catch (Exception e){
             return ResultTool.error("登陆状态无效");
         }
@@ -192,7 +197,7 @@ public class HelperController {
 
     //  发布人确认完成任务接口 #42
     @RequestMapping(value = "/help/sentfinish",method = RequestMethod.POST)
-    public Result finishedByPublisher(HttpServletRequest httpServletRequest,changeHelpState changeHelpState){
+    public Result finishedByPublisher(HttpServletRequest httpServletRequest,@RequestBody changeHelpState changeHelpState){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -208,7 +213,7 @@ public class HelperController {
 
     //  管理员根据互助系统任务id删除任务 #73
     @RequestMapping(value = "/manage/help/delete",method = RequestMethod.POST)
-    public Result deleteTaskByManager(HttpServletRequest httpServletRequest,changeHelpState changeHelpState){
+    public Result deleteTaskByManager(HttpServletRequest httpServletRequest,@RequestBody changeHelpState changeHelpState){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -225,6 +230,7 @@ public class HelperController {
         }catch (Exception e){
             return ResultTool.error("任务id格式错误");
         }
+//        System.out.println("missionid"+changeHelpState.getMissionId()+"userid"+changeHelpState.getUserId());
         return helpService.deleteTaskByManager(id,t_id);
     }
 
