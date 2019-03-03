@@ -70,7 +70,7 @@ public class ManagerServiceImpl implements ManagerService {
             info.setPassword(users.getPassword());
             info.setStatus(users.getBanstate().toString());
             if(users.getBanstate()==0){
-                info.setBanType("");
+                info.setBanType("未封禁");
                 info.setBanReason("");
                 info.setDate("");
             }else {
@@ -79,13 +79,13 @@ public class ManagerServiceImpl implements ManagerService {
                 int state=0;
                 state=users.getBantype();
                 if(state==0){
-                    info.setStatus("未封禁");
+                    info.setBanType("未封禁");
                 }else if(state==1){
-                    info.setStatus("互助系统封禁");
+                    info.setBanType("互助系统封禁");
                 }else if(state==2){
-                    info.setStatus("论坛封禁");
+                    info.setBanType("论坛封禁");
                 }else {
-                    info.setStatus("都封禁");
+                    info.setBanType("都封禁");
                 }
             }
             infoList.add(info);
