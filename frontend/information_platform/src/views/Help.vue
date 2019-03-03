@@ -6,7 +6,8 @@
         <divider></divider>
         <Tabs class="cards" type="card">
           <TabPane label="大厅">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post.length === 0">大厅暂时还没有任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post.length > 0">
               <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.missionid">
                 <Card class="card" :bordered="true">
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post.missionid,post.authorid)"/>
@@ -28,13 +29,14 @@
             </Row>
           </TabPane>
           <TabPane label="待认领">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post5.length === 0">暂时还没有待认领任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post5.length > 0">
               <Col class="cardcol" span="25" v-for="(post5,index) in post5" :key="post5.missionid">
                 <Card class="card" :bordered="true">
-                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post5.missionid,post5.authorid)"/>
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post5.missionid,post5.id)"/>
                   <div class="leftback">
                     <div>
-                      <font size="4" @click="jumpUserDetail(post5.authorid)">by:{{post5.authorid}} {{post5.authornickname}}</font>
+                      <font size="4" @click="jumpUserDetail(post5.id)">by:{{post5.id}} {{post5.nickname}}</font>
                       <br>
                       <font size="4">开始时间:{{post5.startdate}}<br>截止时间:{{post5.enddate}}</font>
                     </div>
@@ -47,13 +49,14 @@
             </Row>
           </TabPane>
           <TabPane label="已认领">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post1.length === 0">暂时还没有已认领任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post1.length > 0">
               <Col class="cardcol" span="25" v-for="(post1,index) in post1" :key="post1.missionid">
                 <Card class="card" :bordered="true">
-                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post1.missionid,post1.authorid)"/>
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post1.missionid,post1.acceptid)"/>
                   <div class="leftback">
                     <div>
-                      <font size="4" @click="jumpUserDetail(post1.authorid)">by:{{post1.authorid}} {{post1.authornickname}}</font>
+                      <font size="4" @click="jumpUserDetail(post1.acceptid)">by:{{post1.acceptid}} {{post1.acceptnickname}}</font>
                       <br>
                       <font size="4">开始时间:{{post1.startdate}}<br>截止时间:{{post1.enddate}}</font>
                     </div>
@@ -75,7 +78,8 @@
             </Row>
           </TabPane>
           <TabPane label="已发布">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post2.length === 0">暂时还没有已发布任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post2.length > 0">
               <Col class="cardcol" span="25" v-for="(post2,index) in post2" :key="post2.missionid">
                 <Card class="card" :bordered="true">
                   <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post2.missionid,post2.acceptid)"/>
@@ -103,15 +107,16 @@
             </Row>
           </TabPane>
           <TabPane label="发布任务已完成">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post3.length === 0">暂时还没有已完成的发布任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post3.length > 0">
               <Col class="cardcol" span="25" v-for="(post3,index) in post3" :key="post3.missionid">
                 <Card class="card" :bordered="true">
-                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post3.missionid,post3.acceptid)"/>
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post3.missionid,post3.id)"/>
                   <div class="leftback">
                     <div>
-                      <font size="4" @click="jumpUserDetail(post3.acceptid)">by:{{post3.acceptid}} {{post3.acceptnickname}}</font>
+                      <font size="4" @click="jumpUserDetail(post3.id)">by:{{post3.id}} {{post3.nickname}}</font>
                       <br>
-                      <font size="4">开始时间:{{post3.startdate}}<br>完成时间:{{post3.finishdate}}</font>
+                      <font size="4">开始时间:{{post3.startdate}}<br>完成时间:{{post3.enddate}}</font>
                     </div>
                     <div>
                       <font size="3">{{post3.content}}</font>
@@ -122,15 +127,16 @@
             </Row>
           </TabPane>
           <TabPane label="认领任务已完成">
-            <Row class="cardbox" style="background:#eee;padding:20px">
+            <h2 v-if="this.post4.length === 0">暂时还没有已完成的认领任务</h2>
+            <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.post4.length > 0">
               <Col class="cardcol" span="25" v-for="(post4,index) in post4" :key="post4.missionid">
                 <Card class="card" :bordered="true">
-                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post4.missionid,post4.authorid)"/>
+                  <Icon class="flag" type="ios-flag" size="30" @click="jumpToReport(post4.missionid,post4.id)"/>
                   <div class="leftback">
                     <div>
-                      <font size="4" @click="jumpUserDetail(post4.authorid)">by:{{post4.authorid}} {{post4.authornickname}}</font>
+                      <font size="4" @click="jumpUserDetail(post4.id)">by:{{post4.id}} {{post4.nickname}}</font>
                       <br>
-                      <font size="4">开始时间:{{post4.startdate}}<br>完成时间:{{post4.finishdate}}</font>
+                      <font size="4">开始时间:{{post4.startdate}}<br>完成时间:{{post4.enddate}}</font>
                     </div>
                     <div>
                       <font size="3">{{post4.content}}</font>

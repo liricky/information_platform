@@ -28,7 +28,7 @@ public interface HelpService {
     Result claimTask(claimTask claimTask);
 
     //  用户发布任务
-    Result publishTaks(publishTask publishTask);
+    Result publishTask(publishTask publishTask);
 
     //  用户放弃任务
     Result deleteTask(changeHelpState changeHelpState);
@@ -36,5 +36,10 @@ public interface HelpService {
     //  确认任务完成
     Result finishedTask(changeHelpState changeHelpState);
 
+    //  管理员获取全部互助系统任务接口
+    Result findAllHelp(String id);
+
+    //  管理员根据任务id删除任务
+    Result deleteTaskByManager(String managerId,int taskId);
 
 }
