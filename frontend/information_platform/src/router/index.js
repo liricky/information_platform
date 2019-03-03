@@ -179,6 +179,14 @@ export default new Router({
       meta: {
         requireManage: true
       }
+    },
+    {
+      path:'/Manage/HelpDelete',
+      name:'HelpDelete',
+      component:() => import('@/views/Manage/HelpDelete'),
+      meta: {
+        requireManage: true
+      }
     }
   ]
 })
