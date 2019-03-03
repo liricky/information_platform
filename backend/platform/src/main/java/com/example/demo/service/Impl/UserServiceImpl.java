@@ -95,25 +95,29 @@ public class UserServiceImpl implements UserService {
                     response.setIdentity(existedUser.getIdentity());
                     response.setId(user.getUserId());
                     response.setUserNickname(existedUser.getName());
-
                     return ResultTool.success(response);
                 } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
                     // 如果用户在上海大学端更改了密码，我们访问接口进行验证，通过则更新数据库中用户的密码
-                    if (AuthTool.getAuth(user.getUserId(), user.getUserPwd())) {
-                        Users record = new Users();
-                        record.setId(user.getUserId());
-                        record.setPassword(user.getUserPwd());
-                        usersMapper.updateByPrimaryKeySelective(record);
-                        TokenResponse response = new TokenResponse();
-                        response.setToken(JwtUtil.createJwt(user.getUserId()));
-                        response.setIdentity(existedUser.getIdentity());
-                        response.setUserNickname(existedUser.getName());
-                        response.setId(existedUser.getId());
-                        return ResultTool.success(response);
+                    try{
+                        if (AuthTool.getAuth(user.getUserId(), user.getUserPwd())) {
+                            Users record = new Users();
+                            record.setId(user.getUserId());
+                            record.setPassword(user.getUserPwd());
+                            usersMapper.updateByPrimaryKeySelective(record);
+                            TokenResponse response = new TokenResponse();
+                            response.setToken(JwtUtil.createJwt(user.getUserId()));
+                            response.setIdentity(existedUser.getIdentity());
+                            response.setUserNickname(existedUser.getName());
+                            response.setId(existedUser.getId());
+                            return ResultTool.success(response);
 
-                    } else {
-                        return ResultTool.error("账号密码错误");
+                        } else {
+                            return ResultTool.error("账号密码错误或请尝试校园网登陆");
+                        }
+                    }catch (Exception e){
+                        return ResultTool.error("密码错误");
                     }
+
                 } else {
                     return ResultTool.error("您没有权限登录该系统");
                 }
@@ -141,6 +145,9 @@ public class UserServiceImpl implements UserService {
                     systemUser.setIdentity(2);
                     response.setIdentity(2);
                 }
+                systemUser.setCoins(0);
+                systemUser.setBanstate(0);//0表示未封禁
+                systemUser.setBantype(0);//0表示未封禁
                 usersMapper.insertSelective(systemUser);
                 response.setUserNickname(systemUser.getName());
                 response.setId(systemUser.getId());
@@ -159,6 +166,28 @@ public class UserServiceImpl implements UserService {
             } else {
                 return ResultTool.error("您不是上海大学的用户");
             }
+        }
+    }
+
+    //  查看是否被封禁
+    private boolean checkIsBan(String userId){
+        Users users=new Users();
+        users=usersMapper.selectByPrimaryKey(userId);
+        if(users.getBanstate()==1){
+            java.sql.Timestamp now=new Timestamp(System.currentTimeMillis());
+            if(now.before(users.getBanend())){
+                return true;
+            }else{
+                users.setBanstate(0);
+                users.setBanend(null);
+                users.setBanstart(null);
+                users.setBanreason(null);
+                users.setBantype(null);
+                return false;
+            }
+        }
+        else {
+            return false;
         }
     }
 
