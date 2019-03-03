@@ -9,6 +9,7 @@ import com.example.demo.tools.ResultTool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,6 +32,10 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Resource
     private Unlock_ApplyMapper unlock_applyMapper;
+
+    @Resource
+    private CommentsMapper commentsMapper;
+
 
     private boolean checkManager(String id){
         ManagersExample managersExample=new ManagersExample();
@@ -228,6 +233,68 @@ public class ManagerServiceImpl implements ManagerService {
         record.setId(modifyPasswordByManager.getUserId());
         record.setPassword(modifyPasswordByManager.getPassword());
         usersMapper.updateByPrimaryKeySelective(record);
+        return ResultTool.success();
+    }
+
+    @Override
+    public Result deleteComments(deleteViewByManager deleteViewByManager) {
+        //  验证管理员身份
+        if(checkManager(deleteViewByManager.getManagerId())==false){
+            return ResultTool.error("管理员身份不合法");
+        }
+        //  获取int型
+        int v_id;
+        try {
+            v_id=Integer.parseInt(deleteViewByManager.getId());
+        }catch (Exception e){
+            return ResultTool.error("帖子id格式错误");
+        }
+        //  查看评论是否存在
+        Comments comments=commentsMapper.selectByPrimaryKey(v_id);
+        if(comments==null){
+            return ResultTool.error("该评论不存在");
+        }
+        commentsMapper.deleteByPrimaryKey(v_id);
+        return ResultTool.success();
+    }
+
+    @Override
+    public Result banUser(banUserByManager banUserByManager) {
+        //  验证管理员身份
+        if(checkManager(banUserByManager.getManageId())==false){
+            return ResultTool.error("管理员身份不合法");
+        }
+
+        //  用户身份验证
+        Users u=usersMapper.selectByPrimaryKey(banUserByManager.getId());
+        if(u==null){
+            return ResultTool.error("该用户不存在");
+        }
+        //  修改用户表
+        Users users=new Users();
+        users.setId(banUserByManager.getId());
+        users.setBanstate(1);
+        if(banUserByManager.equals("论坛封禁")){
+            users.setBantype(2);
+        }else if(banUserByManager.equals("任务封禁")){
+            users.setBantype(1);
+        }else{
+            users.setBantype(3);
+        }
+        Timestamp now=new Timestamp(System.currentTimeMillis());//获取当前时间
+        users.setBanstart(now);
+        String end=banUserByManager.getBanEndDate()+" 00:00:00";
+        users.setBanend(Timestamp.valueOf(end));
+        usersMapper.updateByPrimaryKeySelective(users);
+
+        //  修改alarm表
+        Alarm alarm=new Alarm();
+        alarm.setAlarmedUser(banUserByManager.getId());
+        alarm.setAlarmingUser(banUserByManager.getManageId());
+        alarm.setAlarmType(users.getBantype());
+        alarm.setTime(Timestamp.valueOf(end));
+        alarm.setReason(banUserByManager.getBanReason());
+        alarmMapper.updateByPrimaryKeySelective(alarm);
         return ResultTool.success();
     }
 }

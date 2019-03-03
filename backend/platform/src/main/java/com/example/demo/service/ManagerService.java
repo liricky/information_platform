@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.jsonRequest.banUserByManager;
 import com.example.demo.model.jsonRequest.deleteViewByManager;
 import com.example.demo.model.jsonRequest.freeUserByManager;
 import com.example.demo.model.jsonRequest.modifyPasswordByManager;
@@ -27,4 +28,9 @@ public interface ManagerService {
     //  管理员修改用户密码 #50
     Result modifyPassword(modifyPasswordByManager modifyPasswordByManager);
 
+    //  管理员删除评论 #71
+    Result deleteComments(deleteViewByManager deleteViewByManager);
+
+    //  管理员封禁用户
+    Result banUser(banUserByManager banUserByManager);
 }

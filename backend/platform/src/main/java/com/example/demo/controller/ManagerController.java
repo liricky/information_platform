@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.jsonRequest.banUserByManager;
 import com.example.demo.model.jsonRequest.deleteViewByManager;
 import com.example.demo.model.jsonRequest.freeUserByManager;
 import com.example.demo.model.jsonRequest.modifyPasswordByManager;
@@ -105,7 +106,8 @@ public class ManagerController {
 
     //  管理员删除帖子接口 #54
     @RequestMapping(value = "/manage/forum/delete",method = RequestMethod.POST)
-    public  Result deleteView(HttpServletRequest httpServletRequest, deleteViewByManager deleteViewByManager){
+    public  Result deleteView(HttpServletRequest httpServletRequest,
+                              @RequestBody deleteViewByManager deleteViewByManager){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -121,7 +123,8 @@ public class ManagerController {
 
     //  管理员解封用户接口 #52
     @RequestMapping(value = "/manage/user/release",method = RequestMethod.POST)
-    public Result freeUser(HttpServletRequest httpServletRequest, freeUserByManager freeUserByManager){
+    public Result freeUser(HttpServletRequest httpServletRequest,
+                           @RequestBody freeUserByManager freeUserByManager){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -133,6 +136,39 @@ public class ManagerController {
             return ResultTool.error("登陆状态无效");
         }
         return managerService.freeUsers(freeUserByManager);
+    }
 
+    //  管理员根据评论id删除评论 #71
+    @RequestMapping(value = "/manage/commentdelete",method = RequestMethod.POST)
+    public Result deleteComment(HttpServletRequest httpServletRequest,
+                                @RequestBody deleteViewByManager deleteViewByManager){
+        String token = httpServletRequest.getHeader("Authorization");
+        String id;
+        try {
+            id= JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登陆状态无效");
+        }
+        if (!deleteViewByManager.getManagerId().equals(id)){
+            return ResultTool.error("登陆状态无效");
+        }
+        return managerService.deleteComments(deleteViewByManager);
+    }
+
+    //  管理员封禁用户
+    @RequestMapping(value = "/manage/user/forbid",method = RequestMethod.POST)
+    public Result banUser(HttpServletRequest httpServletRequest,
+                          @RequestBody banUserByManager banUserByManager){
+        String token = httpServletRequest.getHeader("Authorization");
+        String id;
+        try {
+            id= JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登陆状态无效");
+        }
+        if (!banUserByManager.getManageId().equals(id)){
+            return ResultTool.error("登陆状态无效");
+        }
+        return managerService.banUser(banUserByManager);
     }
 }

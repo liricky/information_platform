@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -60,6 +61,11 @@ public class UserServiceImpl implements UserService {
                     response.setIdentity(existedUser.getIdentity());
                     response.setId(user.getUserId());
                     response.setUserNickname(existedUser.getName());
+                    //  查看是否被封禁
+                    if(checkIsBan(existedUser.getId())==true){
+                        return ResultTool.error("您已被封禁");
+                    }
+
                     return ResultTool.success(response);
                 } else if (!existedUser.getPassword().equals(SecurityTool.encodeByMd5(user.getUserPwd()))) {
                     // 如果用户在上海大学端更改了密码，我们访问接口进行验证，通过则更新数据库中用户的密码
@@ -74,7 +80,10 @@ public class UserServiceImpl implements UserService {
                             response.setIdentity(existedUser.getIdentity());
                             response.setUserNickname(existedUser.getName());
                             response.setId(existedUser.getId());
-                            return ResultTool.success(response);
+                            if(checkIsBan(existedUser.getId())==true){
+                                return ResultTool.error("您已被封禁");
+                            }
+                      return ResultTool.success(response);
 
                         } else {
                             return ResultTool.error("账号密码错误或请尝试校园网登陆");
@@ -130,6 +139,28 @@ public class UserServiceImpl implements UserService {
             } else {
                 return ResultTool.error("您不是上海大学的用户");
             }
+        }
+    }
+
+    //  查看是否被封禁
+    private boolean checkIsBan(String userId){
+        Users users=new Users();
+        users=usersMapper.selectByPrimaryKey(userId);
+        if(users.getBanstate()==1){
+            java.sql.Timestamp now=new Timestamp(System.currentTimeMillis());
+            if(now.before(users.getBanend())){
+                return true;
+            }else{
+                users.setBanstate(0);
+                users.setBanend(null);
+                users.setBanstart(null);
+                users.setBanreason(null);
+                users.setBantype(null);
+                return false;
+            }
+        }
+        else {
+            return false;
         }
     }
 
