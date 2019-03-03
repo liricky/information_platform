@@ -146,7 +146,7 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public Result deleteViewByManager(deleteViewByManager deleteViewByManager) {
         //  验证管理员身份
-        if(checkManager(deleteViewByManager.getId())==false){
+        if(checkManager(deleteViewByManager.getManagerId())==false){
             return ResultTool.error("管理员身份不合法");
         }
         //  获取int型
@@ -182,15 +182,19 @@ public class ManagerServiceImpl implements ManagerService {
             info.setReporterId(alarm.getAlarmingUser());
             info.setBeReportedId(alarm.getAlarmedUser());
             info.setDate(alarm.getTime().toString());
-            if(alarm.getViewType()==1){
+            if(alarm.getAlarmType()==1){
                 info.setType("帖子举报");
-            }else if(alarm.getViewType()==2){
+                info.setMessageId(alarm.getViewId().toString());
+            }else if(alarm.getAlarmType()==2){
                 info.setType("评论举报");
+                info.setMessageId(alarm.getCommendId().toString());
             }else {
                 info.setType("互助系统举报");
+                info.setMessageId(alarm.getTaskId().toString());
             }
             info.setReason(alarm.getReason());
             info.setContent(alarm.getReason());
+
             infoList.add(info);
         }
         return ResultTool.success(infoList);
@@ -295,6 +299,7 @@ public class ManagerServiceImpl implements ManagerService {
         users.setBanstart(now);
         String end=banUserByManager.getBanEndDate()+" 00:00:00";
         users.setBanend(Timestamp.valueOf(end));
+        users.setBanreason(banUserByManager.getBanReason());
         usersMapper.updateByPrimaryKeySelective(users);
 
         //  修改alarm表

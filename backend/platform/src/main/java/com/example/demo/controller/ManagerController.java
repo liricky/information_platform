@@ -23,7 +23,6 @@ public class ManagerController {
     @GetMapping(value = "/manage/user/{manageid}")
     public Result getUsersInfo(HttpServletRequest httpServletRequest,
                                @PathVariable("manageid") String managerId){
-        System.out.println(managerId);
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -75,7 +74,7 @@ public class ManagerController {
     //  管理员获取帖子信息接口 #53
     @GetMapping(value = "/manage/forum/{manageid}")
     public Result getViewInfo(HttpServletRequest httpServletRequest,
-                              @PathVariable("managerid")String managerId){
+                              @PathVariable("manageid")String managerId){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -93,16 +92,19 @@ public class ManagerController {
     @RequestMapping(value = "/manage/user/password",method = RequestMethod.POST)
     public Result modifyPassword(HttpServletRequest httpServletRequest,
                                  @RequestBody modifyPasswordByManager modifyPasswordByManager){
+        System.out.println(modifyPasswordByManager.getManagerId());
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
             id= JwtUtil.parseJwt(token);
         }catch (Exception e){
             return ResultTool.error("登陆状态无效");
+
         }
         if (!modifyPasswordByManager.getManagerId().equals(id)){
             return ResultTool.error("登陆状态无效");
         }
+
         return managerService.modifyPassword(modifyPasswordByManager);
     }
 
