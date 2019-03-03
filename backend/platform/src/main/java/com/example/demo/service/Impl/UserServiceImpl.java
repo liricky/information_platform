@@ -110,6 +110,9 @@ public class UserServiceImpl implements UserService {
                     systemUser.setIdentity(2);
                     response.setIdentity(2);
                 }
+                systemUser.setCoins(0);
+                systemUser.setBanstate(0);//0表示未封禁
+                systemUser.setBantype(0);//0表示未封禁
                 usersMapper.insertSelective(systemUser);
                 response.setUserNickname(systemUser.getName());
                 response.setId(systemUser.getId());

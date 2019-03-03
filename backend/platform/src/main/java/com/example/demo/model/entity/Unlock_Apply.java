@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Unlock_Apply {
@@ -13,7 +14,7 @@ public class Unlock_Apply {
 
     private String content;
 
-    private Date time;
+    private Timestamp time;
 
     public Integer getId() {
         return id;
@@ -59,7 +60,7 @@ public class Unlock_Apply {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }
