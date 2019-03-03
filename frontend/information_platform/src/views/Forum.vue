@@ -27,7 +27,7 @@
             </Col>
           </Row>
         </TabPane>
-        <TabPane label="板块" id="la1">
+        <TabPane label="板块">
           <div class="board" v-for="(board,index) in board" :key="board.id">
             <div class="label" @click="jumpPage(board.id)">
               <img :src='board.img' height="50" width="50"/>
@@ -42,9 +42,6 @@
   </div>
 </template>
 <style scoped>
-  #la1{
-    border: 1px solid black;
-  }
   .card{
     border: 1px solid black;
     float: top;
@@ -58,14 +55,8 @@
   }
   .label{
     float: left;
-    width: 33%;
+    width: 50%;
     margin: auto;
-  }
-  .rightback{
-    float: left;
-    position: relative;
-    bottom: 80px;
-    left: 95%;
   }
   .back{
     float: top;
@@ -93,22 +84,22 @@
             {
               id: 1,
               name: '体育',
-              img: './../../static/sport.png'
+              img: '@/../static/sport.png'
             },
             {
               id: 2,
               name: '学术',
-              img: './../../static/study.png'
+              img: '@/../static/study.png'
             },
             {
               id: 3,
               name: '音乐',
-              img: './../../static/music.png'
+              img: '@/../static/music.png'
             },
             {
               id: 4,
               name: '游戏',
-              img: './../../static/game.png'
+              img: '@/../static/game.png'
             }
           ]
         }

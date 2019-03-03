@@ -280,7 +280,7 @@
     from Likes inner join Views V on Likes.view_id = V.id
     where V.tags = #{0}
     group by V.id
-    having count(*) > 50
+    having count(*) > 30
     order by V.time desc
   </select>
 

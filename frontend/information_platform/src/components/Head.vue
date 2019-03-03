@@ -56,8 +56,8 @@
   </div>
 </template>
 <script>
-  import './../assets/headline.png'
-  import './../assets/logo.jpg'
+  import '@/assets/headline.png'
+  import '@/assets/logo.jpg'
   import axios from 'axios'
 
   export default {
@@ -107,10 +107,10 @@
         this.$router.push({path: '/ChangeUserDetail'})
       },
       ifManage(){
-        if (this.$store.state.userId){
+        if(this.$store.state.userId) {
           axios({
-            url:'/ifmanage/'+this.$store.state.userId,
-            method:'get',
+            url: '/ifmanage/' + this.$store.state.userId,
+            method: 'get',
             headers: {
               "Authorization": this.$store.state.token,
               'Content-Type': 'application/json;charset=UTF-8'
@@ -118,7 +118,7 @@
           }).then((response) => {
             console.log(response)
             let res = response.data;
-            if(res.status === "success") {
+            if (res.status === "success") {
               this.ifmanage = res.data.ifmanage;
               console.log(this.ifmanage);
             } else {
