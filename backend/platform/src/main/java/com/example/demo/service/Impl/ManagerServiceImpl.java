@@ -60,23 +60,33 @@ public class ManagerServiceImpl implements ManagerService {
         usersExample.createCriteria().andIdIsNotNull();
         List<Users> usersList=usersMapper.selectByExample(usersExample);
         List<getUserInfoByManager> infoList=new LinkedList<>();
+        if(usersList.isEmpty()==true){
+            return ResultTool.error("用户不存在");
+        }
         for (Users users:usersList){
             getUserInfoByManager info=new getUserInfoByManager();
             info.setUserId(users.getId());
             info.setUserName(users.getName());
             info.setPassword(users.getPassword());
             info.setStatus(users.getBanstate().toString());
-            info.setBanReason(users.getBanreason());
-            info.setDate(users.getBanstart().toString());
-            int state=users.getBantype();
-            if(state==0){
-                info.setStatus("未封禁");
-            }else if(state==1){
-                info.setStatus("互助系统封禁");
-            }else if(state==2){
-                info.setStatus("论坛封禁");
+            if(users.getBanstate()==0){
+                info.setBanType("");
+                info.setBanReason("");
+                info.setDate("");
             }else {
-                info.setStatus("都封禁");
+                info.setBanReason(users.getBanreason());
+                info.setDate(users.getBanstart().toString());
+                int state=0;
+                state=users.getBantype();
+                if(state==0){
+                    info.setStatus("未封禁");
+                }else if(state==1){
+                    info.setStatus("互助系统封禁");
+                }else if(state==2){
+                    info.setStatus("论坛封禁");
+                }else {
+                    info.setStatus("都封禁");
+                }
             }
             infoList.add(info);
         }

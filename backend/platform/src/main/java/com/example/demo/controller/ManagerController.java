@@ -23,6 +23,7 @@ public class ManagerController {
     @GetMapping(value = "/manage/user/{manageid}")
     public Result getUsersInfo(HttpServletRequest httpServletRequest,
                                @PathVariable("manageid") String managerId){
+        System.out.println(managerId);
         String token = httpServletRequest.getHeader("Authorization");
         String id;
         try {
@@ -33,6 +34,7 @@ public class ManagerController {
         if (!managerId.equals(id)){
             return ResultTool.error("登陆状态无效");
         }
+        System.out.println(managerId);
         return managerService.getUserInfo(managerId);
     }
 
