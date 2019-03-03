@@ -56,8 +56,8 @@
   </div>
 </template>
 <script>
-  import './../assets/headline.png'
-  import './../assets/logo.jpg'
+  import '@/assets/headline.png'
+  import '@/assets/logo.jpg'
   import axios from 'axios'
 
   export default {
