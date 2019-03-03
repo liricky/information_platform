@@ -15,4 +15,44 @@ public class banUserByManager {
     String banReason;
     @JsonProperty("forbid_date")
     String banEndDate;
+
+    public String getManageId() {
+        return manageId;
+    }
+
+    public void setManageId(String manageId) {
+        this.manageId = manageId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getBanType() {
+        return banType;
+    }
+
+    public void setBanType(String banType) {
+        this.banType = banType;
+    }
+
+    public String getBanReason() {
+        return banReason;
+    }
+
+    public void setBanReason(String banReason) {
+        this.banReason = banReason;
+    }
+
+    public String getBanEndDate() {
+        return banEndDate;
+    }
+
+    public void setBanEndDate(String banEndDate) {
+        this.banEndDate = banEndDate;
+    }
 }

@@ -9,4 +9,20 @@ public class freeUserByManager {
     String managerId;
     @JsonProperty("id")
     String id;
+
+    public String getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(String managerId) {
+        this.managerId = managerId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

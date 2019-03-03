@@ -81,12 +81,10 @@
             </Card>
           </Col>
         </Row>
-        <Button type="primary" @click="modal1 = true">Display dialog box</Button>
-
         <Modal
           v-model="modal2"
           title="删除回复"
-          @on-ok="ok(msgclick.commentid)"
+          @on-ok="ok2(msgclick.commentid)"
           @on-cancel="cancel2">
           <p>是否删除id：{{msgclick.messageid}}</p>
           <p>内容为：{{msgclick.content}}的回复</p>
@@ -551,7 +549,7 @@
         }
         this.modal2=true;
       },
-      ok (id) {
+      ok2 (id) {
         axios({
           url:'/manage/commentdelete',
           headers: {
@@ -559,7 +557,7 @@
             'Content-Type': 'application/json;charset=UTF-8'
           },
           data:{
-            managerid: this.$store.state.userId,
+            manageid: this.$store.state.userId,
             id:id,
           },
           method:'post'

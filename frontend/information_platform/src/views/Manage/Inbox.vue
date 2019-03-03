@@ -47,7 +47,7 @@
               <div style="min-height: 500px">
                 <Divider orientation="left" class="title"><b>申诉信息</b></Divider>
                 <Collapse>
-                  <Panel v-for="n in msg2" :key="a.title">
+                  <Panel v-for="n in msg2" :key="n.title">
                     <span>{{n.title}}</span><div style="display: inline;position: absolute;left: 50%">申诉人：{{n.report}}</div><div style="display: inline;position: absolute;left: 70%">申诉时间：{{n.date}}</div>
                     <p slot="content">申诉类型：{{n.type}}</p>
                     <p slot="content" style="margin-top: 10px">申诉原因：</p>
@@ -81,6 +81,7 @@
             errormsg1: '',
             flag:false,
             modal1: false,
+            msgclick:{},
           }
       },
       methods:{

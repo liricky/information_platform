@@ -11,7 +11,7 @@
         <Card>
           <div style="min-height: 500px;text-align: left">
             <Collapse style="background: white;width: 90%;margin:0 auto" >
-              <Panel v-for="a in msg":key="a.id">
+              <Panel v-for="a in msg":key="a.missionid">
                 <span >id:{{a.missionid}}</span>
                 <div style="display:inline;position: absolute;left: 20%">发布人id:{{a.authorid}}</div>
                 <div style="display:inline;position: absolute;left: 40%">开始时间：{{a.startdate}}</div>
@@ -21,7 +21,7 @@
                 <Modal
                   v-model="modal1"
                   title="删除任务？"
-                  @on-ok="ok(msgclick.id)"
+                  @on-ok="ok(msgclick.missionid)"
                   @on-cancel="cancel">
                   <p>id:{{msgclick.missionid}}</p>
                   <p>内容:{{msgclick.content}}</p>
@@ -79,8 +79,8 @@
             'Content-Type': 'application/json;charset=UTF-8'
           },
           data:{
-            managerid: this.$store.state.userId,
-            id:id,
+            userid: this.$store.state.userId,
+            missionid:id,
           },
           method:'post'
         }).then((response) => {
@@ -106,7 +106,7 @@
       choose(id){
         var i = 0;
         for(i=0;i<this.msg.length;i++){
-          if(id === this.msg[i].id){
+          if(id === this.msg[i].missionid){
             this.msgclick = this.msg[i];
           }
         }

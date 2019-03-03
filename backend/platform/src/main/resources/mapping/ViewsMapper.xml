@@ -289,7 +289,7 @@
     select
     id,tags,title,puller,time
     from Views
-    where tags = #{0} and time > date_add(now(), interval -7 day)
+    where tags = #{0} and time > date_add(now(), interval -60 day)
     order by time desc
   </select>
 </mapper>

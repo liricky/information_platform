@@ -65,7 +65,7 @@
             </div>
             <br>
             <div id="sendbuttonbox">
-              <button id="sendbutton" type="primary" size="large" @click="sendmessage"><font size="3">发送</font></button>
+              <Button id="sendbutton" type="primary" size="large" @click="sendmessage"><font size="3">发送</font></Button>
             </div>
             <br>
           </div>

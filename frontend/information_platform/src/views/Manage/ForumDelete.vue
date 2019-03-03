@@ -104,10 +104,14 @@
         },
         ok (id) {
           axios({
-            url:'/manage/forum/delete/'+this.$store.state.userId+'/'+id,
+            url:'/manage/forum/delete',
             headers: {
               "Authorization": this.$store.state.token,
               'Content-Type': 'application/json;charset=UTF-8'
+            },
+            data:{
+              manageid: this.$store.state.userId,
+              id:id,
             },
             method:'post'
           }).then((response) => {

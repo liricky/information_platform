@@ -255,14 +255,12 @@ public class HelpServiceImpl implements HelpService {
         if(checkId(publishTask.getUserId())==false){
             return ResultTool.error("用户不存在");
         }
-        Timestamp time;
-        String time_s = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
-        time = Timestamp.valueOf(time_s);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Help item=new Help();
         item.setPuller(publishTask.getUserId());
         item.setTitle("互助系统任务");
         item.setContent(publishTask.getContent());
-        item.setStartTime(time);
+        item.setStartTime(timestamp);
         item.setEndTime(Timestamp.valueOf(publishTask.getEndDate()));
         item.setState(0);
         item.setPusherPhone(publishTask.getPhone());

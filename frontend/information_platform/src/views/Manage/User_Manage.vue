@@ -37,17 +37,19 @@
           </Row>
           <Row style="margin-top: 20px" v-for="n in msg" :key="n.number">
             <Col span="3">
-              <div>{{n.number}}</div>
+              <div>{{n.id}}</div>
             </Col>
             <Col span="2">
               <div>{{n.name}}</div>
             </Col>
             <Col span="2">
-              <div>{{n.status}}</div>
+              <div v-if="n.status == 1">封禁</div>
+              <div v-else>未封禁</div>
             </Col>
             <Col span="3">
-              <div v-if="n.forbid_type != ''">{{n.forbid_type}}</div>
-              <div v-else>无</div>
+              <div v-if="n.forbid_type == '未封禁'">无</div>
+              <div v-else-if="n.forbid_type == ''">无</div>
+              <div v-else>{{n.forbid_type}}</div>
             </Col>
             <Col span="3">
               <div v-if="n.forbid_reason != ''">{{n.forbid_reason}}</div>
@@ -68,10 +70,9 @@
               <Modal
                 v-model="modal1"
                 title="修改密码"
-                @on-ok="ok1(choice.id)"
+                @on-ok="ok1(choice)"
                 @on-cancel="cancel1()">
-                <p>id:{{choice.id}}</p>
-                <p>工号学号：{{choice.number}}</p>
+                <p>id:{{choice}}</p>
                 <Input v-model="value" placeholder="请输入新密码" clearable style="width: 300px;margin-top: 10px" />
               </Modal>
               <Modal
@@ -79,10 +80,9 @@
                 title="封禁/解封"
                 @on-ok="ok2(choice.id)"
                 @on-cancel="cancel2()">
-                <div v-if="choice.status=='封禁'">
+                <div v-if="choice.status == 1">
                   <p>是否解封该用户</p>
                   <p>id:{{choice.id}}</p>
-                  <p>工号学号：{{choice.number}}</p>
                 </div>
                 <div v-else>
                   <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
@@ -170,7 +170,7 @@
                 { required: true, message: 'Please select the type', trigger: 'change' }
               ],
               forbid_date: [
-                { required: true, type: 'date', message: 'Please select the date', trigger: 'change' }
+                { required: true, type: 'string', message: 'Please select the date', trigger: 'change' }
               ],
             },
             msg:[]
@@ -198,13 +198,7 @@
           this.formValidate.forbid_date = date;
         },
         changechoose1(id){
-          var i = 0;
-          for(i=0;i<this.msg.length;i++){
-            if(id === this.msg[i].id){
-              this.choice = this.msg[i];
-              break;
-            }
-          }
+          this.choice = id;
           this.modal1=true;
         },
         changechoose2(id){
@@ -220,9 +214,11 @@
         ok1 (id) {
           axios({
             url:'/manage/user/password',
-            headers: {Authorization: this.$store.state.token},
+            headers: {
+              Authorization: this.$store.state.token,
+              'Content-Type': 'application/json;charset=UTF-8'},
             data:{
-              managerid: this.$store.state.userId,
+              manageid: this.$store.state.userId,
               id:id,
               password:this.value,
             },
@@ -254,16 +250,16 @@
             var i =0;
             for(i=0;i<this.msg.length;i++){
               if(id === this.msg[i].id){
-                if(this.msg[i].status === '未封禁'){
+                if(this.msg[i].status == 0){
                   if(this.formValidate.forbid_date !== '' && this.formValidate.forbid_reason !== '' && this.formValidate.forbid_type !== '') {
-                    axios.post({
+                    axios({
                       url:'/manage/user/forbid',
                       headers: {
                         "Authorization": this.$store.state.token,
                         'Content-Type': 'application/json;charset=UTF-8'
                       },
                       data:{
-                        managerid: this.$store.state.userId,
+                        manageid: this.$store.state.userId,
                         id:id,
                         forbid_type:this.formValidate.forbid_type,
                         forbid_reason:this.formValidate.forbid_reason,
@@ -273,7 +269,7 @@
                     }).then((response) => {
                       let res = response.data;
                       if(res.status === "success") {
-                        this.msg[i].status = '封禁';
+                        this.msg[i].status = 1;
                         this.msg[i].forbid_date = this.formValidate.forbid_date;
                         this.msg[i].forbid_reason = this.formValidate.forbid_reason;
                         this.msg[i].forbid_type = this.formValidate.forbid_type;
@@ -296,10 +292,14 @@
                 else {
                   this.$Message.success('解除封禁成功');
                   axios({
-                    url:'/manage/user/release/'+this.$store.state.userId+'/'+id,
+                    url:'/manage/user/release',
                     headers: {
                       "Authorization": this.$store.state.token,
                       'Content-Type': 'application/json;charset=UTF-8'
+                    },
+                    data:{
+                      manageid:this.$store.state.userId,
+                      id:id
                     },
                     method:'post'
                   }).then((response) => {

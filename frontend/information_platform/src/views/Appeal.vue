@@ -37,7 +37,7 @@
                 <Input class="input" v-model="value2" type="textarea" :rows="20" placeholder="申诉理由" />
                 <br>
                 <br>
-                <button id="sendbutton" type="primary" size="large" @click="sendappeal"><font size="3">发 送</font></button>
+                <Button id="sendbutton" type="primary" size="large" @click="sendappeal"><font size="3">发 送</font></Button>
               </div>
               <br>
             </div>

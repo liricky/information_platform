@@ -129,36 +129,64 @@ public class NoticeServiceImpl implements NoticeService {
         return ResultTool.success(findNoticeInfoList);
     }
 
-    //  查询该管理员发布的所有公告
-    @Override
-    public Result findNoticesByManager(String managerId) {
-        //  先判断是否是管理员
-        ManagersExample managersExample = new ManagersExample();
-        managersExample.createCriteria().andIdEqualTo(managerId);
-        List<Managers> existManger = managersMapper.selectByExample(managersExample);
-        if (existManger.isEmpty() == true) {
-            return ResultTool.error("管理员不存在");
-        }
-
-        NoticesExample noticesExample = new NoticesExample();
-        noticesExample.createCriteria().andPullerEqualTo(managerId);
-        List<Notices> noticesList = noticeMapper.selectByExample(noticesExample);
-        if (noticesList.isEmpty() == true) {
-            return ResultTool.error("该管理员没有发过公告");
-        }
-        List<FindNoticeInfo> findNoticeInfoList = new LinkedList<>();
-        for (Notices notice : noticesList) {
-            FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
-            findNoticeInfo.setTitle(notice.getTitle());
-            findNoticeInfo.setContent(notice.getContent());
-            findNoticeInfo.setType(notice.getType().toString());
-//            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
-            findNoticeInfo.setDate(notice.getTime().toString());
-            findNoticeInfo.setId(notice.getId().toString());
-            findNoticeInfoList.add(findNoticeInfo);
-        }
-        return ResultTool.success(findNoticeInfoList);
+//    //  查询该管理员发布的所有公告
+//    @Override
+//    public Result findNoticesByManager(String managerId) {
+//        //  先判断是否是管理员
+//        ManagersExample managersExample = new ManagersExample();
+//        managersExample.createCriteria().andIdEqualTo(managerId);
+//        List<Managers> existManger = managersMapper.selectByExample(managersExample);
+//        if (existManger.isEmpty() == true) {
+//            return ResultTool.error("管理员不存在");
+//        }
+//
+//        NoticesExample noticesExample = new NoticesExample();
+//        noticesExample.createCriteria().andPullerEqualTo(managerId);
+//        List<Notices> noticesList = noticeMapper.selectByExample(noticesExample);
+//        if (noticesList.isEmpty() == true) {
+//            return ResultTool.error("该管理员没有发过公告");
+//        }
+//        List<FindNoticeInfo> findNoticeInfoList = new LinkedList<>();
+//        for (Notices notice : noticesList) {
+//            FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
+//            findNoticeInfo.setTitle(notice.getTitle());
+//            findNoticeInfo.setContent(notice.getContent());
+//            findNoticeInfo.setType(notice.getType().toString());
+////            findNoticeInfo.setDate(Timestamp.valueOf(notice.getTime().toString()).toString());
+//            findNoticeInfo.setDate(notice.getTime().toString());
+//            findNoticeInfo.setId(notice.getId().toString());
+//            findNoticeInfoList.add(findNoticeInfo);
+//        }
+//        return ResultTool.success(findNoticeInfoList);
+//    }
+@Override
+public Result findNoticesByManager(String managerId) {
+    //  先判断是否是管理员
+    ManagersExample managersExample = new ManagersExample();
+    managersExample.createCriteria().andIdEqualTo(managerId);
+    List<Managers> existManger = managersMapper.selectByExample(managersExample);
+    if (existManger.isEmpty() == true) {
+        return ResultTool.error("管理员不存在");
     }
+    //查询所有公告
+    NoticesExample noticesExample = new NoticesExample();
+    noticesExample.createCriteria().andIdIsNotNull();
+    List<Notices> noticesList = noticeMapper.selectByExample(noticesExample);
+    if (noticesList.isEmpty() == true) {
+        return ResultTool.error("没有公告");
+    }
+    List<FindNoticeInfo> findNoticeInfoList = new LinkedList<>();
+    for (Notices notice : noticesList) {
+        FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
+        findNoticeInfo.setTitle(notice.getTitle());
+        findNoticeInfo.setContent(notice.getContent());
+        findNoticeInfo.setType(notice.getType().toString());
+        findNoticeInfo.setDate(notice.getTime().toString());
+        findNoticeInfo.setId(notice.getId().toString());
+        findNoticeInfoList.add(findNoticeInfo);
+    }
+    return ResultTool.success(findNoticeInfoList);
+}
 
     //  获取最新公告，按照种类分类
     @Override

@@ -22,14 +22,14 @@
                   </Panel>
                 </Collapse>
                 <b class="more">......</b>
-                <Divider orientation="left" class="title"><b>失物启示</b></Divider>
-                <Collapse value="0" style="background: white;width: 80%;margin:0 auto" >
-                  <Panel v-for="(a,index) in a3" v-if="index < 3" :key="a.title">
-                    <span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>
-                    <p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>
-                  </Panel>
-                </Collapse>
-                <b class="more">......</b>
+                <!--<Divider orientation="left" class="title"><b>失物启示</b></Divider>-->
+                <!--<Collapse value="0" style="background: white;width: 80%;margin:0 auto" >-->
+                  <!--<Panel v-for="(a,index) in a3" v-if="index < 3" :key="a.title">-->
+                    <!--<span >{{a.title}}</span><div style="display:inline;position: absolute;left: 60%">{{a.date}}</div>-->
+                    <!--<p slot="content" style="text-align: justify;text-indent:25px">{{a.content}}</p>-->
+                  <!--</Panel>-->
+                <!--</Collapse>-->
+                <!--<b class="more">......</b>-->
               </div>
             </TabPane>
             <TabPane label="系统通知">

@@ -3,10 +3,10 @@
     <tophead></tophead>
     <Row >
       <Layout>
-        <Header  style="height: 200px;background: white">
-          <Carousel loop style="height: 200px" autoplay>
+        <Header  style="height: 300px;background: white">
+          <Carousel loop style="height: 300px" autoplay>
             <CarouselItem>
-              <div class="demo-carousel">1</div>
+              <div class="demo-carousel"><img width="50%" src="@/assets/20190301pic3[1].jpg"/></div>
             </CarouselItem>
             <CarouselItem>
               <div class="demo-carousel">2</div>

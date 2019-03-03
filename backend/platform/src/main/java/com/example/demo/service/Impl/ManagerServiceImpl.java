@@ -288,11 +288,11 @@ public class ManagerServiceImpl implements ManagerService {
         Users users=new Users();
         users.setId(banUserByManager.getId());
         users.setBanstate(1);
-        if(banUserByManager.equals("论坛封禁")){
+        if(banUserByManager.getBanType().equals("论坛封禁")){
             users.setBantype(2);
-        }else if(banUserByManager.equals("任务封禁")){
+        }else if(banUserByManager.getBanType().equals("任务封禁")){
             users.setBantype(1);
-        }else{
+        }else if(banUserByManager.getBanType().equals("都封禁")){
             users.setBantype(3);
         }
         Timestamp now=new Timestamp(System.currentTimeMillis());//获取当前时间

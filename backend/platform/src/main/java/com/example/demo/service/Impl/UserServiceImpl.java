@@ -351,6 +351,9 @@ public class UserServiceImpl implements UserService {
             return ResultTool.error("要删除的帖子不存在！");
         } else{
             try {
+                CommentsExample commentsExample = new CommentsExample();
+                commentsExample.createCriteria().andViewIdEqualTo(userDeletePost.getPostid());
+                commentsMapper.deleteByExample(commentsExample);
                 viewsMapper.deleteByPrimaryKey(userDeletePost.getPostid());
             } catch (Exception e){
                 return ResultTool.error("删除帖子出错！");

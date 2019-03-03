@@ -33,7 +33,8 @@
     <div class="center1">
       <Tabs type="card" id="cardbox">
         <TabPane label="历史发帖">
-          <Row class="cardbox" style="background:#eee;padding:20px">
+          <h2 v-if="this.sendpost.length === 0">尚无历史发帖</h2>
+          <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.sendpost.length > 0">
             <Col class="cardcol" span="25" v-for="(sendpost,index) in sendpost" :key="sendpost.postid">
               <div @click="jumpDetail(sendpost.postid)">
                 <Icon type="md-trash" size="25" @click="deletepost(sendpost.postid)"/>
@@ -46,7 +47,8 @@
           </Row>
         </TabPane>
         <TabPane label="历史回帖">
-          <Row class="cardbox" style="background:#eee;padding:20px">
+          <h2 v-if="this.replypost.length === 0">尚无历史回帖</h2>
+          <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.replypost.length > 0">
             <Col class="cardcol" span="25" v-for="(replypost,index) in replypost" :key="replypost.id">
               <div @click="jumpDetail(replypost.postid)">
                 <Icon type="md-trash" size="25" @click="deletecomment(replypost.id)"/>
