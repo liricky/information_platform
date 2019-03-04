@@ -3,32 +3,36 @@
     <tophead></tophead>
     <!--<h1>{{user.id}}</h1>-->
     <div class="center">
-      <font size="4">用户id： {{user.id}}</font>
-      <br>
-      <font size="4">用户积分： {{user.point}}</font>
-      <br>
-      <nobr>
-        <font size="4">用户昵称： </font>
-        <Input class="input" v-model="value1" size="large" placeholder="用户昵称" />
-      </nobr>
-      <br>
-      <nobr>
-        <font size="4">原用户密码： </font>
-        <Input class="input" v-model="value2" size="large" placeholder="原用户密码" type="password"/>
-      </nobr>
-      <br>
-      <nobr>
-        <font size="4">新用户密码： </font>
-        <Input class="input" v-model="value3" size="large" placeholder="新用户密码" type="password"/>
-      </nobr>
-      <br>
-      <nobr>
-        <font size="4">确认新用户密码： </font>
-        <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" type="password"/>
-      </nobr>
-      <br>
-      <Button type="primary" size="large" @click="set">确认修改</Button>
+      <div class="box">
+        <div class="leftinfo">
+          <font size="4">用户id：</font>
+          <br>
+          <font size="4">用户积分：</font>
+          <br>
+          <font size="4">用户昵称： </font>
+          <br>
+          <font size="4">原用户密码： </font>
+          <br>
+          <font size="4">新用户密码： </font>
+          <br>
+          <font size="4">确认新用户密码： </font>
+        </div>
+        <div class="rightinfo">
+          <font size="4">{{user.id}}</font>
+          <br>
+          <font size="4">{{user.point}}</font>
+          <br>
+          <Input class="input" v-model="value1" size="large" placeholder="用户昵称" />
+          <br>
+          <Input class="input" v-model="value2" size="large" placeholder="原用户密码" type="password"/>
+          <br>
+          <Input class="input" v-model="value3" size="large" placeholder="新用户密码" type="password"/>
+          <br>
+          <Input class="input" v-model="value4" size="large" placeholder="确认新用户密码" type="password"/>
+        </div>
+      </div>
     </div>
+    <Button type="primary" size="large" @click="set">确认修改</Button>
     <br>
     <div class="center1">
       <Tabs type="card" id="cardbox">
@@ -69,7 +73,7 @@
 <style scoped>
   .center{
     width: 20%;
-    margin: auto;
+    margin: 0 auto;
   }
   .card{
     margin: auto;
@@ -88,6 +92,19 @@
   }
   .fill{
     height: 120px;
+  }
+  .leftinfo{
+    text-align: left;
+    width: 50%;
+  }
+  .rightinfo{
+    text-align: left;
+    width: 40%;
+  }
+  .box{
+    display: flex;
+    position: relative;
+    transform: translate(0, -5%);
   }
 </style>
 <script>
