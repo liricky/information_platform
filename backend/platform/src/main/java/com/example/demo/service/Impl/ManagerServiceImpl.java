@@ -188,16 +188,25 @@ public class ManagerServiceImpl implements ManagerService {
             }else if(alarm.getAlarmType()==2){
                 info.setType("评论举报");
                 info.setMessageId(alarm.getCommendId().toString());
+                info.setContent(getCommentsContent(alarm.getCommendId()));
             }else {
                 info.setType("互助系统举报");
                 info.setMessageId(alarm.getTaskId().toString());
             }
             info.setReason(alarm.getReason());
-            info.setContent(alarm.getReason());
+//            info.setContent(alarm.getReason());
 
             infoList.add(info);
         }
         return ResultTool.success(infoList);
+    }
+
+    //  根据id查找评论内容
+    private String getCommentsContent(int id){
+//        CommentsExample commentsExample=new CommentsExample();
+//        commentsExample.createCriteria().andIdEqualTo(id);
+        Comments coomm=commentsMapper.selectByPrimaryKey(id);
+        return coomm.getContent();
     }
 
     @Override

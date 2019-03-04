@@ -60,8 +60,10 @@ public class ManagerController {
                                @PathVariable("manageid") String managerId){
         String token = httpServletRequest.getHeader("Authorization");
         String id;
+        System.out.println("ID"+managerId);
         try {
             id= JwtUtil.parseJwt(token);
+            System.out.println("ID"+id);
         }catch (Exception e){
             return ResultTool.error("登陆状态无效");
         }
