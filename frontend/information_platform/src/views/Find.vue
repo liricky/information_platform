@@ -13,7 +13,7 @@
         </RadioGroup>
         <Input v-model="value" placeholder="请输入信息" />
         <Button type="primary" size="large" @click="search"><font size="3">搜索</font></Button>
-        <Row class="cardbox" style="background:#eee;padding:20px">
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.msg.length > 0">
           <Col class="cardcol" span="25" v-for="(msg,index) in msg" :key="msg.id">
             <div @click=jumpUserDetail(msg.id)>
               <Card class="card" :bordered="true">
