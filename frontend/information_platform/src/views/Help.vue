@@ -315,9 +315,13 @@
                   x++;
                 }
               } else {
-                this.status5 = res.status;
-                this.errormsg5 = res.message;
-                this.$Message.info('认领失败： ' + this.errormsg5);
+                if(res.message === '无权接受任务')
+                  this.$Message.info('认领失败： 你已被对方拉入黑名单！');
+                else {
+                  this.status5 = res.status;
+                  this.errormsg5 = res.message;
+                  this.$Message.info('认领失败： ' + this.errormsg5);
+                }
               }
             });
           }

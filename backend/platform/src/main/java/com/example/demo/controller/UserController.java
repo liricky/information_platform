@@ -69,6 +69,21 @@ public class UserController {
 //        return userService.addToBlackList(blaclList);
 //    }
 
+    @RequestMapping(value = "/user/deletefriend",method = RequestMethod.POST)
+    public Result userDeleteFriend(HttpServletRequest httpServletRequest,@RequestBody addFriend addFriend){
+        String token = httpServletRequest.getHeader("Authorization");
+        String userId;
+        try{
+            userId = JwtUtil.parseJwt(token);
+        }catch (Exception e){
+            return ResultTool.error("登录状态无效");
+        }
+        if (!userId.equals(addFriend.getUserId())) {
+            return ResultTool.error("登陆状态无效");
+        }
+        return userService.userDeleteFriend(addFriend);
+    }
+
     @RequestMapping(value = "/user/addblacklist",method = RequestMethod.POST)
     public Result addToBlackList(HttpServletRequest httpServletRequest,@RequestBody addToBlackList blaclList){
         String token = httpServletRequest.getHeader("Authorization");

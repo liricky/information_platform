@@ -50,7 +50,7 @@
           <font size="6" v-if="status3 === 'fail'">{{errormsg3}}</font>
           <div class="leftback">
             <RadioGroup v-model="sendto" class="radiogroup" vertical v-if="status3 === 'success'">
-              <Radio class="sendperson" v-for="friend in friend" :key="friend.userid">
+              <Radio class="sendperson" v-for="friend in friend" :key="friend.userid" :label="friend.userid">
                 <Icon class="icon" type="md-person" size="20"></Icon>
                 <span><font size="5px">{{friend.usernickname}}</font></span>
               </Radio>

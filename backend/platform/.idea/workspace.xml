@@ -2,54 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c2d25d9-0250-44ce-9983-eb3326a4c1f3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/allHelpTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/allHelpTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/banUserByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/banUserByManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteViewByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/deleteViewByManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/freeUserByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/freeUserByManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getAlarmInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getAlarmInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getApplyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getApplyInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getUserInfoByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getUserInfoByManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getViewsByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getViewsByManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/modifyPasswordByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/modifyPasswordByManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ManagerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/ForumController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/HelperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/HelperController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/LostFindController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/LostFindController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/NoticeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/NoticeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Alarm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Alarm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Help.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Lostlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Lostlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Notices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Notices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_Apply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Unlock_Apply.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/entity/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/AppealSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/AppealSend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/LostAFoundDelete.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/LostAFoundDelete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/LostAFoundPublish.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/LostAFoundPublish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ReportCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/ReportCreate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/allHelpTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/allHelpTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/banUserByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/banUserByManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/changeHelpState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/changeHelpState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/claimTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/claimTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/deleteViewByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/deleteViewByManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/finishedHelp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/finishedHelp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/freeUserByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/freeUserByManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getAlarmInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getAlarmInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getApplyInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getApplyInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getUserInfoByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getUserInfoByManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getViewsByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/getViewsByManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/modifyPasswordByManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/modifyPasswordByManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/publishTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/publishTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/unclaimHelp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/jsonRequest/unclaimHelp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/AppealGet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/AppealGet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/AppealGetDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/ov/AppealGetDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/ForumServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/HelpServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/HelpServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/LostFindServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/LostFindServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/ManagerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/NoticeServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/Impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapping/ViewsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapping/ViewsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Announcement.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/AnnouncementDate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Appeal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Appeal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/ChangeUserDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/ChangeUserDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/ForumDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/ForumDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Forum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Forum.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/ForumDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/ForumDelete.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/HelpDelete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/HelpDelete.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/Inbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/Inbox.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/User_Manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Manage/User_Manage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/Message.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/information_platform/src/views/UserDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/information_platform/src/views/UserDetail.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +80,129 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="platform" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Alarm: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Ban_Reasons: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Blacklist: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Comments: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Friends: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Help: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Likes: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Lostlist: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Managers: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Notices: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Private_Charts: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Tag_Users: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Tags: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Unlock_Apply: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Users: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="platform" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="platform_2: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="Views: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -80,10 +212,11 @@
         <counts>
           <entry key="Alarm" value="1" />
           <entry key="Ban_Reasons" value="1" />
-          <entry key="Blacklist" value="5" />
-          <entry key="Comments" value="7" />
-          <entry key="Friends" value="5" />
-          <entry key="Likes" value="22" />
+          <entry key="Blacklist" value="7" />
+          <entry key="Comments" value="8" />
+          <entry key="Friends" value="6" />
+          <entry key="Help" value="1" />
+          <entry key="Likes" value="23" />
           <entry key="Lostlist" value="2" />
           <entry key="Managers" value="2" />
           <entry key="Notices" value="6" />
@@ -93,7 +226,7 @@
           <entry key="Users" value="18" />
           <entry key="Views" value="8" />
           <entry key="class" value="2" />
-          <entry key="java" value="273" />
+          <entry key="java" value="283" />
           <entry key="sql" value="11" />
           <entry key="xml" value="59" />
           <entry key="yml" value="3" />
@@ -102,8 +235,8 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="Database Element" value="112" />
-          <entry key="JAVA" value="273" />
+          <entry key="Database Element" value="118" />
+          <entry key="JAVA" value="283" />
           <entry key="Scratch" value="11" />
           <entry key="XML" value="59" />
           <entry key="YAML" value="3" />
@@ -111,7 +244,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="15103" />
+          <entry key="java" value="15729" />
           <entry key="sql" value="1878" />
           <entry key="xml" value="343" />
           <entry key="yml" value="1" />
@@ -119,7 +252,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15103" />
+          <entry key="JAVA" value="15729" />
           <entry key="Scratch" value="1878" />
           <entry key="XML" value="343" />
           <entry key="YAML" value="1" />
@@ -136,107 +269,68 @@
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="changeHelpState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/changeHelpState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="19" column="28" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="28" />
-              <folding>
-                <element signature="e#458#459#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ManagerServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="245" column="10" lean-forward="true" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoticeService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/NoticeService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" selection-start-column="33" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoticeServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1141">
-              <caret line="188" column="1" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageServiceImpl.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="76" />
+            <state relative-caret-position="228">
+              <caret line="61" column="31" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskThread.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.14/tomcat-embed-core-9.0.14.jar!/org/apache/tomcat/util/threads/TaskThread.class">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="343">
+              <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelpServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="262" column="35" selection-start-line="262" selection-start-column="35" selection-end-line="262" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewsMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="949">
-              <caret line="294" column="9" lean-forward="true" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="335" column="38" lean-forward="true" selection-start-line="335" selection-start-column="38" selection-end-line="335" selection-end-column="38" />
+            <state relative-caret-position="304">
+              <caret line="341" column="40" lean-forward="true" selection-start-line="337" selection-start-column="8" selection-end-line="341" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/ManagerController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="107" column="39" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+            <state relative-caret-position="181">
+              <caret line="213" column="52" lean-forward="true" selection-start-line="213" selection-start-column="52" selection-end-line="213" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Blacklist">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Help">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -294,8 +388,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Model/jsonRequest/unclaimHelp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/loginUser.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/response/TokenResponse.java" />
@@ -312,7 +404,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/EditPwd.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserShowMyself.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/UserSetMyself.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/UsersMapper.xml" />
@@ -322,9 +413,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/LostAFoundMyBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/LostFindServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/LostFindController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/IfManage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/unclaimHelp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java" />
@@ -342,9 +431,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/getApplyInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ManagerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/UserGetUserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -383,13 +477,9 @@
       <select />
     </treeState>
   </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="width" value="960" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -417,7 +507,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -459,6 +548,25 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="jsonRequest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="platform" type="b2602c69:ProjectViewProjectNode" />
@@ -518,8 +626,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -530,7 +639,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551166904860" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551663541296" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -584,6 +693,7 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
+      <method v="2" />
     </configuration>
     <configuration name="DemoApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="platform" />
@@ -595,6 +705,9 @@
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Maven.generator" />
@@ -666,85 +779,87 @@
       <workItem from="1551363583623" duration="1546000" />
       <workItem from="1551608344612" duration="3648000" />
       <workItem from="1551616882881" duration="3124000" />
+      <workItem from="1551658538989" duration="4908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175263000" />
+    <option name="totallyTimeSpent" value="180171000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="424" y="140" width="980" height="810" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50130206" side_tool="true" weight="0.33972603" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32743362" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.16601562" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37259102" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39863014" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.3260274" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.098726116" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986979" weight="0.32739726" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986979" visible="true" weight="0.4576523" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39863014" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24609375" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3299712" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.18557794" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50130206" side_tool="true" weight="0.33972603" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.098726116" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Maven" order="10" weight="0.3299712" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3260274" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.18557794" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32743362" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.33190578" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3299712" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.3299712" />
     </layout>
     <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21878335" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Database Console" order="0" weight="0.056203604" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.4988938" visible="true" weight="0.20148462" />
-      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5011062" side_tool="true" weight="0.32979852" />
-      <window_info anchor="bottom" id="Messages" order="1" weight="0.32979852" />
-      <window_info anchor="bottom" id="TODO" order="8" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.056203604" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32979852" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.4988938" visible="true" weight="0.20148462" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Spring" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5011062" side_tool="true" weight="0.32979852" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32817504" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21878335" />
       <window_info anchor="right" id="Database" order="6" weight="0.24386339" />
-      <window_info anchor="bottom" id="Message" order="2" />
-      <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="3" />
       <window_info anchor="right" id="Bean Validation" order="9" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -759,51 +874,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/userRelationship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/UsersMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UsersMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3629">
-          <caret line="191" column="9" selection-start-line="191" selection-start-column="3" selection-end-line="191" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Friends" />
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Blacklist" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Users" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/NoticeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/entity/Notices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Managers" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/LostAFoundBoard.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -840,13 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -902,26 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/finishedHelp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -954,13 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7372">
-          <caret line="407" column="5" selection-start-line="407" selection-start-column="5" selection-end-line="407" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/LostFindController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -972,31 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-349">
           <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-          <folding>
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#849#850#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#918#919#0" expanded="true" />
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1302#1303#0" expanded="true" />
-            <element signature="e#1340#1341#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1125,27 +1136,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-          <folding>
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#794#795#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1210,13 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3325">
-          <caret line="184" column="9" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/HelperController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3838">
@@ -1235,31 +1218,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="949">
-          <caret line="294" column="9" lean-forward="true" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="335" column="38" lean-forward="true" selection-start-line="335" selection-start-column="38" selection-end-line="335" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="107" column="39" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ManagerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="245" column="10" lean-forward="true" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
+        <state relative-caret-position="4446">
+          <caret line="245" column="10" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1270,31 +1232,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.14/tomcat-embed-core-9.0.14.jar!/org/apache/tomcat/util/threads/TaskThread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/NoticeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1141">
-          <caret line="188" column="1" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
+        <state relative-caret-position="3211">
+          <caret line="216" column="1" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.14/tomcat-embed-core-9.0.14.jar!/org/apache/tomcat/util/threads/TaskThread.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="107" column="39" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.14/tomcat-embed-core-9.0.14-sources.jar!/org/apache/tomcat/util/threads/TaskThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ViewsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="294" column="9" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Likes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/ForumServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="970">
+          <caret line="407" column="5" selection-start-line="407" selection-start-column="5" selection-end-line="407" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Comments">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/addFriend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/ov/UserGetUserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/UserGetUserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="81" column="46" lean-forward="true" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Friends">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="341" column="40" lean-forward="true" selection-start-line="337" selection-start-column="8" selection-end-line="341" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/jsonRequest/claimTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Blacklist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/HelpServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="262" column="35" selection-start-line="262" selection-start-column="35" selection-end-line="262" selection-end-column="35" />
+        <state relative-caret-position="181">
+          <caret line="213" column="52" lean-forward="true" selection-start-line="213" selection-start-column="52" selection-end-line="213" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a9b87c4-ef3d-4368-bf75-e505f5912d4f/schema/platform_2/table/Help">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/Impl/MessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="61" column="31" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
         </state>
       </provider>
     </entry>

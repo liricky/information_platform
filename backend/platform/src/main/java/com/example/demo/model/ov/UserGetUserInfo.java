@@ -11,6 +11,8 @@ public class UserGetUserInfo {
     String usernickname;
     @JsonProperty("userpoint")
     Integer userPoint;
+    @JsonProperty("relationship")
+    String relationship;
 
     public String getUserid() {
         return userid;
@@ -34,5 +36,13 @@ public class UserGetUserInfo {
 
     public void setUserPoint(Integer userPoint) {
         this.userPoint = userPoint;
+    }
+
+    public String getRelationship() {
+        return relationship;
+    }
+
+    public void setRelationship(String relationship) {
+        this.relationship = relationship;
     }
 }

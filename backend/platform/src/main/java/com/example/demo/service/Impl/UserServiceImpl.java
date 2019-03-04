@@ -5,6 +5,7 @@ import com.example.demo.dao.*;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.*;
 import com.example.demo.model.ov.*;
+import com.example.demo.model.ov.UserGetUserInfo;
 import com.example.demo.response.TokenResponse;
 import com.example.demo.service.UserService;
 import com.example.demo.tools.*;
@@ -249,36 +250,52 @@ public class UserServiceImpl implements UserService {
             return ResultTool.error("用户不存在");
         }
 
-        FriendsExample friendsExample = new FriendsExample();
-        friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
-        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
-        if(!friendsList.isEmpty())
-            return ResultTool.success();
-
         BlacklistExample blacklistExample = new BlacklistExample();
         blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
         List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
         if (!blacklists.isEmpty()) {
             blacklistMapper.deleteByExample(blacklistExample);
         }
-        BlacklistExample blacklistExample1 = new BlacklistExample();
-        blacklistExample1.createCriteria().andUseraEqualTo(userIdB).andUserbEqualTo(userIdA);
-        List<Blacklist> blacklists1 = blacklistMapper.selectByExample(blacklistExample1);
-        if (!blacklists1.isEmpty()) {
-            blacklistMapper.deleteByExample(blacklistExample1);
-        }
+
+        FriendsExample friendsExample = new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
+        if(!friendsList.isEmpty())
+            return ResultTool.success();
 
         Friends friend = new Friends();
         friend.setUsera(userIdA);
         friend.setUserb(userIdB);
         friendsMapper.insert(friend);
 
-        userIdB = addFriend.getUserId();
-        userIdA = addFriend.getFriendId();
-        Friends friend1 = new Friends();
-        friend.setUsera(userIdA);
-        friend.setUserb(userIdB);
-        friendsMapper.insert(friend);
+        return ResultTool.success();
+    }
+
+    //  删除好友
+    @Override
+    public Result userDeleteFriend(addFriend addFriend) {
+        String userIdA = addFriend.getUserId();
+        String userIdB = addFriend.getFriendId();
+        //先判断要加的好友是否存在
+        UsersExample usersExample = new UsersExample();
+        usersExample.createCriteria().andIdEqualTo(userIdB);
+        List<Users> usersList = usersMapper.selectByExample(usersExample);
+        if (usersList.isEmpty() == true) {
+            return ResultTool.error("用户不存在");
+        }
+        //先判断要加的好友是否存在
+        UsersExample usersExample1 = new UsersExample();
+        usersExample1.createCriteria().andIdEqualTo(userIdA);
+        List<Users> usersList1 = usersMapper.selectByExample(usersExample);
+        if (usersList1.isEmpty() == true) {
+            return ResultTool.error("用户不存在");
+        }
+
+        FriendsExample friendsExample = new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
+        if(!friendsList.isEmpty())
+            friendsMapper.deleteByExample(friendsExample);
         return ResultTool.success();
     }
 
@@ -310,12 +327,6 @@ public class UserServiceImpl implements UserService {
             return ResultTool.error("用户不存在");
         }
 
-        BlacklistExample blacklistExample = new BlacklistExample();
-        blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
-        List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
-        if(!blacklists.isEmpty())
-            return ResultTool.success();
-
         //  先判断是否在该用户好友列表中
         FriendsExample friendsExample = new FriendsExample();
         friendsExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
@@ -323,19 +334,17 @@ public class UserServiceImpl implements UserService {
         if (!friendsList.isEmpty()) {
             friendsMapper.deleteByExample(friendsExample);
         }
-        FriendsExample friendsExample1 = new FriendsExample();
-        friendsExample1.createCriteria().andUseraEqualTo(userIdB).andUserbEqualTo(userIdA);
-        List<Friends> friendsList1 = friendsMapper.selectByExample(friendsExample1);
-        if (!friendsList1.isEmpty()) {
-            friendsMapper.deleteByExample(friendsExample1);
-        }
+
+        BlacklistExample blacklistExample = new BlacklistExample();
+        blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
+        if(!blacklists.isEmpty())
+            return ResultTool.success();
+
         //  加入黑名单
         Blacklist black = new Blacklist();
         black.setUsera(userIdA);
         black.setUserb(userIdB);
-        blacklistMapper.insert(black);
-        black.setUsera(userIdB);
-        black.setUserb(userIdA);
         blacklistMapper.insert(black);
         return ResultTool.success();
 

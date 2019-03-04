@@ -47,4 +47,6 @@ public interface UserService {
     Result appealGet(String userId);
 
     Result appealGetDetail(String userid);
+
+    Result userDeleteFriend(addFriend addFriend);
 }

@@ -1,12 +1,10 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.dao.HelpMapper;
-import com.example.demo.dao.UsersMapper;
+import com.example.demo.dao.*;
 import com.example.demo.model.entity.Help;
 import com.example.demo.model.entity.HelpExample;
 import com.example.demo.model.entity.Users;
 import com.example.demo.model.entity.UsersExample;
-import com.example.demo.dao.ManagersMapper;
 import com.example.demo.dao.UsersMapper;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.*;
@@ -34,6 +32,9 @@ public class HelpServiceImpl implements HelpService {
 
     @Resource
     private ManagersMapper managersMapper;
+
+    @Resource
+    private BlacklistMapper blacklistMapper;
 
     //  状态0=未认领 1=已经认领但是未完成 2=一方完成 3=两方完成
     //  获取互助系统未认领任务接口
@@ -212,6 +213,13 @@ public class HelpServiceImpl implements HelpService {
         if(check.getPuller().equals(claimTask.getUserId())){
             return ResultTool.error("您不能认领自己发布的任务");
         }
+
+        BlacklistExample blacklistExample = new BlacklistExample();
+        blacklistExample.createCriteria().andUseraEqualTo(check.getPuller()).andUserbEqualTo(claimTask.getUserId());
+        List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);
+        if(!blacklists.isEmpty())
+            return ResultTool.error("无权接受任务");
+
         //  更新数据库
         Help item=new Help();
         item.setId(missionId);

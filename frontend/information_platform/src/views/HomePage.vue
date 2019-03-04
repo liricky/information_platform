@@ -6,7 +6,10 @@
         <Header  style="height: 300px;background: white">
           <Carousel loop style="height: 300px" autoplay>
             <CarouselItem>
-              <div class="demo-carousel"><img width="50%" src="@/assets/20190301pic3[1].jpg"/></div>
+              <div class="demo-carousel">
+                <!--<img width="50%" src="@/assets/20190301pic3[1].jpg"/>-->
+                1
+              </div>
             </CarouselItem>
             <CarouselItem>
               <div class="demo-carousel">2</div>
