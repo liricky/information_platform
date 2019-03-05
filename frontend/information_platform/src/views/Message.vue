@@ -17,7 +17,8 @@
             <DropdownItem name="all"><font size="2px">全部信息</font></DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <Row class="cardbox" style="background:#eee;padding:20px" v-if="status1 === 'success'">
+        <h2 v-if="this.msg.length === 0">暂时没有新的私信</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.msg.length > 0">
           <Col class="cardcol" span="25" v-for="msg in msg" :key="msg.messageid">
             <div @click=show(msg.messageid)  v-if="check === 0">
               <Card class="card" :bordered="true" v-if="1">
@@ -75,7 +76,8 @@
         <!--<font size="10" v-if="status2 === 'fail'">信息获取失败</font>-->
         <!--<br>-->
         <font size="6" v-if="status2 === 'fail'">{{errormsg2}}</font>
-        <Row class="cardbox" style="background:#eee;padding:20px" v-if="status2 === 'success'">
+        <h2 v-if="this.rev.length === 0">暂时没有已发送的信息</h2>
+        <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.rev.length > 0">
           <Col class="cardcol" span="25" v-for="rev in rev" :key="rev.messageid">
             <div @click=show(rev.messageid)>
               <Card class="card" :bordered="true">
