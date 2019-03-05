@@ -250,6 +250,13 @@ public class UserServiceImpl implements UserService {
             return ResultTool.error("用户不存在");
         }
 
+        //好友不可以重复添加
+        FriendsExample ex=new FriendsExample();
+        ex.createCriteria().andUserbEqualTo(userIdA).andUserbEqualTo(userIdB);
+        List<Friends> list=friendsMapper.selectByExample(ex);
+        if(list.isEmpty()==false){
+            return ResultTool.error("该用户已经在您的列表中");
+        }
         BlacklistExample blacklistExample = new BlacklistExample();
         blacklistExample.createCriteria().andUseraEqualTo(userIdA).andUserbEqualTo(userIdB);
         List<Blacklist> blacklists = blacklistMapper.selectByExample(blacklistExample);

@@ -220,14 +220,22 @@ public class HelpServiceImpl implements HelpService {
         if(!blacklists.isEmpty())
             return ResultTool.error("无权接受任务");
 
-        //  更新数据库
-        Help item=new Help();
-        item.setId(missionId);
-        item.setReceiver(claimTask.getUserId());
-        item.setReceiverPhone(claimTask.getPhone());
-        item.setState(1);
-        helpMapper.updateByPrimaryKeySelective(item);//修改数据库记录
-        addCoins(claimTask.getUserId(),10);
+        Help check_1=new Help();
+        check_1=helpMapper.selectByPrimaryKey(missionId);
+        if(check_1.getOthers()==null||check_1.getOthers().equals(claimTask.getUserId())==false){
+            //  更新数据库
+            Help item=new Help();
+            item.setId(missionId);
+            item.setReceiver(claimTask.getUserId());
+            item.setReceiverPhone(claimTask.getPhone());
+            item.setState(1);
+            item.setOthers(claimTask.getUserId());
+            helpMapper.updateByPrimaryKeySelective(item);//修改数据库记录
+            addCoins(claimTask.getUserId(),10);
+        }else {
+            return ResultTool.error("您不能重复选择完成");
+        }
+
         return ResultTool.success();
     }
 
