@@ -96,6 +96,34 @@ public class ManagerServiceImpl implements ManagerService {
         return ResultTool.success(infoList);
     }
 
+//    @Override
+//    public Result freeUsers(freeUserByManager freeUserByManager) {
+//        //  验证管理员身份
+//        if(checkManager(freeUserByManager.getManagerId())==false){
+//            return ResultTool.error("管理员身份不合法");
+//        }
+//        //  查看用户是否存在
+//        Users users=usersMapper.selectByPrimaryKey(freeUserByManager.getId());
+//        if(users==null){
+//            return ResultTool.error("用户不存在");
+//        }
+//        Users record=new Users();
+//        record.setId(freeUserByManager.getId());
+//        record.setBanstate(0);
+//        record.setBanreason(null);
+//        record.setBanstart(null);
+//        record.setBanend(null);
+//        record.setBantype(0);
+//        usersMapper.updateByPrimaryKeySelective(record);
+//        return ResultTool.success();
+//    }
+
+    //  获取标签内容
+    private String getTagContent(int id){
+        Tags tag=tagsMapper.selectByPrimaryKey(id);
+        return tag.getContent();
+    }
+
     @Override
     public Result freeUsers(freeUserByManager freeUserByManager) {
         //  验证管理员身份
@@ -115,13 +143,12 @@ public class ManagerServiceImpl implements ManagerService {
         record.setBanend(null);
         record.setBantype(0);
         usersMapper.updateByPrimaryKeySelective(record);
-        return ResultTool.success();
-    }
 
-    //  获取标签内容
-    private String getTagContent(int id){
-        Tags tag=tagsMapper.selectByPrimaryKey(id);
-        return tag.getContent();
+        //  banReason删除记录
+        Ban_ReasonsExample ban_reasonsExample=new Ban_ReasonsExample();
+        ban_reasonsExample.createCriteria().andBannedIdEqualTo(freeUserByManager.getId());
+        ban_reasonsMapper.deleteByExample(ban_reasonsExample);
+        return ResultTool.success();
     }
 
     @Override

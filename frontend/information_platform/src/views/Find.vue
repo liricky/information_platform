@@ -7,11 +7,14 @@
           <Radio label=0>
             <span><font size="5px">用户昵称</font></span>
           </Radio>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Radio label=1>
             <span><font size="5px">用户id</font></span>
           </Radio>
         </RadioGroup>
+        <div class="fill1"><font color="white">1</font></div>
         <Input v-model="value" placeholder="请输入信息" />
+        <div class="fill1"><font color="white">1</font></div>
         <Button type="primary" size="large" @click="search"><font size="3">搜索</font></Button>
         <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.msg.length > 0">
           <Col class="cardcol" span="25" v-for="(msg,index) in msg" :key="msg.id">
@@ -43,6 +46,9 @@
   }
   .fill{
     height: 120px;
+  }
+  .fill1{
+    height: 5%;
   }
 </style>
 <script>
