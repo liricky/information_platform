@@ -62,7 +62,7 @@
             <Card class="card" :bordered="true">
               <div class="comment">
 
-                <Icon class="flag" type="ios-flag" size="30" v-if="!ifmanage" @click="jumpToReport2(hotreply.commentid,hotreply.author)"/>
+                <Icon class="flag" type="ios-flag" size="30" v-if="!ifmanage" @click="jumpToReport2(reply.commentid,reply.author)"/>
                 <Icon class="flag" type="md-close" size="30" v-else @click="choose(reply.commentid)"/>
 
                 <font size="4" @click="jumpUserDetail(reply.author)">by: {{reply.author}} {{reply.authornickname}}</font>

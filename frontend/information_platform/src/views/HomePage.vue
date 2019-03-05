@@ -3,19 +3,18 @@
     <tophead></tophead>
     <Row >
       <Layout>
-        <Header  style="height: 300px;background: white">
-          <Carousel loop style="height: 300px" autoplay>
+        <Header  style="height: 30%;background: white">
+          <Carousel  style="height: 100%" autoplay>
             <CarouselItem>
               <div class="demo-carousel">
-                <!--<img width="50%" src="@/assets/20190301pic3[1].jpg"/>-->
-                1
+                <img width="50%" src="@/assets/picture1.jpg"/>
               </div>
             </CarouselItem>
             <CarouselItem>
-              <div class="demo-carousel">2</div>
+              <img width="50%" src="@/assets/picture2.jpg"/>
             </CarouselItem>
             <CarouselItem>
-              <div class="demo-carousel">3</div>
+              <img width="50%" src="@/assets/picture3.jpg"/>
             </CarouselItem>
           </Carousel>
         </Header>

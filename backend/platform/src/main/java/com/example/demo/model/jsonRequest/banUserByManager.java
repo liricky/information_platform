@@ -15,6 +15,8 @@ public class banUserByManager {
     String banReason;
     @JsonProperty("forbid_date")
     String banEndDate;
+    @JsonProperty("alarm_id")
+    String alarmId;
 
     public String getManageId() {
         return manageId;

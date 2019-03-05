@@ -93,6 +93,9 @@
                         <Option value="都封禁">都封禁</Option>
                       </Select>
                     </FormItem>
+                    <FormItem label="相关举报id" prop="forbid_id">
+                      <Input v-model="formValidate.forbid_id" placeholder="相关举报id" @on-focus="clearForbidId()"></Input>
+                    </FormItem>
                     <FormItem label="封禁原因" prop="forbid_reason">
                       <Input v-model="formValidate.forbid_reason" placeholder="封禁原因"></Input>
                     </FormItem>
@@ -125,6 +128,7 @@
             modal2:false,
             value:'',
             formValidate: {
+              forbid_id:0,
               forbid_type:'',
               forbid_reason:'',
               forbid_date:''
@@ -163,6 +167,9 @@
               ]
             },
             ruleValidate: {
+              forbid_id: [
+                { required: true, message: 'The id cannot be empty', trigger: 'blur' }
+              ],
               forbid_reason: [
                 { required: true, message: 'The reason cannot be empty', trigger: 'blur' }
               ],
@@ -261,6 +268,7 @@
                       data:{
                         manageid: this.$store.state.userId,
                         id:id,
+                        alarm_id:this.formValidate.forbid_id,
                         forbid_type:this.formValidate.forbid_type,
                         forbid_reason:this.formValidate.forbid_reason,
                         forbid_date:this.formValidate.forbid_date
@@ -321,15 +329,20 @@
             }
         },
         cancel2 () {
+          this.formValidate.forbid_id = 0;
           this.formValidate.forbid_date = '';
           this.formValidate.forbid_reason = '';
           this.formValidate.forbid_type = '';
           this.$Message.info('取消修改');
         },
+        clearForbidId(){
+          console.log("???")
+          this.formValidate.forbid_id = '';
+        }
       },
       created(){
           this.getdata()
-      }
+      },
     }
 </script>
 

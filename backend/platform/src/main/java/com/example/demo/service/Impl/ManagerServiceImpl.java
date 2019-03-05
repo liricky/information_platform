@@ -36,6 +36,9 @@ public class ManagerServiceImpl implements ManagerService {
     @Resource
     private CommentsMapper commentsMapper;
 
+    @Resource
+    private Ban_ReasonsMapper ban_reasonsMapper;
+
 
     private boolean checkManager(String id){
         ManagersExample managersExample=new ManagersExample();
@@ -182,13 +185,18 @@ public class ManagerServiceImpl implements ManagerService {
             info.setReporterId(alarm.getAlarmingUser());
             info.setBeReportedId(alarm.getAlarmedUser());
             info.setDate(alarm.getTime().toString());
-            if(alarm.getAlarmType()==1){
+            if(alarm.getAlarmType()==2){
                 info.setType("帖子举报");
                 info.setMessageId(alarm.getViewId().toString());
-            }else if(alarm.getAlarmType()==2){
+            }else if(alarm.getAlarmType()==1){
                 info.setType("评论举报");
                 info.setMessageId(alarm.getCommendId().toString());
-                info.setContent(getCommentsContent(alarm.getCommendId()));
+                try{
+                    String comment = getCommentsContent(alarm.getCommendId());
+                    info.setContent(comment);
+                }catch (Exception e){
+                    info.setContent("");
+                }
             }else {
                 info.setType("互助系统举报");
                 info.setMessageId(alarm.getTaskId().toString());
@@ -311,14 +319,40 @@ public class ManagerServiceImpl implements ManagerService {
         users.setBanreason(banUserByManager.getBanReason());
         usersMapper.updateByPrimaryKeySelective(users);
 
-        //  修改alarm表
-        Alarm alarm=new Alarm();
-        alarm.setAlarmedUser(banUserByManager.getId());
-        alarm.setAlarmingUser(banUserByManager.getManageId());
-        alarm.setAlarmType(users.getBantype());
-        alarm.setTime(Timestamp.valueOf(end));
-        alarm.setReason(banUserByManager.getBanReason());
-        alarmMapper.updateByPrimaryKeySelective(alarm);
+        int a_id;
+        try {
+            a_id=Integer.parseInt(banUserByManager.getAlarmId());
+        }catch (Exception e){
+            return ResultTool.error("举报id不合法");
+        }
+        Alarm checkAlarm=new Alarm();
+        checkAlarm=alarmMapper.selectByPrimaryKey(a_id);
+        if (checkAlarm==null){
+            return ResultTool.error("该条举报不存在");
+        }
+        if(checkAlarm.getAlarmedUser().equals(banUserByManager.getId())==false){
+            return ResultTool.error("该用户和被举报人不匹配");
+        }
+        if(a_id!=0){
+
+            //  修改alarm表
+            Alarm alarm=new Alarm();
+            alarm.setId(a_id);
+            alarm.setAlarmedUser(banUserByManager.getId());
+            alarm.setAlarmingUser(banUserByManager.getManageId());
+            alarm.setViewType(users.getBantype());
+            alarm.setTime(Timestamp.valueOf(end));
+            alarm.setReason(banUserByManager.getBanReason());
+            alarmMapper.updateByPrimaryKeySelective(alarm);
+
+            //修改ban_reason表
+            Ban_Reasons ban_reasons=new Ban_Reasons();
+            ban_reasons.setAlarmId(a_id);
+            ban_reasons.setBannedId(banUserByManager.getId());
+            ban_reasonsMapper.insert(ban_reasons);
+
+        }
         return ResultTool.success();
     }
+
 }

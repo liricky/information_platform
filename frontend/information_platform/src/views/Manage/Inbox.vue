@@ -15,19 +15,19 @@
                 <Divider orientation="left" class="title"><b>举报信息</b></Divider>
                 <Collapse>
                   <Panel  v-for="n in msg1" :key="n.id">
-                    <span>举报</span><div style="display: inline;margin-left: 20%">被举报人：{{n.bereported_id}}</div>
+                    <span>举报:{{n.id}}</span><div style="display: inline;position: absolute;left: 20%">被举报人：{{n.bereported_id}}</div>
                     <div style="display:inline;position: absolute;left: 50%">举报人：{{n.reporter_id}}</div>
                     <div style="display:inline;position: absolute;left: 80%">举报时间：{{n.date}}</div>
                     <p slot="content">举报类型：{{n.type}}</p>
                     <p slot="content" style="margin-top: 10px">相应id：{{n.messageid}}</p>
                     <p slot="content" style="margin-top: 10px">举报原因：</p>
                     <p slot="content" style="margin-top: 10px;text-indent: 2em">{{n.reason}}</p>
-                    <div  slot="content" v-if="n.content !== ''">
+                    <div  slot="content" v-if="n.content !== null && n.content !== ''">
                       <Divider orientation="left" class="title"><b>回复内容</b></Divider>
                       <p style="text-indent: 2em">{{n.content}}</p>
                       <Button type="error" style="margin-left: 80%" @click="choose(n.messageid)">删除该回复</Button>
                     </div>
-                    <div  slot="content" v-else-if="n.content === '' && n.type === '论坛回复举报'">
+                    <div  slot="content" v-else-if="n.content === '' && n.type === '评论举报'">
                       <Divider orientation="left" class="title"><b style="color: deepskyblue">回复已处理</b></Divider>
                     </div>
                   </Panel>
@@ -93,18 +93,16 @@
               'Content-Type': 'application/json;charset=UTF-8'
             },
             data:{
-              managerid: this.$store.state.userId,
+              manageid: this.$store.state.userId,
               id:id,
             },
             method:'post'
           }).then((response) => {
             let res = response.data;
             if(res.status === "success") {
-              for(var i =0 ;i<this.msg1.length;i++){
-                if(this.msg1[i].messageid === id){
-                  this.msg1[i].content = '';
-                  break;
-                }
+              for(var i=0;i<this.msg1.length;i++){
+                this.msg1[1].content = '';
+                break;
               }
               this.$Message.success('删除成功');
             } else {

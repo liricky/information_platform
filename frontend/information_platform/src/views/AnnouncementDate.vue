@@ -1,7 +1,7 @@
 <template>
   <div>
     <tophead/>
-    <div v-if="aDate.length != 0">
+    <div v-if="a1.length != 0 || a2.length != 0">
       <Row>
         <Col span="16" offset="4">
           <Tabs :animated="false" style="text-align: left">

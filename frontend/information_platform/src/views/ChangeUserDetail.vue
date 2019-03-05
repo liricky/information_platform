@@ -40,8 +40,8 @@
           <h2 v-if="this.sendpost.length === 0">尚无历史发帖</h2>
           <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.sendpost.length > 0">
             <Col class="cardcol" span="25" v-for="(sendpost,index) in sendpost" :key="sendpost.postid">
+              <Icon type="md-trash" size="25" @click="deletepost(sendpost.postid)"/>
               <div @click="jumpDetail(sendpost.postid)">
-                <Icon type="md-trash" size="25" @click="deletepost(sendpost.postid)"/>
                 <Card class="card" :bordered="true">
                   <h1 class="headline" slot="title">{{sendpost.label}} {{sendpost.title}}</h1>
                   <h3>发帖时间：{{sendpost.date}}</h3>
@@ -54,8 +54,8 @@
           <h2 v-if="this.replypost.length === 0">尚无历史回帖</h2>
           <Row class="cardbox" style="background:#eee;padding:20px" v-if="this.replypost.length > 0">
             <Col class="cardcol" span="25" v-for="(replypost,index) in replypost" :key="replypost.id">
+              <Icon type="md-trash" size="25" @click="deletecomment(replypost.id)"/>
               <div @click="jumpDetail(replypost.postid)">
-                <Icon type="md-trash" size="25" @click="deletecomment(replypost.id)"/>
                 <Card class="card" :bordered="true">
                   <h2 class="headline" slot="title">主帖标题:{{replypost.title}} <br> 回复内容:{{replypost.content}}</h2>
                   <h3>回帖时间：{{replypost.date}}</h3>

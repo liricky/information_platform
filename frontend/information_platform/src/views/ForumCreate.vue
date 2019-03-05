@@ -11,6 +11,7 @@
         <divider></divider>
         <Button type="info" size="large" icon="md-log-out" @click=createpost>发送</Button>
       </div>
+      <div class="fill"> </div>
       <br>
       <bottom class="bottom"></bottom>
     </div>
@@ -23,6 +24,9 @@
   .bottom{
     position: fixed;
     bottom: 0px;
+  }
+  .fill{
+    height: 120px;
   }
 </style>
 <script>

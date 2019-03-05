@@ -451,7 +451,8 @@ public class ForumServiceImpl implements ForumService {
             if(forumChangeCommentLike.getLikestatus().equals("true")) {
                 likesMapper.deleteByExample(likesExample);
                 forumChangeCommentLike1.setLikestatus("false");
-                Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                Comments comments = commentsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                Views views = viewsMapper.selectByPrimaryKey(comments.getViewId());
                 Tag_Users tag_users = new Tag_Users();
                 tag_users.setUser(forumChangeCommentLike.getUserid());
                 tag_users.setTag(views.getTags());
@@ -467,7 +468,8 @@ public class ForumServiceImpl implements ForumService {
                 likes.setType(1);
                 likesMapper.insertSelective(likes);
                 forumChangeCommentLike1.setLikestatus("true");
-                Views views = viewsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                Comments comments = commentsMapper.selectByPrimaryKey(forumChangeCommentLike.getCommentid());
+                Views views = viewsMapper.selectByPrimaryKey(comments.getViewId());
                 Tag_Users tag_users = new Tag_Users();
                 tag_users.setUser(forumChangeCommentLike.getUserid());
                 tag_users.setTag(views.getTags());
