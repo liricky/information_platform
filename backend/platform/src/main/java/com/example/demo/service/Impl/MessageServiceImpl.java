@@ -130,6 +130,7 @@ public class MessageServiceImpl implements MessageService {
         Private_Charts private_charts = private_chartsMapper.selectByPrimaryKey(messageDetail.getMessageid());
         if(messageDetail.getUserid().equals(private_charts.getReceiver()))
             private_charts.setState(0);
+        else if(messageDetail.getUserid().equals(private_charts.getSender()));
         else
             return ResultTool.error("越限接收！");
         com.example.demo.model.ov.MessageDetail messageDetail1 = new com.example.demo.model.ov.MessageDetail();

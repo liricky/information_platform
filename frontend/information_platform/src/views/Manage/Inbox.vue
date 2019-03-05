@@ -15,9 +15,9 @@
                 <Divider orientation="left" class="title"><b>举报信息</b></Divider>
                 <Collapse>
                   <Panel  v-for="n in msg1" :key="n.id">
-                    <span>举报:{{n.id}}</span><div style="display: inline;position: absolute;left: 20%;font-size: 100%">被举报人：{{n.bereported_id}}</div>
-                    <div style="display:inline;position: absolute;left: 50%;font-size: 100%">举报人：{{n.reporter_id}}</div>
-                    <div style="display:inline;position: absolute;left: 80%;font-size: 100%">举报时间：{{n.date}}</div>
+                    <span>举报:{{n.id}}</span><div style="display: inline;position: absolute;left: 20%;">被举报人：{{n.bereported_id}}</div>
+                    <div style="display:inline;position: absolute;left: 50%;">举报人：{{n.reporter_id}}</div>
+                    <div style="display:inline;position: absolute;left: 80%;">举报时间：{{n.date}}</div>
                     <p slot="content">举报类型：{{n.type}}</p>
                     <p slot="content" style="margin-top: 10px;">相应id：{{n.messageid}}</p>
                     <p slot="content" style="margin-top: 10px">举报原因：</p>

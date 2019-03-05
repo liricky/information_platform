@@ -205,6 +205,7 @@
             if (res.status === "success") {
               this.status2 = res.status;
               this.$Message.info('修改昵称成功！');
+              this.$store.state.userNickname = this.value1;
               this.value1 = '';
             } else {
               this.status2 = res.status;
