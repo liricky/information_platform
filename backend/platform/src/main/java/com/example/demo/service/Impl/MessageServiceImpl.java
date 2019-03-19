@@ -1,6 +1,7 @@
 package com.example.demo.service.Impl;
 
 import com.example.demo.dao.BlacklistMapper;
+import com.example.demo.dao.FriendsMapper;
 import com.example.demo.model.entity.*;
 import com.example.demo.model.jsonRequest.MessageDetail;
 import com.example.demo.model.jsonRequest.MessageSend;
@@ -27,14 +28,17 @@ public class MessageServiceImpl implements MessageService {
     private UsersMapper usersMapper;
 
     @Resource
+    private FriendsMapper friendsMapper;
+
+    @Resource
     private BlacklistMapper blacklistMapper;
 
     //  查询用户收到的私信
     @Override
     public Result messagereceive(String receiverid) {
-        BlacklistExample blacklistExample = new BlacklistExample();
-        blacklistExample.createCriteria().andUseraEqualTo(receiverid);
-        List<Blacklist> blacklistList = blacklistMapper.selectByExample(blacklistExample);
+        FriendsExample friendsExample = new FriendsExample();
+        friendsExample.createCriteria().andUseraEqualTo(receiverid);
+        List<Friends> friendsList = friendsMapper.selectByExample(friendsExample);
         Private_ChartsExample private_chartsExample = new Private_ChartsExample();
         private_chartsExample.setOrderByClause("send_time DESC");
         private_chartsExample.createCriteria().andReceiverEqualTo(receiverid).andStateEqualTo(1);  //1 为未读内容
@@ -50,12 +54,12 @@ public class MessageServiceImpl implements MessageService {
         List<MessageReceive> messageReceiveList = new LinkedList<>();
         for(Private_Charts private_charts : private_chartsList){
             int tag = 0;
-            for(Blacklist blacklist : blacklistList){
-                if(blacklist.getUserb().equals(private_charts.getSender())){
+            for(Friends friends : friendsList){
+                if(friends.getUserb().equals(private_charts.getSender())){
                     tag = 1;
                 }
             }
-            if(tag == 1){
+            if(tag == 0){
                 continue;
             }
             MessageReceive messageReceive = new MessageReceive();

@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
@@ -159,6 +158,7 @@ public class ManagerServiceImpl implements ManagerService {
         }
         ViewsExample viewsExample=new ViewsExample();
         viewsExample.createCriteria().andIdIsNotNull();
+        viewsExample.setOrderByClause("`time` DESC");
         List<Views> viewsList=viewsMapper.selectByExample(viewsExample);
         List<getViewsByManager> infoList=new LinkedList<>();
         for(Views views:viewsList){
@@ -195,6 +195,29 @@ public class ManagerServiceImpl implements ManagerService {
         return ResultTool.success();
     }
 
+//    //按照时间排序
+//    private void OrderByTime(List<Alarm> noticesLinkedList) {
+//        Collections.sort(noticesLinkedList, new Comparator<Notices>() {
+//            @Override
+//            public int compare(Alarm o1, Alarm o2) {
+//                try {
+//                    Date dt1 = o1.getTime();
+//                    Date dt2 = o2.getTime();
+//                    if (dt1.getTime() > dt2.getTime()) {
+//                        return -1;
+//                    } else if (dt1.getTime() < dt2.getTime()) {
+//                        return 1;
+//                    } else {
+//                        return 0;
+//                    }
+//                } catch (Exception e) {
+//                    System.out.println("时间排序错误");
+//                }
+//                return 0;
+//            }
+//        });
+//    }
+
     @Override
     public Result getAlarmInfo(String managerId) {
         //  验证管理员身份
@@ -203,6 +226,7 @@ public class ManagerServiceImpl implements ManagerService {
         }
         //  获取举报信息
         AlarmExample alarmExample=new AlarmExample();
+        alarmExample.setOrderByClause("`time` DESC");
         alarmExample.createCriteria().andIdIsNotNull();
         List<Alarm> alarmList=alarmMapper.selectByExample(alarmExample);
         List<getAlarmInfo> infoList=new LinkedList<>();
@@ -233,6 +257,7 @@ public class ManagerServiceImpl implements ManagerService {
 
             infoList.add(info);
         }
+
         return ResultTool.success(infoList);
     }
 
@@ -252,6 +277,7 @@ public class ManagerServiceImpl implements ManagerService {
         }
         //  获取申诉信息
         Unlock_ApplyExample unlock_applyExample=new Unlock_ApplyExample();
+        unlock_applyExample.setOrderByClause("`time` DESC");
         unlock_applyExample.createCriteria().andIdIsNotNull();
         List<Unlock_Apply> applyList=new LinkedList<>();
         applyList=unlock_applyMapper.selectByExample(unlock_applyExample);

@@ -40,9 +40,9 @@ public class NoticeServiceImpl implements NoticeService {
                 try {
                     Date dt1 = o1.getTime();
                     Date dt2 = o2.getTime();
-                    if (dt1.getTime() < dt2.getTime()) {
+                    if (dt1.getTime() > dt2.getTime()) {
                         return -1;
-                    } else if (dt1.getTime() > dt2.getTime()) {
+                    } else if (dt1.getTime() < dt2.getTime()) {
                         return 1;
                     } else {
                         return 0;
@@ -53,6 +53,7 @@ public class NoticeServiceImpl implements NoticeService {
                 return 0;
             }
         });
+
     }
 
     //  删除多余公告函数
@@ -68,13 +69,14 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public Result findAllNotice() {
         NoticesExample noticesExample = new NoticesExample();
+        noticesExample.setOrderByClause("`time` DESC");
         noticesExample.createCriteria().andIdIsNotNull();
         List<Notices> noticesList = noticeMapper.selectByExample(noticesExample);
         if (noticesList.isEmpty() == true) {
             return ResultTool.error("公告为空");
         }
         //  按照时间排序
-        OrderByTime(noticesList);
+//        OrderByTime(noticesList);
         List<FindNoticeInfo> findNoticeInfoList = new LinkedList<>();
         for (Notices notice : noticesList) {
             FindNoticeInfo findNoticeInfo = new FindNoticeInfo();
@@ -194,18 +196,24 @@ public Result findNoticesByManager(String managerId) {
 
         //  查找种类为1的记录
         NoticesExample noticesExample_1 = new NoticesExample();
+        noticesExample_1.setOrderByClause("`time` DESC");
         noticesExample_1.createCriteria().andTypeEqualTo(1);
         List<Notices> noticesList_1 = noticeMapper.selectByExample(noticesExample_1);
+//        OrderByTime(noticesList_1);
         DeleteNotices(noticesList_1);
         //   查找种类为2的记录
         NoticesExample noticesExample_2 = new NoticesExample();
         noticesExample_2.createCriteria().andTypeEqualTo(2);
+        noticesExample_2.setOrderByClause("`time` DESC");
         List<Notices> noticesList_2 = noticeMapper.selectByExample(noticesExample_2);
+//        OrderByTime(noticesList_1);
         DeleteNotices(noticesList_2);
         //  查找种类为3的记录
         NoticesExample noticesExample_3 = new NoticesExample();
         noticesExample_3.createCriteria().andTypeEqualTo(3);
+        noticesExample_3.setOrderByClause("`time` DESC");
         List<Notices> noticesList_3 = noticeMapper.selectByExample(noticesExample_3);
+//        OrderByTime(noticesList_1);
         DeleteNotices(noticesList_3);
 
         List<Notices> allNotices = new LinkedList<>();

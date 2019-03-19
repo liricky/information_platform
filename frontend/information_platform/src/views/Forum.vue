@@ -7,7 +7,7 @@
           <font size="10" v-if="!$store.state.token">请登录后获取为您推荐的内容</font>
           <font size="10" v-else-if="$store.state.token && status1 === 'fail'">信息获取失败</font>
           <font size="4" v-else-if="$store.state.token && status1 === 'fail'">{{errormsg1}}</font>
-          <h2 v-if="this.post.length === 0">暂时还没有推荐的内容，请通过使用来为您选定推荐的内容</h2>
+          <h2 v-if="this.post.length === 0 && $store.state.token">暂时还没有推荐的内容，请通过使用来为您选定推荐的内容</h2>
           <Row class="cardbox" style="background:#eee;padding:20px"  v-if="this.post.length > 0">
             <Col class="cardcol" span="25" v-for="(post,index) in post" :key="post.postid">
               <div @click="jumpDetail(post.postid)" class="back">

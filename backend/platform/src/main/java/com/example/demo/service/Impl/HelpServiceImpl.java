@@ -341,6 +341,7 @@ public class HelpServiceImpl implements HelpService {
         }
         HelpExample helpExample=new HelpExample();
         helpExample.createCriteria().andIdIsNotNull();
+        helpExample.setOrderByClause("`start_time` DESC,`end_time` DESC");
         List<Help> helpList=helpMapper.selectByExample(helpExample);
         List<allHelpTask> taskList=new LinkedList<>();
         for(Help help:helpList){
